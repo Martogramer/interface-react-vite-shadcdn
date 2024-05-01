@@ -1,7 +1,35 @@
-import React from "react";
+import apiRequest from "@/lib/apiRequest";
+import React, { useState } from "react";
+
+
 
 
 const LoginPage = () => {
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
+    const formData = new FormData(e.target);
+
+    const username = formData.get("username");
+    const password = formData.get("password");
+
+    try {
+      const res = await apiRequest.post("/auth/login", {
+        username,
+        password,
+      });
+      console.log(res.data.token);
+      //updateUser(res.data)
+      //navigate("/");
+    } catch (err) {
+      setError('error');
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <div>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -16,7 +44,7 @@ const LoginPage = () => {
           </p>
 
           <form
-            action="#"
+            onSubmit={handleSubmit}
             className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
           >
             <p className="text-center text-lg font-medium">
@@ -25,12 +53,16 @@ const LoginPage = () => {
 
             <div>
               <label htmlFor="email" className="sr-only">
-                Email
+                Username
               </label>
 
               <div className="relative">
                 <input
-                  type="email"
+                  name="username"
+                  required
+                  minLength={3}
+                  maxLength={20}
+                  type="text"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter email"
                 />
@@ -61,7 +93,9 @@ const LoginPage = () => {
 
               <div className="relative">
                 <input
+                  name="password"
                   type="password"
+                  required
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter password"
                 />
@@ -93,6 +127,7 @@ const LoginPage = () => {
 
             <button
               type="submit"
+              disabled='submit'
               className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
             >
               Sign in

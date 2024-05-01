@@ -1,6 +1,16 @@
 import React from "react";
 
 const RegisterPage = () => {
+  const handleSubmit =(e)=>{
+    e.preventDefault()
+    const formData = new FormData(e.target);
+    const username = formData.get("username")
+    const email = formData.get("email")
+    const password = formData.get("password")
+
+    console.log(username, email, password);
+  }
+
   return (
     <div>
       {/*
@@ -46,7 +56,7 @@ const RegisterPage = () => {
                 Eligendi nam dolorum aliquam, quibusdam aperiam voluptatum.
               </p>
 
-              <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+              <form onSubmit={handleSubmit} action="#" className="mt-8 grid grid-cols-6 gap-6">
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="FirstName"
@@ -73,8 +83,8 @@ const RegisterPage = () => {
 
                   <input
                     type="text"
-                    id="LastName"
-                    name="last_name"
+                    id="username"
+                    name="username"
                     className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                   />
                 </div>
@@ -100,7 +110,7 @@ const RegisterPage = () => {
                   <label
                     htmlFor="Password"
                     className="block text-sm font-medium text-gray-700"
-                  >
+                    >
                     {" "}
                     Password{" "}
                   </label>
