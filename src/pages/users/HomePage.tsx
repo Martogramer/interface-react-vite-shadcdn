@@ -1,15 +1,54 @@
-import React from "react";
+{
+  /*
+Heads up! 👋
+*/
+}
+import apiRequest from "@/lib/apiRequest";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
-const HomePage = () => {
+interface User {
+  id: string;
+  email: string;
+  username: string;
+  password: string;
+  avatar: string | null;
+  createdAt: string;
+  chatIDs: string[];
+}
+const HomePage: React.FC = () => {
+  const [users, setUsers] = useState<User[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await apiRequest.get<User[]>(`/users`);
+        setUsers(response.data);
+      } catch (err) {
+        if (axios.isAxiosError(err)) {
+          setError(err.message);
+        } else {
+          setError('An unknown error occurred');
+        }
+      }
+    };
+    fetchUsers();
+  }, []);
+
   return (
-    <div>
-      {/*
-  Heads up! 👋
-
-  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
-*/}
-      <section className="relative bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat">
-        <div className="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"></div>
+    <div className="container">
+      <section
+        className="relative bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage:
+            'url("https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80")',
+        }}
+      >
+        <div
+          className="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"
+          style={{ backdropFilter: "blur(5px)" }}
+        ></div>
 
         <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
           <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
@@ -20,12 +59,23 @@ const HomePage = () => {
                 Forever Home.{" "}
               </strong>
             </h1>
-
-            <p className="mt-4 max-w-lg sm:text-xl/relaxed">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-              illo tenetur fuga ducimus numquam ea!
-            </p>
-
+            <div>
+              {error ? (
+                <div>
+                  <h2>Error:</h2>
+                  <p>{error}</p>
+                </div>
+              ) : (
+                <div>
+                  <h2>Users:</h2>
+                  <ul>
+                    {users.map((user) => (
+                      <li key={user.id}>{user.username}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
             <div className="mt-8 flex flex-wrap gap-4 text-center">
               <a
                 href="#"

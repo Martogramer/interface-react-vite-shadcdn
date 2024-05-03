@@ -2,7 +2,7 @@ import React from 'react'
 
 const RegisterAlternativePage = () => {
   return (
-    <div>
+    <div className='container'>
       {/*
   Heads up! 👋
 

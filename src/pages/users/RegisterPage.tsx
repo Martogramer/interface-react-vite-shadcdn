@@ -1,18 +1,10 @@
 import React from "react";
 
-const RegisterPage = () => {
-  const handleSubmit =(e)=>{
-    e.preventDefault()
-    const formData = new FormData(e.target);
-    const username = formData.get("username")
-    const email = formData.get("email")
-    const password = formData.get("password")
-
-    console.log(username, email, password);
-  }
+const RegisterPage: React.FC = () => {
+  
 
   return (
-    <div>
+    <div className="container">
       {/*
   Heads up! 👋
 
@@ -56,7 +48,7 @@ const RegisterPage = () => {
                 Eligendi nam dolorum aliquam, quibusdam aperiam voluptatum.
               </p>
 
-              <form onSubmit={handleSubmit} action="#" className="mt-8 grid grid-cols-6 gap-6">
+              <form  action="#" className="mt-8 grid grid-cols-6 gap-6">
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="FirstName"

@@ -8,7 +8,7 @@ const SidebarUsers = () => {
         <div>
           <div className="inline-flex size-16 items-center justify-center">
             <span className="grid size-10 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600">
-              L
+              M
             </span>
           </div>
 
@@ -48,7 +48,7 @@ const SidebarUsers = () => {
               <ul className="space-y-1 border-t border-gray-100 pt-4">
                 <li>
                   <a
-                    href="#"
+                    href="uno"
                     className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                   >
                     <svg
@@ -74,7 +74,7 @@ const SidebarUsers = () => {
 
                 <li>
                   <a
-                    href="#"
+                    href="dos"
                     className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                   >
                     <svg
@@ -100,7 +100,7 @@ const SidebarUsers = () => {
 
                 <li>
                   <a
-                    href="#"
+                    href="tres"
                     className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                   >
                     <svg
@@ -126,7 +126,7 @@ const SidebarUsers = () => {
 
                 <li>
                   <a
-                    href="#"
+                    href="cuatro"
                     className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                   >
                     <svg

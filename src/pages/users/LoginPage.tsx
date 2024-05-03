@@ -1,35 +1,41 @@
+import { AuthContext } from "@/context/AuthContext";
 import apiRequest from "@/lib/apiRequest";
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+interface LoginFormData {
+  username: string;
+  password: string;
+}
 
-
-
-const LoginPage = () => {
-  const [error, setError] = useState("");
+const LoginPage: React.FC = () => {
+  const [data, setData] = useState<LoginFormData>({
+    username: "",
+    password: "",
+  });
+  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const handleSubmit = async (e) => {
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
-    setError("");
-    const formData = new FormData(e.target);
-
-    const username = formData.get("username");
-    const password = formData.get("password");
-
     try {
-      const res = await apiRequest.post("/auth/login", {
-        username,
-        password,
-      });
-      console.log(res.data.token);
-      //updateUser(res.data)
-      //navigate("/");
+      await apiRequest.post(`/auth/login`, data);
+      console.log(data.username + " logged in");
+      // Redirigir al usuario a la página de inicio o a otra página relevante
     } catch (err) {
-      setError('error');
-    } finally {
-      setIsLoading(false);
+      if (axios.isAxiosError(err)) {
+        setError(err.response?.data.message || "An unknown error occurred");
+      } else {
+        setError("An unknown error occurred");
+      }
     }
   };
+
   return (
     <div>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -37,12 +43,6 @@ const LoginPage = () => {
           <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
             Get started today
           </h1>
-
-          <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
-            sunt dolores deleniti inventore quaerat mollitia?
-          </p>
-
           <form
             onSubmit={handleSubmit}
             className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
@@ -55,10 +55,12 @@ const LoginPage = () => {
               <label htmlFor="email" className="sr-only">
                 Username
               </label>
-
               <div className="relative">
                 <input
+                  id="username"
                   name="username"
+                  value={data.username}
+                  onChange={handleInputChange}
                   required
                   minLength={3}
                   maxLength={20}
@@ -66,7 +68,6 @@ const LoginPage = () => {
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter email"
                 />
-
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -90,16 +91,17 @@ const LoginPage = () => {
               <label htmlFor="password" className="sr-only">
                 Password
               </label>
-
               <div className="relative">
                 <input
+                id="password"
                   name="password"
                   type="password"
+                  value={data.password}
+                  onChange={handleInputChange}
                   required
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter password"
                 />
-
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -124,15 +126,13 @@ const LoginPage = () => {
                 </span>
               </div>
             </div>
-
             <button
+              disabled={isLoading}
               type="submit"
-              disabled='submit'
               className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
             >
               Sign in
             </button>
-
             <p className="text-center text-sm text-gray-500">
               No account?
               <a className="underline" href="#">
