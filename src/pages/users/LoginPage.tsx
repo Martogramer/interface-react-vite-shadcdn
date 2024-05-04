@@ -2,7 +2,7 @@ import { AuthContext } from "@/context/AuthContext";
 import apiRequest from "@/lib/apiRequest";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 interface LoginFormData {
   username: string;
@@ -16,7 +16,8 @@ const LoginPage: React.FC = () => {
   });
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-
+  const navigate = useNavigate()
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
@@ -26,6 +27,7 @@ const LoginPage: React.FC = () => {
     try {
       await apiRequest.post(`/auth/login`, data);
       console.log(data.username + " logged in");
+      navigate("/uno")
       // Redirigir al usuario a la página de inicio o a otra página relevante
     } catch (err) {
       if (axios.isAxiosError(err)) {
