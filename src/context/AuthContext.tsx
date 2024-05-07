@@ -1,22 +1,40 @@
-import { createContext, useEffect, useState } from "react";
+import React, { createContext, ReactNode, useEffect, useState } from "react";
 
-export const AuthContext = createContext();
+interface User {
+  id: string;
+  username: string;
+  email: string;
+  // Agrega más propiedades según la estructura de tu usuario
+}
 
-export const AuthContextProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null
-  );
+interface AuthContextType {
+  currentUser: User | null;
+  updateUser: (data: User | null) => void;
+}
 
-  const updateUser = (data) => {
-    setCurrentUser(data);
-  };
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+interface AuthContextProviderProps {
+  children: ReactNode;
+}
+
+export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(currentUser));
-  }, [currentUser]);
+    const userFromStorage = localStorage.getItem("user");
+    if (userFromStorage) {
+      setCurrentUser(JSON.parse(userFromStorage));
+    }
+  }, []);
+
+  const updateUser = (data: User | null) => {
+    setCurrentUser(data);
+    localStorage.setItem("user", JSON.stringify(data));
+  };
 
   return (
-    <AuthContext.Provider value={{ currentUser,updateUser }}>
+    <AuthContext.Provider value={{ currentUser, updateUser }}>
       {children}
     </AuthContext.Provider>
   );
