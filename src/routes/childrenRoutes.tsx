@@ -1,3 +1,4 @@
+import Dashboard from "@/pages/users/Dashboard"
 import HomePage from "@/pages/users/HomePage"
 import InfoPage from "@/pages/users/InfoPage"
 import LoginPage from "@/pages/users/LoginPage"
