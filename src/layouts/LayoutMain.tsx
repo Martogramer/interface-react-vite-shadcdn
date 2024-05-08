@@ -54,11 +54,11 @@ interface Props {
 }
 const LayoutMain: React.FC<Props> = ({ children }) => {
   return (
-    <div className='"bg-gray text-primary-foreground m-1'>
+    <div className='bg-gray text-primary-foreground m-1'>
       <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
         Live
       </span>
-      {/* <span className="text-xs hidden min-[680px]:inline-block font-semibold cursor-default">
+      <span className="text-xs hidden min-[680px]:inline-block font-semibold cursor-default">
         <a className="text-navy-700 hover:underline" href="/">
           Pages
           <span className="mx-1 text-navy-700 hover:text-navy-700">/</span>
@@ -70,7 +70,7 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
           {location.pathname.split("/").length > 3 &&
             ` / ` + location.pathname.split("/")[3]}
         </label>
-      </span> */}
+      </span>
       {/* <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
           <Sheet>
             <SheetTrigger asChild>

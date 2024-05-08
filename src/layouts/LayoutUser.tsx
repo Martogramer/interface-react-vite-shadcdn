@@ -33,8 +33,8 @@ const LayoutUser = () => {
     <>
       <NavbarUsers />
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-[120px_1fr] lg:gap-8">
-        {/* <SidebarUsers /> */}
-        <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
+        <SidebarUsers />
+        {/* <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
           <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
             <NavLink
               to="#"
@@ -130,7 +130,7 @@ const LayoutUser = () => {
               </Tooltip>
             </TooltipProvider>
           </nav>
-        </aside>
+        </aside> */}
         <Outlet />
       </div>
     </>

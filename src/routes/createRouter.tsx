@@ -18,11 +18,5 @@ export const router = createBrowserRouter([
             <LayoutAdmin />
         ),
         children: admin,
-    },
-    {
-        path: '/dashboard',
-        element: (
-            <Dashboard />
-        ),
-    },
+    }
 ])

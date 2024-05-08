@@ -66,9 +66,21 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "@/context/AuthContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
-const Dashboard = () => {
+interface LoginFormData {
+  username: string;
+  password: string;
+}
+
+const Dashboard: React.FC = () => {
+  const [data, setData] = useState<LoginFormData>({
+    username: "",
+    password: "",
+  });
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const authContext = useContext<any>(AuthContext);
   const { updateUser } = authContext;
   return (

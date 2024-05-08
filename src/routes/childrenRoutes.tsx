@@ -30,6 +30,10 @@ export const user = [
     {
         path: 'cinco',
         element: <RegisterAlternativePage/>,
+    },
+    {
+        path: 'dashboard',
+        element: <Dashboard/>,
     }
 ]
 export const admin = [
