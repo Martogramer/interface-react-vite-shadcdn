@@ -53,6 +53,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 const NavbarUsers = () => {
   return (
+    <div className="flex justify-end">
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
@@ -113,6 +114,7 @@ const NavbarUsers = () => {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
+    </div>
   );
 };
 

@@ -8,14 +8,14 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: (
-            <LayoutUser />
+            <LayoutAdmin />
         ),
         children: user,
     },
     {
-        path: '/panel',
+        path: '/dashboard',
         element: (
-            <LayoutAdmin />
+            <LayoutUser />
         ),
         children: admin,
     }
