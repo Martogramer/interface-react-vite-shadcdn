@@ -1,4 +1,4 @@
-import Link from "next/link"
+import {NavLink} from 'react-router-dom'
 
 import { Button } from "@/components/ui/button"
 import {
@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-export function LoginForm() {
+export const RegisterShad: React.FC =()=>{
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
@@ -54,9 +54,9 @@ export function LoginForm() {
         </div>
         <div className="mt-4 text-center text-sm">
           Already have an account?{" "}
-          <Link href="#" className="underline">
+          <NavLink to="" className="underline">
             Sign in
-          </Link>
+          </NavLink>
         </div>
       </CardContent>
     </Card>

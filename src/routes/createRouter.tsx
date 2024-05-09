@@ -3,20 +3,21 @@ import { admin, user } from "./childrenRoutes";
 import LayoutUser from "@/layouts/LayoutUser";
 import LayoutAdmin from "@/layouts/LayoutAdmin";
 import Dashboard from "@/pages/users/Dashboard";
+import HomePage from '../pages/index';
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: (
-            <LayoutAdmin />
+            <HomePage />
         ),
-        children: user,
+        children: admin,
     },
     {
         path: '/dashboard',
         element: (
             <LayoutUser />
         ),
-        children: admin,
+        children: user,
     }
 ])

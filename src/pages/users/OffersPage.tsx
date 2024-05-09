@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const OffersPage = () => {
   return (
@@ -19,7 +20,7 @@ const OffersPage = () => {
 
           <ul className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
             <li>
-              <a href="#" className="group relative block">
+              <NavLink to="#" className="group relative block">
                 <img
                   src="https://images.unsplash.com/photo-1618898909019-010e4e234c55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
                   alt=""
@@ -35,11 +36,11 @@ const OffersPage = () => {
                     Shop Now
                   </span>
                 </div>
-              </a>
+              </NavLink>
             </li>
 
             <li>
-              <a href="#" className="group relative block">
+              <NavLink to="#" className="group relative block">
                 <img
                   src="https://images.unsplash.com/photo-1624623278313-a930126a11c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
                   alt=""
@@ -55,11 +56,11 @@ const OffersPage = () => {
                     Shop Now
                   </span>
                 </div>
-              </a>
+              </NavLink>
             </li>
 
             <li className="lg:col-span-2 lg:col-start-2 lg:row-span-2 lg:row-start-1">
-              <a href="#" className="group relative block">
+              <NavLink to="#" className="group relative block">
                 <img
                   src="https://images.unsplash.com/photo-1593795899768-947c4929449d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80"
                   alt=""
@@ -75,7 +76,7 @@ const OffersPage = () => {
                     Shop Now
                   </span>
                 </div>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>

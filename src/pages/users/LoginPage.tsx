@@ -3,6 +3,7 @@ import apiRequest from "@/lib/apiRequest";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import {NavLink} from 'react-router-dom';
 
 interface LoginFormData {
   username: string;
@@ -146,9 +147,10 @@ const LoginPage: React.FC = () => {
             </button>
             <p className="text-center text-sm text-gray-500">
               No account?
-              <a className="underline" href="#">
+              <NavLink
+               className="underline" to="#">
                 Sign up
-              </a>
+              </NavLink>
             </p>
           </form>
         </div>

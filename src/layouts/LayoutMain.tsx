@@ -65,10 +65,7 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
           Live
         </span>
         <span className="text-xs hidden min-[680px]:inline-block font-semibold cursor-default">
-          <a className="text-navy-700 hover:underline" href="/">
-            {location.pathname.split("/")[1]}
             <span className="mx-1 text-navy-700 hover:text-navy-700">/</span>
-          </a>
           <label className="capitalize text-navy-700 hover:underline">
             {location.pathname.split("/")[1]}
             {location.pathname.split("/").length > 2 &&

@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 const LayoutUser: React.FC = () => {
   return (
     <>
-      <NavbarUsers />
+      
       <SidebarShad />
       <Outlet />
     </>

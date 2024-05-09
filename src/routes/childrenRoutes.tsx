@@ -1,35 +1,26 @@
 import Dashboard from "@/pages/users/Dashboard"
-import HomePage from "@/pages/users/HomePage"
-import InfoPage from "@/pages/users/InfoPage"
-import LoginPage from "@/pages/users/LoginPage"
+import {InfoPage} from "@/pages/users/InfoPage"
+import { LoginShad } from "@/pages/users/LoginShad"
 import OffersPage from "@/pages/users/OffersPage"
 import RegisterAlternativePage from "@/pages/users/RegisterAlternativePage"
-import RegisterPage from "@/pages/users/RegisterPage"
+import { RegisterShad } from "@/pages/users/RegisterShad"
 
 export const user = [
     {
         path: '',
-        element: <LoginPage/>,
+        element: <LoginShad/>,
     },
     {
-        path: 'uno',
-        element: <HomePage/>,
+        path: 'register',
+        element: <RegisterShad/>,
     },
     {
-        path: 'dos',
-        element: <RegisterPage/>,
-    },
-    {
-        path: 'tres',
+        path: 'info',
         element: <InfoPage/>,
     },
     {
         path: 'cuatro',
         element: <OffersPage/>,
-    },
-    {
-        path: 'cinco',
-        element: <RegisterAlternativePage/>,
     },
     {
         path: 'dashboard',
