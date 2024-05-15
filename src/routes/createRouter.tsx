@@ -7,11 +7,16 @@ import HomePage from '../pages/index';
 
 export const router = createBrowserRouter([
     {
+        path: '/error',
+        element: (
+            <HomePage />
+        )
+    },
+    {
         path: '/',
         element: (
             <HomePage />
-        ),
-        children: admin,
+        )
     },
     {
         path: '/dashboard',

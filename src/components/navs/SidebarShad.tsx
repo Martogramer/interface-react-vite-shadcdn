@@ -2,22 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
-    ChevronLeft,
-    ChevronRight,
-    Copy,
-    CreditCard,
-    File,
-    Home,
+  Home,
     LineChart,
-    ListFilter,
-    MoreVertical,
     Package,
     Package2,
-    PanelLeft,
-    Search,
-    Settings,
     ShoppingCart,
-    Truck,
     Users2,
   } from "lucide-react";
 import {
@@ -26,6 +15,7 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from "@/components/ui/tooltip";
+import { Menu } from "./Menu";
 const SidebarShad: React.FC = () => {
   return (
     <div>
@@ -37,7 +27,7 @@ const SidebarShad: React.FC = () => {
           </Avatar>
 
           <NavLink
-            to="#"
+            to=""
             className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
           >
             <Package2 className="h-4 w-4 transition-all group-hover:scale-110" />
@@ -47,49 +37,49 @@ const SidebarShad: React.FC = () => {
             <Tooltip>
               <TooltipTrigger asChild>
                 <NavLink
-                  to="#"
+                  to="register"
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
                   <Home className="h-5 w-5" />
-                  <span className="sr-only">Dashboard</span>
+                  <span className="sr-only">Register</span>
                 </NavLink>
               </TooltipTrigger>
-              <TooltipContent side="right">Dashboard</TooltipContent>
+              <TooltipContent side="right">Register</TooltipContent>
             </Tooltip>
           </TooltipProvider>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
                 <NavLink
-                  to="#"
+                  to=""
                   className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
                   <ShoppingCart className="h-5 w-5" />
-                  <span className="sr-only">Orders</span>
+                  <span className="sr-only">login</span>
                 </NavLink>
               </TooltipTrigger>
-              <TooltipContent side="right">Orders</TooltipContent>
+              <TooltipContent side="right">Login</TooltipContent>
             </Tooltip>
           </TooltipProvider>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
                 <NavLink
-                  to="#"
+                  to="info"
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
                   <Package className="h-5 w-5" />
-                  <span className="sr-only">Products</span>
+                  <span className="sr-only">Info</span>
                 </NavLink>
               </TooltipTrigger>
-              <TooltipContent side="right">Products</TooltipContent>
+              <TooltipContent side="right">Info</TooltipContent>
             </Tooltip>
           </TooltipProvider>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
                 <NavLink
-                  to="#"
+                  to="cuatro"
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
                   <Users2 className="h-5 w-5" />
@@ -103,7 +93,7 @@ const SidebarShad: React.FC = () => {
             <Tooltip>
               <TooltipTrigger asChild>
                 <NavLink
-                  to="#"
+                  to="dashboard"
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
                   <LineChart className="h-5 w-5" />
@@ -115,20 +105,8 @@ const SidebarShad: React.FC = () => {
           </TooltipProvider>
         </nav>
         <nav className="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <NavLink
-                  to="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                >
-                  <Settings className="h-5 w-5" />
-                  <span className="sr-only">Settings</span>
-                </NavLink>
-              </TooltipTrigger>
-              <TooltipContent side="right">Settings</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+        <Menu />
+          
         </nav>
       </aside>
     </div>

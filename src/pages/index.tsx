@@ -3,9 +3,10 @@
 Heads up! 👋
 */
 }
+import { AuthContext } from "@/context/AuthContext";
 import apiRequest from "@/lib/apiRequest";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 interface User {
   id: string;
@@ -19,6 +20,7 @@ interface User {
 const HomePage: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const { currentUser, updateUser } = useContext<any>(AuthContext);
 
   useEffect(() => {
     const fetchUsers = async () => {

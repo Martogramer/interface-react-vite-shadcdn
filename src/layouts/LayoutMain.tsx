@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import React from "react";
+import React, { useContext, useState } from "react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -56,8 +56,20 @@ interface Props {
 const handleLogout = () => {
   localStorage.removeItem("token");
 };
-
+interface LoginFormData {
+  username: string;
+  password: string;
+  email: string;
+  avatar: {};
+}
 const LayoutMain: React.FC<Props> = ({ children }) => {
+  const { currentUser, updateUser } = useContext<any>(AuthContext);
+  const [data, setData] = useState<LoginFormData>({
+    username: currentUser?.username || "",
+    password: "",
+    email: currentUser?.email || "",
+    avatar: currentUser?.avatar || "",
+  });
   return (
     <div className="ml-4 bg-gray text-primary-foreground m-1">
       <div className=" ml-11 mt-2 fixed">
@@ -73,7 +85,8 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
             {location.pathname.split("/").length > 3 &&
               ` / ` + location.pathname.split("/")[3]}
           </label>
-          <Button onClick={handleLogout}>Logout</Button>
+          <Button onClick={handleLogout}>{data.username}</Button>
+          <p>{data.username}</p>
         </span>
       </div>
 
