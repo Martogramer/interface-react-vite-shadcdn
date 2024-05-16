@@ -1,19 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
 import { admin, user } from "./childrenRoutes";
 import LayoutUser from "@/layouts/LayoutUser";
-import LayoutAdmin from "@/layouts/LayoutAdmin";
+import LayoutAdmin from "@/layouts/LayoutUserAdmin";
 import Dashboard from "@/pages/users/Dashboard";
 import HomePage from '../pages/index';
+import PanelUserAdmin from "@/pages/admin/PanelUserAdmin";
 
 export const router = createBrowserRouter([
     {
-        path: '/error',
+        path: '/',
         element: (
             <HomePage />
         )
     },
     {
-        path: '/',
+        path: '/error',
         element: (
             <HomePage />
         )
@@ -24,5 +25,16 @@ export const router = createBrowserRouter([
             <LayoutUser />
         ),
         children: user,
-    }
+    },
+    {
+		path: '/proveedor',
+		element: <LayoutUserAdmin />,
+
+		children: [
+			{
+				path: '',
+				element: <PanelUserAdmin />,
+			},
+		],
+	}
 ])
