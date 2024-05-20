@@ -5,6 +5,7 @@ import LayoutAdmin from "@/layouts/LayoutUserAdmin";
 import Dashboard from "@/pages/users/Dashboard";
 import HomePage from '../pages/index';
 import PanelUserAdmin from "@/pages/admin/PanelUserAdmin";
+import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
 
 export const router = createBrowserRouter([
     {

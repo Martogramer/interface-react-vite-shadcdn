@@ -48,7 +48,7 @@ const initialState: LoginState = {
   }, // JSON.parse(localStorage.getItem("user") || '{}'),
 };
 
-const loginSlice = createSlice({
+const login = createSlice({
   name: "login",
   initialState,
   reducers: {
@@ -88,9 +88,9 @@ export const {
   loginFailure,
   updateFormData,
   logout,
-} = loginSlice.actions;
+} = login.actions;
 
-export default loginSlice.reducer;
+export default login.reducer;
 
 export const loginUser =
   (formData: LoginFormData): AppThunk =>
