@@ -1,4 +1,4 @@
-import Dashboard from "@/pages/users/Dashboard"
+import Dashboard from "@/pages/users/DashboardTablerInfo"
 import {InfoPage} from "@/pages/users/InfoPage"
 import { LoginShad } from "@/pages/users/LoginShad"
 import OffersPage from "@/pages/users/OffersPage"

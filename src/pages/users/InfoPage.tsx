@@ -32,7 +32,10 @@ export const InfoPage: React.FC = () => {
 
   const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      setData((prevData) => ({ ...prevData, avatar: e.target.files[0] }));
+      setData((prevData) => ({
+        ...prevData,
+        avatar: e.target.files ? [0] : "no files",
+      }));
     }
   };
 
