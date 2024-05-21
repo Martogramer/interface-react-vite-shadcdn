@@ -3,42 +3,44 @@ import { AuthContext } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-//import apiRequest from "@/services/apiRequest";
 import { Card } from "@/components/ui/card";
 import useAuthStore from "@/services/authState";
 import { fetchProfileData } from "@/services/handlers/profile/profileActions";
+
 interface LoginFormData {
   username: string;
   password: string;
   email: string;
   avatar: {};
 }
+
 export const InfoPage: React.FC = () => {
   const { user, logout, profileData, isAuthenticated } = useAuthStore();
   const [data, setData] = useState<LoginFormData>({
-    username: "",
+    username: user?.username || "",
     password: "",
-    email: "",
+    email: user?.email || "",
     avatar: "",
   });
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    setData((prevData) => ({ ...prevData, [e.target.name]: e.target.value }));
   };
+
   const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      setData({ ...data, avatar: e.target.files[0] });
+      setData((prevData) => ({ ...prevData, avatar: e.target.files[0] }));
     }
   };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      /* await apiRequest.put(`/users/${currentUser?.id}`, data);
-      updateUser({ ...currentUser, ...data });
-       */
+      await fetchProfileData();
       setIsLoading(false);
       // Redirigir al usuario a la página de perfil o a otra página relevante
     } catch (err) {
@@ -50,14 +52,14 @@ export const InfoPage: React.FC = () => {
       }
     }
   };
+
   const handleLogout = () => {
-    //updateUser(null);
     logout();
     navigate("/");
   };
 
   useEffect(() => {
-        if (isAuthenticated) {
+    if (isAuthenticated) {
       fetchProfileData();
     }
   }, [isAuthenticated]);
@@ -70,31 +72,26 @@ export const InfoPage: React.FC = () => {
     <div className="container">
       <Card className="mx-auto max-w-sm align-middle">
         <div>
-          <h2>
-            {user ? (user.username ? user.username : "no username") : "No user"}
-          </h2>
-          <h2>
-            {user?.email ? (user.email ? user.email : "no email") : "No user"}
-          </h2>
+          <h2>{user?.username || "No username"}</h2>
+          <h2>{user?.email || "No email"}</h2>
         </div>
       </Card>
       <Card className="mx-auto max-w-sm align-middle">
-      <div>
-      <h1>{user?.username}'s Profile</h1>
-      {/* Render profile data */}
-      {profileData && (
         <div>
-          <h2>Posts</h2>
-          {profileData.userPosts.map((post: any) => (
-            <div key={post.id}>{post.content}</div>
-          ))}
-          <h2>Saved Posts</h2>
-          {profileData.savedPosts.map((post: any) => (
-            <div key={post.id}>{post.content}</div>
-          ))}
+          <h1>{user?.username}'s Profile</h1>
+          {profileData && (
+            <div>
+              <h2>Posts</h2>
+              {profileData.userPosts.map((post: any) => (
+                <div key={post.id}>{post.content}</div>
+              ))}
+              <h2>Saved Posts</h2>
+              {profileData.savedPosts.map((post: any) => (
+                <div key={post.id}>{post.content}</div>
+              ))}
+            </div>
+          )}
         </div>
-      )}
-    </div>
       </Card>
       <Card className="mx-auto max-w-sm align-middle">
         <div className="p-6 bg-white rounded-lg shadow-md">
@@ -110,7 +107,6 @@ export const InfoPage: React.FC = () => {
                   name="username"
                   value={data.username}
                   onChange={handleInputChange}
-                  required
                   minLength={3}
                   maxLength={20}
                   type="text"
@@ -126,7 +122,6 @@ export const InfoPage: React.FC = () => {
                   name="email"
                   value={data.email}
                   onChange={handleInputChange}
-                  required
                   type="email"
                   className="w-full rounded-lg border-gray-900 p-4 pe-12 text-sm shadow-md"
                 />
@@ -180,3 +175,5 @@ export const InfoPage: React.FC = () => {
     </div>
   );
 };
+
+export default InfoPage;
