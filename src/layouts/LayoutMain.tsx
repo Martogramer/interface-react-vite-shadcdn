@@ -47,9 +47,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { NavLink } from "react-router-dom";
-import { AuthContext } from "@/context/AuthContext";
-
+import { useAuth } from "@/context/AuthContextZustandProvider";
 interface Props {
   children: React.ReactNode;
 }
@@ -63,13 +61,8 @@ interface LoginFormData {
   avatar: {};
 }
 const LayoutMain: React.FC<Props> = ({ children }) => {
-  const { currentUser, updateUser } = useContext<any>(AuthContext);
-  const [data, setData] = useState<LoginFormData>({
-    username: currentUser?.username || "",
-    password: "",
-    email: currentUser?.email || "",
-    avatar: currentUser?.avatar || "",
-  });
+ 
+  useAuth();
   return (
     <div className="ml-4 bg-gray text-primary-foreground m-1">
       <div className=" ml-11 mt-2 fixed">
@@ -85,14 +78,12 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
             {location.pathname.split("/").length > 3 &&
               ` / ` + location.pathname.split("/")[3]}
           </label>
-          <Button onClick={handleLogout}>{data.username}</Button>
-          <p>{data.username}</p>
         </span>
       </div>
 
       <div className=" md:px-10 mx-auto w-full">
         <div>
-          <div>{children}</div>
+          <>{children}</>
         </div>
       </div>
     </div>

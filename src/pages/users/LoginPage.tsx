@@ -1,5 +1,5 @@
 import { AuthContext } from "@/context/AuthContext";
-import apiRequest from "@/lib/apiRequest";
+import apiRequest from "@/services/apiRequest";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -18,12 +18,12 @@ const LoginPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const authContext = useContext<any>(AuthContext);
+  /* const authContext = useContext<any>(AuthContext);
   const { updateUser } = authContext;
   
   if (!updateUser) {
     return <div>Loading...</div>;
-  } 
+  } */ 
 
   const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ const LoginPage: React.FC = () => {
     try {
       await apiRequest.post(`/auth/login`, data);
       console.log(data.username + " logged in");
-      updateUser(data)
+      //updateUser(data)
       navigate("/uno");
       // Redirigir al usuario a la página de inicio o a otra página relevante
     } catch (err) {

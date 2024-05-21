@@ -7,7 +7,6 @@ interface User {
   firstName: string;
   lastName: string;
   avatar: string;
-  // Agrega más propiedades según la estructura de tu usuario
 }
 
 interface AuthContextType {

@@ -2,6 +2,7 @@ import Dashboard from "@/pages/users/Dashboard"
 import {InfoPage} from "@/pages/users/InfoPage"
 import { LoginShad } from "@/pages/users/LoginShad"
 import OffersPage from "@/pages/users/OffersPage"
+import PostsPage from "@/pages/users/PostsPage"
 import RegisterAlternativePage from "@/pages/users/RegisterAlternativePage"
 import { RegisterShad } from "@/pages/users/RegisterShad"
 
@@ -25,6 +26,10 @@ export const user = [
     {
         path: 'dashboard',
         element: <Dashboard/>,
+    },
+    {
+        path: 'posts',
+        element: <PostsPage/>,
     }
 ]
 export const admin = [

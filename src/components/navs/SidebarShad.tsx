@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Home,
-    LineChart,
-    Package,
-    Package2,
-    ShoppingCart,
-    Users2,
-  } from "lucide-react";
+  LineChart,
+  Package,
+  Package2,
+  ShoppingCart,
+  Users2,
+} from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -51,14 +51,14 @@ const SidebarShad: React.FC = () => {
             <Tooltip>
               <TooltipTrigger asChild>
                 <NavLink
-                  to=""
+                  to="posts"
                   className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
                   <ShoppingCart className="h-5 w-5" />
-                  <span className="sr-only">login</span>
+                  <span className="sr-only">posts</span>
                 </NavLink>
               </TooltipTrigger>
-              <TooltipContent side="right">Login</TooltipContent>
+              <TooltipContent side="right">posts</TooltipContent>
             </Tooltip>
           </TooltipProvider>
           <TooltipProvider>
@@ -105,8 +105,7 @@ const SidebarShad: React.FC = () => {
           </TooltipProvider>
         </nav>
         <nav className="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
-        <Menu />
-          
+          <Menu />
         </nav>
       </aside>
     </div>
