@@ -1,12 +1,13 @@
 {
   /*
-Heads up! 👋
+Heads up!👋
+ Este componente index.ts se renderiza directamente 
+en el layout raìz. 
 */
 }
-import { AuthContext } from "@/context/AuthContext";
-import apiRequest from "@/services/apiRequest";
-import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import { fetchUsers } from "@/services/handlers/users/usersAction";
+import React, { useEffect, useState } from "react";
+import useAuthStore from '@/services/authState';
 
 interface User {
   id: string;
@@ -21,20 +22,8 @@ const HomePage: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [error, setError] = useState<string | null>(null);
   //const { currentUser, updateUser } = useContext<any>(AuthContext);
-
+  const usersList =  useAuthStore((state) => state.users)
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await apiRequest.get<User[]>(`/users`);
-        setUsers(response.data);
-      } catch (err) {
-        if (axios.isAxiosError(err)) {
-          setError(err.message);
-        } else {
-          setError('An unknown error occurred');
-        }
-      }
-    };
     fetchUsers();
   }, []);
 
@@ -71,7 +60,7 @@ const HomePage: React.FC = () => {
                 <div>
                   <h2>Users:</h2>
                   <ul>
-                    {users.map((user) => (
+                    {usersList.map((user) => (
                       <li key={user.id}>{user.username}</li>
                     ))}
                   </ul>

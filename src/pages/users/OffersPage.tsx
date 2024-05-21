@@ -18,7 +18,7 @@ const OffersPage = () => {
             </p>
           </header>
 
-          <ul className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
+          <ul className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3 ">
             <li>
               <NavLink to="#" className="group relative block">
                 <img

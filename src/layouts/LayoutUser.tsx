@@ -1,4 +1,5 @@
 import SidebarShad from "@/components/navs/SidebarShad";
+import SidebarShadVariant from "@/components/navs/SidebarShadVariant";
 import { AuthContext } from "@/context/AuthContext";
 import { LucidePersonStanding } from "lucide-react";
 import React, { useContext, useEffect } from "react";

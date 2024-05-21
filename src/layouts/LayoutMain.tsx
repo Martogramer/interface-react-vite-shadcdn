@@ -1,68 +1,9 @@
-import { Button } from "@/components/ui/button";
-import React, { useContext, useState } from "react";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Copy,
-  CreditCard,
-  File,
-  Home,
-  LineChart,
-  ListFilter,
-  MoreVertical,
-  Package,
-  Package2,
-  PanelLeft,
-  Search,
-  Settings,
-  ShoppingCart,
-  Truck,
-  Users2,
-} from "lucide-react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { useAuth } from "@/context/AuthContextZustandProvider";
+import React from "react";
 interface Props {
   children: React.ReactNode;
 }
-const handleLogout = () => {
-  localStorage.removeItem("token");
-};
-interface LoginFormData {
-  username: string;
-  password: string;
-  email: string;
-  avatar: {};
-}
+
 const LayoutMain: React.FC<Props> = ({ children }) => {
- 
-  useAuth();
   return (
     <div className="ml-4 bg-gray text-primary-foreground m-1">
       <div className=" ml-11 mt-2 fixed">
@@ -70,7 +11,7 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
           Live
         </span>
         <span className="text-xs hidden min-[680px]:inline-block font-semibold cursor-default">
-            <span className="mx-1 text-navy-700 hover:text-navy-700">/</span>
+          <span className="mx-1 text-navy-700 hover:text-navy-700">/</span>
           <label className="capitalize text-navy-700 hover:underline">
             {location.pathname.split("/")[1]}
             {location.pathname.split("/").length > 2 &&
@@ -80,8 +21,7 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
           </label>
         </span>
       </div>
-
-      <div className=" md:px-10 mx-auto w-full">
+      <div className="p-10 ">
         <div>
           <>{children}</>
         </div>

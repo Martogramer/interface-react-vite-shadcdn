@@ -1,3 +1,4 @@
+import TablerUsers from "@/pages/admin/TablerUsers"
 import DashboardCrud from "@/pages/users/DashboardCrud"
 import Dashboard from "@/pages/users/DashboardTablerInfo"
 import {InfoPage} from "@/pages/users/InfoPage"
@@ -10,19 +11,19 @@ import { RegisterShad } from "@/pages/users/RegisterShad"
 export const user = [
     {
         path: '',
+        element: <OffersPage/>,
+    },
+    {
+        path: 'login',
         element: <LoginShad/>,
     },
     {
-        path: 'register',
+        path: 'signup',
         element: <RegisterShad/>,
     },
     {
         path: 'info',
         element: <InfoPage/>,
-    },
-    {
-        path: 'cuatro',
-        element: <OffersPage/>,
     },
     {
         path: 'dashboard',
@@ -35,6 +36,10 @@ export const user = [
     {
         path: 'crud',
         element: <DashboardCrud/>,
+    },
+    {
+        path: 'tableruser',
+        element: <TablerUsers/>,
     }
 ]
 export const admin = [
