@@ -1,3 +1,4 @@
+import DashboardCrud from "@/pages/users/DashboardCrud"
 import Dashboard from "@/pages/users/DashboardTablerInfo"
 import {InfoPage} from "@/pages/users/InfoPage"
 import { LoginShad } from "@/pages/users/LoginShad"
@@ -30,6 +31,10 @@ export const user = [
     {
         path: 'posts',
         element: <PostsPage/>,
+    },
+    {
+        path: 'crud',
+        element: <DashboardCrud/>,
     }
 ]
 export const admin = [
