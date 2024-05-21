@@ -1,14 +1,14 @@
+{/*
+Heads up! 👋
+
+Plugins:
+- @tailwindcss/forms
+*/}
 import React from 'react'
 
-const RegisterAlternativePage = () => {
+const RegisterAlternativePage: React.FC = () => {
   return (
     <div className='container'>
-      {/*
-  Heads up! 👋
-
-  Plugins:
-    - @tailwindcss/forms
-*/}
 
 <section className="bg-white">
   <div className="lg:grid lg:min-h-screen lg:grid-cols-12">

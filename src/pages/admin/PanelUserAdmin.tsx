@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
 
-const PanelUserAdmin = () => {
+const PanelUserAdmin: React.FC = () => {
   return (
     <div>
       <Outlet />

@@ -17,7 +17,7 @@ interface LoginFormData {
   password: string;
 }
 export const LoginShad: React.FC = () => {
-  const { isAuthenticated, login } = useAuthStore();
+  const { isAuthenticated } = useAuthStore();
   const [data, setData] = useState<LoginFormData>({
     username: "",
     password: "",

@@ -1,17 +1,16 @@
+{
+  /*
+Heads up! 👋
+
+Plugins:
+- @tailwindcss/forms
+*/
+}
 import React from "react";
 
 const RegisterPage: React.FC = () => {
-  
-
   return (
     <div className="container">
-      {/*
-  Heads up! 👋
-
-  Plugins:
-    - @tailwindcss/forms
-*/}
-
       <section className="bg-white">
         <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
           <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
@@ -48,7 +47,7 @@ const RegisterPage: React.FC = () => {
                 Eligendi nam dolorum aliquam, quibusdam aperiam voluptatum.
               </p>
 
-              <form  action="#" className="mt-8 grid grid-cols-6 gap-6">
+              <form action="#" className="mt-8 grid grid-cols-6 gap-6">
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="FirstName"
@@ -102,7 +101,7 @@ const RegisterPage: React.FC = () => {
                   <label
                     htmlFor="Password"
                     className="block text-sm font-medium text-gray-700"
-                    >
+                  >
                     {" "}
                     Password{" "}
                   </label>

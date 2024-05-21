@@ -1,9 +1,8 @@
-import { AuthContext } from "@/context/AuthContext";
 import apiRequest from "@/services/apiRequest";
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import {NavLink} from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 interface LoginFormData {
   username: string;
@@ -23,7 +22,7 @@ const LoginPage: React.FC = () => {
   
   if (!updateUser) {
     return <div>Loading...</div>;
-  } */ 
+  } */
 
   const navigate = useNavigate();
 
@@ -147,8 +146,7 @@ const LoginPage: React.FC = () => {
             </button>
             <p className="text-center text-sm text-gray-500">
               No account?
-              <NavLink
-               className="underline" to="#">
+              <NavLink className="underline" to="#">
                 Sign up
               </NavLink>
             </p>

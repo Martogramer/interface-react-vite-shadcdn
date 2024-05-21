@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const OffersPage = () => {
+const OffersPage: React.FC = () => {
   return (
     <div>
       <section>

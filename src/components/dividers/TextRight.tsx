@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextRight = () => {
+const TextRight: React.FC = () => {
   return (
     <div>
       <span className="flex items-center">

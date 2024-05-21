@@ -1,6 +1,6 @@
 import React from "react";
 
-const NotPass = () => {
+const NotPass: React.FC = () => {
   return (
     <div>
       <div className="flex h-screen flex-col bg-white">

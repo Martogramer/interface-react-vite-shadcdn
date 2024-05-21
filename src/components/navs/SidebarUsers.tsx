@@ -1,7 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
-const SidebarUsers = () => {
+const SidebarUsers: React.FC = () => {
   return (
     <>
       <div className="flex h-screen w-16 flex-col justify-between border-e bg-white">

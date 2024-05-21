@@ -6,7 +6,7 @@ Plugins:
 */}
 import React from "react";
 
-const UsernameInput = () => {
+const UsernameInput: React.FC = () => {
   return (
     <div>
 

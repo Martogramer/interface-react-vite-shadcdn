@@ -49,7 +49,7 @@ const components: { title: string; to: string; description: string }[] = [
   },
 ];
 
-const NavbarUsers = () => {
+const NavbarUsers: React.FC = () => {
   return (
     <div className="flex justify-end">
     <NavigationMenu>
