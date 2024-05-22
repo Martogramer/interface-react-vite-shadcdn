@@ -3,7 +3,7 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./createRouter";
 import LayoutMain from "../layouts/LayoutMain";
 
-const RoutesLayout = () => {
+const RoutesLayout: React.FC = () => {
   return (
     <>
       <LayoutMain>

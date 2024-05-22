@@ -48,10 +48,10 @@ import { NavLink } from "react-router-dom";
 import useAuthStore from "@/services/authState";
 import NotPass from "@/components/errorPage/NotPass";
 
-interface LoginFormData {
+/* interface LoginFormData {
   username: string;
   password: string;
-}
+} */
 const Dashboard: React.FC = () => {
   const { isAuthenticated } = useAuthStore();
   if (!isAuthenticated) {
