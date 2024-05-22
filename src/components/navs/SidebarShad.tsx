@@ -18,7 +18,7 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from "@/components/ui/tooltip";
-import { Menu } from "./Menu";
+import Menu  from "./Menu";
 import { Button } from "../ui/button";
 const SidebarShad: React.FC = () => {
   return (
