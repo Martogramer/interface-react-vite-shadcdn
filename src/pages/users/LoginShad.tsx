@@ -23,7 +23,7 @@ export const LoginShad: React.FC = () => {
     password: "",
   });
   const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
   const navigate = useNavigate();
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -41,6 +41,7 @@ export const LoginShad: React.FC = () => {
         setError(err.response?.data.message || "An unknown error occurred");
       } else {
         setError("An unknown error occurred");
+        console.log(error)
       }
     }
   };

@@ -9,7 +9,7 @@ import { fetchUsers } from "@/services/handlers/users/usersAction";
 import React, { useEffect, useState } from "react";
 import useAuthStore from '@/services/authState';
 
-interface User {
+/* interface User {
   id: string;
   email: string;
   username: string;
@@ -17,7 +17,7 @@ interface User {
   avatar: string | null;
   createdAt: string;
   chatIDs: string[];
-}
+} */
 const HomePage: React.FC = () => {
   const [error] = useState<string | null>(null);
   //const { currentUser, updateUser } = useContext<any>(AuthContext);
