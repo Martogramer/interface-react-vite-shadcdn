@@ -1,12 +1,11 @@
 import SidebarShad from "@/components/navs/SidebarShad";
-import SidebarShadVariant from "@/components/navs/SidebarShadVariant";
 import { AuthContext } from "@/context/AuthContext";
 import { LucidePersonStanding } from "lucide-react";
 import React, { useContext, useEffect } from "react";
-import { Outlet, Route, RouteProps } from "react-router-dom";
+import { Outlet, RouteProps } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const PrivateRoute: React.FC<RouteProps> = ({ children, ...rest }) => {
+export const PrivateRoute: React.FC<RouteProps> = ({ children, ...rest }) => {
   const { currentUser } = useContext<any>(AuthContext);
   const navigate = useNavigate();
 

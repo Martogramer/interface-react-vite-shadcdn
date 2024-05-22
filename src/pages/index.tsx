@@ -19,8 +19,7 @@ interface User {
   chatIDs: string[];
 }
 const HomePage: React.FC = () => {
-  const [users, setUsers] = useState<User[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  const [error] = useState<string | null>(null);
   //const { currentUser, updateUser } = useContext<any>(AuthContext);
   const usersList =  useAuthStore((state) => state.users)
   useEffect(() => {

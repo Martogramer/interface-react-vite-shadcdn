@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
-const LayoutUserAdmin = () => {
+const LayoutUserAdmin: React.FC = () => {
   return (
     <div>
       <div className="relative md:ml-12 bg-black-600 hover:backdrop-blur-0 border-zinc-100">

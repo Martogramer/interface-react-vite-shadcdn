@@ -55,7 +55,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import React, { useEffect } from "react";
 import useAuthStore from "@/services/authState";
 import { fetchUsers } from "@/services/handlers/users/usersAction";
-import { user } from "@/routes/childrenRoutes";
 
 export const TablerUserShad: React.FC = () => {
   const users = useAuthStore((state) => state.users);
