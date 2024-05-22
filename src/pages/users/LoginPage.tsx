@@ -15,7 +15,7 @@ const LoginPage: React.FC = () => {
     password: "",
   });
   const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
 
   /* const authContext = useContext<any>(AuthContext);
   const { updateUser } = authContext;
@@ -43,6 +43,7 @@ const LoginPage: React.FC = () => {
         setError(err.response?.data.message || "An unknown error occurred");
       } else {
         setError("An unknown error occurred");
+        console.log(error)
       }
     }
   };
