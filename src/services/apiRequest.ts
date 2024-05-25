@@ -1,19 +1,19 @@
 import axios from "axios";
+import { handleError } from "./handlers/errors/errorHandler";
 
 const apiRequest = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: "http://localhost:3000/api",
   withCredentials: true,
 });
 
 // Interceptor to include token in headers
-apiRequest.interceptors.request.use((config) => {
-  const token = document.cookie.split('; ').find(row => row.startsWith('token='));
-  if (token) {
-    config.headers.Authorization = `Bearer ${token.split('=')[1]}`;
+
+apiRequest.interceptors.request.use(
+  (response) => response,
+  (error) => {
+    handleError(error);
+    return Promise.reject(error);
   }
-  return config;
-}, (err: any) => {
-  return Promise.reject(err);
-});
+);
 
 export default apiRequest;
