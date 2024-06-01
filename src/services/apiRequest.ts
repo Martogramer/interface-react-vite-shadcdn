@@ -6,6 +6,8 @@ const apiRequest = axios.create({
   withCredentials: true,
 });
 
+
+// ! revisar esto
 // Interceptor to include token in headers
 
 apiRequest.interceptors.request.use(
