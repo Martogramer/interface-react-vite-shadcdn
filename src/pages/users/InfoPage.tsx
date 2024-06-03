@@ -5,7 +5,6 @@ import axios from "axios";
 import { Card } from "@/components/ui/card";
 import useAuthStore from "@/services/authState";
 import { fetchProfileData } from "@/services/handlers/profile/profileActions";
-import NotPass from "@/components/errorPage/NotPass";
 
 interface LoginFormData {
   username: string;
