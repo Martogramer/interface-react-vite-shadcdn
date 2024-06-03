@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import StoreSidebar from "./StoreSidebar";
 import MobileMenu from "./MobileMenu";
+import { FlagTriangleLeft, Triangle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 // Props interface for the SidebarMobileMenu component
 interface SubItem {
@@ -82,7 +84,7 @@ const SidebarMobileMenu: React.FC = () => {
       <div className="md:hidden">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="p-4 text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-600"
+          className="my-2 z-50 text-gray-600 focus:outline-none fixed focus:ring-2 focus:ring-inset focus:ring-gray-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -99,6 +101,7 @@ const SidebarMobileMenu: React.FC = () => {
             />
           </svg>
         </button>
+        
       </div>
 
       {/* Sidebar for large screens */}
@@ -113,8 +116,10 @@ const SidebarMobileMenu: React.FC = () => {
             className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg"
             ref={menuRef}
           >
-            <div className="flex items-center justify-between h-20 p-4 border-b border-gray-700">
-              <h1 className="text-2xl font-bold">Menu</h1>
+            <div className="px-6 flex items-center justify-between h-20 p-4 border-b border-gray-700">
+                <Button variant="outline" size="icon" aria-label="Home">
+                  <Triangle className="size-5 fill-foreground" />
+                </Button>
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-600"
@@ -135,6 +140,7 @@ const SidebarMobileMenu: React.FC = () => {
                 </svg>
               </button>
             </div>
+
             <MobileMenu items={menuItems} user={user} />
           </div>
         </div>

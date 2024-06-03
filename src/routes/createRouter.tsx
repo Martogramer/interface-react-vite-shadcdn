@@ -4,7 +4,7 @@ import LayoutUser from "@/layouts/LayoutUser";
 import HomePage from '../pages/index';
 import CustomComponents from "@/pages/_PRUEBAS/CustomComponents";
 import LayoutStore from "@/layouts/LayoutStore";
-import StoreHomePage from "@/pages/store/StoreHomePage";
+import StoreHomePage from "@/pages/store/home/StoreHomePage";
 
 export const router = createBrowserRouter([
     {

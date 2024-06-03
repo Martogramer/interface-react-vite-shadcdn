@@ -48,7 +48,7 @@ const LayoutStore: React.FC = () => {
   return (
     <>
       <SidebarMobileMenu />
-      <div className="pt-20">
+      <div className="mt-0">
         <Outlet />
       </div>
     </>
