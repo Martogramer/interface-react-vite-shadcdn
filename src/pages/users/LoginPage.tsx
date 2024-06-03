@@ -1,7 +1,6 @@
 import apiRequest from "@/services/apiRequest";
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 interface LoginFormData {
@@ -17,15 +16,6 @@ const LoginPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [isLoading] = useState(false);
 
-  /* const authContext = useContext<any>(AuthContext);
-  const { updateUser } = authContext;
-  
-  if (!updateUser) {
-    return <div>Loading...</div>;
-  } */
-
-  const navigate = useNavigate();
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
@@ -35,9 +25,6 @@ const LoginPage: React.FC = () => {
     try {
       await apiRequest.post(`/auth/login`, data);
       console.log(data.username + " logged in");
-      //updateUser(data)
-      navigate("/uno");
-      // Redirigir al usuario a la página de inicio o a otra página relevante
     } catch (err) {
       if (axios.isAxiosError(err)) {
         setError(err.response?.data.message || "An unknown error occurred");
