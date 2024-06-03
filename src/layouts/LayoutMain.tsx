@@ -5,8 +5,8 @@ interface Props {
 
 const LayoutMain: React.FC<Props> = ({ children }) => {
   return (
-    <div className="ml-4 bg-gray text-primary-foreground m-1">
-        <div className=" ml-11 mt-2 fixed z-50 blur-sm">
+    <div className="bg-gray text-primary-foreground ">
+        <div className=" ml-16 mt-3 fixed z-50 blur-sm">
           <span className="mr-2 whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
             Live
           </span>
@@ -22,7 +22,7 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
           </span>
         </div>
 
-      <div className=" ml-11 mt-2 fixed z-50">
+      <div className=" ml-16 mt-3 fixed z-50">
         <span className="mr-2 whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
           Live
         </span>
@@ -37,9 +37,7 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
           </label>
         </span>
       </div>
-      <div>
         <>{children}</>
-      </div>
     </div>
   );
 };

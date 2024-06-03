@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import StoreSidebar from "./StoreSidebar";
 import MobileMenu from "./MobileMenu";
-import { FlagTriangleLeft, Triangle } from "lucide-react";
+import { Triangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Props interface for the SidebarMobileMenu component
@@ -18,40 +18,37 @@ interface Item {
   onClick?: () => void;
 }
 const user = {
-  name: "Eric Frusciante",
-  email: "eric@frusciante.com",
+  name: "Cosmos Store",
+  email: "store@cosmos.com",
   avatar:
-    "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "https://www.creativefabrica.com/wp-content/uploads/2023/02/11/Galaxy-Astronaut-Monkey-Painting-60761789-1.png",
 };
 const menuItems: Item[] = [
   {
-    label: "General",
+    label: "Inicio",
     href: "#",
   },
   {
-    label: "Teams",
+    label: "Productos",
     subItems: [
-      { label: "Banned Users", href: "#" },
-      { label: "Calendar", href: "#" },
+      { label: "Indumentaria", href: "#" },
+      { label: "Accesorios", href: "#" },
+      { label: "Combos", href: "#" },
     ],
   },
   {
-    label: "Billing",
+    label: "Nosotros",
     href: "#",
   },
   {
-    label: "Invoices",
+    label: "Empresarial",
     href: "#",
   },
   {
-    label: "Account",
+    label: "Presupuestos",
     subItems: [
-      { label: "Details", href: "#" },
-      { label: "Security", href: "#" },
-      {
-        label: "Logout",
-        href: "#",
-      },
+      { label: "Diseños Personalizado", href: "#" },
+      { label: "Precio Mayorista", href: "#" }
     ],
   },
 ];
@@ -84,7 +81,7 @@ const SidebarMobileMenu: React.FC = () => {
       <div className="md:hidden">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="my-2 z-50 text-gray-600 focus:outline-none fixed focus:ring-2 focus:ring-inset focus:ring-gray-600"
+          className="my-3 ml-6 z-50 text-gray-600 focus:outline-none  fixed focus:ring-2 focus:ring-inset focus:ring-gray-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +98,6 @@ const SidebarMobileMenu: React.FC = () => {
             />
           </svg>
         </button>
-        
       </div>
 
       {/* Sidebar for large screens */}
@@ -117,9 +113,9 @@ const SidebarMobileMenu: React.FC = () => {
             ref={menuRef}
           >
             <div className="px-6 flex items-center justify-between h-20 p-4 border-b border-gray-700">
-                <Button variant="outline" size="icon" aria-label="Home">
-                  <Triangle className="size-5 fill-foreground" />
-                </Button>
+              <Button variant="outline" size="icon" aria-label="Home">
+                <Triangle className="size-5 fill-foreground" />
+              </Button>
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-600"

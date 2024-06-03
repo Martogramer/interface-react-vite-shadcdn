@@ -1,13 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import { user } from "./childrenRoutes";
-import LayoutUser from "@/layouts/LayoutUser";
-import HomePage from '../pages/index';
-import CustomComponents from "@/pages/_PRUEBAS/CustomComponents";
 import LayoutStore from "@/layouts/LayoutStore";
-import StoreHomePage from "@/pages/store/home/StoreHomePage";
+import StoreHomePage from "@/pages/store/home/Index";
 
 export const router = createBrowserRouter([
-    {
+    /* {
         path: '/',
         element: (
             <HomePage />
@@ -25,9 +21,9 @@ export const router = createBrowserRouter([
             <LayoutUser />
         ),
         children: user,
-    },
+    }, */
     {
-		path: '/store',
+		path: '/',
 		element: <LayoutStore/>,
 
 		children: [
@@ -36,9 +32,9 @@ export const router = createBrowserRouter([
 				element: <StoreHomePage />,
 			},
 		],
-	},
+	}/* ,
     {
 		path: '/_PRUEBAS',
 		element: <CustomComponents />,
-	}
+	} */
 ])
