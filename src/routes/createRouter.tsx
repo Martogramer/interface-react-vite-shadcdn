@@ -4,6 +4,7 @@ import LayoutUser from "@/layouts/LayoutUser";
 import HomePage from '../pages/index';
 import PanelUserAdmin from "@/pages/admin/PanelUserAdmin";
 import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
+import CustomComponents from "@/pages/_PRUEBAS/CustomComponents";
 
 export const router = createBrowserRouter([
     {
@@ -35,5 +36,15 @@ export const router = createBrowserRouter([
 				element: <PanelUserAdmin />,
 			},
 		],
+	},
+    {
+		path: '/_PRUEBAS',
+		element: <CustomComponents />,
+		/* children: [
+			{
+				path: '',
+				element: <PanelUserAdmin />,
+			},
+		], */
 	}
 ])
