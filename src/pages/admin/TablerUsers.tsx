@@ -5,9 +5,9 @@ import React from "react";
 
 const TablerUsers: React.FC = () => {
   const { isAuthenticated } = useAuthStore();
-  if (!isAuthenticated) {
+  /* if (!isAuthenticated) {
     return <NotPass />;
-  }
+  } */
   return (
     <>
       <TablerUserShad />

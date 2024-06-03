@@ -7,8 +7,6 @@ import { store } from "./store/Store";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-      <Provider store={store}>
         <RoutesLayout />
-      </Provider>
   </React.StrictMode>
 );
