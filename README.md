@@ -57,7 +57,7 @@ Para un flujo de trabajo de desarrollo eficiente, se utilizan las siguientes her
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/interface-react-vite-shadcdn.git
+   git clone https://github.com/Martogramer/interface-react-vite-shadcdn.git
    cd interface-react-vite-shadcdn
    ```
 
@@ -85,9 +85,9 @@ Si deseas contribuir a este proyecto, sigue estos pasos:
 
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
 
-- **Correo electrónico**: [tuemail@example.com](mailto:tuemail@example.com)
-- **LinkedIn**: [Tu Perfil de LinkedIn](https://linkedin.com/in/tu-perfil)
-- **Twitter**: [Tu Perfil de Twitter](https://twitter.com/tu-perfil)
+- **Correo electrónico**: [contacto@martogramer.com](mailto:luismartiniribas@gmail.com)
+- **LinkedIn**: [Tu Perfil de LinkedIn](https://www.linkedin.com/in/martogramer/)
+- **Twitter**: [Tu Perfil de Twitter](https://x.com/telescopiens)
 
 ---
 
