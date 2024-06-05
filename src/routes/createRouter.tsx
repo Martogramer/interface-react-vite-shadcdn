@@ -1,9 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import LayoutStore from "@/layouts/LayoutStore";
 import StoreHomePage from "@/pages/store/home/Index";
+import { user } from "./childrenRoutes";
+import LayoutUser from "@/layouts/LayoutUser";
+import HomePage from "@/pages";
+import NotPass from "@/components/errorPage/NotPass";
+import CustomComponents from "@/pages/_PRUEBAS/CustomComponents";
 
 export const router = createBrowserRouter([
-    /* {
+    {
         path: '/',
         element: (
             <HomePage />
@@ -12,7 +17,7 @@ export const router = createBrowserRouter([
     {
         path: '/error',
         element: (
-            <HomePage />
+            <NotPass />
         )
     },
     {
@@ -21,9 +26,9 @@ export const router = createBrowserRouter([
             <LayoutUser />
         ),
         children: user,
-    }, */
+    },
     {
-		path: '/',
+		path: '/store',
 		element: <LayoutStore/>,
 
 		children: [
@@ -32,9 +37,9 @@ export const router = createBrowserRouter([
 				element: <StoreHomePage />,
 			},
 		],
-	}/* ,
+	},
     {
 		path: '/_PRUEBAS',
 		element: <CustomComponents />,
-	} */
+	}
 ])

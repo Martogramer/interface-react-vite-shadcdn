@@ -23,7 +23,7 @@ import { Button } from "../ui/button";
 const SidebarShad: React.FC = () => {
   return (
     <div>
-      <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
+      <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r  bg-slate-50 sm:flex">
         <div className="border-b p-2">
           <Button variant="outline" size="icon" aria-label="Home">
             <Triangle className="size-5 fill-foreground" />
@@ -31,8 +31,8 @@ const SidebarShad: React.FC = () => {
         </div>
         <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
           <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarImage src="" />
+            <AvatarFallback>Logo</AvatarFallback>
           </Avatar>
 
           <NavLink
