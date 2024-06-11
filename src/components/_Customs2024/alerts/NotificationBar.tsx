@@ -28,8 +28,8 @@ const NotificationBar: React.FC = () => {
           
         </div>
         <p className="text-sm text-center  font-medium">
-          Love Alpine JS?
-          <a href="#" className="inline-block underline ml-1">Check out this new course!</a>
+          Te gusta lo que ves?
+          <a href="#" className="inline-block underline ml-1">Checka la nueva interface de usuario!</a>
         </p>
 
         <button

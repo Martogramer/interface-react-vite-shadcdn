@@ -1,3 +1,6 @@
+import CustomButton from "@/components/_Customs2024/buttons/CustomButton";
+import ActionButtonGroup from "@/components/_Customs2024/containers/buttonGroups/ActionButtonGroup";
+import CustomGrid from "@/components/_Customs2024/containers/grid/CustomGrid";
 import DropdownMenu from "@/components/_Customs2024/dropdown/dropdownSimple/DropdownMenu";
 import React from "react";
 
@@ -19,10 +22,30 @@ const menuItems: ItemType[] = [
     type: "button",
   },
 ];
+
 const CustomComponents: React.FC = () => {
   return (
     <>
-      <DropdownMenu items={menuItems} />
+      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        <CustomGrid
+          columns={2}
+          content={[
+            <div>
+              <div>
+                <CustomButton text="Download Base" href="#" variant="base" />
+              </div>
+            </div>,
+            <div>
+              <div>
+                <DropdownMenu items={menuItems} />
+              </div>
+            </div>,
+            <div>
+              <ActionButtonGroup /> 
+            </div>,
+          ]}
+        />
+      </div>
     </>
   );
 };

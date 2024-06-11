@@ -1,3 +1,4 @@
+import CustomComponents from "@/pages/_PRUEBAS/CustomComponents"
 import TablerUsers from "@/pages/admin/TablerUsers"
 import DashboardCrud from "@/pages/users/DashboardCrud"
 import Dashboard from "@/pages/users/DashboardTablerInfo"
@@ -39,6 +40,10 @@ export const user = [
     {
         path: 'tableruser',
         element: <TablerUsers/>,
+    },
+    {
+        path: '_PRUEBAS',
+        element: <CustomComponents/>,
     }
 ]
 export const admin = [
