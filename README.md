@@ -73,13 +73,99 @@ Para un flujo de trabajo de desarrollo eficiente, se utilizan las siguientes her
 
 ## Contribuir
 
-Si deseas contribuir a este proyecto, sigue estos pasos:
+¡Gracias por considerar contribuir a nuestro proyecto! Aquí tienes algunas pautas para ayudarte a empezar:
+
+## Cómo Contribuir
 
 1. Haz un fork del repositorio.
-2. Crea una rama nueva (`git checkout -b feature/nueva-funcionalidad`).
+2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
 3. Realiza los cambios y haz commit (`git commit -m 'Añadir nueva funcionalidad'`).
-4. Sube los cambios a tu repositorio (`git push origin feature/nueva-funcionalidad`).
-5. Abre un Pull Request.
+4. Sube los cambios (`git push origin feature/nueva-funcionalidad`).
+5. Abre un Pull Request y describe los cambios realizados.
+
+## Estándares de Codificación
+
+- Sigue la guía de estilo de [Airbnb](https://github.com/airbnb/javascript).
+- Usa `Prettier` para formatear el código automáticamente.
+- Ejecuta `ESLint` antes de enviar un pull request.
+
+## Pruebas
+
+- Asegúrate de que todas las pruebas existentes pasen.
+- Agrega pruebas para las nuevas funcionalidades.
+- Ejecuta `npm test` para correr las pruebas.
+
+## Comunicación
+
+- Utiliza los issues de GitHub para reportar bugs o sugerir nuevas funcionalidades.
+- Si tienes alguna pregunta, no dudes en abrir un issue o contactarnos a través de [correo electrónico](mailto:tuemail@example.com).
+
+---
+
+¡Esperamos tus contribuciones!
+
+
+# arquitectura
+
+
+``` 
+.
+├── public
+├── src
+|   ├── api
+|   |   └── autentication.ts
+|   ├── assets
+|   |   ├── banner.png
+|   |   └── logo.png
+|   ├── components
+|   |   ├── commons
+|   |   ├── sections
+|   |   |   ├── GridSection
+|   |   |   └── HomeFormSection.tsx
+|   |   ├── Login.tsx
+|   |   ├── LoginFormEj.tsx
+|   |   ├── Register.tsx
+|   |   └── SideBar.tsx
+|   ├── features
+|   |   └── CreatedSlice.ts
+|   ├── layouts
+|   |   ├── Admin.tsx
+|   |   └── User.tsx
+|   ├── pages
+|   |   ├── Admin
+|   |   |   ├── 
+|   |   |   └── 
+|   |   ├── User
+|   |   |   ├── 
+|   |   |   └── 
+|   |   ├── Home.tsx
+|   |   ├── LoginPage.tsx
+|   |   └── RegisterPage.tsx
+|   ├── services
+|   |   └── services.tsx
+|   ├── store
+|   |   └── Store.ts
+|   ├── 
+|   ├── styles
+|   |   └── Global.ts
+|   ├── test
+|   |   └── App.test.js
+|   ├── utils
+|   |   └── errorHandler.js
+|   ├── App.tsx
+|   ├── index.css
+|   └── main.tsx
+├── vite.config.ts
+├── package.json
+├── tsconfig.node.json
+├── README.md
+├── tsconfig.json
+├── tailwind.config.js
+├── postcss.config.js
+├── jest.config.js
+├── index.html
+└── babel.config.js
+```
 
 ## Contacto
 
@@ -91,31 +177,6 @@ Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
 
 ---
 
+
 ¡Gracias por visitar este proyecto! Espero que lo encuentres útil y divertido de usar.
 
-### Desglose del README:
-
-1. **Título y Bienvenida:**
-   - Presentación del nombre del proyecto.
-   - Breve introducción al propósito del proyecto.
-
-2. **Descripción del Proyecto:**
-   - Descripción general y tecnologías utilizadas.
-
-3. **Scripts Disponibles:**
-   - Instrucciones sobre cómo ejecutar los scripts definidos en el `package.json`.
-
-4. **Dependencias:**
-   - Lista de las principales bibliotecas y herramientas utilizadas.
-
-5. **Dependencias de Desarrollo:**
-   - Lista de las herramientas utilizadas para el desarrollo.
-
-6. **Instalación:**
-   - Pasos para clonar el repositorio e instalar las dependencias.
-
-7. **Contribuir:**
-   - Guía básica para contribuir al proyecto.
-
-8. **Contacto:**
-   - Información de contacto para preguntas o sugerencias.
