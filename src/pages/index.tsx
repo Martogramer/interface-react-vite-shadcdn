@@ -51,7 +51,7 @@ const HomePage: React.FC = () => {
                 </div>
               )}
             </div> */}
-            <div className="mt-8 flex flex-wrap gap-4 text-center">
+            <div className="mt-8 text-center">
               <CustomGrid
                 columns={2}
                 content={[
