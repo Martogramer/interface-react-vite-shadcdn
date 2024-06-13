@@ -34,14 +34,14 @@ const CustomComponents: React.FC = () => {
               <div>
                 <CustomButton text="Download Base" href="#" variant="base" />
               </div>
+              <div>
+                <ActionButtonGroup />
+              </div>
             </div>,
             <div>
               <div>
                 <DropdownMenu items={menuItems} />
               </div>
-            </div>,
-            <div>
-              <ActionButtonGroup /> 
             </div>,
           ]}
         />
