@@ -66,9 +66,7 @@ export const InfoPage: React.FC = () => {
     }
   }, [isAuthenticated]);
 
-  /* if (!isAuthenticated) {
-    return <NotPass/>;
-  } */
+  
 
   return (
     <div className="container">

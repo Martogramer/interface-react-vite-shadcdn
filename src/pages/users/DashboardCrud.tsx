@@ -36,14 +36,8 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from "@/components/ui/tooltip";
-import useAuthStore from "@/services/authState";
-import NotPass from "@/components/errorPage/NotPass";
 
 const DashboardCrud: React.FC = () => {
-  const { isAuthenticated } = useAuthStore();
-  if (!isAuthenticated) {
-    return <NotPass/>;
-  }
   return (
     <div className="grid h-screen w-full pl-[56px]">
       <div className="flex flex-col">

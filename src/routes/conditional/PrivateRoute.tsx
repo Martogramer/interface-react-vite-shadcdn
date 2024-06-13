@@ -1,4 +1,6 @@
+import NotPass from "@/components/errorPage/NotPass";
 import { AuthContext } from "@/context/AuthContext";
+import useAuthStore from "@/services/authState";
 import { LucidePersonStanding } from "lucide-react";
 import React, { useContext, useEffect } from "react";
 import { RouteProps } from "react-router-dom";
@@ -18,3 +20,15 @@ export const PrivateRoute: React.FC<RouteProps> = ({ children, ...rest }) => {
   }
   return <div {...rest}>{children}</div>;
 };
+
+export const Private: React.FC<RouteProps>  = ({children}) => {
+  const { isAuthenticated } = useAuthStore();
+   if (!isAuthenticated) {
+    return <NotPass/>;
+  }
+  return (
+    <>
+    {children}
+    </>
+  )
+}

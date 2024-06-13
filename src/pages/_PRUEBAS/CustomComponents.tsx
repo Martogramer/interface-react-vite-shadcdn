@@ -1,9 +1,12 @@
+/* 
+  ! ATENCION ESTE COMPONENTE RENDERIZA EN LA RUTA /_PRUEBAS 
+*/
 import CustomButton from "@/components/_Customs2024/buttons/CustomButton";
 import ActionButtonGroup from "@/components/_Customs2024/containers/buttonGroups/ActionButtonGroup";
 import CustomGrid from "@/components/_Customs2024/containers/grid/CustomGrid";
 import DropdownMenu from "@/components/_Customs2024/dropdown/dropdownSimple/DropdownMenu";
 import React from "react";
-
+import CodeEditor from "../../components/_Customs2024/textareas/CodeEditor";
 type ItemType = {
   label: string;
   href?: string;
@@ -41,6 +44,24 @@ const CustomComponents: React.FC = () => {
             <div>
               <div>
                 <DropdownMenu items={menuItems} />
+              </div>
+              <div>
+                <CodeEditor
+                  initialCode={`   <div className="code-editor">
+      <textarea
+        value={code}
+        onChange={handleCodeChange}
+        className="w-full h-40 p-2 border rounded"
+        placeholder="Escribe tu código aquí..."
+      ></textarea>
+      <div className="mt-4">
+        <SyntaxHighlighter language={language} style={okaidia}>
+          {code}
+        </SyntaxHighlighter>
+      </div>
+    </div>`}
+                  language="javascript"
+                />
               </div>
             </div>,
           ]}

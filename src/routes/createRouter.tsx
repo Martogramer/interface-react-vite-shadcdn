@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import LayoutStore from "@/layouts/LayoutStore";
 import StoreHomePage from "@/pages/store/home/Index";
 import { user } from "./childrenRoutes";
@@ -10,6 +10,10 @@ import CustomComponents from "@/pages/_PRUEBAS/CustomComponents";
 export const router = createBrowserRouter([
     {
         path: '/',
+        element: <Navigate to="/inicio" replace />
+    },
+    {
+        path: '/inicio',
         element: (
             <HomePage />
         )

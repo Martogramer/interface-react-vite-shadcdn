@@ -1,29 +1,11 @@
-import SidebarShad from "@/components/navs/SidebarShad";
-import { AuthContext } from "@/context/AuthContext";
-import { LucidePersonStanding } from "lucide-react";
-import React, { useContext, useEffect } from "react";
-import { Outlet, RouteProps } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
-export const PrivateRoute: React.FC<RouteProps> = ({ children, ...rest }) => {
-  const { currentUser } = useContext<any>(AuthContext);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!currentUser) {
-      navigate("/", { replace: true });
-    }
-  }, [currentUser, navigate]);
-  if (currentUser === null) {
-    return <LucidePersonStanding />;
-  }
-  return <div {...rest}>{children}</div>;
-};
+import SidebarMobileMenu from "@/components/navs/user/SidebarMobileMenuUser";
+import React from "react";
+import { Outlet } from "react-router-dom";
 
 const LayoutUser: React.FC = () => {
   return (
     <>
-      <SidebarShad />
+      <SidebarMobileMenu />
       <div className="pt-20">
           <Outlet />
       </div>

@@ -34,6 +34,10 @@ export const user = [
         element: <PostsPage/>,
     },
     {
+        path: 'payments',
+        element: <PostsPage/>,
+    },
+    {
         path: 'crud',
         element: <DashboardCrud/>,
     },
