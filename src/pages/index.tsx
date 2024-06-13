@@ -1,27 +1,13 @@
-{
-  /*
-Heads up!👋
- Este componente index.ts se renderiza directamente 
-en el layout raìz. 
-*/
-}
 import { fetchUsers } from "@/services/handlers/users/usersAction";
-import React, { useEffect, useState } from "react";
-import useAuthStore from '@/services/authState';
+import React, { useEffect } from "react";
+//import useAuthStore from "@/services/authState";
+import CustomButton from "@/components/_Customs2024/buttons/CustomButton";
+import CustomGrid from "@/components/_Customs2024/containers/grid/CustomGrid";
 
-/* interface User {
-  id: string;
-  email: string;
-  username: string;
-  password: string;
-  avatar: string | null;
-  createdAt: string;
-  chatIDs: string[];
-} */
 const HomePage: React.FC = () => {
-  const [error] = useState<string | null>(null);
-  //const { currentUser, updateUser } = useContext<any>(AuthContext);
-  const usersList =  useAuthStore((state) => state.users)
+  /* const [error] = useState<string | null>(null);
+  const usersList = useAuthStore((state) => state.users);
+ */
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -29,27 +15,26 @@ const HomePage: React.FC = () => {
   return (
     <div className="container">
       <section
-        className="relative bg-cover bg-center bg-no-repeat"
+        className="relative flex items-center justify-center bg-cover bg-no-repeat h-screen"
         style={{
           backgroundImage:
-            'url("https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80")',
+            'url("https://cdn.leonardo.ai/users/15e3cba2-5058-43d9-bee5-cec3b95532ca/generations/adedeb3a-a34c-4ac9-a9a7-f68112a56372/Default_Landing_page_brand_branding_Startap_web_innovation_2.jpg")',
         }}
       >
         <div
-          className="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"
+          className="absolute inset-0"
           style={{ backdropFilter: "blur(5px)" }}
         ></div>
-
-        <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
-          <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-            <h1 className="text-3xl font-extrabold sm:text-5xl">
-              Let us find your
-              <strong className="block font-extrabold text-rose-700">
+        <div className="relative mx-auto max-w-screen-xl px-4 py-32 lg:px-8">
+          <div className="max-w-xl text-center">
+            <h1 className="text-3xl font-sans text-rose-100 sm:text-5xl">
+              Template Frontend
+              <strong className="block font-serif text-rose-600">
                 {" "}
-                Forever Home.{" "}
+                React + Typescript.{" "}
               </strong>
             </h1>
-            <div>
+            {/* <div>
               {error ? (
                 <div>
                   <h2>Error:</h2>
@@ -65,21 +50,31 @@ const HomePage: React.FC = () => {
                   </ul>
                 </div>
               )}
-            </div>
+            </div> */}
             <div className="mt-8 flex flex-wrap gap-4 text-center">
-              <a
-                href="/dashboard"
-                className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
-              >
-                Get Started
-              </a>
-
-              <a
-                href="#"
-                className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
-              >
-                Learn More
-              </a>
+              <CustomGrid
+                columns={2}
+                content={[
+                  <div>
+                    <div>
+                      <CustomButton
+                        text="Seccion de Usuarios"
+                        href="dashboard"
+                        variant="base"
+                      />
+                    </div>
+                  </div>,
+                  <div>
+                    <div>
+                      <CustomButton
+                        text="Seccion de Administrador"
+                        href="admin"
+                        variant="border"
+                      />
+                    </div>
+                  </div>,
+                ]}
+              />
             </div>
           </div>
         </div>
