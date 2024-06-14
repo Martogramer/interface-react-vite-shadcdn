@@ -4,7 +4,7 @@ import { AppThunk } from "../store/Store";
 
 import { toast } from "react-hot-toast";
 
-import { baseURL } from "../baseUrl";
+import { baseURL } from "../services/baseUrl";
 
 export interface LoginFormData {
   _id?: string;
