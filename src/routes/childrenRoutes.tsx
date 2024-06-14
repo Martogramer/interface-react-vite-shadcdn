@@ -5,6 +5,7 @@ import Dashboard from "@/pages/users/DashboardTablerInfo"
 import {InfoPage} from "@/pages/users/InfoPage"
 import { LoginShad } from "@/pages/users/LoginShad"
 import OffersPage from "@/pages/users/OffersPage"
+//import Payments from "@/pages/users/Payments"
 import PostsPage from "@/pages/users/PostsPage"
 import { RegisterShad } from "@/pages/users/RegisterShad"
 
@@ -33,10 +34,10 @@ export const user = [
         path: 'posts',
         element: <PostsPage/>,
     },
-    {
+    /* {
         path: 'payments',
-        element: <PostsPage/>,
-    },
+        element: <Payments/>,
+    }, */
     {
         path: 'crud',
         element: <DashboardCrud/>,

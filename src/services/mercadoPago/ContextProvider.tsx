@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode } from 'react';
+/* import React, { createContext, ReactNode } from 'react';
 
 // Definición del tipo de contexto
 interface ContextType {
@@ -20,3 +20,4 @@ const InternalProvider: React.FC<InternalProviderProps> = ({ children, context }
 
 export default InternalProvider;
 export { Context };
+ */

@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import classnames from 'classnames'
 import { Wallet } from "@mercadopago/sdk-react";
 import { Context } from "./ContextProvider";
@@ -56,4 +56,4 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default Payment; */

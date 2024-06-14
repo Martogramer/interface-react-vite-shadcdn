@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+/* import React, { useEffect } from "react";
 import { Context } from "./ContextProvider";
 
 const Checkout = ({ onClick }) => {
@@ -98,4 +98,4 @@ const Checkout = ({ onClick }) => {
   );
 };
 
-export default Checkout;
+export default Checkout; */
