@@ -8,7 +8,9 @@ import DropdownMenu from "@/components/_Customs2024/dropdown/dropdownSimple/Drop
 import React from "react";
 import CodeEditor from "../../components/_Customs2024/textareas/CodeEditor";
 import ProfileCard from "@/components/_Customs2024/cards/ProfileCard";
+import PropertyCard from "@/components/_Customs2024/cards/PlacesCard";
 import users from "@/mocks/users";
+import places from "@/mocks/places";
 type ItemType = {
   label: string;
   href?: string;
@@ -30,6 +32,7 @@ const menuItems: ItemType[] = [
 
 const CustomComponents: React.FC = () => {
   const selectedUsers = users.slice(0, 2);
+  const selectedPlaces = places.slice(0, 2);
   return (
     <>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -79,7 +82,19 @@ const CustomComponents: React.FC = () => {
                 />
               ))}
             </div>,
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8"></div>,
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
+              {selectedPlaces.map((place, index) => (
+                <PropertyCard
+                  key={index}
+                  imageUrl={place.imageUrl}
+                  price={place.price}
+                  address={place.address}
+                  parkingSpaces={place.parkingSpaces}
+                  bathrooms={place.bathrooms}
+                  bedrooms={place.bedrooms}
+                />
+              ))}
+            </div>,
           ]}
         />
       </div>
