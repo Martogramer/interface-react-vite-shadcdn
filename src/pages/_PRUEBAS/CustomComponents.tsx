@@ -11,12 +11,32 @@ import ProfileCard from "@/components/_Customs2024/cards/ProfileCard";
 import PropertyCard from "@/components/_Customs2024/cards/PlacesCard";
 import users from "@/mocks/users";
 import places from "@/mocks/places";
+import CheckboxOption from "@/components/_Customs2024/checkboxes/CheckboxOptions";
+import { Divide } from "lucide-react";
 type ItemType = {
   label: string;
   href?: string;
   onClick?: () => void;
   type?: "button" | "link";
 };
+
+const options = [
+  {
+    id: "Option1",
+    name: "John Clapton",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  },
+  {
+    id: "Option2",
+    name: "Peter Mayer",
+    description: "Lorem ipsum dolor sit amet consectetur.",
+  },
+  {
+    id: "Option3",
+    name: "Eric King",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  },
+];
 
 const menuItems: ItemType[] = [
   { label: "View on Storefront", href: "#" },
@@ -40,15 +60,16 @@ const CustomComponents: React.FC = () => {
           columns={2}
           content={[
             <div>
+              <div className="">
+                <DropdownMenu items={menuItems} />
+              </div>
               <div>
                 <CustomButton text="Download Base" href="#" variant="base" />
               </div>
               <div>
                 <ActionButtonGroup />
               </div>
-              <div>
-                <DropdownMenu items={menuItems} />
-              </div>
+              <div></div>
             </div>,
             <div>
               <div>
@@ -97,6 +118,30 @@ const CustomComponents: React.FC = () => {
             </div>,
           ]}
         />
+        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+          <CustomGrid
+            columns={2}
+            content={[
+              <div>
+                <fieldset>
+                  <div className="space-y-2">
+                    {options.map((option) => (
+                      <CheckboxOption
+                        key={option.id}
+                        id={option.id}
+                        name={option.name}
+                        description={option.description}
+                      />
+                    ))}
+                  </div>
+                </fieldset>
+              </div>,
+              <div>
+
+              </div>,
+            ]}
+          />
+        </div>
       </div>
     </>
   );

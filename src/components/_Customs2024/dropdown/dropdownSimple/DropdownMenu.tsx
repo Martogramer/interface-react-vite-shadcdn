@@ -10,7 +10,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed">
+    <div className="">
       <div className="inline-flex items-center overflow-hidden rounded-md border bg-white">
         <a
           href="#"
@@ -24,7 +24,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items }) => {
 
       {isOpen && (
         <div
-          className="absolute end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg"
+          className=" end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg"
           role="menu"
         >
           <div className="p-2">
