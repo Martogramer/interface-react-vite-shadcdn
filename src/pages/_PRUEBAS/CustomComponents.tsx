@@ -7,7 +7,8 @@ import CustomGrid from "@/components/_Customs2024/containers/grid/CustomGrid";
 import DropdownMenu from "@/components/_Customs2024/dropdown/dropdownSimple/DropdownMenu";
 import React from "react";
 import CodeEditor from "../../components/_Customs2024/textareas/CodeEditor";
-import ArticleCard from "@/components/_Customs2024/cards/ProfileCard";
+import ProfileCard from "@/components/_Customs2024/cards/ProfileCard";
+import users from "@/mocks/users";
 type ItemType = {
   label: string;
   href?: string;
@@ -28,6 +29,7 @@ const menuItems: ItemType[] = [
 ];
 
 const CustomComponents: React.FC = () => {
+  const selectedUsers = users.slice(0, 2);
   return (
     <>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -65,18 +67,19 @@ const CustomComponents: React.FC = () => {
                 />
               </div>
             </div>,
-            <div>
-              
-              <ArticleCard
-                title="Building a SaaS product as a software developer"
-                author="John Doe"
-                imageUrl="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-                description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. At velit illum provident a, ipsa maiores deleniti consectetur nobis et eaque."
-                publishedDate="31st June, 2021"
-                readingTime="3 minute"
-                href="#"
-              />
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
+              {selectedUsers.map((user) => (
+                <ProfileCard
+                  key={user.id}
+                  title={`Article by ${user.username}`}
+                  author={user.username}
+                  date={new Date(user.createdAt).toLocaleDateString()}
+                  readingTime="3 minutes"
+                  avatar={user.avatar}
+                />
+              ))}
             </div>,
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8"></div>,
           ]}
         />
       </div>
