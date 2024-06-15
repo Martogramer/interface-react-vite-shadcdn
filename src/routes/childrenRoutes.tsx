@@ -1,63 +1,71 @@
-import CustomComponents from "@/pages/_PRUEBAS/CustomComponents"
-import TablerUsers from "@/pages/admin/TablerUsers"
-import DashboardCrud from "@/pages/users/DashboardCrud"
-import Dashboard from "@/pages/users/DashboardTablerInfo"
-import {InfoPage} from "@/pages/users/InfoPage"
-import { LoginShad } from "@/pages/users/LoginShad"
-import OffersPage from "@/pages/users/OffersPage"
+import CustomComponents from "@/pages/_PRUEBAS/CustomComponents";
+import TablerUsers from "@/pages/admin/TablerUsers";
+import DashboardCrud from "@/pages/users/DashboardCrud";
+import Dashboard from "@/pages/users/DashboardTablerInfo";
+import { ProfilePage } from "@/pages/users/ProfilePage";
+import { LoginShad } from "@/pages/users/LoginShad";
+import OffersPage from "@/pages/users/OffersPage";
 //import Payments from "@/pages/users/Payments"
-import PostsPage from "@/pages/users/PostsPage"
-import { RegisterShad } from "@/pages/users/RegisterShad"
+import PostsPage from "@/pages/users/PostsPage";
+import { RegisterShad } from "@/pages/users/RegisterShad";
 
 export const user = [
-    {
-        path: '',
-        element: <OffersPage/>,
+  {
+    path: "",
+    element: <OffersPage />,
+  },
+  {
+    path: "perfil",
+    element: <ProfilePage />,
+  },
+  {
+    path: "ventas",
+    element: <Dashboard />,
+  },
+  {
+    path: "clientes",
+    element: <TablerUsers />,
+  },
+  {
+      path: "payments",
+      element: <PostsPage />,
     },
     {
-        path: 'login',
-        element: <LoginShad/>,
+      path: "productos",
+      element: <DashboardCrud />,
     },
     {
-        path: 'signup',
-        element: <RegisterShad/>,
-    },
-    {
-        path: 'info',
-        element: <InfoPage/>,
-    },
-    {
-        path: 'dashboard',
-        element: <Dashboard/>,
-    },
-    {
-        path: 'posts',
-        element: <PostsPage/>,
-    },
-    /* {
+    path: "login",
+    element: <LoginShad />,
+  },
+  {
+    path: "signup",
+    element: <RegisterShad />,
+  },
+  /* {
         path: 'payments',
         element: <Payments/>,
     }, */
     {
-        path: 'crud',
-        element: <DashboardCrud/>,
+      path: "foro",
+      element: <CustomComponents />,
     },
     {
-        path: 'tableruser',
-        element: <TablerUsers/>,
+      path: "nosotros",
+      element: <CustomComponents />,
     },
     {
-        path: '_PRUEBAS',
-        element: <CustomComponents/>,
-    }
-]
+      path: "_PRUEBAS",
+      element: <CustomComponents />,
+    },
+];
 export const admin = [
-    {
-        path: '',
-        element: <p>Ruta children admin uno</p>,
-    },
-    {
-        path: 'dos',
-        element: <p>Ruta children admin dos</p>,
-    }
-]
+  {
+    path: "",
+    element: <p>Ruta children admin uno</p>,
+  },
+  {
+    path: "dos",
+    element: <p>Ruta children admin dos</p>,
+  },
+];

@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         )
     },
     {
-        path: '/dashboard',
+        path: '/usuarios',
         element: (
             <LayoutUser />
         ),

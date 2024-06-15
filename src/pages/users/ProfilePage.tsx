@@ -13,7 +13,7 @@ interface LoginFormData {
   avatar: {};
 }
 
-export const InfoPage: React.FC = () => {
+export const ProfilePage: React.FC = () => {
   const { user, logout, profileData, isAuthenticated } = useAuthStore();
   const [data, setData] = useState<LoginFormData>({
     username: user?.username || "",
@@ -176,4 +176,4 @@ export const InfoPage: React.FC = () => {
   );
 };
 
-export default InfoPage;
+export default ProfilePage;

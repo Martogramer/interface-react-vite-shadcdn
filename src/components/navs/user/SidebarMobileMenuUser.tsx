@@ -29,35 +29,38 @@ const menuItems: Item[] = [
     href: "",
   },
   {
-    label: "dashboard",
+    label: "Herramientas",
     subItems: [
-      { label: "Info", href: "info" },
-      { label: "Posts", href: "posts" },
-      { label: "Pagos", href: "payments" },
+      { label: "Perfil de Usuario", href: "perfil" },
+      { label: "Panel de Ventas", href: "ventas" },
+      { label: "Panel de Clientes", href: "clientes" },
+      { label: "Gestión de Pagos", href: "payments" },
+      { label: "CRUD de Productos", href: "productos" },
+      { label: "Sección Foro", href: "payments" },
     ],
-  },
-  {
-    label: "Nosotros",
-    href: "tableruser",
-  },
-  {
-    label: "Dashboard",
-    href: "dashboard",
-  },
-  {
-    label: "Pruebas",
-    href: "_PRUEBAS",
   },
   {
     label: "Autenticación",
     subItems: [
       { label: "Registrarse", href: "signup" },
-      { label: "Loguearse", href: "login" }
+      { label: "Loguearse", href: "login" },
     ],
+  },
+  {
+    label: "Foro",
+    href: "foro",
+  },
+  {
+    label: "About",
+    href: "nosotros",
+  },
+  {
+    label: "Pruebas",
+    href: "_PRUEBAS",
   },
 ];
 // SidebarMobileMenu component
-const SidebarMobileMenu: React.FC = () => {
+const SidebarMobileMenu: React.FC = ({}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage mobile menu visibility
   const menuRef = useRef<HTMLDivElement>(null);
 
