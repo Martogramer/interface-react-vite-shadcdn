@@ -34,7 +34,7 @@ const HomeSection: React.FC = () => {
                       <div>
                         <CustomButton
                           text="Seccion de Usuarios"
-                          href="dashboard"
+                          href="usuarios"
                           variant="base"
                         />
                       </div>

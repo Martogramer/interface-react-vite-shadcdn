@@ -7,6 +7,7 @@ import CustomGrid from "@/components/_Customs2024/containers/grid/CustomGrid";
 import DropdownMenu from "@/components/_Customs2024/dropdown/dropdownSimple/DropdownMenu";
 import React from "react";
 import CodeEditor from "../../components/_Customs2024/textareas/CodeEditor";
+import ArticleCard from "@/components/_Customs2024/cards/ProfileCard";
 type ItemType = {
   label: string;
   href?: string;
@@ -40,11 +41,11 @@ const CustomComponents: React.FC = () => {
               <div>
                 <ActionButtonGroup />
               </div>
-            </div>,
-            <div>
               <div>
                 <DropdownMenu items={menuItems} />
               </div>
+            </div>,
+            <div>
               <div>
                 <CodeEditor
                   initialCode={`   <div className="code-editor">
@@ -63,6 +64,18 @@ const CustomComponents: React.FC = () => {
                   language="javascript"
                 />
               </div>
+            </div>,
+            <div>
+              
+              <ArticleCard
+                title="Building a SaaS product as a software developer"
+                author="John Doe"
+                imageUrl="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+                description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. At velit illum provident a, ipsa maiores deleniti consectetur nobis et eaque."
+                publishedDate="31st June, 2021"
+                readingTime="3 minute"
+                href="#"
+              />
             </div>,
           ]}
         />
