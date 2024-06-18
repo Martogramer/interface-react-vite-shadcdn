@@ -12,7 +12,8 @@ import PropertyCard from "@/components/_Customs2024/cards/PlacesCard";
 import users from "@/mocks/users";
 import places from "@/mocks/places";
 import CheckboxOption from "@/components/_Customs2024/checkboxes/CheckboxOptions";
-import { Divide } from "lucide-react";
+import PromoSection from "@/components/sections/PromoSection";
+import promos from "@/mocks/promos";
 type ItemType = {
   label: string;
   href?: string;
@@ -53,6 +54,7 @@ const menuItems: ItemType[] = [
 const CustomComponents: React.FC = () => {
   const selectedUsers = users.slice(0, 2);
   const selectedPlaces = places.slice(0, 2);
+  const selectedPromos = promos.slice(0, 1);
   return (
     <>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -74,19 +76,20 @@ const CustomComponents: React.FC = () => {
             <div>
               <div>
                 <CodeEditor
-                  initialCode={`   <div className="code-editor">
-      <textarea
-        value={code}
-        onChange={handleCodeChange}
-        className="w-full h-40 p-2 border rounded"
-        placeholder="Escribe tu código aquí..."
-      ></textarea>
-      <div className="mt-4">
-        <SyntaxHighlighter language={language} style={okaidia}>
-          {code}
-        </SyntaxHighlighter>
-      </div>
-    </div>`}
+                  initialCode={`  
+                     <div className="code-editor">
+                        <textarea
+                          value={code}
+                          onChange={handleCodeChange}
+                          className="w-full h-40 p-2 border rounded"
+                          placeholder="Escribe tu código aquí..."
+                        ></textarea>
+                        <div className="mt-4">
+                          <SyntaxHighlighter language={language} style={okaidia}>
+                            {code}
+                          </SyntaxHighlighter>
+                        </div>
+                      </div>`}
                   language="javascript"
                 />
               </div>
@@ -137,8 +140,24 @@ const CustomComponents: React.FC = () => {
                 </fieldset>
               </div>,
               <div>
-
+                {selectedPromos.map((promo, index) => (
+                  <PromoSection
+                    key={index}
+                    imageUrl={promo.imageUrl}
+                    altText={promo.altText}
+                    subtitle={promo.subtitle}
+                    title={promo.title}
+                    offerDetails={promo.offerDetails}
+                    link={promo.link}
+                    linkText={promo.linkText}
+                    disclaimer={promo.disclaimer}
+                  />
+                ))}
               </div>,
+              <div>
+                
+              </div>,
+              <div></div>,
             ]}
           />
         </div>
