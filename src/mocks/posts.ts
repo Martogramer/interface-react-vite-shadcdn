@@ -1,55 +1,66 @@
 // mockData.ts
+interface Post {
+  id: number;
+  title: string;
+  date: string;
+  imageUrl: string;
+  content: string;
+  body?: string;
+}
 
-export const mockPosts = [
-    {
-      id: 1,
-      title: "Post 1",
-      body: "This dsad dasdasis the body of post 1."
-    },
-    {
-      id: 2,
-      title: "Post 2",
-      body: "This is the body of post 2."
-    },
-    {
-      id: 3,
-      title: "Post 3",
-      body: "This is the body of post 3."
-    },
-    {
-      id: 4,
-      title: "Post 4",
-      body: "This is the body of post 4."
-    },
-    {
-      id: 5,
-      title: "Post 5",
-      body: "This is the body of post 5."
-    },
-    {
-      id: 6,
-      title: "Post 6",
-      body: "This is the body of post 6."
-    },
-    {
-      id: 7,
-      title: "Post 7",
-      body: "This is the body of post 7."
-    },
-    {
-      id: 8,
-      title: "Post 8",
-      body: "This is the body of post 8."
-    },
-    {
-      id: 9,
-      title: "Post 9",
-      body: "This is the body of post 9."
-    },
-    {
-      id: 10,
-      title: "Post 10",
-      body: "This is the body of post 10."
-    }
-  ];
-  
+export const mockPosts: Post[] = [
+  {
+    id: 1,
+    title: "Finding the right guitar for your style - 5 tips",
+    date: "2022-10-10",
+    imageUrl:
+      "https://images.unsplash.com/photo-1609557927087-f9cf8e88de18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos. Molestias explicabo corporis voluptatem?",
+  },
+  {
+    id: 1,
+    title: "Finding the right guitar for your style - 12 tips",
+    date: "2022-10-10",
+    imageUrl:
+      "https://images.unsplash.com/photo-1609557927087-f9cf8e88de18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos. Molestias explicabo corporis voluptatem?",
+  },
+  {
+    id: 1,
+    title: "Finding the right guitar for your style - 3 tips",
+    date: "2022-10-10",
+    imageUrl:
+      "https://images.unsplash.com/photo-1609557927087-f9cf8e88de18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos. Molestias explicabo corporis voluptatem?",
+  },
+  {
+    id: 1,
+    title: "Finding the right guitar for your style - 1 tips",
+    date: "2022-10-10",
+    imageUrl:
+      "https://images.unsplash.com/photo-1609557927087-f9cf8e88de18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos. Molestias explicabo corporis voluptatem?",
+  },
+  {
+    id: 1,
+    title: "Finding the right guitar for your style - 4 tips",
+    date: "2022-10-10",
+    imageUrl:
+      "https://images.unsplash.com/photo-1609557927087-f9cf8e88de18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos. Molestias explicabo corporis voluptatem?",
+  },
+  {
+    id: 1,
+    title: "Finding the right guitar for your style - 5 tips",
+    date: "2022-10-10",
+    imageUrl:
+      "https://images.unsplash.com/photo-1609557927087-f9cf8e88de18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos. Molestias explicabo corporis voluptatem?",
+  },
+];

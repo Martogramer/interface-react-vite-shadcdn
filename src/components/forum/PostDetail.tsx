@@ -5,24 +5,37 @@ import { mockPosts } from '@/mocks/posts';
 interface Post {
   id: number;
   title: string;
-  body: string;
+  date: string;
+  imageUrl: string;
+  content: string;
+  body?: string;
 }
 
 const PostDetail: React.FC = () => {
-  const { postId } = useParams<{ postId: string }>();
+  const { postId } = useParams<{ postId?: string }>();
   const [post, setPost] = useState<Post | null>(null);
 
   useEffect(() => {
-    const post = mockPosts.find(p => p.id );
-    setPost(post || null);
+    if (postId) {
+      const selectedPost = mockPosts.find(p => p.id === parseInt(postId));
+      if (selectedPost) {
+        setPost(selectedPost);
+      } else {
+        setPost(null);
+      }
+    } else {
+      setPost(null); // Manejo de caso donde no hay postId
+    }
   }, [postId]);
+
 
   if (!post) return <div>Loading...</div>;
 
   return (
     <div className="p-4 border rounded shadow-sm">
       <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
-      <p>{post.body}</p>
+      <p className="text-gray-700 leading-relaxed">{post.body}</p>
+      <img src={post.imageUrl} alt={post.title} className="mb-4 rounded-lg shadow-md" />
     </div>
   );
 };

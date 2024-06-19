@@ -1,63 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import PostCard from './PostCard';
-import Pagination from './Pagination';
-import { mockPosts } from '@/mocks/posts';
+import React, { useState } from "react";
+import PostCard from "./PostCard";
+import { mockPosts } from "@/mocks/posts";
+import { Button } from '@/components/ui/button';
 
-interface Post {
-  id: number;
-  title: string;
-  body: string;
-}
+const POSTS_PER_PAGE = 2;
 
 const PostList: React.FC = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [postsPerPage] = useState<number>(5);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    setPosts(mockPosts);
-  }, []);
-
-  const deletePost = (id: number) => {
-    setPosts(mockPosts.filter(post => post.id !== id));
-  };
-
-  const selectPost = (post: Post) => {
-    console.log(post)
-  };
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const indexOfLastPost = currentPage * POSTS_PER_PAGE;
+  const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE;
+  const currentPosts = mockPosts.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
   return (
     <div className="p-4">
-      {currentPosts.map((post) => (
-        <div key={post.id} className="mb-4 p-4 border rounded shadow-sm">
-          <PostCard post={post} />
-          <div className="flex space-x-2 mt-2">
-            <button
-              onClick={() => deletePost(post.id)}
-              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700"
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 lg:grid-cols-2">
+        {currentPosts.map((post) => (
+          <PostCard key={post.id} {...post} />
+        ))}
+      </div>
+
+      <div className="mt-4 flex justify-center space-x-2">
+        {Array.from({ length: Math.ceil(mockPosts.length / POSTS_PER_PAGE) }).map(
+          (_, index) => (
+            <Button
+              key={index}
+              onClick={() => paginate(index + 1)}
+              className={`px-4 py-2 border rounded ${
+                currentPage === index + 1 ? "bg-gray-300" : "bg-white"
+              }`}
             >
-              Delete
-            </button>
-            <button
-              onClick={() => selectPost(post)}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-            >
-              View
-            </button>
-          </div>
-        </div>
-      ))}
-      <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={posts.length}
-        paginate={paginate}
-      />
+              {index + 1}
+            </Button>
+          )
+        )}
+      </div>
     </div>
   );
 };
