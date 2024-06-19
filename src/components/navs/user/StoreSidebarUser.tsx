@@ -20,6 +20,78 @@ import {
 } from "@/components/ui/tooltip";
 import Menu  from "../Menu";
 import { Button } from "../../ui/button";
+const sidebarData = [
+  {
+    to: "",
+    icon: <Home className="h-5 w-5" />,
+    label: "Homepage",
+    ariaLabel: "Homepage",
+    tooltip: "Homepage",
+  },
+  {
+    to: "perfil",
+    icon: <Users2 className="h-5 w-5" />,
+    label: "Perfil",
+    ariaLabel: "Perfil",
+    tooltip: "Perfil",
+  },
+  {
+    to: "ventas",
+    icon: <ShoppingCart className="h-5 w-5" />,
+    label: "Ventas",
+    ariaLabel: "Ventas",
+    tooltip: "Ventas",
+  },
+  {
+    to: "clientes",
+    icon: <Package className="h-5 w-5" />,
+    label: "Clientes",
+    ariaLabel: "Clientes",
+    tooltip: "Clientes",
+  },
+  {
+    to: "payments",
+    icon: <Bot className="h-5 w-5" />,
+    label: "Payments",
+    ariaLabel: "Payments",
+    tooltip: "Payments",
+  },
+  {
+    to: "productos",
+    icon: <Code2 className="h-5 w-5" />,
+    label: "Productos",
+    ariaLabel: "Productos",
+    tooltip: "Productos",
+  },
+  {
+    to: "login",
+    icon: <Package2 className="h-4 w-4 transition-all group-hover:scale-110" />,
+    label: "Login",
+    ariaLabel: "Login",
+    tooltip: "Login",
+  },
+  {
+    to: "signup",
+    icon: <LineChart className="h-5 w-5" />,
+    label: "Signup",
+    ariaLabel: "Signup",
+    tooltip: "Signup",
+  },
+  {
+    to: "foro",
+    icon: <LineChart className="h-5 w-5" />,
+    label: "Foro",
+    ariaLabel: "Foro",
+    tooltip: "Foro",
+  },
+  {
+    to: "nosotros",
+    icon: <LineChart className="h-5 w-5" />,
+    label: "Nosotros",
+    ariaLabel: "Nosotros",
+    tooltip: "Nosotros",
+  },
+];
 
 const StoreSidebar: React.FC = () => {
   return (
@@ -37,114 +109,22 @@ const StoreSidebar: React.FC = () => {
             <AvatarFallback>Store</AvatarFallback>
           </Avatar>
 
-          <NavLink
-            to=""
-            className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
-          >
-            <Home className="h-5 w-5" />
-            <span className="sr-only">Store</span>
-          </NavLink>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <NavLink
-                  to="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                >
-                  <Users2 className="h-5 w-5" />
-                  <span className="sr-only">Homepage</span>
-                </NavLink>
-              </TooltipTrigger>
-              <TooltipContent side="right">Homepage</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <NavLink
-                  to="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                >
-                  <ShoppingCart className="h-5 w-5" />
-                  <span className="sr-only">Nosotros</span>
-                </NavLink>
-              </TooltipTrigger>
-              <TooltipContent side="right">Nosotros</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <NavLink
-                  to="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                >
-                  <Package className="h-5 w-5" />
-                  <span className="sr-only">Info</span>
-                </NavLink>
-              </TooltipTrigger>
-              <TooltipContent side="right">Info</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <NavLink
-                  to="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                >
-                  <Bot className="size-5" />
-                </NavLink>
-              </TooltipTrigger>
-              <TooltipContent side="right" sideOffset={5}>
-                Productos
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <NavLink
-                  to={"#"}
-                  className="rounded-lg"
-                  aria-label="API"
-                >
-                  <Code2 className="size-5" />
-                </NavLink>
-              </TooltipTrigger>
-              <TooltipContent side="right" sideOffset={5}>
-                Contacto
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <NavLink
-                  to="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                >
-                  <Package2 className="h-4 w-4 transition-all group-hover:scale-110" />
-                  <span className="sr-only">Customers</span>
-                </NavLink>
-              </TooltipTrigger>
-              <TooltipContent side="right">Customers</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <NavLink
-                  to="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                >
-                  <LineChart className="h-5 w-5" />
-                  <span className="sr-only">Analytics</span>
-                </NavLink>
-              </TooltipTrigger>
-              <TooltipContent side="right">Analytics</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          {sidebarData.map((item, index) => (
+            <TooltipProvider key={index}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <NavLink
+                    to={item.to}
+                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                    aria-label={item.ariaLabel}
+                  >
+                    {item.icon}
+                  </NavLink>
+                </TooltipTrigger>
+                <TooltipContent side="right">{item.tooltip}</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          ))}
         </nav>
         <nav className="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
           <Menu />
