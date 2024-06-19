@@ -1,0 +1,7 @@
+.image-rendering-auto {
+    image-rendering: auto;
+  }
+  
+  .image-rendering-pixelated {
+    image-rendering: pixelated;
+  }

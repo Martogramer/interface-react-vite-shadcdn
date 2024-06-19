@@ -5,9 +5,9 @@ import Dashboard from "@/pages/users/DashboardTablerInfo";
 import { ProfilePage } from "@/pages/users/ProfilePage";
 import { LoginShad } from "@/pages/users/LoginShad";
 import OffersPage from "@/pages/users/OffersPage";
-//import Payments from "@/pages/users/Payments"
-import PostsPage from "@/pages/users/PostsPage";
+import Forum from "@/pages/users/Forum";
 import { RegisterShad } from "@/pages/users/RegisterShad";
+import Payments from "@/pages/users/Payments";
 
 export const user = [
   {
@@ -27,14 +27,14 @@ export const user = [
     element: <TablerUsers />,
   },
   {
-      path: "payments",
-      element: <PostsPage />,
-    },
-    {
-      path: "productos",
-      element: <DashboardCrud />,
-    },
-    {
+    path: "payments",
+    element: <Payments />,
+  },
+  {
+    path: "productos",
+    element: <DashboardCrud />,
+  },
+  {
     path: "login",
     element: <LoginShad />,
   },
@@ -42,22 +42,22 @@ export const user = [
     path: "signup",
     element: <RegisterShad />,
   },
-  /* {
-        path: 'payments',
-        element: <Payments/>,
-    }, */
-    {
-      path: "foro",
-      element: <CustomComponents />,
-    },
-    {
-      path: "nosotros",
-      element: <CustomComponents />,
-    },
-    {
-      path: "_PRUEBAS",
-      element: <CustomComponents />,
-    },
+  {
+    path: "foro",
+    element: <Forum />,
+  },
+  {
+    path: "nosotros",
+    element: <CustomComponents />,
+  },
+  {
+    path: "_PRUEBAS",
+    element: <CustomComponents />,
+  },
+  {
+    path: "_PRUEBAS",
+    element: <CustomComponents />,
+  },
 ];
 export const admin = [
   {
