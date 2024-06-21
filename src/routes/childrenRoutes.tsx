@@ -54,10 +54,6 @@ export const user = [
     path: "_PRUEBAS",
     element: <CustomComponents />,
   },
-  {
-    path: "_PRUEBAS",
-    element: <CustomComponents />,
-  },
 ];
 export const admin = [
   {
@@ -65,7 +61,11 @@ export const admin = [
     element: <p>Ruta children admin uno</p>,
   },
   {
-    path: "dos",
+    path: "_PRUEBAS",
+    element: <CustomComponents />,
+  },
+  {
+    path: "three",
     element: <p>Ruta children admin dos</p>,
   },
 ];

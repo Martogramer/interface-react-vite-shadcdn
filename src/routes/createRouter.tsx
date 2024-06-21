@@ -5,7 +5,7 @@ import { user } from "./childrenRoutes";
 import LayoutUser from "@/layouts/LayoutUser";
 import HomePage from "@/pages";
 import NotPass from "@/components/errorPage/NotPass";
-import CustomComponents from "@/pages/_PRUEBAS/CustomComponents";
+import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
 
 export const router = createBrowserRouter([
     {
@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
 		],
 	},
     {
-		path: '/_PRUEBAS',
-		element: <CustomComponents />,
+		path: '/admin',
+		element: <LayoutUserAdmin />,
 	}
 ])
