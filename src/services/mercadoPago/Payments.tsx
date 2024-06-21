@@ -1,4 +1,4 @@
-/* import React from "react";
+import React from "react";
 import classnames from 'classnames'
 import { Wallet } from "@mercadopago/sdk-react";
 import { Context } from "./ContextProvider";
@@ -14,7 +14,7 @@ const Payment = () => {
     setIsReady(true);
   }
 
-  const renderCheckoutButton = (preferenceId) => {
+  const renderCheckoutButton = (preferenceId: string) => {
     if (!preferenceId) return null;
 
     return (
@@ -56,4 +56,4 @@ const Payment = () => {
   );
 };
 
-export default Payment; */
+export default Payment;

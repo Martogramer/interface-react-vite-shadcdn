@@ -1,24 +1,29 @@
-/* import React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Context } from "./ContextProvider";
+import classnames from 'classnames';
 
-const Checkout = ({ onClick }) => {
+interface CheckoutProps {
+  onClick: () => void;
+}
+
+const Checkout: React.FC<CheckoutProps> = ({ onClick }) => {
   const [isVisible, setIsVisible] = React.useState(true);
   const { preferenceId, isLoading: disabled, orderData, setOrderData } = React.useContext(Context);
+
   const shoppingCartClass = classnames('shopping-cart dark', {
     'shopping-cart--hidden': !isVisible,
-  })
+  });
 
   useEffect(() => {
     if (preferenceId) setIsVisible(false);
-  }, [preferenceId])
+  }, [preferenceId]);
 
-
-  const updatePrice = (event) => {
-    const quantity = event.target.value;
-    const amount = parseInt(orderData.price) * parseInt(quantity);
+  const updatePrice = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const quantity = parseInt(event.target.value);
+    const amount = orderData.price * quantity;
     setOrderData({ ...orderData, quantity, amount });
-  }
-  
+  };
+
   return (
     <section className={shoppingCartClass}>
       <div className="container" id="container">
@@ -60,7 +65,7 @@ const Checkout = ({ onClick }) => {
                             <b>Quantity</b>
                           </label>
                           <input
-                           onChange={updatePrice}
+                            onChange={updatePrice}
                             type="number"
                             id="quantity"
                             value={orderData.quantity}
@@ -98,4 +103,4 @@ const Checkout = ({ onClick }) => {
   );
 };
 
-export default Checkout; */
+export default Checkout;
