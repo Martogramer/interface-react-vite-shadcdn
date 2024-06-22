@@ -8,6 +8,8 @@ import OffersPage from "@/pages/users/OffersPage";
 import Forum from "@/pages/users/Forum";
 import { RegisterShad } from "@/pages/users/RegisterShad";
 import Payments from "@/pages/users/Payments";
+import ThreeContainer from "@/pages/_PRUEBAS/three/ThreeContainer";
+import ThreeScene from "@/pages/_PRUEBAS/three/ThreeScene";
 
 export const user = [
   {
@@ -66,6 +68,10 @@ export const admin = [
   },
   {
     path: "three",
-    element: <p>Ruta children admin dos</p>,
+    element: (
+      <ThreeContainer>
+        <ThreeScene />
+      </ThreeContainer>
+    ),
   },
 ];

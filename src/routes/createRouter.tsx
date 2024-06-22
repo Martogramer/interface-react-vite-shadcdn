@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import LayoutStore from "@/layouts/LayoutStore";
 import StoreHomePage from "@/pages/store/home/Index";
-import { user } from "./childrenRoutes";
+import { admin, user } from "./childrenRoutes";
 import LayoutUser from "@/layouts/LayoutUser";
 import HomePage from "@/pages";
 import NotPass from "@/components/errorPage/NotPass";
@@ -45,5 +45,6 @@ export const router = createBrowserRouter([
     {
 		path: '/admin',
 		element: <LayoutUserAdmin />,
+        children: admin
 	}
 ])
