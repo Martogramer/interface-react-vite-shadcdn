@@ -10,9 +10,9 @@ import { RegisterShad } from "@/pages/users/RegisterShad";
 import Payments from "@/pages/users/Payments";
 import ThreeContainer from "@/pages/_PRUEBAS/three/ThreeContainer";
 import ThreeScene from "@/pages/_PRUEBAS/three/ThreeScene";
-import SceneMultiple from "@/pages/_PRUEBAS/three/SceneMultiple";
-import * as THREE from 'three';
-
+import SceneMultipleUltimate from "@/pages/_PRUEBAS/three/SceneMultipleUltimate";
+import { useState } from "react";
+const [modelPath] = useState<string>('/pages/_PRUEBAS/three/models/scene.gltf');
 export const user = [
   {
     path: "",
@@ -61,37 +61,8 @@ export const user = [
 ];
 export const admin = [
   {
-    path: "",
-    element: <p>Ruta children admin uno</p>,
-  },
-  {
     path: "_PRUEBAS",
     element: <CustomComponents />,
-  },
-  {
-    path: "escenaMultiple",
-    element: (
-      <SceneMultiple
-        modelPath="../_PRUEBAS/three/models/scene.gltf"
-        cameraType="perspective"
-        cameraOptions={{
-          fov: 75,
-          near: 0.1,
-          far: 1000,
-        }}
-        lighting={{
-          ambientLight: {
-            color: 0xffffff,
-            intensity: 0.5,
-          },
-          pointLight: {
-            color: 0xffffff,
-            intensity: 1,
-            position: new THREE.Vector3(5, 5, 5),
-          },
-        }}
-      />
-    ),
   },
   {
     path: "three",
@@ -100,5 +71,9 @@ export const admin = [
         <ThreeScene />
       </ThreeContainer>
     ),
+  },
+  {
+    path: "escena-mejorada",
+    element: <SceneMultipleUltimate modelPath={modelPath} />
   },
 ];
