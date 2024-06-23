@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three-stdlib';
+import { GLTFLoader } from 'three-stdlib';
 
 const ThreeScene: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -29,20 +30,25 @@ const ThreeScene: React.FC = () => {
     pointLight.position.set(5, 5, 5);
     scene.add(pointLight);
 
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    const loader = new GLTFLoader();
+    loader.load(
+      './models/terra.glb', // Ruta al archivo .glb
+      (gltf) => {
+        const model = gltf.scene;
+        scene.add(model);
+        animate(); // Iniciar la animación después de cargar el modelo
+      },
+      undefined,
+      (error) => {
+        console.error(error);
+      }
+    );
 
     const animate = () => {
       requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
       controls.update();
       renderer.render(scene, camera);
     };
-
-    animate();
 
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
