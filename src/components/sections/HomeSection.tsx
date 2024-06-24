@@ -1,7 +1,6 @@
 import React from "react";
 import CustomGrid from "../_Customs2024/containers/grid/CustomGrid";
 import CustomButton from "../_Customs2024/buttons/CustomButton";
-import ThreeScene from "@/pages/_PRUEBAS/three/ThreeScene";
 
 const HomeSection: React.FC = () => {
   return (

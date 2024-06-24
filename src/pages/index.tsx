@@ -1,11 +1,12 @@
-import { fetchUsers } from "@/services/handlers/users/usersAction";
-import React, { useEffect } from "react";
-import HomeSection from "@/components/sections/HomeSection";
-const HomePage: React.FC = () => {
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
+import React from "react";
+import HomeSection from "@/components/sections/HomeSection";
+
+/* --- 
+  --- Despues del segundo desplegue se deberìa implementar Analytics de Vercel.
+ --- */
+
+const HomePage: React.FC = () => {
   return (
     <>
       <HomeSection />
