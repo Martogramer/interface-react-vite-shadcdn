@@ -65,7 +65,7 @@ export const admin = [
     element: <CustomComponents />,
   },
   {
-    path: "three",
+    path: "",
     element: (
       <ThreeContainer>
         <ThreeScene />

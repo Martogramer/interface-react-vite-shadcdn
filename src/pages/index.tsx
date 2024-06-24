@@ -5,7 +5,6 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
-  
 
   return (
     <>

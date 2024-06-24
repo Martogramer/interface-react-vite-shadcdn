@@ -1,6 +1,7 @@
 import React from "react";
 import CustomGrid from "../_Customs2024/containers/grid/CustomGrid";
 import CustomButton from "../_Customs2024/buttons/CustomButton";
+import ThreeScene from "@/pages/_PRUEBAS/three/ThreeScene";
 
 const HomeSection: React.FC = () => {
   return (
@@ -22,7 +23,6 @@ const HomeSection: React.FC = () => {
               <h1 className="text-3xl font-sans text-rose-100 sm:text-5xl">
                 Template Frontend
                 <strong className="block font-serif text-rose-600">
-                  {" "}
                   React + Typescript.{" "}
                 </strong>
               </h1>
