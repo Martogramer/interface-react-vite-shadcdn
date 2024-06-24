@@ -16,7 +16,11 @@ import * as THREE from "three";
 export const user = [
   {
     path: "",
-    element: <OffersPage />,
+    element: (
+      <ThreeContainer>
+        <ThreeScene />
+      </ThreeContainer>
+    ),
   },
   {
     path: "perfil",
@@ -52,7 +56,7 @@ export const user = [
   },
   {
     path: "nosotros",
-    element: <CustomComponents />,
+    element: <OffersPage />,
   },
   {
     path: "_PRUEBAS",
