@@ -12,6 +12,9 @@ import ThreeContainer from "@/pages/_PRUEBAS/three/ThreeContainer";
 import ThreeScene from "@/pages/_PRUEBAS/three/ThreeScene";
 import SceneMultileUltimate from "@/pages/_PRUEBAS/three/SceneMultipleUltimate";
 import * as THREE from "three";
+import ModelViewer from "@/pages/_PRUEBAS/three/ModelViewer";
+import ErrorBoundary from "@/components/errorPage/ErrorBoundary";
+import  MeshModel from "@/pages/_PRUEBAS/three/MeshModel";
 
 export const user = [
   {
@@ -59,8 +62,16 @@ export const user = [
     element: <OffersPage />,
   },
   {
-    path: "_PRUEBAS",
+    path: "components",
     element: <CustomComponents />,
+  },
+  {
+    path: "_PRUEBAS",
+    element: (
+      <ErrorBoundary>
+        <MeshModel />
+      </ErrorBoundary>
+    ),
   },
 ];
 export const admin = [

@@ -1,9 +1,10 @@
 import React from "react";
 import CustomGrid from "../_Customs2024/containers/grid/CustomGrid";
 import CustomButton from "../_Customs2024/buttons/CustomButton";
-
-//const backgroundLeonardoAI = "https://cdn.leonardo.ai/users/15e3cba2-5058-43d9-bee5-cec3b95532ca/generations/adedeb3a-a34c-4ac9-a9a7-f68112a56372/Default_Landing_page_brand_branding_Startap_web_innovation_2.jpg"
-const backgroundRipple = ""
+import backgroundCld from "../../../public/hollowed-boxes.svg"
+const backgroundLeonardoAI = "https://cdn.leonardo.ai/users/15e3cba2-5058-43d9-bee5-cec3b95532ca/generations/adedeb3a-a34c-4ac9-a9a7-f68112a56372/Default_Landing_page_brand_branding_Startap_web_innovation_2.jpg"
+const backgroundRipple = "https://loading.io/asset/745431"
+//const backgroundRipple = "https://cdn.leonardo.ai/users/15e3cba2-5058-43d9-bee5-cec3b95532ca/generations/adedeb3a-a34c-4ac9-a9a7-f68112a56372/Default_Landing_page_brand_branding_Startap_web_innovation_3.jpg?w=512"
 
 const HomeSection: React.FC = () => {
   return (
@@ -12,8 +13,7 @@ const HomeSection: React.FC = () => {
         <section
           className="relative flex items-center bg-cover  bg-center bg-no-repeat min-h-screen"
           style={{
-            backgroundImage:
-              'url("https://loading.io/asset/745431")',
+            backgroundImage: `url(${backgroundRipple})`,
           }}
         >
           <div

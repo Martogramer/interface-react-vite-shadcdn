@@ -26,6 +26,7 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@react-three/drei": "^9.107.0",
     "@react-three/fiber": "^8.16.8",
+    "@react-three/gltfjsx": "^4.3.4",
     "@reduxjs/toolkit": "1.9.7",
     "@types/react-router-dom": "^5.3.3",
     "@types/three": "^0.165.0",
