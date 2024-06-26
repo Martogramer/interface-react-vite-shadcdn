@@ -1,5 +1,6 @@
 import NotificationBar from "@/components/_Customs2024/alerts/NotificationBar";
 import React from "react";
+
 interface Props {
   children: React.ReactNode;
 }

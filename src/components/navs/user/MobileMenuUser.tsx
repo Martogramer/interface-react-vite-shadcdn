@@ -22,6 +22,7 @@ interface SidebarProps {
   };
 }
 
+
 const MobileMenu: React.FC<SidebarProps> = ({ items, user }) => {
   return (
     <div className="flex h-screen flex-col justify-between border-e bg-white">
