@@ -5,6 +5,7 @@ import axios from "axios";
 import { Card } from "@/components/ui/card";
 import useAuthStore from "@/services/authState";
 import { fetchProfileData } from "@/services/handlers/profile/profileActions";
+import ImageContainer from "@/components/_Customs2024/images/LazyImage";
 
 interface LoginFormData {
   username: string;
@@ -70,6 +71,7 @@ export const ProfilePage: React.FC = () => {
 
   return (
     <div className="container">
+      <ImageContainer />
       <Card className="mx-auto max-w-sm align-middle">
         <div>
           <h2>{user?.username || "No username"}</h2>

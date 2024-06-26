@@ -50,6 +50,19 @@ export const user = [
     path: "productos",
     element: <DashboardCrud />,
   },
+
+  {
+    path: "foro",
+    element: <Forum />,
+  },
+  {
+    path: "nosotros",
+    element: <OffersPage />,
+  },
+  {
+    path: "componentes",
+    element: <CustomComponents />,
+  },
   {
     path: "login",
     element: (
@@ -60,19 +73,11 @@ export const user = [
   },
   {
     path: "signup",
-    element: <RegisterShad />,
-  },
-  {
-    path: "foro",
-    element: <Forum />,
-  },
-  {
-    path: "nosotros",
-    element: <OffersPage />,
-  },
-  {
-    path: "components",
-    element: <CustomComponents />,
+    element: (
+      <RegisterPage>
+        <RegisterShad />,
+      </RegisterPage>
+    ),
   },
   {
     path: "_PRUEBAS",

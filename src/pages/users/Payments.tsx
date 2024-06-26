@@ -1,6 +1,7 @@
 import React from "react";
 import { Checkout, InternalProvider, Payment } from "@/services/mercadoPago";
 import LazyImage from "@/components/_Customs2024/images/LazyImage";
+import ImageContainer from "@/components/_Customs2024/images/LazyImage";
 
 const Payments: React.FC = () => {
   const imageUrl =
@@ -24,7 +25,7 @@ const Payments: React.FC = () => {
     <>
       <InternalProvider context={contextValue}>
         <div className="mx-auto lg:mx-20 md:mx-10 ">
-          <LazyImage src={imageUrl} />
+          <ImageContainer />
           <Checkout onClick={handleCheckoutClick} />
           <Payment />
         </div>

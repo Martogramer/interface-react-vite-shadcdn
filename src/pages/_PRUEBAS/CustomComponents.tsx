@@ -14,6 +14,7 @@ import places from "@/mocks/places";
 import CheckboxOption from "@/components/_Customs2024/checkboxes/CheckboxOptions";
 import PromoSection from "@/components/sections/PromoSection";
 import promos from "@/mocks/promos";
+import ImageContainer from "@/components/_Customs2024/images/LazyImage";
 type ItemType = {
   label: string;
   href?: string;
@@ -58,6 +59,7 @@ const CustomComponents: React.FC = () => {
   return (
     <>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+      <ImageContainer />
         <CustomGrid
           columns={2}
           content={[
