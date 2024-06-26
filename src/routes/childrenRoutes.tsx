@@ -14,7 +14,12 @@ import SceneMultileUltimate from "@/pages/_PRUEBAS/three/SceneMultipleUltimate";
 import * as THREE from "three";
 import ModelViewer from "@/pages/_PRUEBAS/three/ModelViewer";
 import ErrorBoundary from "@/components/errorPage/ErrorBoundary";
-import  MeshModel from "@/pages/_PRUEBAS/three/MeshModel";
+import MeshModel from "@/pages/_PRUEBAS/three/MeshModel";
+import LoginPage from "@/pages/users/LoginPage";
+import RegisterAlternativePage from "@/pages/users/RegisterAlternativePage";
+import RegisterPage from "@/components/_Customs2024/containers/RegisterPage";
+import HeroSection from "@/components/sections/HeroSection";
+import PromoSection from "@/components/sections/PromoSectionAlternative";
 
 export const user = [
   {
@@ -47,7 +52,11 @@ export const user = [
   },
   {
     path: "login",
-    element: <LoginShad />,
+    element: (
+      <RegisterPage>
+        <LoginShad />
+      </RegisterPage>
+    ),
   },
   {
     path: "signup",
