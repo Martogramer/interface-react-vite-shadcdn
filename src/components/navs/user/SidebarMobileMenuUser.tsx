@@ -1,8 +1,108 @@
 import React, { useState, useEffect, useRef } from "react";
 import StoreSidebar from "./StoreSidebarUser";
 import MobileMenu from "./MobileMenuUser";
-import { Triangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Bot,
+  Code2,
+  AtSign,
+  LineChart,
+  Package,
+  ShoppingCart,
+  Triangle,
+  Users,
+  DollarSign,
+  Signpost,
+  Computer,
+  LogIn,
+  PackageOpen
+} from "lucide-react";
+interface SidebarItem {
+  to: string;
+  icon: React.ReactNode;
+  label: string;
+  ariaLabel: string;
+  tooltip: string;
+}
+const sidebarData: SidebarItem[] = [
+  {
+    to: "",
+    icon: <Computer className="h-5 w-5" />,
+    label: "Homepage",
+    ariaLabel: "Homepage",
+    tooltip: "Homepage",
+  },
+  {
+    to: "perfil",
+    icon: <Users className="h-5 w-5" />,
+    label: "Perfil",
+    ariaLabel: "Perfil",
+    tooltip: "Perfil",
+  },
+  {
+    to: "ventas",
+    icon: <ShoppingCart className="h-5 w-5" />,
+    label: "Ventas",
+    ariaLabel: "Ventas",
+    tooltip: "Ventas",
+  },
+  {
+    to: "clientes",
+    icon: <Package className="h-5 w-5" />,
+    label: "Clientes",
+    ariaLabel: "Clientes",
+    tooltip: "Clientes",
+  },
+  {
+    to: "payments",
+    icon: <DollarSign className="h-5 w-5" />,
+    label: "Payments",
+    ariaLabel: "Payments",
+    tooltip: "Payments",
+  },
+  {
+    to: "productos",
+    icon: <PackageOpen className="h-5 w-5" />,
+    label: "Productos",
+    ariaLabel: "Productos",
+    tooltip: "Productos",
+  },
+  {
+    to: "foro",
+    icon: <Signpost className="h-5 w-5" />,
+    label: "Foro",
+    ariaLabel: "Foro",
+    tooltip: "Foro",
+  },
+  {
+    to: "componentes",
+    icon: <Code2 className="h-5 w-5" />,
+    label: "Componentes",
+    ariaLabel: "Componentes",
+    tooltip: "Componentes",
+  },
+  {
+    to: "nosotros",
+    icon: <LineChart className="h-5 w-5" />,
+    label: "Nosotros",
+    ariaLabel: "Nosotros",
+    tooltip: "Nosotros",
+  },
+  {
+    to: "login",
+    icon: <LogIn className="h-5 w-5 transition-all group-hover:scale-110" />,
+    label: "Login",
+    ariaLabel: "Login",
+    tooltip: "Login",
+  },
+  {
+    to: "signup",
+    icon: <AtSign className="h-5 w-5" />,
+    label: "Signup",
+    ariaLabel: "Signup",
+    tooltip: "Signup",
+  },
+];
 
 // Props interface for the SidebarMobileMenu component
 interface SubItem {
@@ -109,7 +209,7 @@ const SidebarMobileMenu: React.FC = ({}) => {
 
       {/* Sidebar for large screens */}
       <div className="hidden md:flex flex-col justify-between border-e bg-white">
-        <StoreSidebar />
+        <StoreSidebar items={sidebarData} user={user} />
       </div>
 
       {/* Mobile menu */}
