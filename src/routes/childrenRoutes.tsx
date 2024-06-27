@@ -12,14 +12,8 @@ import ThreeContainer from "@/pages/_PRUEBAS/three/ThreeContainer";
 import ThreeScene from "@/pages/_PRUEBAS/three/ThreeScene";
 import SceneMultileUltimate from "@/pages/_PRUEBAS/three/SceneMultipleUltimate";
 import * as THREE from "three";
-import ModelViewer from "@/pages/_PRUEBAS/three/ModelViewer";
 import ErrorBoundary from "@/components/errorPage/ErrorBoundary";
-import MeshModel from "@/pages/_PRUEBAS/three/MeshModel";
-import LoginPage from "@/pages/users/LoginPage";
-import RegisterAlternativePage from "@/pages/users/RegisterAlternativePage";
 import RegisterPage from "@/components/_Customs2024/containers/RegisterPage";
-import HeroSection from "@/components/sections/HeroSection";
-import PromoSection from "@/components/sections/PromoSectionAlternative";
 import { Model3DViewer } from "@/pages/_PRUEBAS/three/custom/Model3DViewer";
 
 export const user = [
