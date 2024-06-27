@@ -20,14 +20,17 @@ import RegisterAlternativePage from "@/pages/users/RegisterAlternativePage";
 import RegisterPage from "@/components/_Customs2024/containers/RegisterPage";
 import HeroSection from "@/components/sections/HeroSection";
 import PromoSection from "@/components/sections/PromoSectionAlternative";
+import { Model3DViewer } from "@/pages/_PRUEBAS/three/custom/Model3DViewer";
 
 export const user = [
   {
     path: "",
     element: (
-      <ThreeContainer>
-        <ThreeScene />
-      </ThreeContainer>
+      <>
+        <ErrorBoundary>
+          <Model3DViewer modelPath="/public/models/terra.glb" />
+        </ErrorBoundary>
+      </>
     ),
   },
   {
@@ -82,9 +85,16 @@ export const user = [
   {
     path: "_PRUEBAS",
     element: (
-      <ErrorBoundary>
-        <MeshModel />
-      </ErrorBoundary>
+      <>
+        <ErrorBoundary>
+          <Model3DViewer modelPath="/public/models/smartwatch.glb" />
+        </ErrorBoundary>
+        <ThreeContainer>
+          <ErrorBoundary>
+            <ThreeScene />
+          </ErrorBoundary>
+        </ThreeContainer>
+      </>
     ),
   },
 ];
