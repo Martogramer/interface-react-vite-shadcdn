@@ -6,11 +6,12 @@ import LayoutUser from "@/layouts/LayoutUser";
 import HomePage from "@/pages";
 import NotPass from "@/components/errorPage/NotPass";
 import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
+import HomeAlternative from "@/pages/HomeAlternative";
 
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Navigate to="/inicio" replace />
+        element: <Navigate to="/inicioalternative" replace />
     },
     {
         path: '/inicio',
@@ -30,6 +31,12 @@ export const router = createBrowserRouter([
             <LayoutUser />
         ),
         children: user,
+    },
+    {
+        path: '/inicioalternative',
+        element: (
+            <HomeAlternative />
+        )
     },
     {
 		path: '/store',
