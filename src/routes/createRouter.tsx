@@ -11,7 +11,7 @@ import HomeAlternative from "@/pages/HomeAlternative";
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Navigate to="/inicioalternative" replace />
+        element: <Navigate to="/inicio" replace />
     },
     {
         path: '/inicio',
