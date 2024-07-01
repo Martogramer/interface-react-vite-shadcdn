@@ -5,6 +5,6 @@ import RoutesLayout from "./routes/RoutesLayout";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-        <RoutesLayout />
+    <RoutesLayout />
   </React.StrictMode>
 );

@@ -1,10 +1,19 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import LayoutStore from "@/layouts/LayoutStore";
 import StoreHomePage from "@/pages/store/home/Index";
+import { admin, user } from "./childrenRoutes";
+import LayoutUser from "@/layouts/LayoutUser";
+import HomePage from "@/pages";
+import NotPass from "@/components/errorPage/NotPass";
+import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
 
 export const router = createBrowserRouter([
-    /* {
+    {
         path: '/',
+        element: <Navigate to="/inicio" replace />
+    },
+    {
+        path: '/inicio',
         element: (
             <HomePage />
         )
@@ -12,18 +21,18 @@ export const router = createBrowserRouter([
     {
         path: '/error',
         element: (
-            <HomePage />
+            <NotPass />
         )
     },
     {
-        path: '/dashboard',
+        path: '/usuarios',
         element: (
             <LayoutUser />
         ),
         children: user,
-    }, */
+    },
     {
-		path: '/',
+		path: '/store',
 		element: <LayoutStore/>,
 
 		children: [
@@ -32,9 +41,10 @@ export const router = createBrowserRouter([
 				element: <StoreHomePage />,
 			},
 		],
-	}/* ,
+	},
     {
-		path: '/_PRUEBAS',
-		element: <CustomComponents />,
-	} */
+		path: '/admin',
+		element: <LayoutUserAdmin />,
+        children: admin
+	}
 ])

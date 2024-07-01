@@ -36,16 +36,12 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from "@/components/ui/tooltip";
-import useAuthStore from "@/services/authState";
-import NotPass from "@/components/errorPage/NotPass";
+import ImageContainer from "@/components/_Customs2024/images/LazyImage";
 
 const DashboardCrud: React.FC = () => {
-  const { isAuthenticated } = useAuthStore();
-  if (!isAuthenticated) {
-    return <NotPass/>;
-  }
   return (
     <div className="grid h-screen w-full pl-[56px]">
+      <ImageContainer />
       <div className="flex flex-col">
         <header className="sticky top-0 z-10 flex h-[57px] items-center gap-1 border-b bg-background px-4">
           <h1 className="text-xl font-semibold">Playground</h1>
