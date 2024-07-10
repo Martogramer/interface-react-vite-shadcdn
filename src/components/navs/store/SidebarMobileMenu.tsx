@@ -1,57 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
-import StoreSidebar from "./StoreSidebar";
 import MobileMenu from "./MobileMenu";
-import { Triangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Logo from "@/assets/dreamersdontstop.svg";
+import NavStore from "./NavStore";
+import Search from "@/components/inputs/Search";
 
 // Props interface for the SidebarMobileMenu component
-interface SubItem {
-  label: string;
-  href: string;
-}
 
-interface Item {
-  label: string;
-  href?: string;
-  type?: "link" | "button";
-  subItems?: SubItem[];
-  onClick?: () => void;
-}
 const user = {
   name: "Cosmos Store",
   email: "store@cosmos.com",
   avatar:
     "https://www.creativefabrica.com/wp-content/uploads/2023/02/11/Galaxy-Astronaut-Monkey-Painting-60761789-1.png",
 };
-const menuItems: Item[] = [
-  {
-    label: "Inicio",
-    href: "#",
-  },
-  {
-    label: "Productos",
-    subItems: [
-      { label: "Indumentaria", href: "#" },
-      { label: "Accesorios", href: "#" },
-      { label: "Combos", href: "#" },
-    ],
-  },
-  {
-    label: "Nosotros",
-    href: "#",
-  },
-  {
-    label: "Empresarial",
-    href: "#",
-  },
-  {
-    label: "Presupuestos",
-    subItems: [
-      { label: "Diseños Personalizado", href: "#" },
-      { label: "Precio Mayorista", href: "#" }
-    ],
-  },
+const menuItems = [
+  { label: "AboutUs", href: "#" },
+  { label: "Treatments", href: "#" },
+  { label: "Blog", href: "#" },
+  { label: "Contact Us", href: "#" },
 ];
+
 // SidebarMobileMenu component
 const SidebarMobileMenu: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage mobile menu visibility
@@ -78,33 +46,35 @@ const SidebarMobileMenu: React.FC = () => {
   return (
     <div>
       {/* Button to toggle mobile menu visibility */}
-      <div className="md:hidden">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="my-3 ml-6 z-50 text-gray-600 focus:outline-none  fixed focus:ring-2 focus:ring-inset focus:ring-gray-600"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
+      <header className="lg:px-16 px-4 bg-white flex flex-wrap items-center py-4 shadow-md">
+        <div className="md:hidden flex-1 flex justify-between items-center">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="my-3 ml-8 z-50 text-gray-600 focus:outline-none  focus:ring-2 focus:ring-inset focus:ring-gray-600"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </button>
-      </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+        <Search />
+        </div>
+      </header>
 
       {/* Sidebar for large screens */}
-      <div className="hidden md:flex h-screen flex-col justify-between border-e bg-white">
-        <StoreSidebar />
+      <div className="hidden md:block">
+        <NavStore menuItems={menuItems} />
       </div>
-
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 bg-gray-800 bg-opacity-75 z-50">
@@ -114,7 +84,7 @@ const SidebarMobileMenu: React.FC = () => {
           >
             <div className="px-6 flex items-center justify-between h-20 p-4 border-b border-gray-700">
               <Button variant="outline" size="icon" aria-label="Home">
-                <Triangle className="size-5 fill-foreground" />
+                <img src={Logo} className="size-9 fill-foreground" />
               </Button>
               <button
                 onClick={() => setIsMenuOpen(false)}

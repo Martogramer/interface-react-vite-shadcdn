@@ -9,9 +9,9 @@ import {
   Package,
   Package2,
   ShoppingCart,
-  Triangle,
   Users2,
 } from "lucide-react";
+import Logo from '@/assets/dreamersdontstop.svg'
 import {
   Tooltip,
   TooltipContent,
@@ -27,7 +27,7 @@ const StoreSidebar: React.FC = () => {
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-slate-50 sm:flex">
         <div className="border-b p-2">
           <Button variant="outline" size="icon" aria-label="Home">
-            <Triangle className="size-5 fill-foreground" />
+            <img src={Logo} className="size-9 fill-foreground" />
           </Button>
         </div>
 
