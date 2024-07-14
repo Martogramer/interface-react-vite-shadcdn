@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { mockBlogPosts, mockProducts } from "@/mocks/mocks";
+import { mockBlogPostsMultiple, mockProducts } from "@/mocks/mocks";
 import FilterSearch from "./SearchFilter";
 
 interface Product {
@@ -12,15 +12,18 @@ interface Product {
   imageUrl?: string | string[];
 }
 
-interface BlogPost {
+interface BlogPostMultiple {
   id: number;
-  title: string;
-  content: string;
+  elements: {
+    type: 'title' | 'paragraph';
+    content: string;
+  }[];
   tags: string[];
-  imageUrl?: string;
+  author: string;
+  publishDate: string;
 }
 
-type SearchableItem = Product | BlogPost;
+type SearchableItem = Product | BlogPostMultiple;
 
 function isProduct(item: SearchableItem): item is Product {
   return "price" in item;
@@ -33,7 +36,7 @@ const DetailUse: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const allItems = [...mockProducts, ...mockBlogPosts];
+      const allItems = [...mockProducts, ...mockBlogPostsMultiple];
       setItems(allItems);
       setFilteredItems(allItems);
     };
@@ -41,30 +44,30 @@ const DetailUse: React.FC = () => {
     fetchData();
   }, []);
 
+  const handleFilterChange = (newFilteredItems: SearchableItem[]) => {
+    setFilteredItems(newFilteredItems);
+  };
+
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-2">
       <div>
-        <FilterSearch items={items} onFilterChange={setFilteredItems} />
+        <FilterSearch items={items} onFilterChange={handleFilterChange} />
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredItems.map((item) => (
             <Link
               key={item.id}
-              to={`/${isProduct(item) ? "store" : "store"}/${item.id}`}
+              to={`/${isProduct(item) ? "usuarios/rpfdu" : "usuarios/foro"}/${item.id}`}
               className="p-4 bg-white rounded shadow hover:shadow-lg transition-shadow"
             >
-              {(isProduct(item) ? item.imageUrl : item.imageUrl) && (
-                <img
-                  src={
-                    Array.isArray(item.imageUrl)
-                      ? item.imageUrl[0]
-                      : item.imageUrl
-                  }
-                  alt={isProduct(item) ? item.name : item.title}
-                  className="w-full h-48 object-cover mb-4 rounded"
-                />
-              )}
               {isProduct(item) ? (
                 <>
+                  {item.imageUrl && (
+                    <img
+                      src={Array.isArray(item.imageUrl) ? item.imageUrl[0] : item.imageUrl}
+                      alt={item.name}
+                      className="w-full h-48 object-cover mb-4 rounded"
+                    />
+                  )}
                   <h2 className="text-xl font-bold">{item.name}</h2>
                   <p className="text-gray-600">{item.category}</p>
                   <p className="text-green-600 font-bold">${item.price}</p>
@@ -83,9 +86,14 @@ const DetailUse: React.FC = () => {
                 </>
               ) : (
                 <>
-                  <h2 className="text-xl font-bold">{item.title}</h2>
+                  <h2 className="text-xl font-bold">
+                    {item.elements.find(el => el.type === 'title')?.content || 'Sin título'}
+                  </h2>
                   <p className="text-gray-600">
-                    {item.content.substring(0, 100)}...
+                    {item.elements.find(el => el.type === 'paragraph')?.content.substring(0, 100) || ''}...
+                  </p>
+                  <p className="text-sm text-gray-500 mt-2">
+                    Por {item.author} | {item.publishDate}
                   </p>
                   <div className="mt-2">
                     {item.tags.map((tag) => (

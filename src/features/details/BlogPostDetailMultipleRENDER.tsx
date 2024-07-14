@@ -1,28 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { mockBlogPosts } from '@/mocks/mocks';
+import { mockBlogPostsMultiple, BlogPostMultiple, BlogPostElement } from '@/mocks/mocks';
 
-interface BlogPost {
-  id: number;
-  title: string;
-  content: string;
-  tags: string[];
-  author: string;
-  publishDate: string;
-}
-
-const BlogPostDetail: React.FC = () => {
+const BlogPostDetailMultipleRENDER: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [post, setPost] = useState<BlogPost | null>(null);
+  const [post, setPost] = useState<BlogPostMultiple | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const foundPost = mockBlogPosts.find(p => p.id === Number(id));
+        const foundPost = mockBlogPostsMultiple.find(p => p.id === Number(id));
         if (foundPost) {
-          setPost(foundPost as BlogPost);
+          setPost(foundPost);
         } else {
           setError('Post no encontrado');
         }
@@ -53,20 +44,29 @@ const BlogPostDetail: React.FC = () => {
     return new Date(dateString).toLocaleDateString('es-ES', options);
   };
 
+  const renderElement = (element: BlogPostElement, index: number) => {
+    switch (element.type) {
+      case 'title':
+        return <h2 key={index} className="text-2xl font-bold mb-4">{element.content}</h2>;
+      case 'paragraph':
+        return <p key={index} className="mb-4">{element.content}</p>;
+      default:
+        return null;
+    }
+  };
+
   return (
     <article className="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto">
       <Link to="/usuarios/foro" className="text-blue-500 hover:text-blue-700 mb-4 inline-block">
         &larr; Volver a la lista de posts
       </Link>
-      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
+      <h1 className="text-3xl font-bold mb-4">{post.elements[0].content}</h1>
       <div className="mb-4 text-gray-600">
         <span>Por {post.author} | </span>
         <time dateTime={post.publishDate}>{formatDate(post.publishDate)}</time>
       </div>
       <div className="prose max-w-none mb-6">
-        {post.content.split('\n').map((paragraph, index) => (
-          <p key={index} className="mb-4">{paragraph}</p>
-        ))}
+        {post.elements.slice(1).map((element, index) => renderElement(element, index))}
       </div>
       <div className="mt-4">
         {post.tags.map(tag => (
@@ -79,4 +79,4 @@ const BlogPostDetail: React.FC = () => {
   );
 };
 
-export default BlogPostDetail;
+export default BlogPostDetailMultipleRENDER;

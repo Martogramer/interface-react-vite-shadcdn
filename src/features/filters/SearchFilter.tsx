@@ -1,18 +1,26 @@
 import React, { useState, useMemo, useEffect } from "react";
+
 interface Product {
   id: number;
   name: string;
   category: string;
+  tags?: string[];
   price: number;
+  imageUrl?: string | string[];
 }
 
-interface BlogPost {
+interface BlogPostMultiple {
   id: number;
-  title: string;
-  content: string;
+  elements: {
+    type: 'title' | 'paragraph';
+    content: string;
+  }[];
   tags: string[];
+  author: string;
+  publishDate: string;
 }
-type SearchableItem = Product | BlogPost;
+
+type SearchableItem = Product | BlogPostMultiple;
 
 interface FilterSearchProps {
   items: SearchableItem[];
@@ -48,15 +56,15 @@ const FilterSearch: React.FC<FilterSearchProps> = ({
         !searchTerm ||
         ("name" in item &&
           item.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        ("title" in item &&
-          item.title.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        ("content" in item &&
-          item.content.toLowerCase().includes(searchTerm.toLowerCase()));
-
+        ("elements" in item &&
+          item.elements.some(el => 
+            el.content.toLowerCase().includes(searchTerm.toLowerCase())
+          ));
+          
       const matchesCategory =
         selectedCategory === "all" ||
         ("category" in item && item.category === selectedCategory) ||
-        ("tags" in item && item.tags.includes(selectedCategory));
+        ("tags" in item && item.tags?.includes(selectedCategory));
 
       return matchesSearch && matchesCategory;
     });

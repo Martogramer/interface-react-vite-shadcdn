@@ -15,7 +15,8 @@ import * as THREE from "three";
 import ErrorBoundary from "@/components/errorPage/ErrorBoundary";
 import RegisterPage from "@/components/_Customs2024/containers/RegisterPage";
 import { Model3DViewer } from "@/pages/_PRUEBAS/three/custom/Model3DViewer";
-import BlogPostDetail from "@/components/details/BlogPostDetail";
+import BlogPostDetail from "@/features/details/BlogPostDetail";
+import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMultipleRENDER";
 
 export const user = [
   {
@@ -55,7 +56,7 @@ export const user = [
   },
   {
     path: 'foro/:id',
-    element: <BlogPostDetail />,
+    element: <BlogPostDetailMultipleRENDER />,
   },
   {
     path: "nosotros",
