@@ -7,9 +7,8 @@ const Forum: React.FC = () => {
   return (
     <div className="mx-auto lg:mx-20 md:mx-10 ">
       <ImageContainer />
-      
-      <PostList />
       <DetailUse />
+      <PostList />
     </div>
   );
 };
