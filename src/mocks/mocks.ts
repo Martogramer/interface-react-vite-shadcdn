@@ -29,7 +29,7 @@ export interface BlogPostElement {
 }
 export const mockProducts: Product[] = [
   { id: 1, name: "MacBook Pro", category: "Electronics", price: 1999.99 },
-  { id: 2, name: "Running Shoes", category: "Sports", price: 129.99 },
+  /* { id: 2, name: "Running Shoes", category: "Sports", price: 129.99 },
   { id: 3, name: "Coffee Maker", category: "Home & Kitchen", price: 79.99 },
   { id: 4, name: "Wireless Headphones", category: "Electronics", price: 199.99 },
   { id: 5, name: "Yoga Mat", category: "Sports", price: 29.99 },
@@ -37,7 +37,7 @@ export const mockProducts: Product[] = [
   { id: 7, name: "Blender", category: "Home & Kitchen", price: 59.99 },
   { id: 8, name: "Hiking Backpack", category: "Outdoors", price: 89.99 },
   { id: 9, name: "LED TV", category: "Electronics", price: 699.99 },
-  { id: 10, name: "Office Chair", category: "Furniture", price: 159.99 },
+  { id: 10, name: "Office Chair", category: "Furniture", price: 159.99 }, */
 ];
 
 

@@ -25,7 +25,6 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
             </label>
           </span>
         </div>
-
         <div className=" ml-16 mt-3 fixed z-50">
           <span className="mr-2 whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
             Live
@@ -41,7 +40,15 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
             </label>
           </span>
         </div>
-        <>{children}</>
+        <>
+          <>
+            <>
+              <div>
+                <>{children}</>
+              </div>
+            </>
+          </>
+        </>
       </div>
     </>
   );
