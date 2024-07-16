@@ -16,33 +16,45 @@ interface BlogPost {
   author: string;
   publishDate: string;
 }
+export interface BlogPostElement {
+  type: 'title' | 'paragraph' | 'image' | 'code';
+  content: string;
+  language?: string;
+}
 export interface BlogPostMultiple {
   id: number;
   elements: BlogPostElement[];
   tags: string[];
   author: string;
   publishDate: string;
+  image?: string;
 }
-export interface BlogPostElement {
-  type: 'title' | 'paragraph';
-  content: string;
-}
-export const mockProducts: Product[] = [
-  { id: 1, name: "MacBook Pro", category: "Electronics", price: 1999.99 },
-  /* { id: 2, name: "Running Shoes", category: "Sports", price: 129.99 },
-  { id: 3, name: "Coffee Maker", category: "Home & Kitchen", price: 79.99 },
-  { id: 4, name: "Wireless Headphones", category: "Electronics", price: 199.99 },
-  { id: 5, name: "Yoga Mat", category: "Sports", price: 29.99 },
-  { id: 6, name: "Smart Watch", category: "Electronics", price: 249.99 },
-  { id: 7, name: "Blender", category: "Home & Kitchen", price: 59.99 },
-  { id: 8, name: "Hiking Backpack", category: "Outdoors", price: 89.99 },
-  { id: 9, name: "LED TV", category: "Electronics", price: 699.99 },
-  { id: 10, name: "Office Chair", category: "Furniture", price: 159.99 }, */
-];
-
-
 export const mockBlogPostsMultiple: BlogPostMultiple[] = [
   {
+    id: 1,
+    elements: [
+      { type: 'title', content: "La importancia del software libre en la era digital" },
+      { type: 'paragraph', content: "En un mundo cada vez más dependiente de la tecnología, el software libre se ha convertido en un pilar fundamental para la innovación y la libertad digital..." },
+      { type: 'title', content: "¿Qué es el software libre?" },
+      { type: 'paragraph', content: "El software libre se refiere a programas informáticos que respetan la libertad de los usuarios y la comunidad. En términos generales, los usuarios tienen la libertad de ejecutar, copiar, distribuir, estudiar, modificar y mejorar el software..." },
+      { type: 'code', content: `
+        const freeSoftware = {
+          name: 'GNU/Linux',
+          isOpen: true,
+          freedoms: ['use', 'study', 'share', 'improve']
+          };
+          `, language: 'javascript' },
+          { type: 'title', content: "Las cuatro libertades esenciales" },
+          { type: 'paragraph', content: "Richard Stallman, fundador del movimiento del software libre, definió cuatro libertades esenciales: la libertad de usar el programa, la libertad de estudiar cómo funciona el programa, la libertad de distribuir copias del programa, y la libertad de mejorar el programa y publicar esas mejoras..." },
+          { type: 'image', content: "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp" },
+        ],
+        author: "Ana Martínez",
+        publishDate: "2023-05-15",
+        tags: ["Software Libre", "Tecnología", "Ética Digital"],
+        image: "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp"
+  },
+
+  /*  {
     id: 1,
     elements: [
       { type: 'title', content: "La importancia del software libre en la era digital" },
@@ -87,8 +99,23 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
     tags: ["Software Libre", "Contribución", "Desarrollo"],
     author: "Laura Gómez",
     publishDate: "2023-06-20",
-  }
+  } */
 ];
+
+
+export const mockProducts: Product[] = [
+  /*  {
+     id: 2,
+     name: "T900 Pro Max",
+     imageUrl:[ "https://res.cloudinary.com/diohw2jdj/image/upload/fl_preserve_transparency/v1720620632/w26-removebg-preview_n5h2kc.jpg?_s=public-apps",
+       "https://res.cloudinary.com/diohw2jdj/image/upload/fl_preserve_transparency/v1720620616/t900-pro-max-serie8-removebg-preview_h2znvz.jpg?_s=public-apps",
+     ],
+     category: "SmartWatchs",
+     price: 19999,
+   }, */
+ ];
+ 
+ 
 export const mockBlogPosts: BlogPost[] = [
   {
     id: 1,

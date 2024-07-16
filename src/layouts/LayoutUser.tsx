@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { fetchUsers } from "@/services/handlers/users/usersAction";
 import { Outlet } from "react-router-dom";
 import SidebarMobileMenu from "@/components/navs/user/SidebarMobileMenuUser";
-import PromoSection from "@/components/sections/PromoSectionAlternative";
 import Footer from "@/components/footers/Footer";
 import { Axis3DIcon, FileBadge, Inspect, LucideRedoDot, TableRowsSplitIcon } from "lucide-react";
 
@@ -32,12 +31,7 @@ const LayoutUser: React.FC = () => {
       <div className="pt-20">
         <Outlet />
       </div>
-      <PromoSection
-      title="Understand User Flow."
-      subtitle="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam ea!"
-      primaryAction={{ text: 'Get Started', href: '#' }}
-      secondaryAction={{ text: 'Learn More', href: '#' }}
-      />
+      
       <Footer
         contactNumber="0123456789"
         contactHours={contactHours}
