@@ -71,17 +71,108 @@ Para un flujo de trabajo de desarrollo eficiente, se utilizan las siguientes her
    npm run dev
    ```
 
-## Contribuir
+# Guía de Contribución para `interface-react-vite-shadcdn`
 
-¡Gracias por considerar contribuir a nuestro proyecto! Aquí tienes algunas pautas para ayudarte a empezar:
+¡Gracias por tu interés en contribuir a este proyecto! Aquí hay algunas pautas y pasos para ayudarte a empezar.
 
-## Cómo Contribuir
+## 1. Cómo empezar
 
-1. Haz un fork del repositorio.
-2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
-3. Realiza los cambios y haz commit (`git commit -m 'Añadir nueva funcionalidad'`).
-4. Sube los cambios (`git push origin feature/nueva-funcionalidad`).
-5. Abre un Pull Request y describe los cambios realizados.
+1. **Forkea el repositorio**: Haz clic en el botón "Fork" en la parte superior derecha de la página del repositorio para crear una copia de este repositorio en tu cuenta de GitHub.
+2. **Clona el repositorio forkeado**:
+    
+    ```bash
+    git clone <https://github.com/Martogramer/interface-react-vite-shadcdn.git>
+    ```
+    
+3. **Navega al directorio del proyecto**:
+    
+    ```bash
+    cd interface-react-vite-shadcdn
+    ```
+    
+4. **Instala las dependencias**:
+    
+    ```bash
+    npm install
+    ```
+    
+5. **Crea una rama para tus cambios**:
+    
+    ```bash
+    git checkout -b nombre-de-tu-rama
+    ```
+
+## 2. Haciendo cambios
+
+- Asegúrate de seguir el estilo de codificación y las convenciones utilizadas en el proyecto.
+- Si estás añadiendo una nueva funcionalidad, incluye pruebas y documentación.
+- Si estás arreglando un error, incluye una descripción clara del problema y cómo lo solucionaste.
+
+## 3. Comandos útiles
+
+- **Para ejecutar la aplicación en modo de desarrollo**:
+    
+    ```bash
+    npm run dev
+    ```
+    
+- **Para ejecutar las pruebas**:
+    
+    ```bash
+    npm test
+    ```
+
+## 4. Enviando tus cambios
+
+1. **Asegúrate de que tu rama esté actualizada**:
+    
+    ```bash
+    git pull origin main
+    ```
+    
+2. **Añade tus cambios**:
+    
+    ```bash
+    git add .
+    ```
+    
+3. **Haz un commit de tus cambios**:
+    
+    ```bash
+    git commit -m "Descripción clara de tus cambios"
+    ```
+    
+4. **Sube tus cambios a tu repositorio forkeado**:
+    
+    ```bash
+    git push origin nombre-de-tu-rama
+    ```
+    
+5. **Crea un Pull Request**: Ve a la página de GitHub de tu repositorio forkeado y haz clic en el botón "New Pull Request".
+
+## 5. Estilo de los commits
+
+Por favor, utiliza mensajes de commit claros y descriptivos. Aquí hay algunos ejemplos:
+
+- `✨ Añadida nueva funcionalidad para...`
+- `🛠️ Refactorizado componente X para mejorar...`
+- `🐛 Arreglado error en...`
+- `📄 Actualizada documentación para...`
+
+## 6. Revisión de Pull Requests
+
+- Asegúrate de que tu Pull Request pase todas las pruebas automatizadas.
+- Sé claro y conciso en la descripción de tu Pull Request.
+- Responde a las revisiones y comentarios de manera oportuna.
+
+## 7. Comunicación
+
+Si tienes alguna pregunta o necesitas ayuda, no dudes en abrir un issue en GitHub.
+
+---
+
+¡Gracias por contribuir! Tu ayuda es muy apreciada.
+
 
 ## Estándares de Codificación
 
