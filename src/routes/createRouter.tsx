@@ -3,7 +3,6 @@ import LayoutStore from "@/layouts/LayoutStore";
 import StoreHomePage from "@/pages/store/home/Index";
 import { admin, user } from "./childrenRoutes";
 import LayoutUser from "@/layouts/LayoutUser";
-import HomePage from "@/pages";
 import NotPass from "@/components/errorPage/NotPass";
 import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
 import HomeAlternative from "@/pages/HomeAlternative";
@@ -16,7 +15,7 @@ export const router = createBrowserRouter([
     {
         path: '/inicio',
         element: (
-            <HomePage />
+            <HomeAlternative />
         )
     },
     {

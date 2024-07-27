@@ -12,13 +12,13 @@ const HomeAlternative: React.FC = () => {
     <>
       <HeroSection
         backgroundUrl=""
-        title="VOLT⚡"
-        subtitle="Tecnología"
-        primaryAction={{ text: "Ver Productos", href: "#" }}
+        title="Template Frontend⚡"
+        subtitle="React + Typescript."
+        primaryAction={{ text: "Entrar", href: "usuarios" }}
         secondaryAction={{ text: "Contacto", href: "#" }}
       >
         <ErrorBoundary>
-          <Model3DViewer modelPath="/public/models/smartwatch.glb" />
+          <Model3DViewer modelPath="/public/models/terra.glb" />
         </ErrorBoundary>
       </HeroSection>
     </>

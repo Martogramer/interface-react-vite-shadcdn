@@ -3,7 +3,6 @@ import StoreSidebar from "./StoreSidebarUser";
 import MobileMenu from "./MobileMenuUser";
 import { Button } from "@/components/ui/button";
 import {
-  Bot,
   Code2,
   AtSign,
   LineChart,

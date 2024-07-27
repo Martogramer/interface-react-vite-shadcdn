@@ -1,4 +1,6 @@
 import React from 'react';
+import CustomGrid from '../_Customs2024/containers/grid/CustomGrid';
+import CustomButton from '../_Customs2024/buttons/CustomButton';
 
 interface HeroSectionProps {
   backgroundUrl: string;
@@ -29,30 +31,41 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     >
       <div className="absolute inset-0 bg-gradient-to-r from-gray-900/75 to-gray-900/25"></div>
 
-     <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:h-screen lg:flex lg:items-center lg:justify-center">
+     <div className="relative mx-auto max-w-screen-xl mb px-4 py-32 sm:px-6 lg:h-screen lg:flex lg:items-center lg:justify-center">
         <div className="max-w-xl text-center">
           <h1 className="text-3xl font-extrabold text-white sm:text-5xl">
             {title}
-            <strong className="block font-extrabold text-rose-500"> {subtitle}</strong>
+            <span className="block font-extrabold text-rose-500"> {subtitle}</span>
           </h1>
           <div className="mt-4">
             {children}
           </div>
-          <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <a
-              href={primaryAction.href}
-              className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
-            >
-              {primaryAction.text}
-            </a>
-
-            <a
-              href={secondaryAction.href}
-              className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
-            >
-              {secondaryAction.text}
-            </a>
-          </div>
+           
+            <div className="mt-8 text-center">
+                <CustomGrid
+                  columns={2}
+                  content={[
+                    <div>
+                      <div>
+                        <CustomButton
+                          text={primaryAction.text}
+                          href={primaryAction.href}
+                          variant="base"
+                        />
+                      </div>
+                    </div>,
+                    <div>
+                      <div>
+                        <CustomButton
+                          text={secondaryAction.text}
+                          href={secondaryAction.href}
+                          variant="border"
+                        />
+                      </div>
+                    </div>,
+                  ]}
+                />
+              </div>
         </div>
       </div>
     </section>
