@@ -15,7 +15,7 @@ interface Product {
 interface BlogPostMultiple {
   id: number;
   elements: {
-    type: 'title' | 'paragraph';
+    type: "title" | "paragraph";
     content: string;
   }[];
   tags: string[];
@@ -23,10 +23,20 @@ interface BlogPostMultiple {
   publishDate: string;
 }
 
-type SearchableItem = Product | BlogPostMultiple;
+type SearchableItem = BlogPostMultiple | Product;
 
 function isProduct(item: SearchableItem): item is Product {
   return "price" in item;
+}
+
+function convertBlogPost(post: any): BlogPostMultiple {
+  return {
+    ...post,
+    elements: post.elements.map((element: any) => ({
+      type: element.type === 'image' || element.type === 'code' ? 'paragraph' : element.type,
+      content: element.content
+    }))
+  };
 }
 
 const DetailUse: React.FC = () => {
@@ -36,7 +46,7 @@ const DetailUse: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const allItems = [...mockProducts, ...mockBlogPostsMultiple];
+      const allItems = [...mockProducts, ...mockBlogPostsMultiple.map(convertBlogPost)];
       setItems(allItems);
       setFilteredItems(allItems);
     };
@@ -56,14 +66,20 @@ const DetailUse: React.FC = () => {
           {filteredItems.map((item) => (
             <Link
               key={item.id}
-              to={`/${isProduct(item) ? "usuarios/rpfdu" : "usuarios/foro"}/${item.id}`}
+              to={`/${isProduct(item) ? "usuarios/foro" : "usuarios/foro"}/${
+                item.id
+              }`}
               className="p-4 bg-white rounded shadow hover:shadow-lg transition-shadow"
             >
               {isProduct(item) ? (
                 <>
                   {item.imageUrl && (
                     <img
-                      src={Array.isArray(item.imageUrl) ? item.imageUrl[0] : item.imageUrl}
+                      src={
+                        Array.isArray(item.imageUrl)
+                          ? item.imageUrl[0]
+                          : item.imageUrl
+                      }
                       alt={item.name}
                       className="w-full h-48 object-cover mb-4 rounded"
                     />
@@ -87,10 +103,14 @@ const DetailUse: React.FC = () => {
               ) : (
                 <>
                   <h2 className="text-xl font-bold">
-                    {item.elements.find(el => el.type === 'title')?.content || 'Sin título'}
+                    {item.elements.find((el) => el.type === "title")?.content ||
+                      "Sin título"}
                   </h2>
                   <p className="text-gray-600">
-                    {item.elements.find(el => el.type === 'paragraph')?.content.substring(0, 100) || ''}...
+                    {item.elements
+                      .find((el) => el.type === "paragraph")
+                      ?.content.substring(0, 100) || ""}
+                    ...
                   </p>
                   <p className="text-sm text-gray-500 mt-2">
                     Por {item.author} | {item.publishDate}

@@ -33,7 +33,7 @@ const LayoutUser: React.FC = () => {
       </div>
       
       <Footer
-        contactNumber="0123456789"
+        contactNumber="CONTACT"
         contactHours={contactHours}
         socialLinks={socialLinks}
         services={services}

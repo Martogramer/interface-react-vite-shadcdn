@@ -175,7 +175,9 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
 ];
 
 export const mockProducts: Product[] = [
-  /*  {
+];
+export const Products: Product[] = [
+   {
      id: 2,
      name: "T900 Pro Max",
      imageUrl:[ "https://res.cloudinary.com/diohw2jdj/image/upload/fl_preserve_transparency/v1720620632/w26-removebg-preview_n5h2kc.jpg?_s=public-apps",
@@ -183,7 +185,7 @@ export const mockProducts: Product[] = [
      ],
      category: "SmartWatchs",
      price: 19999,
-   }, */
+   },
 ];
 
 export const mockBlogPosts: BlogPost[] = [

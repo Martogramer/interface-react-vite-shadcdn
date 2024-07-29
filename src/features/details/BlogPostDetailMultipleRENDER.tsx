@@ -70,7 +70,7 @@ const BlogPostDetailMultipleRENDER: React.FC = () => {
   return (
     <article className="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto">
     <Link to="/usuarios/foro" className="text-blue-500 hover:text-blue-700 mb-4 inline-block">
-      &larr; Volver a la lista de posts
+      &larr; Volver a la lista de postsfor
     </Link>
     {post.image && <img src={post.image} alt="Post header" className="w-full h-64 object-cover mb-4 rounded" />}
     <h1 className="text-3xl font-bold mb-4">{post.elements[0].content}</h1>
