@@ -1,18 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchUsers } from "@/services/handlers/users/usersAction";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import SidebarMobileMenu from "@/components/navs/user/SidebarMobileMenuUser";
 import Footer from "@/components/footers/Footer";
 import { Axis3DIcon, FileBadge, Inspect, LucideRedoDot, TableRowsSplitIcon } from "lucide-react";
+import LoadingScreen from "@/components/_Customs2024/loading/LoadingScreen";
 
 /* ---
   --- routes: usuarios/['', 'perfil', 'ventas', 'clientes', 'payments', 'productos', 'login', 'signup', 'foro', 'nosotros', '_PRUEBAS']
  --- */
 
 const LayoutUser: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
+
   useEffect(() => {
     fetchUsers();
   }, []);
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [location]);
+
   const socialLinks = [
     { href: "#", label: "Facebook", icon: <FileBadge className="h-6 w-6" /> },
     { href: "#", label: "Instagram", icon: <Inspect className="h-6 w-6" /> },
@@ -27,6 +40,7 @@ const LayoutUser: React.FC = () => {
 
   return (
     <>
+    {isLoading && <LoadingScreen />}
       <SidebarMobileMenu />
       <div className="pt-20">
         <Outlet />
