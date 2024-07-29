@@ -241,11 +241,7 @@ const SalesDashboard: React.FC<SalesDashboardProps> = ({
                         <TableCell className="hidden sm:table-cell">
                           <Badge
                             className="text-xs"
-                            variant={
-                              order.status === "Fulfilled"
-                                ? "secondary"
-                                : "outline"
-                            }
+                            variant={order.status === "Fulfilled" ? "secondary" : "outline"}
                           >
                             {order.status}
                           </Badge>
