@@ -16,6 +16,7 @@ import ErrorBoundary from "@/components/errorPage/ErrorBoundary";
 import RegisterPage from "@/components/_Customs2024/containers/RegisterPage";
 import { Model3DViewer } from "@/pages/_PRUEBAS/three/custom/Model3DViewer";
 import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMultipleRENDER";
+import HomeUser from "@/pages/users/Home";
 
 export const user = [
   {
@@ -23,7 +24,7 @@ export const user = [
     element: (
       <>
         <ErrorBoundary>
-          <Model3DViewer modelPath="/public/models/terra.glb" />
+          <HomeUser />
         </ErrorBoundary>
       </>
     ),

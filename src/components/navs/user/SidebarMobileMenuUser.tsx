@@ -213,7 +213,7 @@ const SidebarMobileMenu: React.FC = ({}) => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-gray-800 bg-opacity-75 z-50">
+        <div className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
           <div
             className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg"
             ref={menuRef}
