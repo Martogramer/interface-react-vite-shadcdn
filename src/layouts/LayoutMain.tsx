@@ -10,7 +10,7 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
     <>
       <NotificationBar />
       <div className="bg-gray text-primary-foreground ">
-        <div className=" ml-16 mt-3 fixed z-50 blur-sm">
+        {/* <div className="ml-16 mt-3 fixed z-50 blur-sm">
           <span className="mr-2 whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
             Live
           </span>
@@ -39,7 +39,7 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
                 ` / ` + location.pathname.split("/")[3]}
             </label>
           </span>
-        </div>
+        </div> */}
         <>
           <>
             <>

@@ -21,17 +21,15 @@ const LayoutUser: React.FC = () => {
     setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, [location]);
 
   const socialLinks = [
-    { href: "#", label: "Facebook", icon: <FileBadge className="h-6 w-6" /> },
-    { href: "#", label: "Instagram", icon: <Inspect className="h-6 w-6" /> },
-    { href: "#", label: "Twitter", icon: <TableRowsSplitIcon className="h-6 w-6" /> },
+    { href: "#", label: "Linkedin", icon: <TableRowsSplitIcon className="h-6 w-6" /> },
     { href: "#", label: "GitHub", icon: <Axis3DIcon className="h-6 w-6" /> },
-    { href: "#", label: "Dribbble", icon: <LucideRedoDot className="h-6 w-6" /> },
+    { href: "#", label: "Reddit", icon: <LucideRedoDot className="h-6 w-6" /> },
   ];
 
   const services = ["1on1 Coaching", "Company Review", "Accounts Review", "HR Consulting", "SEO Optimisation"];

@@ -3,6 +3,7 @@ import React from 'react';
 interface HeroSectionProps {
   backgroundUrl: string;
   title: string;
+  strong: string;
   subtitle: string;
   primaryAction: {
     text: string;
@@ -20,6 +21,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   subtitle,
   primaryAction,
   secondaryAction,
+  strong
 }) => {
   return (
     <section
@@ -31,7 +33,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="max-w-xl text-center sm:text-left">
           <h1 className="text-3xl font-extrabold text-white sm:text-5xl">
             {title}
-            <strong className="block font-extrabold text-rose-500"> Forever Home. </strong>
+            <strong className="block font-extrabold text-rose-500"> {strong} </strong>
           </h1>
 
           <p className="mt-4 max-w-lg text-white sm:text-xl/relaxed">

@@ -25,7 +25,7 @@ interface SidebarProps {
 
 const MobileMenu: React.FC<SidebarProps> = ({ items, user }) => {
   return (
-    <div className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+    <div className="flex h-screen flex-col justify-between border-e bg-white">
       <ScrollArea>
         <div className="px-3 py-3">
           <ul className="mt-6 space-y-1">

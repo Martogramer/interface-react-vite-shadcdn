@@ -10,8 +10,8 @@ const LoadingScreen: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpacity(0);
-      setTimeout(() => setIsVisible(false), 1000); 
-    }, 3000); 
+      setTimeout(() => setIsVisible(false), 0); 
+    }, 2000); 
 
     return () => clearTimeout(timer);
   }, []);
