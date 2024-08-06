@@ -16,9 +16,10 @@ interface BlogPost {
   publishDate: string;
 }
 export interface BlogPostElement {
-  type: "title" | "paragraph" | "image" | "code";
+  type: "title" | "paragraph" | "image" | "code" | "link";
   content: string;
   language?: string;
+  url?: string;
 }
 export interface BlogPostMultiple {
   id: number;
@@ -159,6 +160,11 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
         type: "paragraph",
         content:
           "Richard Stallman, fundador del movimiento del software libre, definió cuatro libertades esenciales: la libertad de usar el programa, la libertad de estudiar cómo funciona el programa, la libertad de distribuir copias del programa, y la libertad de mejorar el programa y publicar esas mejoras...",
+      },
+      {
+        type: "link",
+        content: "Visita nuestra página de GitHub",
+        url: "https://github.com/tu-organizacion"
       },
       {
         type: "image",
