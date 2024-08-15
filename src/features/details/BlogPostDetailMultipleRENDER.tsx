@@ -13,6 +13,8 @@ const BlogPostDetailMultipleRENDER: React.FC = () => {
   const [post, setPost] = useState<BlogPostMultiple | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [titles, setTitles] = useState<{ id: string; content: string }[]>([]);
+  const [isIndexVisible, setIsIndexVisible] = useState(false);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -22,6 +24,13 @@ const BlogPostDetailMultipleRENDER: React.FC = () => {
         );
         if (foundPost) {
           setPost(foundPost);
+          const extractedTitles = foundPost.elements
+            .filter((element) => element.type === "title")
+            .map((title, index) => ({
+              id: `title-${index}`,
+              content: title.content,
+            }));
+          setTitles(extractedTitles);
         } else {
           setError("Post no encontrado");
         }
@@ -35,17 +44,34 @@ const BlogPostDetailMultipleRENDER: React.FC = () => {
     fetchPost();
   }, [id]);
 
-  if (loading) {
-    return <div className="text-center py-4">Cargando...</div>;
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      //const scrollPosition = window.scrollY;
+      titles.forEach((title) => {
+        const element = document.getElementById(title.id);
+        if (element) {
+          const { top } = element.getBoundingClientRect();
+          if (top >= 0 && top <= window.innerHeight / 2) {
+            document
+              .querySelector(`a[href="#${title.id}"]`)
+              ?.classList.add("font-bold", "text-blue-600");
+          } else {
+            document
+              .querySelector(`a[href="#${title.id}"]`)
+              ?.classList.remove("font-bold", "text-blue-600");
+          }
+        }
+      });
+    };
 
-  if (error) {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [titles]);
+
+  if (loading) return <div className="text-center py-4">Cargando...</div>;
+  if (error)
     return <div className="text-center py-4 text-red-500">{error}</div>;
-  }
-
-  if (!post) {
-    return null;
-  }
+  if (!post) return null;
 
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = {
@@ -59,8 +85,11 @@ const BlogPostDetailMultipleRENDER: React.FC = () => {
   const renderElement = (element: BlogPostElement, index: number) => {
     switch (element.type) {
       case "title":
+        const titleId = `title-${titles.findIndex(
+          (t) => t.content === element.content
+        )}`;
         return (
-          <h2 key={index} className="text-2xl font-bold mb-4">
+          <h2 id={titleId} key={index} className="text-2xl font-bold mb-4">
             {element.content}
           </h2>
         );
@@ -95,7 +124,7 @@ const BlogPostDetailMultipleRENDER: React.FC = () => {
           <Link
             key={index}
             to={element.url || "#"}
-            className="text-blue-500 hover:text-blue-700 mb-4 inline-block"
+            className="text-blue-500 hover:text-blue-700 mb-4 w-full h-full"
           >
             {element.content}
           </Link>
@@ -104,43 +133,78 @@ const BlogPostDetailMultipleRENDER: React.FC = () => {
         return null;
     }
   };
+  const toggleIndex = () => {
+    setIsIndexVisible(!isIndexVisible);
+  };
 
   return (
-    <article className="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto">
-      <Link
-        to="/usuarios/foro"
-        className="text-blue-500 hover:text-blue-700 mb-4 inline-block"
+    <div className="flex flex-col md:flex-row">
+      <button
+        onClick={toggleIndex}
+        className="md:hidden bg-blue-500 text-white px-4 py-2 rounded mb-4"
       >
-        &larr; Volver a la lista de postsfor
-      </Link>
-      {post.image && (
-        <img
-          src={post.image}
-          alt="Post header"
-          className="w-full h-64 object-cover mb-4 rounded"
-        />
-      )}
-      <h1 className="text-3xl font-bold mb-4">{post.elements[0].content}</h1>
-      <div className="mb-4 text-gray-600">
-        <span>Por {post.author} | </span>
-        <time dateTime={post.publishDate}>{formatDate(post.publishDate)}</time>
-      </div>
-      <div className="prose max-w-none mb-6">
-        {post.elements
-          .slice(1)
-          .map((element, index) => renderElement(element, index))}
-      </div>
-      <div className="mt-4">
-        {post.tags.map((tag) => (
-          <span
-            key={tag}
-            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-          >
-            #{tag}
-          </span>
-        ))}
-      </div>
-    </article>
+        {isIndexVisible ? "<" : ">"}
+      </button>
+      {/* Barra lateral con índice */}
+      <aside
+        className={`w-full md:w-64 md:h-screen md:sticky md:top-0 p-4 overflow-y-auto transition-all duration-300 ease-in-out ${
+          isIndexVisible ? "max-h-screen" : "max-h-0 md:max-h-screen"
+        }`}
+      >
+        <h3 className="text-xl font-bold mb-2">Índice</h3>
+        <ul>
+          {titles.map((title, index) => (
+            <li key={index} className="mb-2">
+              <a
+                href={`#${title.id}`}
+                className="text-blue-500 hover:text-blue-700 transition-colors duration-200"
+                onClick={() => setIsIndexVisible(false)}
+              >
+                {title.content}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      {/* Contenido principal */}
+      <article className="flex-3 bg-white p-6 rounded-lg shadow-md max-w-3xl mx-auto">
+        <Link
+          to="/usuarios/foro"
+          className="text-blue-500 hover:text-blue-700 mb-4 inline-block"
+        >
+          &larr; Volver a la lista de posts
+        </Link>
+        {post.image && (
+          <img
+            src={post.image}
+            alt="Post header"
+            className="w-full h-64 object-cover mb-4 rounded"
+          />
+        )}
+        <h1 className="text-3xl font-bold mb-4">{post.elements[0].content}</h1>
+        <div className="mb-4 text-gray-600">
+          <span>Por {post.author} | </span>
+          <time dateTime={post.publishDate}>
+            {formatDate(post.publishDate)}
+          </time>
+        </div>
+
+        <div className="prose max-w-none mb-6">
+          {post.elements.map((element, index) => renderElement(element, index))}
+        </div>
+        <div className="mt-4">
+          {post.tags.map((tag) => (
+            <span
+              key={tag}
+              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+            >
+              #{tag}
+            </span>
+          ))}
+        </div>
+      </article>
+    </div>
   );
 };
 
