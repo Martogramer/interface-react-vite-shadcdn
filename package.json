@@ -30,7 +30,7 @@
     "@reduxjs/toolkit": "1.9.7",
     "@types/react-router-dom": "^5.3.3",
     "@types/three": "^0.165.0",
-    "axios": "^1.6.8",
+    "axios": "^1.7.4",
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
