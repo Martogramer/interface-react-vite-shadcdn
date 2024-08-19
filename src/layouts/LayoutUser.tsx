@@ -8,7 +8,6 @@ import ShadAutoNav from "@/components/navs/user/ShadAutoNav";
 /* ---
   --- routes: usuarios/['', 'perfil', 'ventas', 'clientes', 'payments', 'productos', 'login', 'signup', 'foro', 'nosotros', '_PRUEBAS']
  --- */
-
 const LayoutUser: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
@@ -16,12 +15,12 @@ const LayoutUser: React.FC = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
+  
   useEffect(() => {
     setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1500);
-
     return () => clearTimeout(timer);
   }, [location]);
 
@@ -76,10 +75,10 @@ const LayoutUser: React.FC = () => {
     console.log("Cerrando sesión...");
   };
   const services = [
-    "1on1 Coaching",
-    "Company Review",
-    "Accounts Review",
-    "HR Consulting",
+    "",
+    "Co-workers Reviews",
+    "Scrum Master - Metodologías Ágiles",
+    "APIs RESTful & Microservicios",
     "SEO Optimisation",
   ];
   const companyInfo = ["About", "Meet the Team", "Accounts Review"];

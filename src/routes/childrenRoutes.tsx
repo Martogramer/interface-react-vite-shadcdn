@@ -23,9 +23,7 @@ export const user = [
     path: "",
     element: (
       <>
-        <ErrorBoundary>
           <HomeUser />
-        </ErrorBoundary>
       </>
     ),
   },
