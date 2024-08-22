@@ -5,6 +5,9 @@ import Footer from "@/components/footers/Footer";
 import { Axis3DIcon, LucideRedoDot, TableRowsSplitIcon } from "lucide-react";
 import LoadingScreen from "@/components/_Customs2024/loading/LoadingScreen";
 import ShadAutoNav from "@/components/navs/user/ShadAutoNav";
+import NotificationBar from "@/components/_Customs2024/alerts/NotificationBar";
+import { motion } from "framer-motion";
+
 /* ---
   --- routes: usuarios/['', 'perfil', 'ventas', 'clientes', 'payments', 'productos', 'login', 'signup', 'foro', 'nosotros', '_PRUEBAS']
  --- */
@@ -15,7 +18,7 @@ const LayoutUser: React.FC = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
-  
+
   useEffect(() => {
     setIsLoading(true);
     const timer = setTimeout(() => {
@@ -87,6 +90,7 @@ const LayoutUser: React.FC = () => {
   return (
     <>
       {isLoading && <LoadingScreen />}
+      <NotificationBar />
       <ShadAutoNav
         navItems={navItems}
         basePath={"inicio"}
