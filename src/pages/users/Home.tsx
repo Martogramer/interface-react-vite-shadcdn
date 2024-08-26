@@ -1,3 +1,4 @@
+import { GlobeDemo } from "@/components/_Customs2024/GlobeGithub";
 import StatsSection from "@/components/sections/StatsSection";
 
 const HomeUser: React.FC = () => {
@@ -42,7 +43,10 @@ const HomeUser: React.FC = () => {
     };
   
     return (
+      <>
+      <GlobeDemo />
       <StatsSection {...careerPathData} />
+      </>
     );
   };
   

@@ -2,12 +2,12 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './index.html',
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
+    "./index.html",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
     "./src/**/*.{js,jsx,ts,tsx}",
-    './src/**/*.{ts,tsx}',
+    "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -19,6 +19,16 @@ module.exports = {
       },
     },
     extend: {
+      animation: {
+        "meteor-effect": "meteor 5s linear infinite",
+        first: "moveVertical 30s ease infinite",
+        second: "moveInCircle 20s reverse infinite",
+        third: "moveInCircle 40s linear infinite",
+        fourth: "moveHorizontal 40s ease infinite",
+        fifth: "moveInCircle 20s ease infinite",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -26,16 +36,16 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: '#3b82f6',
-          foreground: '#000',
+          DEFAULT: "#3b82f6",
+          foreground: "#000",
         },
         secondary: {
-          DEFAULT: '#10b981',
-          foreground: '#fff',
+          DEFAULT: "#10b981",
+          foreground: "#fff",
         },
         destructive: {
-          DEFAULT: '#ef4444',
-          foreground: '#999',
+          DEFAULT: "#ef4444",
+          foreground: "#999",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -66,15 +76,52 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        moveHorizontal: {
+          "0%": {
+            transform: "translateX(-50%) translateY(-10%)",
+          },
+          "50%": {
+            transform: "translateX(50%) translateY(10%)",
+          },
+          "100%": {
+            transform: "translateX(-50%) translateY(-10%)",
+          },
+        },
+        moveInCircle: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "50%": {
+            transform: "rotate(180deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
+        moveVertical: {
+          "0%": {
+            transform: "translateY(-50%)",
+          },
+          "50%": {
+            transform: "translateY(50%)",
+          },
+          "100%": {
+            transform: "translateY(-50%)",
+          },
+        },
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
 
 const defaultTheme = require("tailwindcss/defaultTheme");
 
@@ -82,16 +129,6 @@ const colors = require("tailwindcss/colors");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{ts,tsx}"],
-  darkMode: "class",
-  theme: {
-    // rest of the code
-  },
-  plugins: [addVariablesForColors],
-};
 
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));

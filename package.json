@@ -26,8 +26,8 @@
     "@radix-ui/react-toggle": "^1.1.0",
     "@radix-ui/react-toggle-group": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.0.7",
-    "@react-three/drei": "^9.107.2",
-    "@react-three/fiber": "^8.16.8",
+    "@react-three/drei": "^9.111.2",
+    "@react-three/fiber": "^8.17.5",
     "@react-three/gltfjsx": "^4.3.4",
     "@reduxjs/toolkit": "1.9.7",
     "@tabler/icons-react": "^3.12.0",
@@ -52,6 +52,7 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.165.0",
+    "three-globe": "^2.31.1",
     "three-stdlib": "^2.30.3",
     "vaul": "^0.9.1",
     "zustand": "^4.5.2"

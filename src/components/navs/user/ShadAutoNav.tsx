@@ -39,7 +39,13 @@ interface HeaderProps {
   onLogout: () => void;
 }
 
-const BreadcrumbLinkWrapper = ({ to, children }: { to: string; children: React.ReactNode }) => (
+const BreadcrumbLinkWrapper = ({
+  to,
+  children,
+}: {
+  to: string;
+  children: React.ReactNode;
+}) => (
   <BreadcrumbLink asChild>
     <Link to={to}>{children}</Link>
   </BreadcrumbLink>
@@ -56,11 +62,11 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
   const location = useLocation();
 
   const generateBreadcrumbs = () => {
-    const pathnames = location.pathname.split('/').filter((x) => x);
-    const breadcrumbs = [{ name: basePath, path: '/' }];
+    const pathnames = location.pathname.split("/").filter((x) => x);
+    const breadcrumbs = [{ name: basePath, path: "/" }];
 
     pathnames.forEach((name, index) => {
-      const path = `/${pathnames.slice(0, index + 1).join('/')}`;
+      const path = `/${pathnames.slice(0, index + 1).join("/")}`;
       breadcrumbs.push({ name, path });
     });
 
@@ -117,7 +123,6 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
         <SheetTrigger asChild>
           <Button size="icon" variant="outline" className="sm:hidden">
             <PanelLeft className="h-5 w-5" />
-            <span className="sr-only">Toggle Menu</span>
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-[300px] sm:w-[400px]">
@@ -127,9 +132,9 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
         </SheetContent>
       </Sheet>
 
-      <Link to="/" className="flex items-center space-x-2">
-        <Package2 className="h-6 w-6" />
-        <span className="font-bold">Tu Logo</span>
+      <Link to={'https://github.com/Martogramer'} className="flex items-center space-x-2">
+        <img src="public/192x192.png" className="h-7 w-7" alt="" />
+        <span className="font-bold">@martogramer</span>
       </Link>
 
       <Breadcrumb>
@@ -153,11 +158,11 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
         </BreadcrumbList>
       </Breadcrumb>
       <div className="flex-1" />
-      
+
       <nav className="hidden md:flex md:items-center md:space-x-4 lg:space-x-6">
         {navItems.map((item) => renderNavItem(item))}
       </nav>
-                <div className="flex-1" />
+      <div className="flex-1" />
 
       <form onSubmit={handleSearchSubmit} className="relative hidden md:block">
         <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
