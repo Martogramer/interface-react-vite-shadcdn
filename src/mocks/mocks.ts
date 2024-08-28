@@ -340,7 +340,135 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       "JavaScript"
     ],
     "image": "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp"
-  }
+  },
+  {
+    id: 6,
+    elements: [
+        {
+            type: "title",
+            content: "Clsx: Manejo Eficiente de Clases en React y TypeScript"
+        },
+        {
+            type: "paragraph",
+            content: "Clsx es una biblioteca útil para manejar clases en aplicaciones de React y TypeScript (TSX). Permite combinar y condicionar clases CSS de manera eficiente, lo que es especialmente valioso cuando se trabaja con frameworks como Tailwind CSS."
+        },
+        {
+            type: "title",
+            content: "¿Qué es Clsx?"
+        },
+        {
+            type: "paragraph",
+            content: "Clsx es una pequeña biblioteca que facilita la concatenación de clases CSS. Su principal ventaja es que permite agregar clases condicionalmente, lo que significa que puedes incluir o excluir clases basadas en el estado de un componente o en props pasadas. Esto es útil para crear componentes reutilizables que pueden tener diferentes estilos según el contexto en el que se usen."
+        },
+        {
+            type: "title",
+            content: "¿Cómo funciona Clsx?"
+        },
+        {
+            type: "paragraph",
+            content: "El funcionamiento de Clsx es bastante sencillo. Se utiliza para combinar clases de la siguiente manera:"
+        },
+        {
+            type: "code",
+            content: `
+                import clsx from 'clsx';
+                
+                const MyComponent = ({ isActive }) => {
+                  return (
+                    <div className={clsx('base-class', { 'active-class': isActive })}>
+                      Content here
+                    </div>
+                  );
+                };
+            `,
+            language: "javascript"
+        },
+        {
+            type: "paragraph",
+            content: "En este ejemplo, `base-class` siempre se aplicará, mientras que `active-class` se aplicará solo si `isActive` es verdadero. Esto permite un manejo dinámico y limpio de las clases en React."
+        },
+        {
+            type: "title",
+            content: "Integración con TypeScript"
+        },
+        {
+            type: "paragraph",
+            content: "Cuando se trabaja con TypeScript, es importante asegurarse de que las props de los componentes estén correctamente tipadas. Clsx se integra bien con TypeScript, permitiendo que los desarrolladores definan tipos para las props que controlan las clases. Por ejemplo:"
+        },
+        {
+            type: "code",
+            content: `
+                interface MyComponentProps {
+                  isActive: boolean;
+                }
+                
+                const MyComponent: React.FC<MyComponentProps> = ({ isActive }) => {
+                  return (
+                    <div className={clsx('base-class', { 'active-class': isActive })}>
+                      Content here
+                    </div>
+                  );
+                };
+            `,
+            language: "typescript"
+        },
+        {
+            type: "paragraph",
+            content: "Esto no solo mejora la legibilidad del código, sino que también proporciona autocompletado y verificación de tipos en los editores, lo que reduce errores."
+        },
+        {
+            type: "title",
+            content: "Uso con Tailwind CSS"
+        },
+        {
+            type: "paragraph",
+            content: "Clsx es particularmente popular entre los desarrolladores que utilizan Tailwind CSS, ya que permite aplicar clases de Tailwind de manera condicional. Por ejemplo, puedes cambiar el color de fondo de un botón según su estado:"
+        },
+        {
+            type: "code",
+            content: `
+                const Button = ({ isPrimary }) => {
+                  return (
+                    <button className={clsx('px-4 py-2', { 'bg-blue-500': isPrimary, 'bg-gray-500': !isPrimary })}>
+                      Click me
+                    </button>
+                  );
+                };
+            `,
+            language: "javascript"
+        },
+        {
+            type: "paragraph",
+            content: "En este caso, el botón tendrá un fondo azul si `isPrimary` es verdadero, y gris si es falso."
+        },
+        {
+            type: "title",
+            content: "Conclusión"
+        },
+        {
+            type: "paragraph",
+            content: "Clsx es una herramienta poderosa para manejar clases en aplicaciones de React y TypeScript, especialmente cuando se trabaja con Tailwind CSS. Su capacidad para condicionar clases de manera sencilla y eficiente mejora la claridad y la mantenibilidad del código."
+        },
+        {
+            type: "title",
+            content: "Citations"
+        },
+        {
+            type: "link",
+            content: "Video explicativo de Clsx",
+            url: "https://www.youtube.com/watch?v=1Za0jqI8cOA"
+        },
+        {
+            type: "link",
+            content: "Guía para usar Clsx en proyectos",
+            url: "https://stackoverflow.com/questions/57557271/clsx-what-is-and-how-to-use-it"
+        }
+    ],
+    author: "@martogramer",
+    publishDate: "2024-08-28",
+    tags: ["React", "TypeScript", "Clsx", "Tailwind CSS", "Frontend", "JavaScript"],
+}
+
 ];
 
 /* 
@@ -358,7 +486,7 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       {
         type: "image",
         content:
-          "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp",
+          "https://example-url",
       },
       {
         type: "code",
@@ -369,16 +497,16 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       },
       {
         type: "link",
-        content: "Visita nuestra página de GitHub",
-        url: "https://github.com/tu-organizacion"
+        content: "",
+        url: ""
       },
     ],
-    author: "Martín Iribas",
-    publishDate: "2024-07-15",
-    tags: ["Software Libre", "Tecnología", "Ética Digital", "Piratería", "Software", "Código Abierto"],
+    author: "@martogramer",
+    publishDate: "2024-08-28",
+    tags: ["", "", "", "", "", ""],
     image:
-      "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp",
-      } 
+      "https://example-url-img",
+  }
 */
 
 export const mockProducts: Product[] = [];
