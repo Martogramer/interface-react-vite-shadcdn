@@ -1,3 +1,5 @@
+import { ShootingStarsAndStarsBackgroundDemo } from "@/components/_Customs2024/backgrounds/ShootingStarsAndStarsBackgroundDemo";
+import { VortexDemo } from "@/components/_Customs2024/backgrounds/VortexDemo";
 import { GlobeDemo } from "@/components/_Customs2024/GlobeGithub";
 import StatsSection from "@/components/sections/StatsSection";
 
@@ -45,6 +47,8 @@ const HomeUser: React.FC = () => {
     return (
       <>
       <GlobeDemo />
+      <ShootingStarsAndStarsBackgroundDemo />
+      <VortexDemo />
       <StatsSection {...careerPathData} />
       </>
     );
