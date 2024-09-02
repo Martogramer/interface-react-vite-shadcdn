@@ -1,5 +1,4 @@
 import { ShootingStarsAndStarsBackgroundDemo } from "@/components/_Customs2024/backgrounds/ShootingStarsAndStarsBackgroundDemo";
-import { VortexDemo } from "@/components/_Customs2024/backgrounds/VortexDemo";
 import { GlobeDemo } from "@/components/_Customs2024/GlobeGithub";
 import StatsSection from "@/components/sections/StatsSection";
 
@@ -40,7 +39,6 @@ const HomeUser: React.FC = () => {
               description: "Lorem ipsum dolor sit amet consectetur.",
               link: "#"
             },
-            
       ]
     };
   
@@ -49,7 +47,6 @@ const HomeUser: React.FC = () => {
       <GlobeDemo />
       <ShootingStarsAndStarsBackgroundDemo />
       <StatsSection {...careerPathData} />
-      <VortexDemo />
       </>
     );
   };

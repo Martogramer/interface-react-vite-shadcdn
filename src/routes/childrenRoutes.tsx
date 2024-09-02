@@ -47,7 +47,6 @@ export const user = [
     path: "productos",
     element: <DashboardCrud />,
   },
-
   {
     path: "foro",
     element: <Forum />,

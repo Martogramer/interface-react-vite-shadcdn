@@ -62,6 +62,7 @@ const SceneMultileUltimate: React.FC<ThreeSceneProps> = ({
   const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null);
   const [controls, setControls] = useState<OrbitControls | null>(null);
 
+  console.log(scene,camera,renderer,controls)
   useEffect(() => {
     const mount = mountRef.current;
     if (!mount) return;

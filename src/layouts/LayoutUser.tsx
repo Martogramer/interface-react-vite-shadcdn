@@ -79,7 +79,7 @@ const LayoutUser: React.FC = () => {
       <NotificationBar />
       <ShadAutoNav
         navItems={navItems}
-        basePath={"inicio"}
+        basePath={"home"}
         avatarSrc="https://example.com/avatar.jpg"
         onLogout={handleLogout}
       />

@@ -27,7 +27,7 @@ const LoadingScreen: React.FC = () => {
             <ambientLight intensity={2} />c
             <spotLight position={[1, 1, 10]} angle={1.0} penumbra={1} />
             <pointLight position={[-1, -10, -10]} />
-            <Model3D modelPath="/public/models/terra.glb" scale={1.5} />
+            <Model3D modelPath="models/terra.glb" scale={1.5} />
             <OrbitControls />
           </Canvas>
         </div>

@@ -17,9 +17,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Package2, PanelLeft, Search, ChevronDown } from "lucide-react";
+import { PanelLeft, Search, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { MenuItem, HoveredLink, Menu } from "../../ui/navbar-menu";
 
 interface NavSubItem {
   label: string;
@@ -59,6 +60,7 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [active, setActive] = useState<string | null>(null);
   const location = useLocation();
 
   const generateBreadcrumbs = () => {
@@ -87,23 +89,27 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
   const renderNavItem = (item: NavItem) => {
     if (item.subItems) {
       return (
-        <DropdownMenu key={item.label}>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center">
-              {item.label}
-              <ChevronDown className="ml-1 h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            {item.subItems.map((subItem) => (
-              <DropdownMenuItem key={subItem.label}>
-                <Link to={subItem.href} className="w-full">
+        <Menu setActive={setActive}>
+          <MenuItem
+            key={item.label}
+            setActive={setActive}
+            active={active}
+            item={item.label}
+          >
+            
+            <div className="flex flex-col space-y-4 text-sm">
+              {item.subItems.map((subItem) => (
+                <HoveredLink
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                  key={subItem.label}
+                  href={subItem.href}
+                >
                   {subItem.label}
-                </Link>
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
+                </HoveredLink>
+              ))}
+            </div>
+          </MenuItem>
+        </Menu>
       );
     }
     return (
@@ -132,8 +138,11 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
         </SheetContent>
       </Sheet>
 
-      <Link to={'https://github.com/Martogramer'} className="flex items-center space-x-2">
-        <img src="public/192x192.png" className="h-7 w-7" alt="" />
+      <Link
+        to={"https://github.com/Martogramer"}
+        className="flex items-center space-x-2"
+      >
+        <img src="/192x192.png" className="h-7 w-7" alt="" />
         <span className="font-bold">@martogramer</span>
       </Link>
 
