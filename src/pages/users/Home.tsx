@@ -48,8 +48,8 @@ const HomeUser: React.FC = () => {
       <>
       <GlobeDemo />
       <ShootingStarsAndStarsBackgroundDemo />
-      <VortexDemo />
       <StatsSection {...careerPathData} />
+      <VortexDemo />
       </>
     );
   };

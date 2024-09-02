@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { fetchUsers } from "@/services/handlers/users/usersAction";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Footer from "@/components/footers/Footer";
 import { Axis3DIcon, LucideRedoDot, TableRowsSplitIcon } from "lucide-react";
-import LoadingScreen from "@/components/_Customs2024/loading/LoadingScreen";
 import ShadAutoNav from "@/components/navs/user/ShadAutoNav";
 import NotificationBar from "@/components/_Customs2024/alerts/NotificationBar";
 
@@ -11,20 +10,9 @@ import NotificationBar from "@/components/_Customs2024/alerts/NotificationBar";
   --- routes: usuarios/['', 'perfil', 'ventas', 'clientes', 'payments', 'productos', 'login', 'signup', 'foro', 'nosotros', '_PRUEBAS']
  --- */
 const LayoutUser: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const location = useLocation();
-
   useEffect(() => {
     fetchUsers();
   }, []);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, [location]);
 
   const socialLinks = [
     {
@@ -88,7 +76,6 @@ const LayoutUser: React.FC = () => {
 
   return (
     <>
-      {isLoading && <LoadingScreen />}
       <NotificationBar />
       <ShadAutoNav
         navItems={navItems}
