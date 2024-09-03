@@ -1,6 +1,4 @@
 import { VortexDemo } from "@/components/_Customs2024/backgrounds/VortexDemo";
-import ImageContainer from "@/components/_Customs2024/images/LazyImage";
-import PostList from "@/components/forum/alternative/PostList";
 import DetailUse from "@/features/filters/DetailUse";
 import React from "react";
 
@@ -9,8 +7,10 @@ const Forum: React.FC = () => {
     <div className="mx-auto lg:mx-20 md:mx-10 ">
       {/* <ImageContainer /> */}
        <VortexDemo />
+    <div className="mx-auto lg:mx-20 md:mx-10 ">
       <DetailUse />
       {/* <PostList /> */}
+    </div>
     </div>
   );
 };

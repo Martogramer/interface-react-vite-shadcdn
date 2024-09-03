@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
           title="Template Typescript React & Vite.js"
           strong="Custom Comps 2024"
           subtitle="Proyecto basado en las últimas tendencias, siguiendo buenas prácticas en Desarrollo Web y estándares de Ux de AirBnb."
-          primaryAction={{ text: "Inicio", href: "usuarios" }}
+          primaryAction={{ text: "Inicio", href: "collabs" }}
           secondaryAction={{ text: "Documentación del Proyecto", href: "documentacion" }}
         />
       </motion.div>
