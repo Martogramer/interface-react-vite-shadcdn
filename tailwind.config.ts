@@ -21,6 +21,7 @@ module.exports = {
     extend: {
       animation: {
         "meteor-effect": "meteor 5s linear infinite",
+        shimmer: "shimmer 2s linear infinite",
         first: "moveVertical 30s ease infinite",
         second: "moveInCircle 20s reverse infinite",
         third: "moveInCircle 40s linear infinite",
@@ -71,6 +72,14 @@ module.exports = {
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
+        },
+        shimmer: {
+          from: {
+            backgroundPosition: "0 0",
+          },
+          to: {
+            backgroundPosition: "-200% 0",
+          },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },

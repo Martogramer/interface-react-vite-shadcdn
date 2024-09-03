@@ -11,6 +11,8 @@ import LayoutCollabs from "@/layouts/LayoutCollabs";
 import HomeUser from "@/pages/users/Home";
 import Forum from "@/pages/users/Forum";
 import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMultipleRENDER";
+import { BackgroundBeamsDemo } from "@/components/_Customs2024/Background";
+import { PlaceholdersAndVanishInputDemo } from "@/components/inputs/PlaceholdersAndVanishInputDemo";
 
 {
   /* 
@@ -58,6 +60,12 @@ export const router = createBrowserRouter([
   },
 
   {
+    path: "/services",
+    element: <LayoutCollabs />,
+    children: [{ path: "", element: <PlaceholdersAndVanishInputDemo /> },],
+  },
+
+  {
     path: "/collabs",
     element: <LayoutCollabs />,
     children: [
@@ -70,12 +78,28 @@ export const router = createBrowserRouter([
         element: <About />,
       },
       {
+        path: "services",
+        element: <About />,
+      },
+      {
         path: "foro",
         element: <Forum />,
       },
       {
-        path: 'foro/:id',
+        path: "foro/:id",
         element: <BlogPostDetailMultipleRENDER />,
+      },
+      {
+        path: "contact",
+        element: (
+          <BackgroundBeamsDemo
+            title="🚀 ¿Listo para transformar tu negocio?"
+            description="Estamos aquí para potenciar tu marca y llevarla a donde merece estar: en la mente de tus clientes y en la cima de los resultados de búsqueda."
+            inputPlaceholder="ejemplo@email.com"
+            height="50rem"
+            titleColor="from-blue-200 to-blue-600"
+          />
+        ),
       },
     ],
   },

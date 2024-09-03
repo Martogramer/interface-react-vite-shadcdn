@@ -1,4 +1,5 @@
 import { ShootingStarsAndStarsBackgroundDemo } from "@/components/_Customs2024/backgrounds/ShootingStarsAndStarsBackgroundDemo";
+import { CardStackDemo } from "@/components/_Customs2024/cards/CardStack";
 import { GlobeDemo } from "@/components/_Customs2024/GlobeGithub";
 import StatsSection from "@/components/sections/StatsSection";
 
@@ -23,22 +24,7 @@ const HomeUser: React.FC = () => {
               title: "Accountant",
               description: "Lorem ipsum dolor sit amet consectetur.",
               link: "#"
-            },
-            {
-              title: "Accountant",
-              description: "Lorem ipsum dolor sit amet consectetur.",
-              link: "#"
-            },
-            {
-              title: "Accountant",
-              description: "Lorem ipsum dolor sit amet consectetur.",
-              link: "#"
-            },
-            {
-              title: "Accountant",
-              description: "Lorem ipsum dolor sit amet consectetur.",
-              link: "#"
-            },
+            }
       ]
     };
   
@@ -46,6 +32,7 @@ const HomeUser: React.FC = () => {
       <>
       <GlobeDemo />
       <ShootingStarsAndStarsBackgroundDemo />
+      <CardStackDemo />
       <StatsSection {...careerPathData} />
       </>
     );
