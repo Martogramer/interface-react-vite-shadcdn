@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import ShadAutoNav from "@/components/navs/user/ShadAutoNav";
-import { NavbarDemo } from "@/components/_Customs2024/navs/NavAce";
 import Footer from "@/components/footers/Footer";
 import { Axis3DIcon, LucideRedoDot, TableRowsSplitIcon } from "lucide-react";
 const navItems = [
@@ -12,7 +11,7 @@ const navItems = [
   {
     label: "Servicios",
     subItems: [
-      { label: "Diseño Web", href: "" },
+      { label: "Diseño Web", href: "/services" },
       { label: "Seo Posicionamiento", href: "" },
       { label: "Ads & Publicidad", href: "" },
       { label: "Estrategias de Mkt", href: "" },
@@ -61,7 +60,6 @@ const LayoutCollabs: React.FC = () => {
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
       <div className="flex-grow">
-       
         <ShadAutoNav
           navItems={navItems}
           basePath={"home"}

@@ -1,3 +1,18 @@
+/**
+ * Configures the web routing using `react-router-dom`.
+ * Defines various routes and their corresponding React components.
+ *
+ * @example
+ * To add a new route, simply add a new object to the `router` array:
+ * ```
+ * {
+ *   path: "/new-route",
+ *   element: <NewRouteComponent />,
+ * }
+ * ```
+ *
+ * @see https://reactrouter.com/en/main for more information on `react-router-dom`.
+ */
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { admin, user } from "./childrenRoutes";
 import LayoutUser from "@/layouts/LayoutUser";
@@ -35,7 +50,7 @@ Posibles mejoras:
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/λ" replace />,
+    element: <Navigate to="/α" replace />,
   },
   {
     path: "/admin",
@@ -43,7 +58,7 @@ export const router = createBrowserRouter([
     children: admin,
   },
   {
-    path: "/λ",
+    path: "/α",
     element: (
       <ErrorBoundary>
         <HomePage />
@@ -74,9 +89,8 @@ export const router = createBrowserRouter([
       
     ],
   },
-
   {
-    path: "/α",
+    path: "/collabs",
     element: <LayoutCollabs />,
     children: [
       {
@@ -111,7 +125,8 @@ export const router = createBrowserRouter([
           />
         ),
       },
-      { path: "collaboratos-guide", element: <CollaboratorsGuidePage /> }
+      { path: "collaboratos-guide", element: <CollaboratorsGuidePage /> },
+      { path: "docs", element: <CollaboratorsGuidePage /> }
     ],
   },
 ]);
