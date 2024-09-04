@@ -83,11 +83,7 @@ export const router = createBrowserRouter([
   {
     path: "/services",
     element: <LayoutCollabs />,
-    children: [
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
-      { path: "services", element: <ServicesPage /> },
-      
-    ],
+    children: [{ path: "", element: <PlaceholdersAndVanishInputDemo /> }],
   },
   {
     path: "/collabs",
@@ -97,6 +93,7 @@ export const router = createBrowserRouter([
         path: "",
         element: <HomeUser />,
       },
+      { path: "webdesign", element: <ServicesPage /> },
       {
         path: "about",
         element: <About />,
@@ -126,7 +123,7 @@ export const router = createBrowserRouter([
         ),
       },
       { path: "collaboratos-guide", element: <CollaboratorsGuidePage /> },
-      { path: "docs", element: <CollaboratorsGuidePage /> }
+      { path: "docs", element: <CollaboratorsGuidePage /> },
     ],
   },
 ]);

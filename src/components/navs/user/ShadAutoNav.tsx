@@ -95,14 +95,13 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
             setActive={setActive}
             active={active}
             item={item.label}
-          >
-            
+          >            
             <div className="flex flex-col space-y-4 text-sm">
               {item.subItems.map((subItem) => (
                 <HoveredLink
                   className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
                   key={subItem.label}
-                  href={subItem.href}
+                  to={subItem.href}
                 >
                   {subItem.label}
                 </HoveredLink>

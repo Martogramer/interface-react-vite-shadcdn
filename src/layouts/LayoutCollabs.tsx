@@ -11,7 +11,7 @@ const navItems = [
   {
     label: "Servicios",
     subItems: [
-      { label: "Diseño Web", href: "/services" },
+      { label: "Diseño Web", href: "webdesign" },
       { label: "Seo Posicionamiento", href: "" },
       { label: "Ads & Publicidad", href: "" },
       { label: "Estrategias de Mkt", href: "" },
@@ -31,7 +31,7 @@ const navItems = [
   },
   {
     label: "Docs",
-    href: "documentation",
+    href: "docs",
   },
 ];
 const socialLinks = [
@@ -62,7 +62,7 @@ const LayoutCollabs: React.FC = () => {
       <div className="flex-grow">
         <ShadAutoNav
           navItems={navItems}
-          basePath={"home"}
+          basePath={""}
           avatarSrc="https://example.com/avatar.jpg"
           onLogout={handleLogout}
         />
