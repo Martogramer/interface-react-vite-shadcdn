@@ -1,5 +1,4 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import StoreHomePage from "@/pages/store/home/Index";
 import { admin, user } from "./childrenRoutes";
 import LayoutUser from "@/layouts/LayoutUser";
 import NotPass from "@/components/errorPage/NotPass";
@@ -13,6 +12,8 @@ import Forum from "@/pages/users/Forum";
 import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMultipleRENDER";
 import { BackgroundBeamsDemo } from "@/components/_Customs2024/Background";
 import { PlaceholdersAndVanishInputDemo } from "@/components/inputs/PlaceholdersAndVanishInputDemo";
+import CollaboratorsGuidePage from "@/pages/collabs/CollaboratorsGuidePage";
+import ServicesPage from "@/pages/services/ServicesPage";
 
 {
   /* 
@@ -34,10 +35,15 @@ Posibles mejoras:
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/inicio" replace />,
+    element: <Navigate to="/λ" replace />,
   },
   {
-    path: "/inicio",
+    path: "/admin",
+    element: <LayoutUserAdmin />,
+    children: admin,
+  },
+  {
+    path: "/λ",
     element: (
       <ErrorBoundary>
         <HomePage />
@@ -62,11 +68,15 @@ export const router = createBrowserRouter([
   {
     path: "/services",
     element: <LayoutCollabs />,
-    children: [{ path: "", element: <PlaceholdersAndVanishInputDemo /> },],
+    children: [
+      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
+      { path: "services", element: <ServicesPage /> },
+      
+    ],
   },
 
   {
-    path: "/collabs",
+    path: "/α",
     element: <LayoutCollabs />,
     children: [
       {
@@ -101,11 +111,7 @@ export const router = createBrowserRouter([
           />
         ),
       },
+      { path: "collaboratos-guide", element: <CollaboratorsGuidePage /> }
     ],
-  },
-  {
-    path: "/admin",
-    element: <LayoutUserAdmin />,
-    children: admin,
   },
 ]);

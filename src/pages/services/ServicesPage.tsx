@@ -1,8 +1,7 @@
 import React from 'react'
 import { HeroParallaxDemo } from "@/components/_Customs2024/Parallax";
 
-
-const Services:React.FC = () => {
+const ServicesPage:React.FC = () => {
   return (
     <div>
       <HeroParallaxDemo />
@@ -10,4 +9,4 @@ const Services:React.FC = () => {
   )
 }
 
-export default Services
+export default ServicesPage
