@@ -8,6 +8,7 @@ import {
   MotionValue,
 } from "framer-motion";
 import { NavLink } from "react-router-dom";
+import styles from './HeroParallax.module.css'; // Usando CSS Modules
 
 export const HeroParallax = ({
   products,
@@ -53,10 +54,11 @@ export const HeroParallax = ({
     useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
     springConfig
   );
+
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className={`${styles.heroParallaxContainer} h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto`}
     >
       <Header />
       <motion.div
@@ -66,7 +68,7 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className=""
+        className={styles.heroParallaxContent}
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
@@ -77,7 +79,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
+        <motion.div className="flex flex-row mb-20 space-x-20">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -102,7 +104,7 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-8xl relative mx-auto py-20 md:py-40 px-4 w-full  left-10 top-0">
+    <div className={`${styles.heroHeader} max-w-8xl relative mx-auto py-20 md:py-40 px-4 w-full`}>
       <h1 className="text-3xl md:text-7xl font-bold dark:text-white">
         The Ultimate <br /> development studio
       </h1>
@@ -135,11 +137,11 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
+      className={`${styles.productCard} group/product h-96 w-[30rem] relative flex-shrink-0`}
     >
       <NavLink
         to={product.link}
-        className="block group-hover/product:shadow-2xl "
+        className="block group-hover/product:shadow-2xl"
       >
         <img
           src={product.thumbnail}

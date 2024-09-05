@@ -1,0 +1,17 @@
+.heroParallaxContainer {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+  
+  .heroParallaxContent {
+    /* Estilos específicos del contenedor de contenido */
+  }
+  
+  .heroHeader {
+    /* Estilos específicos del encabezado */
+  }
+  
+  .productCard {
+    /* Estilos específicos de la tarjeta de producto */
+  }
+  
