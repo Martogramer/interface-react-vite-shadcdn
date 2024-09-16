@@ -182,6 +182,7 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
           onChange={handleSearchChange}
         />
       </form>
+      <div className="flex-1" />
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>

@@ -19,9 +19,7 @@ const StatsSection: React.FC<CareerPathProps> = ({ title, description, ctaText, 
         <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16">
           <div className="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
             <h2 className="text-3xl font-bold sm:text-4xl">{title}</h2>
-
             <p className="mt-4 text-gray-600">{description}</p>
-
             <a
               href={ctaLink}
               className="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
