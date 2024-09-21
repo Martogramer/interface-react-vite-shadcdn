@@ -14,8 +14,7 @@
  * @see https://reactrouter.com/en/main for more information on `react-router-dom`.
  */
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { admin, user } from "./childrenRoutes";
-import LayoutUser from "@/layouts/LayoutUser";
+import { admin } from "./childrenRoutes";
 import NotPass from "@/components/errorPage/NotPass";
 import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
 import HomePage from "@/pages";
@@ -28,7 +27,9 @@ import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMulti
 import { BackgroundBeamsDemo } from "@/components/_Customs2024/Background";
 import { PlaceholdersAndVanishInputDemo } from "@/components/inputs/PlaceholdersAndVanishInputDemo";
 import CollaboratorsGuidePage from "@/pages/collabs/CollaboratorsGuidePage";
-import ServicesPage from "@/pages/services/ServicesPage";
+import ServicesPage from "@/layouts/LayoutServices";
+import LayoutMain from "@/layouts/LayoutMain";
+import LayoutServices from "@/layouts/LayoutServices";
 
 {
   /* 
@@ -53,63 +54,43 @@ export const router = createBrowserRouter([
     element: <Navigate to="/α" replace />,
   },
   {
-    path: "/admin",
-    element: <LayoutUserAdmin />,
-    children: admin,
-  },
-  {
     path: "/α",
     element: (
-      <ErrorBoundary>
-        <HomePage />
-      </ErrorBoundary>
+      <LayoutMain>
+        <ErrorBoundary>
+          <HomePage />
+        </ErrorBoundary>
+      </LayoutMain>
     ),
   },
   {
-    path: "/error",
-    element: <NotPass />,
-  },
-  {
-    path: "/usuarios",
-
-    element: (
-      <ErrorBoundary>
-        <LayoutUser />
-      </ErrorBoundary>
-    ),
-    children: user,
-  },
-
-  {
-    path: "/services",
-    element: <LayoutCollabs />,
-    children: [{ path: "", element: <PlaceholdersAndVanishInputDemo /> }],
+    path: "/servicios",
+    element: <LayoutServices />,
+    children: [
+      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
+      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
+      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
+      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
+    ],
   },
   {
     path: "/collabs",
-    element: <LayoutCollabs />,
+    element: (
+      <>
+        <LayoutMain>
+          <ErrorBoundary>
+            <LayoutCollabs />
+          </ErrorBoundary>
+        </LayoutMain>
+      </>
+    ),
     children: [
-      {
-        path: "",
-        element: <HomeUser />,
-      },
+      { path: "", element: <HomeUser /> },
       { path: "webdesign", element: <ServicesPage /> },
-      {
-        path: "about",
-        element: <About />,
-      },
-      {
-        path: "services",
-        element: <About />,
-      },
-      {
-        path: "foro",
-        element: <Forum />,
-      },
-      {
-        path: "foro/:id",
-        element: <BlogPostDetailMultipleRENDER />,
-      },
+      { path: "about", element: <About /> },
+      { path: "services", element: <About /> },
+      { path: "foro", element: <Forum /> },
+      { path: "foro/:id", element: <BlogPostDetailMultipleRENDER /> },
       {
         path: "contact",
         element: (
@@ -125,5 +106,14 @@ export const router = createBrowserRouter([
       { path: "collaboratos-guide", element: <CollaboratorsGuidePage /> },
       { path: "docs", element: <CollaboratorsGuidePage /> },
     ],
+  },
+  {
+    path: "/error",
+    element: <NotPass />,
+  },
+  {
+    path: "/admin",
+    element: <LayoutUserAdmin />,
+    children: admin,
   },
 ]);

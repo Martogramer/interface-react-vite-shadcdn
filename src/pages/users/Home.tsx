@@ -19,11 +19,6 @@ const HomeUser: React.FC = () => {
               title: "Accountant",
               description: "Lorem ipsum dolor sit amet consectetur.",
               link: "#"
-            },
-            {
-              title: "Accountant",
-              description: "Lorem ipsum dolor sit amet consectetur.",
-              link: "#"
             }
       ]
     };
