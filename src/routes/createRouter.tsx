@@ -56,9 +56,9 @@ export const router = createBrowserRouter([
   {
     path: "/α",
     element: (
-        <ErrorBoundary>
-          <HomePage />
-        </ErrorBoundary>
+      <ErrorBoundary>
+        <HomePage />
+      </ErrorBoundary>
     ),
   },
   {
@@ -112,12 +112,26 @@ export const router = createBrowserRouter([
       {
         path: "foro",
         element: <Forum />,
-        children: [
-          { path: ":id", element: <BlogPostDetailMultipleRENDER /> },
-        ],
+        children: [{ path: ":id", element: <BlogPostDetailMultipleRENDER /> }],
       },
       { path: "guide", element: <CollaboratorsGuidePage /> },
       { path: "docs", element: <CollaboratorsGuidePage /> },
+    ],
+  },
+  {
+    path: "/servicios",
+    element: (
+      <LayoutMain>
+        <ErrorBoundary>
+          <LayoutServices />
+        </ErrorBoundary>
+      </LayoutMain>
+    ),
+    children: [
+      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
+      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
+      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
+      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
     ],
   },
   {

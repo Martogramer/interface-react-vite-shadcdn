@@ -3,14 +3,23 @@ import React from "react";
 import { BackgroundBeams } from "../ui/background-beams";
 import { ShimmerButton } from "./buttons/ShimmerButton";
 
-interface BackgroundBeamsDemoProps {
-  title: string;
-  description: string;
-  inputPlaceholder: string;
-  height?: string;
-  titleColor?: string;
-}
-
+/* 
+import { BackgroundBeamsDemo } from "@/components/_Customs2024/Background";
+<BackgroundBeamsDemo
+          title="🚀 ¿Listo para transformar tu negocio?"
+          description="Estamos aquí para potenciar tu marca y llevarla a donde merece estar: en la mente de tus clientes y en la cima de los resultados de búsqueda."
+          inputPlaceholder="ejemplo@email.com"
+          height="50rem"
+          titleColor="from-blue-200 to-blue-600"
+          />
+          */
+         interface BackgroundBeamsDemoProps {
+           title: string;
+           description: string;
+           inputPlaceholder: string;
+           height?: string;
+           titleColor?: string;
+         }
 export const BackgroundBeamsDemo: React.FC<BackgroundBeamsDemoProps> = ({
   title,
   description,
@@ -32,11 +41,11 @@ export const BackgroundBeamsDemo: React.FC<BackgroundBeamsDemoProps> = ({
           {description}
         </p>
         <div className="mt-6 flex justify-center">
-        <input
-          type="text"
-          placeholder={inputPlaceholder}
-          className="rounded-lg w-full relative mr-1 bg-neutral-950 placeholder:text-neutral-500 inline-flex h-12 items-center justify-center border border-slate-800 px-6 font-medium transition-colors text-slate-400"
-        />
+          <input
+            type="text"
+            placeholder={inputPlaceholder}
+            className="rounded-lg w-full relative mr-1 bg-neutral-950 placeholder:text-neutral-500 inline-flex h-12 items-center justify-center border border-slate-800 px-6 font-medium transition-colors text-slate-400"
+          />
           <ShimmerButton
             text="Shimmer"
             onClick={() => console.log("Button clicked")}

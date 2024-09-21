@@ -1,18 +1,18 @@
-import { VortexDemo } from "@/components/_Customs2024/backgrounds/VortexDemo";
+/* import { VortexDemo } from "@/components/_Customs2024/backgrounds/VortexDemo";*/
 import DetailUse from "@/features/filters/DetailUse";
 import React from "react";
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 
 const Forum: React.FC = () => {
   return (
     <div className="mx-auto lg:mx-20 md:mx-10 ">
       {/* <ImageContainer /> */}
-       <VortexDemo />
-    <div className="mx-auto lg:mx-20 md:mx-10 ">
-      <DetailUse />
-      {/* <PostList /> */}
-    <Outlet />
-    </div>
+      {/*  <VortexDemo /> */}
+      <div className="mx-auto lg:mx-20 md:mx-10 ">
+        <Outlet />
+        <DetailUse />
+        {/* <PostList /> */}
+      </div>
     </div>
   );
 };
