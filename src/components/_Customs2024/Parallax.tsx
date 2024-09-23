@@ -17,5 +17,11 @@ export const products = [
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/cursor.png",
   },
+  {
+    title: "Cursor",
+    link: "https://cursor.so",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
+  },
 
 ];

@@ -9,15 +9,16 @@ interface Props {
 const navItems = [
   {
     label: "Inicio",
-    href: "/collabs",
+    href: "/telescopiens",
   },
   {
     label: "Servicios",
+    href: "/servicios",
     subItems: [
-      { label: "Diseño Web", href: "webdesign" },
-      { label: "Seo Posicionamiento", href: "" },
-      { label: "Ads & Publicidad", href: "" },
-      { label: "Estrategias de Mkt", href: "" },
+      { label: "Diseño Web", href: "/servicios/webdesign" },
+      { label: "Seo Posicionamiento", href: "/servicios/seo" },
+      { label: "Ads & Publicidad", href: "/servicios/ads" },
+      { label: "Estrategias de Mkt", href: "/servicios/mkt" },
     ],
   },
   {

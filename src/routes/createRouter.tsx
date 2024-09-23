@@ -62,18 +62,15 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: "/servicios",
+    path: "/telescopiens",
     element: (
       <LayoutMain>
         <ErrorBoundary>
-          <LayoutServices />
+          <LayoutCollabs /> {/* reemplazar por parallax main */}
         </ErrorBoundary>
       </LayoutMain>
     ),
     children: [
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
       { path: "", element: <PlaceholdersAndVanishInputDemo /> },
     ],
   },
@@ -87,6 +84,7 @@ export const router = createBrowserRouter([
       </LayoutMain>
     ),
     children: [
+      { path: "webdesign", element: <ServicesPage /> },
       { path: "", element: <PlaceholdersAndVanishInputDemo /> },
       { path: "", element: <PlaceholdersAndVanishInputDemo /> },
       { path: "", element: <PlaceholdersAndVanishInputDemo /> },
@@ -94,7 +92,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/collabs",
+    path: "/colaboradores",
     element: (
       <>
         <LayoutMain>
@@ -106,8 +104,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       { path: "", element: <HomeUser /> },
-      { path: "webdesign", element: <ServicesPage /> },
-      { path: "about", element: <About /> },
+      { path: "comps", element: <About /> },
       { path: "services", element: <About /> },
       {
         path: "foro",

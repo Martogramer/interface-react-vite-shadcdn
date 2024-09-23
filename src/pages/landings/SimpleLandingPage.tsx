@@ -15,10 +15,10 @@ const SimpleLandingPage: React.FC = () => {
           title="Template Typescript React & Vite.js"
           strong="Custom Comps 2024"
           subtitle="Proyecto basado en las últimas tendencias, siguiendo buenas prácticas en Desarrollo Web y estándares UX/UI."
-          primaryAction={{ text: "Inicio", href: "collabs" }}
+          primaryAction={{ text: "Inicio", href: "telescopiens" }}
           secondaryAction={{
             text: "Documentación del Proyecto",
-            href: "documentacion",
+            href: "colaboradores/docs",
           }}
         />
       </motion.div>
