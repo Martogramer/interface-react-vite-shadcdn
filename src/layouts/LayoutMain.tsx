@@ -31,11 +31,11 @@ const navItems = [
   },
   {
     label: "Foro",
-    href: "foro",
+    href: "/foro",
   },
   {
     label: "Docs",
-    href: "docs",
+    href: "/colaboradores/docs",
   },
 ];
 const socialLinks = [

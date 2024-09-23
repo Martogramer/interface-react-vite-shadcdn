@@ -30,6 +30,7 @@ import CollaboratorsGuidePage from "@/pages/collabs/CollaboratorsGuidePage";
 import ServicesPage from "@/layouts/LayoutServices";
 import LayoutMain from "@/layouts/LayoutMain";
 import LayoutServices from "@/layouts/LayoutServices";
+import LayoutForo from "@/layouts/LayoutForo";
 
 {
   /* 
@@ -85,10 +86,9 @@ export const router = createBrowserRouter([
     ),
     children: [
       { path: "webdesign", element: <ServicesPage /> },
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
+      { path: "seo", element: <PlaceholdersAndVanishInputDemo /> },
+      { path: "ads", element: <PlaceholdersAndVanishInputDemo /> },
+      { path: "mkt", element: <PlaceholdersAndVanishInputDemo /> },
     ],
   },
   {
@@ -106,29 +106,29 @@ export const router = createBrowserRouter([
       { path: "", element: <HomeUser /> },
       { path: "comps", element: <About /> },
       { path: "services", element: <About /> },
-      {
-        path: "foro",
-        element: <Forum />,
-        children: [{ path: ":id", element: <BlogPostDetailMultipleRENDER /> }],
-      },
       { path: "guide", element: <CollaboratorsGuidePage /> },
       { path: "docs", element: <CollaboratorsGuidePage /> },
     ],
   },
   {
-    path: "/servicios",
+    path: "/foro",
     element: (
       <LayoutMain>
         <ErrorBoundary>
-          <LayoutServices />
+          <LayoutForo />
         </ErrorBoundary>
       </LayoutMain>
     ),
     children: [
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
+      {
+        path: "",
+        element: <Navigate to="@telescopiens" replace />,
+      },
+      {
+        path: "@telescopiens",
+        element: <Forum />,
+        children: [{ path: ":id", element: <BlogPostDetailMultipleRENDER /> }],
+      },
     ],
   },
   {

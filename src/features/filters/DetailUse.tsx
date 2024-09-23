@@ -66,7 +66,7 @@ const DetailUse: React.FC = () => {
           {filteredItems.map((item) => (
             <Link
               key={item.id}
-              to={`/${isProduct(item) ? "usuarios/foro" : "collabs/foro"}/${
+              to={`/${isProduct(item) ? "foro/@telescopiens" : "foro/@telescopiens"}/${
                 item.id
               }`}
               className="p-4 bg-white rounded shadow hover:shadow-lg transition-shadow"
