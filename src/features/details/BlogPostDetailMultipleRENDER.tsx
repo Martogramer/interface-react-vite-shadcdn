@@ -169,7 +169,7 @@ const BlogPostDetailMultipleRENDER: React.FC = () => {
       {/* Contenido principal */}
       <article className="flex-3 mt-1 bg-white p-6 rounded-lg shadow-md max-w-3xl mx-auto">
         <Link
-          to="/foro/@telescopiens"
+          to="/foro/@marto"
           className="text-blue-500 hover:text-blue-700 mb-4 inline-block"
         >
           &larr; Volver a la lista de posts

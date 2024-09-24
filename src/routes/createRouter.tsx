@@ -122,10 +122,10 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Navigate to="@telescopiens" replace />,
+        element: <Navigate to="@marto" replace />,
       },
       { 
-        path: "@telescopiens",
+        path: "@marto",
         element: <Forum />,
         children: [{ path: ":id", element: <BlogPostDetailMultipleRENDER /> }],
       },
