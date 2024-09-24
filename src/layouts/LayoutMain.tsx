@@ -23,6 +23,7 @@ const navItems = [
   },
   {
     label: "Colaboradores",
+    href: "/colaboradores",
     subItems: [
       { label: "Custom Components 2024", href: "" },
       { label: "API's & Microservicios", href: "" },
