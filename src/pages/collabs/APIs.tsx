@@ -2,7 +2,7 @@ import React from 'react'
 import About from '../store/about/About'
 
 
-const CollaboratorsGuidePage:React.FC = () => {
+const APIs:React.FC = () => {
   return (
     <div>
       <About />
@@ -10,4 +10,4 @@ const CollaboratorsGuidePage:React.FC = () => {
   )
 }
 
-export default CollaboratorsGuidePage
+export default APIs

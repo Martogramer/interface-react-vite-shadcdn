@@ -26,7 +26,7 @@ import Forum from "@/pages/users/Forum";
 import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMultipleRENDER";
 
 import { PlaceholdersAndVanishInputDemo } from "@/components/inputs/PlaceholdersAndVanishInputDemo";
-import CollaboratorsGuidePage from "@/pages/collabs/CollaboratorsGuidePage";
+import CollaboratorsGuidePage from "@/pages/collabs/APIs";
 import ServicesPage from "@/layouts/LayoutServices";
 import LayoutMain from "@/layouts/LayoutMain";
 import LayoutServices from "@/layouts/LayoutServices";
@@ -71,9 +71,7 @@ export const router = createBrowserRouter([
         </ErrorBoundary>
       </LayoutMain>
     ),
-    children: [
-      { path: "", element: <PlaceholdersAndVanishInputDemo /> },
-    ],
+    children: [{ path: "", element: <HomeUser /> }],
   },
   {
     path: "/servicios",
@@ -103,9 +101,11 @@ export const router = createBrowserRouter([
       </>
     ),
     children: [
-      { path: "", element: <HomeUser /> },
+      {
+        path: "",
+        element: <Navigate to="guide" replace />,
+      },
       { path: "comps", element: <About /> },
-      { path: "services", element: <About /> },
       { path: "guide", element: <CollaboratorsGuidePage /> },
       { path: "docs", element: <CollaboratorsGuidePage /> },
     ],
@@ -124,7 +124,7 @@ export const router = createBrowserRouter([
         path: "",
         element: <Navigate to="@telescopiens" replace />,
       },
-      {
+      { 
         path: "@telescopiens",
         element: <Forum />,
         children: [{ path: ":id", element: <BlogPostDetailMultipleRENDER /> }],
