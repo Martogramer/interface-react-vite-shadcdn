@@ -464,7 +464,7 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
             url: "https://stackoverflow.com/questions/57557271/clsx-what-is-and-how-to-use-it"
         }
     ],
-    author: "@martogramer",
+    author: "@marto",
     publishDate: "2024-08-28",
     tags: ["React", "TypeScript", "Clsx", "Tailwind CSS", "Frontend", "JavaScript"],
 }
