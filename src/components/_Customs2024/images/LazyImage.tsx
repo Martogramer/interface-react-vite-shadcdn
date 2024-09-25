@@ -14,7 +14,7 @@ type Routes =
   | "usuarios/nosotros"
   | "usuarios/componentes";
   const imageLinks: Record<Routes, string> = {
-    "usuarios/perfil": "https://images.unsplash.com/photo-1543094585-3629d00f6f3a?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "usuarios/perfil": "https://res.cloudinary.com/diohw2jdj/image/upload/fl_preserve_transparency/v1723741007/2aeb035a-dff1-47d8-aea4-bab557b335b5.jpg?_s=public-apps",
     "usuarios/ventas": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "usuarios/clientes": "https://plus.unsplash.com/premium_photo-1683288662040-5ca51d0880b2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "usuarios/payments": "https://plus.unsplash.com/premium_photo-1683288537184-7ef228ca6820?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",

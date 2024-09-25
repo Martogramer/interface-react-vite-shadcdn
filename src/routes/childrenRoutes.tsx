@@ -1,7 +1,7 @@
 import CustomComponents from "@/pages/_PRUEBAS/CustomComponents";
 import TablerUsers from "@/pages/admin/TablerUsers";
 import DashboardCrud from "@/pages/users/DashboardCrud";
-import Dashboard from "@/pages/users/DashboardTablerInfo";
+import DashboardTablerInfo from "@/pages/users/DashboardTablerInfo";
 import { ProfilePage } from "@/pages/users/ProfilePage";
 import { LoginShad } from "@/pages/users/LoginShad";
 import OffersPage from "@/pages/users/OffersPage";
@@ -15,15 +15,15 @@ import * as THREE from "three";
 import ErrorBoundary from "@/components/errorPage/ErrorBoundary";
 import RegisterPage from "@/components/_Customs2024/containers/RegisterPage";
 import { Model3DViewer } from "@/pages/_PRUEBAS/three/custom/Model3DViewer";
+import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMultipleRENDER";
+import HomeUser from "@/pages/users/Home";
 
 export const user = [
   {
     path: "",
     element: (
       <>
-        <ErrorBoundary>
-          <Model3DViewer modelPath="/public/models/terra.glb" />
-        </ErrorBoundary>
+          <HomeUser />
       </>
     ),
   },
@@ -32,8 +32,8 @@ export const user = [
     element: <ProfilePage />,
   },
   {
-    path: "ventas",
-    element: <Dashboard />,
+    path: "sales",
+    element: <DashboardTablerInfo />,
   },
   {
     path: "clientes",
@@ -47,10 +47,13 @@ export const user = [
     path: "productos",
     element: <DashboardCrud />,
   },
-
   {
     path: "foro",
     element: <Forum />,
+  },
+  {
+    path: 'foro/:id',
+    element: <BlogPostDetailMultipleRENDER />,
   },
   {
     path: "nosotros",

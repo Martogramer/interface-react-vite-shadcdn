@@ -1,0 +1,47 @@
+.heroParallaxContainer {
+    height: 300vh;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+  
+  .heroParallaxContent {
+    /* Estilos específicos del contenido del parallax */
+  }
+  
+  .flexRow {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    gap: 20px;
+  }
+  
+  .flexRowReverse {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 20px;
+    gap: 20px;
+  }
+  
+  .heroHeader {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  
+  .productCard {
+    height: 96px;
+    width: 30rem;
+    position: relative;
+    flex-shrink: 0;
+  }
+  

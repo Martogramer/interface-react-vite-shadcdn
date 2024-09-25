@@ -3,7 +3,6 @@ import StoreSidebar from "./StoreSidebarUser";
 import MobileMenu from "./MobileMenuUser";
 import { Button } from "@/components/ui/button";
 import {
-  Bot,
   Code2,
   AtSign,
   LineChart,
@@ -40,7 +39,7 @@ const sidebarData: SidebarItem[] = [
     tooltip: "Perfil",
   },
   {
-    to: "ventas",
+    to: "sales",
     icon: <ShoppingCart className="h-5 w-5" />,
     label: "Ventas",
     ariaLabel: "Ventas",
@@ -132,7 +131,7 @@ const menuItems: Item[] = [
     label: "Herramientas",
     subItems: [
       { label: "Perfil de Usuario", href: "perfil" },
-      { label: "Panel de Ventas", href: "ventas" },
+      { label: "Panel de Ventas", href: "sales" },
       { label: "Panel de Clientes", href: "clientes" },
       { label: "Gestión de Pagos", href: "payments" },
       { label: "CRUD de Productos", href: "productos" },
