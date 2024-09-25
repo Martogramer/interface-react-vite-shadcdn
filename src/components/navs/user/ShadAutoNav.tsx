@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,6 +21,7 @@ import { PanelLeft, Search, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MenuItem, HoveredLink, Menu } from "../../ui/navbar-menu";
+import { ShimmerButton } from "@/components/_Customs2024/buttons/ShimmerButton";
 
 interface NavSubItem {
   label: string;
@@ -190,25 +191,9 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
       </form>
       <div className="flex-1" />
 
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-            <img
-              src={avatarSrc}
-              alt="Avatar"
-              className="h-8 w-8 rounded-full object-cover"
-            />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Perfil</DropdownMenuItem>
-          <DropdownMenuItem>Configuración</DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={onLogout}>Cerrar sesión</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <div className="m-2">
+        <ShimmerButton text="night" animationDuration="1.5s" className="m-2" />
+      </div>
     </header>
   );
 };

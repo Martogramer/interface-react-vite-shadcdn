@@ -67,7 +67,7 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
         <ShadAutoNav
           navItems={navItems}
           basePath={""}
-          avatarSrc="https://example.com/avatar.jpg"
+          avatarSrc="https://res.cloudinary.com/diohw2jdj/image/upload/fl_preserve_transparency/v1727286859/OIG_pt1q5s.jpg?_s=public-apps"
           onLogout={handleLogout}
         />
         <div>

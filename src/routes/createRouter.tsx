@@ -22,7 +22,7 @@ import About from "@/pages/store/about/About";
 import ErrorBoundary from "@/components/errorPage/ErrorBoundary";
 import LayoutCollabs from "@/layouts/LayoutCollabs";
 import HomeUser from "@/pages/users/Home";
-import Forum from "@/pages/users/Forum";
+import Forum from "@/pages/forum/Forum";
 import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMultipleRENDER";
 
 import { PlaceholdersAndVanishInputDemo } from "@/components/inputs/PlaceholdersAndVanishInputDemo";
@@ -31,6 +31,7 @@ import ServicesPage from "@/layouts/LayoutServices";
 import LayoutMain from "@/layouts/LayoutMain";
 import LayoutServices from "@/layouts/LayoutServices";
 import LayoutForo from "@/layouts/LayoutForo";
+import Telescopiens from "@/pages/landings/Telescopiens";
 
 {
   /* 
@@ -71,7 +72,7 @@ export const router = createBrowserRouter([
         </ErrorBoundary>
       </LayoutMain>
     ),
-    children: [{ path: "", element: <HomeUser /> }],
+    children: [{ path: "", element: <Telescopiens /> }],
   },
   {
     path: "/servicios",
