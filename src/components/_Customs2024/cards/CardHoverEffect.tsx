@@ -19,7 +19,7 @@ const CardHoverEffect: React.FC<CustomCardProps> = ({
   showGradient = true,
 }) => {
   return (
-    <div className="relative w-80 h-96 rounded-lg overflow-hidden">
+    <div className="relative w-[100%] h-96 rounded-lg overflow-hidden">
       <CanvasRevealEffect
         animationSpeed={animationSpeed}
         colors={colors}

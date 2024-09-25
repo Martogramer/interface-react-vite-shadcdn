@@ -21,17 +21,19 @@ import HomePage from "@/pages";
 import About from "@/pages/store/about/About";
 import ErrorBoundary from "@/components/errorPage/ErrorBoundary";
 import LayoutCollabs from "@/layouts/LayoutCollabs";
-import HomeUser from "@/pages/users/Home";
 import Forum from "@/pages/forum/Forum";
 import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMultipleRENDER";
 
 import { PlaceholdersAndVanishInputDemo } from "@/components/inputs/PlaceholdersAndVanishInputDemo";
 import CollaboratorsGuidePage from "@/pages/collabs/APIs";
-import ServicesPage from "@/layouts/LayoutServices";
 import LayoutMain from "@/layouts/LayoutMain";
 import LayoutServices from "@/layouts/LayoutServices";
 import LayoutForo from "@/layouts/LayoutForo";
 import Telescopiens from "@/pages/landings/Telescopiens";
+import WebDesignPage from "@/pages/services/WebDesignPage";
+import SeoPage from "@/pages/services/SeoPage";
+import MktPage from "@/pages/services/MktPage";
+import AdsPage from "@/pages/services/AdsPage";
 
 {
   /* 
@@ -84,10 +86,14 @@ export const router = createBrowserRouter([
       </LayoutMain>
     ),
     children: [
-      { path: "webdesign", element: <ServicesPage /> },
-      { path: "seo", element: <PlaceholdersAndVanishInputDemo /> },
-      { path: "ads", element: <PlaceholdersAndVanishInputDemo /> },
-      { path: "mkt", element: <PlaceholdersAndVanishInputDemo /> },
+      {
+        path: "",
+        element: <Navigate to="webdesign" replace />,
+      },
+      { path: "webdesign", element: <WebDesignPage /> },
+      { path: "seo", element: <SeoPage /> },
+      { path: "ads", element: <MktPage /> },
+      { path: "mkt", element: <AdsPage /> },
     ],
   },
   {
