@@ -68,7 +68,7 @@ const handleLogout = () => {
   return (
     <>
       
-        <div className={clsx(themeClasses.background, themeClasses.text,"bg-gray text-primary-foreground ")}>
+        <div className={clsx(themeClasses.background, themeClasses.text)}>
           <ShadAutoNav
             navItems={navItems}
             basePath={""}
