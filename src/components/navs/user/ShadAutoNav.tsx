@@ -22,6 +22,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MenuItem, HoveredLink, Menu } from "../../ui/navbar-menu";
 import { ShimmerButton } from "@/components/_Customs2024/buttons/ShimmerButton";
+import ThemedButton from "@/components/_Customs2024/buttons/ThemedButton";
+import { useTheme } from "@/context/ThemeContext";
 
 interface NavSubItem {
   label: string;
@@ -63,7 +65,7 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
   const [searchQuery, setSearchQuery] = useState("");
   const [active, setActive] = useState<string | null>(null);
   const location = useLocation();
-
+  const { themeClasses, toggleTheme } = useTheme();
   const generateBreadcrumbs = () => {
     const pathnames = location.pathname.split("/").filter((x) => x);
     const breadcrumbs = [{ name: basePath, path: "/" }];
@@ -190,7 +192,9 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
         />
       </form>
       <div className="flex-1" />
-
+      <ThemedButton onClick={toggleTheme} variant="secondary">
+          *
+        </ThemedButton>
       <div className="m-2">
         <ShimmerButton text="night" animationDuration="1.5s" className="m-2" />
       </div>
