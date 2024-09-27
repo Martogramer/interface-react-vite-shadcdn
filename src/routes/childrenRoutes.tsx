@@ -5,7 +5,7 @@ import DashboardTablerInfo from "@/pages/users/DashboardTablerInfo";
 import { ProfilePage } from "@/pages/users/ProfilePage";
 import { LoginShad } from "@/pages/users/LoginShad";
 import OffersPage from "@/pages/users/OffersPage";
-import Forum from "@/pages/users/Forum";
+import Forum from "@/pages/forum/Forum";
 import { RegisterShad } from "@/pages/users/RegisterShad";
 import Payments from "@/pages/users/Payments";
 import ThreeContainer from "@/pages/_PRUEBAS/three/ThreeContainer";

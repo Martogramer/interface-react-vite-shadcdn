@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import clsx from "clsx";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,6 +22,9 @@ import { PanelLeft, Search, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MenuItem, HoveredLink, Menu } from "../../ui/navbar-menu";
+import { ShimmerButton } from "@/components/_Customs2024/buttons/ShimmerButton";
+import ThemedButton from "@/components/_Customs2024/buttons/ThemedButton";
+import { useTheme } from "@/context/ThemeContext";
 
 interface NavSubItem {
   label: string;
@@ -62,6 +66,7 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
   const [searchQuery, setSearchQuery] = useState("");
   const [active, setActive] = useState<string | null>(null);
   const location = useLocation();
+  const { themeClasses, toggleTheme } = useTheme();
 
   const generateBreadcrumbs = () => {
     const pathnames = location.pathname.split("/").filter((x) => x);
@@ -89,30 +94,46 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
   const renderNavItem = (item: NavItem) => {
     if (item.subItems) {
       return (
-        <Menu setActive={setActive}>
+        <Menu setActive={setActive} key={item.label}>
           <Link
             key={item.label}
             to={item.href || "#"}
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            className={clsx(
+              "text-sm font-medium transition-colors hover:text-primary",
+              themeClasses.text
+            )}
           >
-            <MenuItem
-              key={item.label}
-              setActive={setActive}
-              active={active}
-              item={item.label}
+            <div
+              className={clsx(
+                themeClasses.text,
+                themeClasses.border,
+                themeClasses.shadow
+              )}
             >
-              <div className="flex flex-col space-y-4 text-sm">
-                {item.subItems.map((subItem) => (
-                  <HoveredLink
-                    className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-                    key={subItem.label}
-                    to={subItem.href}
-                  >
-                    {subItem.label}
-                  </HoveredLink>
-                ))}
-              </div>
-            </MenuItem>
+              <MenuItem
+                key={item.label}
+                setActive={setActive}
+                active={active}
+                item={item.label}
+              >
+                <div
+                  className={
+                    "flex flex-col text-sm font-medium space-y-2 hover:te"
+                  }
+                >
+                  {item.subItems.map((subItem) => (
+                    <HoveredLink key={subItem.label} to={subItem.href}  className={clsx(
+                      "flex flex-col text-sm font-medium hover:te",
+                      themeClasses.text,
+                      themeClasses.border,
+                      themeClasses.background
+                    )}>
+                      {subItem.label}
+                    </HoveredLink>
+                  ))}
+                </div>
+              </MenuItem>
+            </div>
           </Link>
         </Menu>
       );
@@ -121,7 +142,10 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
       <Link
         key={item.label}
         to={item.href || "#"}
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+        className={clsx(
+          "text-sm font-medium transition-colors hover:text-primary",
+          themeClasses.text
+        )}
       >
         {item.label}
       </Link>
@@ -129,14 +153,23 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:px-6">
+    <header
+      className={clsx(
+        "sticky top-0 z-30 flex h-14 items-center gap-4 border-b px-4 sm:px-6",
+        themeClasses.background,
+        themeClasses.border
+      )}
+    >
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
-          <Button size="icon" variant="outline" className="sm:hidden">
+          <Button size="icon" variant="destructive" className="sm:hidden">
             <PanelLeft className="h-5 w-5" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+        <SheetContent
+          side="left"
+          className={clsx("w-[300px] sm:w-[400px]", themeClasses.background)}
+        >
           <nav className="flex flex-col space-y-4">
             {navItems.map((item) => renderNavItem(item))}
           </nav>
@@ -148,7 +181,9 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
         className="flex items-center space-x-2"
       >
         <img src="/192x192.png" className="h-7 w-7" alt="" />
-        <span className="font-bold">@martogramer</span>
+        <span className={clsx("font-bold", themeClasses.text)}>
+          @martogramer
+        </span>
       </Link>
 
       <Breadcrumb>
@@ -183,32 +218,21 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
         <Input
           type="search"
           placeholder="Buscar..."
-          className="w-full md:w-[200px] lg:w-[300px] pl-8"
+          className={clsx(
+            "w-full md:w-[200px] lg:w-[300px] pl-8",
+            themeClasses.border
+          )}
           value={searchQuery}
           onChange={handleSearchChange}
         />
       </form>
       <div className="flex-1" />
-
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-            <img
-              src={avatarSrc}
-              alt="Avatar"
-              className="h-8 w-8 rounded-full object-cover"
-            />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Perfil</DropdownMenuItem>
-          <DropdownMenuItem>Configuración</DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={onLogout}>Cerrar sesión</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <ThemedButton onClick={toggleTheme} variant="secondary">
+        *
+      </ThemedButton>
+      <div className="m-2">
+        <ShimmerButton text="night" animationDuration="1.5s" className="m-2" />
+      </div>
     </header>
   );
 };
