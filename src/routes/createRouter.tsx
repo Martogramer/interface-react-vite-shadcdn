@@ -24,7 +24,6 @@ import LayoutCollabs from "@/layouts/LayoutCollabs";
 import Forum from "@/pages/forum/Forum";
 import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMultipleRENDER";
 
-import { PlaceholdersAndVanishInputDemo } from "@/components/inputs/PlaceholdersAndVanishInputDemo";
 import CollaboratorsGuidePage from "@/pages/collabs/APIs";
 import LayoutMain from "@/layouts/LayoutMain";
 import LayoutServices from "@/layouts/LayoutServices";
@@ -34,6 +33,7 @@ import WebDesignPage from "@/pages/services/WebDesignPage";
 import SeoPage from "@/pages/services/SeoPage";
 import MktPage from "@/pages/services/MktPage";
 import AdsPage from "@/pages/services/AdsPage";
+import CustomComponentsPage from "@/pages/collabs/CustomComponentsPage";
 
 {
   /* 
@@ -112,18 +112,20 @@ export const router = createBrowserRouter([
         path: "",
         element: <Navigate to="guide" replace />,
       },
-      { path: "comps", element: <About /> },
-      { path: "guide", element: <CollaboratorsGuidePage /> },
-      { path: "docs", element: <CollaboratorsGuidePage /> },
+      { path: "comps", element: <CustomComponentsPage /> },
+      { path: "guide", element: <CustomComponentsPage /> },
+      {
+        path: "docs",
+        element: <CollaboratorsGuidePage />,
+        children: [{ path: "", element: <Navigate to="" /> }],
+      },
     ],
   },
   {
     path: "/foro",
     element: (
       <LayoutMain>
-        <ErrorBoundary>
           <LayoutForo />
-        </ErrorBoundary>
       </LayoutMain>
     ),
     children: [
@@ -131,7 +133,7 @@ export const router = createBrowserRouter([
         path: "",
         element: <Navigate to="@marto" replace />,
       },
-      { 
+      {
         path: "@marto",
         element: <Forum />,
         children: [{ path: ":id", element: <BlogPostDetailMultipleRENDER /> }],

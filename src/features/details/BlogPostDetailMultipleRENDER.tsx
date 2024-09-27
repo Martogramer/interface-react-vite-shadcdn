@@ -1,12 +1,3 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import {
-  mockBlogPostsMultiple,
-  BlogPostMultiple,
-  BlogPostElement,
-} from "@/mocks/mocks";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 {
   /* 
 🚀 Este componente es responsable de mostrar el detalle de una publicación específica con distintos parametros. 
@@ -36,6 +27,15 @@ Posibles mejoras:
 - Animaciones de Scroll: Utilizar animaciones suaves (smooth scrolling) para mejorar la experiencia al hacer clic en los enlaces de la barra lateral.
 */
 }
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import {
+  mockBlogPostsMultiple,
+  BlogPostMultiple,
+  BlogPostElement,
+} from "@/mocks/mocks";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 const BlogPostDetailMultipleRENDER: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [post, setPost] = useState<BlogPostMultiple | null>(null);
@@ -116,18 +116,20 @@ const BlogPostDetailMultipleRENDER: React.FC = () => {
     };
     return new Date(dateString).toLocaleDateString("es-ES", options);
   };
-  {/* 
-🚀 
-Función `renderElement`: 
-Esta función es un renderizador condicional que toma un objeto `element` y un índice. Genera un componente JSX según el tipo de elemento (`title`, `paragraph`, `image`, `code`, `link`). 
-Cada caso en el `switch` maneja la renderización específica de cada tipo, aplicando diferentes estilos y estructuras:
-Posibles Mejoras:
-- Implementar un mapeo de componentes basado en un objeto de `handlers` en lugar de `switch-case`, para mejorar la legibilidad y escalabilidad.
-- Definir un `default case` que maneje tipos desconocidos con un mensaje de advertencia.
-- Separar cada tipo en un componente específico y hacer que `renderElement` solo coordine el renderizado.
-- Integrar un soporte adicional para videos (`video`) o listas (`list`) según sea necesario.
-
-*/} 
+  {
+    /* 
+    🚀 
+    Función `renderElement`: 
+    Esta función es un renderizador condicional que toma un objeto `element` y un índice. Genera un componente JSX según el tipo de elemento (`title`, `paragraph`, `image`, `code`, `link`). 
+    Cada caso en el `switch` maneja la renderización específica de cada tipo, aplicando diferentes estilos y estructuras:
+    Posibles Mejoras:
+    - Implementar un mapeo de componentes basado en un objeto de `handlers` en lugar de `switch-case`, para mejorar la legibilidad y escalabilidad.
+    - Definir un `default case` que maneje tipos desconocidos con un mensaje de advertencia.
+    - Separar cada tipo en un componente específico y hacer que `renderElement` solo coordine el renderizado.
+    - Integrar un soporte adicional para videos (`video`) o listas (`list`) según sea necesario.
+    
+    */
+  }
   const renderElement = (element: BlogPostElement, index: number) => {
     switch (element.type) {
       case "title":
@@ -183,7 +185,7 @@ Posibles Mejoras:
     setIsIndexVisible(!isIndexVisible);
   };
 
-  return (  
+  return (
     <div className="flex flex-col md:flex-row">
       <a
         onClick={toggleIndex}

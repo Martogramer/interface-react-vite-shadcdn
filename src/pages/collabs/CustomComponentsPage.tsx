@@ -1,11 +1,12 @@
-import React from 'react'
+import CustomComponentsMultiRender from "@/features/details/CustomComponentsMultiRender";
+import React from "react";
 
-const CustomComponentsPage:React.FC = () => {
+const CustomComponentsPage: React.FC = () => {
   return (
     <>
-      Custom Comps
+      <CustomComponentsMultiRender />
     </>
-  )
-}
+  );
+};
 
-export default CustomComponentsPage
+export default CustomComponentsPage;
