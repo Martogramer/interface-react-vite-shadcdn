@@ -39,6 +39,7 @@ const CustomComponentsMultiRender: React.FC = () => {
   const [activeComponent, setActiveComponent] = useState<string | null>(null);
 
   // Reutiliza la lógica del índice de navegación
+  // Podría implementar sub-items con tipos de componentes / o dejar como está con scroll infinito y probar el pre-render
   const handleScroll = useCallback(() => {
     customComponentsList.forEach((component) => {
       const element = document.getElementById(component.id);
