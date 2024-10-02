@@ -1,39 +1,40 @@
-
 import React, { useState, useEffect, useCallback } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { customComponentsList } from "@/mocks/customCompsMock";
+{
+  /*  🚀 
+  Este componente se utiliza para mostrar un catálogo de componentes personalizados en un diseño 
+  de estilo sandbox, con dos secciones: una para mostrar el código de cada componente 
+  y otra para renderizar el componente en sí. 
+  
+  Funcionalidad:
+  Barra lateral con índice: Permite la navegación a través de los componentes con enlaces que resaltan según la posición del scroll.
+  Manejo de scroll con `useCallback` y `useEffect`: Detecta el desplazamiento de la página para cambiar dinámicamente el componente activo y agregar la clase `font-bold` al enlace correspondiente.
+  Renderizado dinámico de componentes: Utiliza `map` para recorrer `customComponentsList` y renderizar cada componente con su código asociado.
+  
+  Posibles mejoras:
+  1. Optimización del `useEffect` y `useCallback`:
+     - Se podría agregar un debounce a la función `handleScroll` para evitar múltiples re-renderizados en eventos de scroll muy rápidos.
+     - Definir `customComponentsList` como dependencia en el hook `useCallback` para asegurarse de que siempre tenga el valor actualizado.
+     
+  2. Accesibilidad y UX:
+     - Añadir `aria-labels` a los enlaces para mejorar la navegación de lectores de pantalla.
+     - Agregar animaciones o transiciones para que el cambio entre componentes en la tabla se sienta más fluido.
+  
+  3. Persistencia del componente activo:
+     - Almacenar el componente activo en el `localStorage` o en un contexto global para mantener el estado cuando se recarga la página.
+  
+! 4. Optimización de renderizado:
+     - Implementar `React.memo` en los componentes si el `customComponentsList` es grande, para evitar renders innecesarios.
+  
+  5. Validación de props:
+     - Agregar `propTypes` o definir tipos con TypeScript para `customComponentsList` y validar mejor los datos recibidos.
+  
+  En general, el componente tiene una estructura sólida y puede expandirse fácilmente agregando nuevas características o mejorando la visualización de los componentes en el sandbox.
 
-// Define una lista de componentes personalizados con su código y estructura
-const customComponentsList = [
-  {
-    id: "buttonComponent",
-    title: "Button Component",
-    code: `<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-  Click Me!
-</button>`,
-    component: (
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Click Me!
-      </button>
-    ),
-  },
-  {
-    id: "cardComponent",
-    title: "Card Component",
-    code: `<div className="border border-gray-200 rounded-lg p-4 shadow">
-  <h3 className="font-bold text-lg">Card Title</h3>
-  <p className="text-gray-600">This is a simple card component.</p>
-</div>`,
-    component: (
-      <div className="border border-gray-200 rounded-lg p-4 shadow">
-        <h3 className="font-bold text-lg">Card Title</h3>
-        <p className="text-gray-600">This is a simple card component.</p>
-      </div>
-    ),
-  },
-  // Agrega más componentes personalizados aquí
-];
-
+ */
+}
 const CustomComponentsMultiRender: React.FC = () => {
   const [activeComponent, setActiveComponent] = useState<string | null>(null);
 
