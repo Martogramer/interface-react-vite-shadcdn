@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Breadcrumb,
@@ -18,7 +10,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { PanelLeft, Search, ChevronDown } from "lucide-react";
+import { PanelLeft, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MenuItem, HoveredLink, Menu } from "../../ui/navbar-menu";
@@ -59,8 +51,6 @@ const BreadcrumbLinkWrapper = ({
 const ShadAutoNav: React.FC<HeaderProps> = ({
   navItems,
   basePath,
-  avatarSrc,
-  onLogout,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");

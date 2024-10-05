@@ -37,7 +37,7 @@ module.exports = {
           primary: 'bg-blue-500 text-white',
           secondary: 'bg-gray-200 text-gray-700',
           accent: 'bg-yellow-400 text-black',
-          border: 'border-gray-300',
+          border: 'border-none',
           shadow: 'shadow-md',
         },
         dark: {
@@ -46,7 +46,6 @@ module.exports = {
           primary: 'bg-blue-600 text-white',
           secondary: 'bg-gray-700 text-gray-200',
           accent: 'bg-yellow-500 text-black',
-          border: 'border-gray-600',
           shadow: 'shadow-lg shadow-gray-800',
         },
         sepia: {
@@ -55,7 +54,6 @@ module.exports = {
           primary: 'bg-brown-600 text-white',
           secondary: 'bg-yellow-200 text-brown-700',
           accent: 'bg-orange-400 text-black',
-          border: 'border-brown-300',
           shadow: 'shadow-md shadow-brown-200',
         },
         border: "hsl(var(--border))",
