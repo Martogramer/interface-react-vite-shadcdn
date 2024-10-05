@@ -14,16 +14,13 @@
  * @see https://reactrouter.com/en/main for more information on `react-router-dom`.
  */
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { admin } from "./childrenRoutes";
 import NotPass from "@/components/errorPage/NotPass";
-import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
 import HomePage from "@/pages";
 import ErrorBoundary from "@/components/errorPage/ErrorBoundary";
 import LayoutCollabs from "@/layouts/LayoutCollabs";
 import Forum from "@/pages/forum/Forum";
 import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMultipleRENDER";
 
-import CollaboratorsGuidePage from "@/pages/collabs/APIs";
 import LayoutMain from "@/layouts/LayoutMain";
 import LayoutServices from "@/layouts/LayoutServices";
 import LayoutForo from "@/layouts/LayoutForo";
@@ -33,6 +30,8 @@ import SeoPage from "@/pages/services/SeoPage";
 import MktPage from "@/pages/services/MktPage";
 import AdsPage from "@/pages/services/AdsPage";
 import CustomComponentsPage from "@/pages/collabs/CustomComponentsPage";
+import GuidePage from "@/pages/collabs/GuidePage";
+import Docs from "@/pages/collabs/Docs";
 {
   /* 🚀
 Este archivo configura el enrutamiento web utilizando `react-router-dom`. 
@@ -107,14 +106,14 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Navigate to="componentes" replace />,
+        element: <Navigate to="guide" replace />,
       },
+      { path: "guide", element: <GuidePage /> },
       { path: "componentes", element: <CustomComponentsPage /> },
-      { path: "guide", element: <CustomComponentsPage /> },
       {
         path: "docs",
-        element: <CollaboratorsGuidePage />,
-        children: [{ path: "", element: <Navigate to="" /> }],
+        element: <Docs />,
+        children: [{ path: ":id", element: <BlogPostDetailMultipleRENDER /> }],
       },
     ],
   },
@@ -141,7 +140,7 @@ export const router = createBrowserRouter([
     path: "/error",
     element: <NotPass />,
   },
-/*   {
+  /*   {
     path: "/admin",
     element: <LayoutUserAdmin />,
     children: admin,
