@@ -1,20 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { mockDocs } from "@/mocks/mockDocs";
+import { mockDocs, DocumentationItem } from "@/mocks/mockDocs";
 
-interface DocumentationElement {
-  type: "title" | "paragraph" | "section" | "image" | "code";
-  content: string;
-}
-
-interface DocumentationItem {
-  id: number;
-  title: string;
-  author: string;
-  publishDate: string;
-  tags: string[];
-  elements: DocumentationElement[];
-}
 
 const DetailDocumentation: React.FC = () => {
   const [docs, setDocs] = useState<DocumentationItem[]>([]);
@@ -36,7 +23,7 @@ const DetailDocumentation: React.FC = () => {
           {docs.map((doc) => (
             <Link
               key={doc.id}
-              to={`${doc.id}`}
+              to={`/colaboradores/docs/${doc.id}`}
               className="p-4 bg-white rounded shadow hover:shadow-lg transition-shadow"
             >
               {/* Título del documento */}

@@ -1,16 +1,19 @@
-
-interface DocumentationElement {
-    type: "title" | "paragraph" | "section" | "image" | "code";
+export interface DocumentationElement {
+    type: "title" | "paragraph" | "section" | "image" | "code" | "link";
     content: string;
+    language?: string;
+    url?: string;
+    imageUrl?: string | string[];
   }
   
-  interface DocumentationItem {
+  export interface DocumentationItem {
     id: number;
     title: string;
     author: string;
     publishDate: string;
     tags: string[];
     elements: DocumentationElement[];
+    image?: string;
   }
 
 export const mockDocs: DocumentationItem[] = [
@@ -27,6 +30,6 @@ export const mockDocs: DocumentationItem[] = [
         { type: "code", content: `const example: string = "Hola TypeScript";` },
       ],
     },
-    // Más documentos...
+    //..
   ];
   

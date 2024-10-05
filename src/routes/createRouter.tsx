@@ -32,6 +32,7 @@ import AdsPage from "@/pages/services/AdsPage";
 import CustomComponentsPage from "@/pages/collabs/CustomComponentsPage";
 import GuidePage from "@/pages/collabs/GuidePage";
 import Docs from "@/pages/collabs/Docs";
+import MultiRenderDocs from "@/features/details/MultiRenderDocs";
 {
   /* 🚀
 Este archivo configura el enrutamiento web utilizando `react-router-dom`. 
@@ -113,7 +114,7 @@ export const router = createBrowserRouter([
       {
         path: "docs",
         element: <Docs />,
-        children: [{ path: ":id", element: <BlogPostDetailMultipleRENDER /> }],
+        children: [{ path: ":id", element: <MultiRenderDocs /> }, { path: "", element: <Navigate to="1" replace /> }],
       },
     ],
   },
