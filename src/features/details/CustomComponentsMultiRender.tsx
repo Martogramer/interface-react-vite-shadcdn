@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { customComponentsList } from "@/mocks/customCompsMock";
+import {
+  customComponentsList,
+  CustomComponentCategory,
+} from "@/mocks/customCompsMock";
+
 {
   /*  🚀 
   Este componente se utiliza para mostrar un catálogo de componentes personalizados en un diseño 
@@ -36,19 +40,29 @@ import { customComponentsList } from "@/mocks/customCompsMock";
  */
 }
 const CustomComponentsMultiRender: React.FC = () => {
-  const [activeComponent, setActiveComponent] = useState<string | null>(null);
+  const [activeComponent, setActiveComponent] = useState<string | null>(null); // Componente visible en viewport
+  const [focusedComponent, setFocusedComponent] = useState<string | null>(null); // Componente seleccionado en el índice
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(
+    new Set()
+  ); // Estado para manejar la expansión de categorías
 
-  // Reutiliza la lógica del índice de navegación
-  // Podría implementar sub-items con tipos de componentes / o dejar como está con scroll infinito y probar el pre-render
+  {
+    /*
+    Detecta el componente actualmente visible basado en la posición de scroll.
+    Al encontrar el componente en el viewport, actualiza el estado `activeComponent`.
+   */
+  }
   const handleScroll = useCallback(() => {
-    customComponentsList.forEach((component) => {
-      const element = document.getElementById(component.id);
-      if (element) {
-        const { top } = element.getBoundingClientRect();
-        if (top >= 0 && top <= window.innerHeight / 2) {
-          setActiveComponent(component.id);
+    customComponentsList.forEach((category) => {
+      category.components.forEach((component) => {
+        const element = document.getElementById(component.id);
+        if (element) {
+          const { top } = element.getBoundingClientRect();
+          if (top >= 0 && top <= window.innerHeight / 2) {
+            setActiveComponent(component.id);
+          }
         }
-      }
+      });
     });
   }, []);
 
@@ -56,47 +70,105 @@ const CustomComponentsMultiRender: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
+  {
+    /*
+    Desplaza suavemente al componente específico en la vista principal al hacer clic en el índice.
+    @param componentId - ID del componente al que se debe desplazar.
+   */
+  }
+  const handleComponentFocus = (componentId: string) => {
+    setFocusedComponent(componentId);
+    const element = document.getElementById(componentId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+  {
+    /*
+    Controla la expansión y contracción de las categorías en la barra lateral.
+    @param category - Nombre de la categoría a expandir o contraer.
+   */
+  }
+  const toggleCategory = (category: string) => {
+    setExpandedCategories((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(category)) {
+        newSet.delete(category);
+      } else {
+        newSet.add(category);
+      }
+      return newSet;
+    });
+  };
 
   return (
     <div className="flex flex-col md:flex-row">
-      {/* Barra lateral con índice */}
-      <aside className="md:w-64 md:h-screen md:sticky md:top-0 p-4 overflow-y-auto">
-        <ul>
-          {customComponentsList.map((component) => (
-            <li key={component.id} className="mt-5 mb-2">
-              <a
-                href={`#${component.id}`}
-                className={`text-blue-500 hover:text-blue-700 ${
-                  activeComponent === component.id ? "font-bold" : ""
-                }`}
+      {/* Barra lateral con categorías y subitems */}
+      <aside className="md:w-64 md:h-screen md:sticky md:top-0 p-4 overflow-y-auto bg-gray-50 border-r border-gray-200">
+        <h2 className="text-xl font-bold mb-4">Custom Components</h2>
+        <ul className="space-y-3">
+          {customComponentsList.map((category: CustomComponentCategory) => (
+            <li key={category.category}>
+              <div
+                className="cursor-pointer text-blue-700 hover:text-blue-900 font-semibold"
+                onClick={() => toggleCategory(category.category)}
               >
-                {component.title}
-              </a>
+                {category.category}
+              </div>
+              {expandedCategories.has(category.category) && (
+                <ul className="pl-4 mt-2 space-y-1">
+                  {category.components.map((component) => (
+                    <li key={component.id}>
+                      <button
+                        onClick={() => handleComponentFocus(component.id)}
+                        className={`text-blue-500 hover:text-blue-700 transition-all ${
+                          activeComponent === component.id
+                            ? "font-bold underline"
+                            : ""
+                        } ${
+                          focusedComponent === component.id ? "bg-blue-100" : ""
+                        }`}
+                      >
+                        {component.title}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>
       </aside>
 
-      {/* Contenido principal con la tabla estilo sandbox */}
-      <div className="flex-1 p-4">
-        {customComponentsList.map((component) => (
-          <div key={component.id} id={component.id} className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">{component.title}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Columna con la sintaxis del componente */}
-              <div className="bg-gray-100 p-4 rounded">
-                <SyntaxHighlighter language="jsx" style={okaidia}>
-                  {component.code}
-                </SyntaxHighlighter>
-              </div>
-
-              {/* Columna con el componente renderizado */}
-              <div className="bg-white p-4 rounded shadow">
-                {component.component}
+      {/* Contenido principal con la tabla de componentes y el renderizado en tiempo real */}
+      <div className="flex-1 p-6">
+        {customComponentsList.map((category: CustomComponentCategory) =>
+          category.components.map((component) => (
+            <div
+              key={component.id}
+              id={component.id}
+              className={`mb-10 ${
+                focusedComponent === component.id
+                  ? "border-2 border-blue-300 rounded-md p-2 shadow-lg"
+                  : ""
+              }`}
+            >
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">
+                {component.title}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-gray-100 p-4 rounded-md border">
+                  <SyntaxHighlighter language="jsx" style={okaidia}>
+                    {component.code}
+                  </SyntaxHighlighter>
+                </div>
+                <div className="bg-white p-4 rounded-md shadow-lg border">
+                  {component.component}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { ShootingStarsAndStarsBackgroundDemo } from "@/components/_Customs2024/backgrounds/ShootingStarsAndStarsBackgroundDemo";
-import { VortexDemo } from "@/components/_Customs2024/backgrounds/VortexDemo";
-import { GlobeDemo } from "@/components/_Customs2024/GlobeGithub";
+//import { VortexDemo } from "@/components/_Customs2024/backgrounds/VortexDemo";
+//import { GlobeDemo } from "@/components/_Customs2024/GlobeGithub";
 import StatsSection from "@/components/sections/StatsSection";
 import React from "react";
 
@@ -27,8 +27,8 @@ const Telescopiens: React.FC = () => {
 
   return (
     <>
-      <VortexDemo />
-      <GlobeDemo />
+      {/* <VortexDemo />
+      <GlobeDemo /> */}
       <ShootingStarsAndStarsBackgroundDemo />
       <StatsSection {...careerPathData} />      
     </>

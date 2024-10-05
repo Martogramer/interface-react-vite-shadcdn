@@ -107,9 +107,9 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Navigate to="guide" replace />,
+        element: <Navigate to="componentes" replace />,
       },
-      { path: "comps", element: <CustomComponentsPage /> },
+      { path: "componentes", element: <CustomComponentsPage /> },
       { path: "guide", element: <CustomComponentsPage /> },
       {
         path: "docs",
@@ -141,9 +141,9 @@ export const router = createBrowserRouter([
     path: "/error",
     element: <NotPass />,
   },
-  {
+/*   {
     path: "/admin",
     element: <LayoutUserAdmin />,
     children: admin,
-  },
+  }, */
 ]);

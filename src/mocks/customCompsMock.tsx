@@ -1,82 +1,146 @@
-import { ReactNode } from "react";
-
-/**
- * Interfaz para tipar los componentes personalizados.
- * Define la estructura que debe tener cada componente en el catálogo.
- */
-export interface CustomComponent {
+// Tipado del componente con categorías y subcomponentes
+export interface SubComponent {
   id: string;
   title: string;
   code: string;
-  component: ReactNode;
+  component: JSX.Element;
 }
 
-/**
- * Mock de componentes personalizados.
- * Esta lista contiene ejemplos de componentes.
- *
- * @example
- * ```tsx
- * import { customComponentsList } from "@/mocks/customComponentsMock";
- * customComponentsList.forEach(component => console.log(component.title));
- * ```
- */
-export const customComponentsList: CustomComponent[] = [
+export interface CustomComponentCategory {
+  category: string;
+  components: SubComponent[];
+}
+
+// Nueva estructura con categorías
+export const customComponentsList: CustomComponentCategory[] = [
   {
-    id: "buttonComponent",
-    title: "Button Component",
-    code: `<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-  Click Me!
-</button>`,
-    component: (
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Click Me!
-      </button>
-    ),
+    category: "Buttons",
+    components: [
+      {
+        id: "primaryButton",
+        title: "Primary Button",
+        code: `<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Primary</button>`,
+        component: (
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Primary
+          </button>
+        ),
+      },
+      {
+        id: "secondaryButton",
+        title: "Secondary Button",
+        code: `<button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Secondary</button>`,
+        component: (
+          <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+            Secondary
+          </button>
+        ),
+      },
+      {
+        id: "tercerobut",
+        title: "Primary Button",
+        code: `<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Primary</button>`,
+        component: (
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Primary
+          </button>
+        ),
+      },
+      {
+        id: "cuarto",
+        title: "Secondary Button",
+        code: `<button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Secondary</button>`,
+        component: (
+          <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+            Secondary
+          </button>
+        ),
+      },
+      {
+        id: "quinto",
+        title: "Primary Button",
+        code: `<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Primary</button>`,
+        component: (
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Primary
+          </button>
+        ),
+      },
+      {
+        id: "sexto",
+        title: "Secondary Button",
+        code: `<button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Secondary</button>`,
+        component: (
+          <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+            Secondary
+          </button>
+        ),
+      },
+    ],
   },
   {
-    id: "cardComponent",
-    title: "Card Component",
-    code: `<div className="border border-gray-200 rounded-lg p-4 shadow">
-  <h3 className="font-bold text-lg">Card Title</h3>
-  <p className="text-gray-600">This is a simple card component.</p>
-</div>`,
-    component: (
-      <div className="border border-gray-200 rounded-lg p-4 shadow">
-        <h3 className="font-bold text-lg">Card Title</h3>
-        <p className="text-gray-600">This is a simple card component.</p>
-      </div>
-    ),
-  },
-  {
-    id: "inputComponent",
-    title: "Input Component",
-    code: `<input type="text" className="border p-2 rounded" placeholder="Enter text here..." />`,
-    component: (
-      <input
-        type="text"
-        className="border p-2 rounded"
-        placeholder="Enter text here..."
-      />
-    ),
-  },
-  {
-    id: "alertComponent",
-    title: "Alert Component",
-    code: `<div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-  <strong className="font-bold">Holy smokes!</strong>
-  <span className="block sm:inline">Something seriously bad happened.</span>
-</div>`,
-    component: (
-      <div
-        className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-        role="alert"
-      >
-        <strong className="font-bold">Holy smokes!</strong>
-        <span className="block sm:inline">
-          Something seriously bad happened.
-        </span>
-      </div>
-    ),
+    category: "Cards",
+    components: [
+      {
+        id: "simpleCard",
+        title: "Simple Card",
+        code: `<div className="border border-gray-200 rounded-lg p-4 shadow">Simple Card</div>`,
+        component: (
+          <div className="border border-gray-200 rounded-lg p-4 shadow">
+            Simple Card
+          </div>
+        ),
+      },
+      {
+        id: "complexCard",
+        title: "Complex Card",
+        code: `<div className="border border-gray-200 rounded-lg p-4 shadow">Complex Card</div>`,
+        component: (
+          <div className="border border-gray-200 rounded-lg p-4 shadow">
+            Complex Card
+          </div>
+        ),
+      },
+      {
+        id: "simpleCard",
+        title: "Simple Card",
+        code: `<div className="border border-gray-200 rounded-lg p-4 shadow">Simple Card</div>`,
+        component: (
+          <div className="border border-gray-200 rounded-lg p-4 shadow">
+            Simple Card
+          </div>
+        ),
+      },
+      {
+        id: "complexCard",
+        title: "Complex Card",
+        code: `<div className="border border-gray-200 rounded-lg p-4 shadow">Complex Card</div>`,
+        component: (
+          <div className="border border-gray-200 rounded-lg p-4 shadow">
+            Complex Card
+          </div>
+        ),
+      },
+      {
+        id: "simpleCard",
+        title: "Simple Card",
+        code: `<div className="border border-gray-200 rounded-lg p-4 shadow">Simple Card</div>`,
+        component: (
+          <div className="border border-gray-200 rounded-lg p-4 shadow">
+            Simple Card
+          </div>
+        ),
+      },
+      {
+        id: "complexCard",
+        title: "Complex Card",
+        code: `<div className="border border-gray-200 rounded-lg p-4 shadow">Complex Card</div>`,
+        component: (
+          <div className="border border-gray-200 rounded-lg p-4 shadow">
+            Complex Card
+          </div>
+        ),
+      },
+    ],
   },
 ];
