@@ -1,3 +1,5 @@
+import { ShimmerButton } from "@/components/_Customs2024/buttons/ShimmerButton";
+
 // Tipado del componente con categorías y subcomponentes
 export interface SubComponent {
   id: string;
@@ -17,13 +19,51 @@ export const customComponentsList: CustomComponentCategory[] = [
     category: "Buttons",
     components: [
       {
-        id: "primaryButton",
-        title: "Primary Button",
-        code: `<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Primary</button>`,
+        id: "ShimmerButton",
+        title: "ShimmerButton",
+        code: `
+import React from 'react';
+
+interface ShimmerButtonProps {
+  text: string;
+  onClick?: () => void;
+  className?: string;
+  animationDuration?: string;
+  bgGradient?: string;
+  textColor?: string;
+}
+
+export const ShimmerButton: React.FC<ShimmerButtonProps> = ({
+  text,
+  onClick,
+  className = '',
+  animationDuration = '2s',
+  bgGradient = 'linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)',
+  textColor = 'text-slate-400'
+}) => {
+  return (
+    <button
+      className={'inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 px-6 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'}
+      style={{
+        background: bgGradient,
+        backgroundSize: '200% 100%',
+        animationDuration: animationDuration
+      }}
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
+};
+        `,
         component: (
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Primary
-          </button>
+          <ShimmerButton
+            text="Shimmer"
+            onClick={() => console.log("Button clicked")}
+            animationDuration="3s"
+            bgGradient="linear-gradient(110deg,#001,45%,#2e3641,55%,#001)"
+            textColor="text-blue-400"
+          />
         ),
       },
       {

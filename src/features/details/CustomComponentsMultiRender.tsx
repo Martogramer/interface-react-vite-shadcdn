@@ -156,20 +156,39 @@ const CustomComponentsMultiRender: React.FC = () => {
               <h2 className="text-2xl font-bold mb-4 text-gray-800">
                 {component.title}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-gray-100 p-4 rounded-md border">
-                  <SyntaxHighlighter language="jsx" style={okaidia}>
-                    {component.code}
-                  </SyntaxHighlighter>
-                </div>
+              <div className="grid grid-cols-1 gap-6">
                 <div className="bg-white p-4 rounded-md shadow-lg border">
                   {component.component}
                 </div>
+                <ExpandingCodeBlock code={component.code} />
               </div>
             </div>
           ))
         )}
       </div>
+    </div>
+  );
+};
+
+const ExpandingCodeBlock: React.FC<{ code: string }> = ({ code }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  return (
+    <div
+      className={`bg-gray-100 p-4 rounded-md border relative ${
+        isExpanded ? "max-h-full" : "max-h-40 overflow-hidden"
+      }`}
+    >
+      {/* Contenedor del bloque de código */}
+      <SyntaxHighlighter language="tsx" style={okaidia}>
+        {code}
+      </SyntaxHighlighter>
+      {/* Botón para expandir/contraer */}
+      <button
+        onClick={() => setIsExpanded((prev) => !prev)}
+        className="absolute bottom-2 right-4 bg-blue-500 text-white px-3 py-1 rounded cursor-pointer"
+      >
+        {isExpanded ? "↑" : "↓"}
+      </button>
     </div>
   );
 };
