@@ -14,7 +14,6 @@ import {
 import { Search, X, ChevronDown, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import ThemedButton from "@/components/_Customs2024/buttons/ThemedButton";
 import { useTheme } from "@/context/ThemeContext";
 import ThemedShimmerButton from "@/components/_Customs2024/buttons/ThemedButton";
 

@@ -4,7 +4,6 @@ import { Outlet } from "react-router-dom";
 const Docs: React.FC = () => {
   return (
     <>
-      Docs
       <Outlet />
     </>
   );

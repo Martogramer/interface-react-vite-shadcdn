@@ -109,7 +109,7 @@ export const router = createBrowserRouter([
         path: "",
         element: <Navigate to="guide" replace />,
       },
-      { path: "guide", element: <GuidePage /> },
+      { path: "guide", element: <GuidePage />},
       { path: "componentes", element: <CustomComponentsPage /> },
       {
         path: "docs",

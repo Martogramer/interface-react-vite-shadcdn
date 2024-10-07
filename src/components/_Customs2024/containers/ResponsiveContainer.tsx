@@ -14,14 +14,13 @@ const ResponsiveContainer: React.FC<ContainerProps> = ({
   padding = "p-4",
   maxWidth = "max-w-4xl",
 }) => {
-
   return (
     <div
       className={clsx(
         "container mx-auto border-none",
         padding,
         maxWidth,
-        className 
+        className
       )}
     >
       {children}

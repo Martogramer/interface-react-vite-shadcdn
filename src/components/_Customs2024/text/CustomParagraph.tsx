@@ -7,7 +7,6 @@ interface ParagraphProps {
 }
 
 const CustomParagraph: React.FC<ParagraphProps> = ({ children, className }) => {
-
   return (
     <p
       className={clsx(
