@@ -48,10 +48,7 @@ const BreadcrumbLinkWrapper = ({
   </BreadcrumbLink>
 );
 
-const ShadAutoNav: React.FC<HeaderProps> = ({
-  navItems,
-  basePath,
-}) => {
+const ShadAutoNav: React.FC<HeaderProps> = ({ navItems, basePath }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [active, setActive] = useState<string | null>(null);
@@ -61,12 +58,10 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
   const generateBreadcrumbs = () => {
     const pathnames = location.pathname.split("/").filter((x) => x);
     const breadcrumbs = [{ name: basePath, path: "/" }];
-
     pathnames.forEach((name, index) => {
       const path = `/${pathnames.slice(0, index + 1).join("/")}`;
       breadcrumbs.push({ name, path });
     });
-
     return breadcrumbs;
   };
 
@@ -80,7 +75,11 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
     event.preventDefault();
     console.log("Búsqueda:", searchQuery);
   };
+/* 
 
+Fixeando Bread Crumbs Links
+
+*/
   const renderNavItem = (item: NavItem) => {
     if (item.subItems) {
       return (
@@ -112,12 +111,16 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
                   }
                 >
                   {item.subItems.map((subItem) => (
-                    <HoveredLink key={subItem.label} to={subItem.href}  className={clsx(
-                      "flex flex-col text-sm font-medium hover:te",
-                      themeClasses.text,
-                      themeClasses.border,
-                      themeClasses.background
-                    )}>
+                    <HoveredLink
+                      key={subItem.label}
+                      to={subItem.href}
+                      className={clsx(
+                        "flex flex-col text-sm font-medium hover:te",
+                        themeClasses.text,
+                        themeClasses.border,
+                        themeClasses.background
+                      )}
+                    >
                       {subItem.label}
                     </HoveredLink>
                   ))}
@@ -188,7 +191,9 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
                 </BreadcrumbItem>
               ) : (
                 <BreadcrumbItem>
+                <BreadcrumbLinkWrapper to={crumb.path}>
                   <BreadcrumbPage>{crumb.name}</BreadcrumbPage>
+                  </BreadcrumbLinkWrapper>
                 </BreadcrumbItem>
               )}
               {index < breadcrumbs.length - 1 && <BreadcrumbSeparator />}

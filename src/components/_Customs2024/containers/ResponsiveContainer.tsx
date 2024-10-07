@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { useTheme } from "@/context/ThemeContext";
 import clsx from "clsx";
 
 interface ContainerProps {
@@ -15,7 +14,6 @@ const ResponsiveContainer: React.FC<ContainerProps> = ({
   padding = "p-4",
   maxWidth = "max-w-4xl",
 }) => {
-  const { themeClasses } = useTheme();
 
   return (
     <div
@@ -23,7 +21,6 @@ const ResponsiveContainer: React.FC<ContainerProps> = ({
         "container mx-auto border-none",
         padding,
         maxWidth,
-        themeClasses,
         className 
       )}
     >
