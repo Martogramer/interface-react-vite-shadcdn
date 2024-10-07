@@ -14,9 +14,9 @@ import {
 import { Search, X, ChevronDown, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ShimmerButton } from "@/components/_Customs2024/buttons/ShimmerButton";
 import ThemedButton from "@/components/_Customs2024/buttons/ThemedButton";
 import { useTheme } from "@/context/ThemeContext";
+import ThemedShimmerButton from "@/components/_Customs2024/buttons/ThemedButton";
 
 interface NavSubItem {
   label: string;
@@ -116,8 +116,8 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
   };
 
   const toggleExpand = (label: string) => {
-    setExpandedItems(prev => 
-      prev.includes(label) ? prev.filter(item => item !== label) : [label]
+    setExpandedItems((prev) =>
+      prev.includes(label) ? prev.filter((item) => item !== label) : [label]
     );
   };
 
@@ -248,13 +248,14 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
               {navItems.map((item) => renderNavItem(item, true))}
             </nav>
             <div className="mt-auto pt-4">
-              <ThemedButton
+              <ThemedShimmerButton
+                text={textButton}
+                variant="primary"
+                bgGradient="linear-gradient(110deg,#1e3a8a,45%,#3b82f6,55%,#1e3a8a)"
+                animationDuration="3s"
+                textColor="text-white"
                 onClick={toggleTheme}
-                variant="secondary"
-                className="w-full"
-              >
-                {textButton}
-              </ThemedButton>
+              />
             </div>
           </div>
         </SheetContent>
@@ -312,10 +313,14 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
       </form>
 
       <div className="flex items-center space-x-2">
-        <ThemedButton onClick={toggleTheme} variant="secondary">
-          {textButton}
-        </ThemedButton>
-        <ShimmerButton text="night" animationDuration="1.5s" />
+        <ThemedShimmerButton
+          text={textButton}
+          variant="primary"
+          bgGradient="linear-gradient(110deg,#1e3a8a,45%,#3b82f6,55%,#1e3a8a)"
+          animationDuration="3s"
+          textColor="text-white"
+          onClick={toggleTheme}
+        />
       </div>
     </header>
   );

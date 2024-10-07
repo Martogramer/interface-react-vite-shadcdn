@@ -60,15 +60,12 @@ const companyInfo = ["About", "Meet the Team", "Accounts Review"];
 const contactHours = ["Monday to Friday: 10am - 5pm", "Weekend: 10am - 3pm"];
 
 const LayoutMain: React.FC<Props> = ({ children }) => {
-  const { themeClasses } = useTheme();
+  const { themeClasses, currentTheme } = useTheme();
+  const themeText = currentTheme === "light" ? "Day" : "Night";
   return (
     <>
       <div className={clsx(themeClasses.background, themeClasses.text)}>
-        <CustomNav
-        textButton={'@martogramer'}
-          navItems={navItems}
-          basePath={""}
-        />
+        <CustomNav textButton={themeText} navItems={navItems} basePath={""} />
         <div>
           <>{children}</>
         </div>
