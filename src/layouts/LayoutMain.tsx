@@ -1,10 +1,10 @@
-import ShadAutoNav from "@/components/navs/user/ShadAutoNav";
 import Footer from "@/components/footers/Footer";
 import { Axis3DIcon, LucideRedoDot, TableRowsSplitIcon } from "lucide-react";
-
 import React from "react";
 import clsx from "clsx";
 import { useTheme } from "@/context/ThemeContext";
+import CustomNav from "@/components/navs/CustomNav";
+
 interface Props {
   children: React.ReactNode;
 }
@@ -62,33 +62,30 @@ const handleLogout = () => {
   console.log("Cerrando sesión...");
 };
 
-  const LayoutMain: React.FC<Props> = ({ children }) => {
+const LayoutMain: React.FC<Props> = ({ children }) => {
   const { themeClasses } = useTheme();
   return (
     <>
-      
-        <div className={clsx(themeClasses.background, themeClasses.text)}>
-          <ShadAutoNav
-            navItems={navItems}
-            basePath={""}
-            avatarSrc="https://res.cloudinary.com/diohw2jdj/image/upload/fl_preserve_transparency/v1727286859/OIG_pt1q5s.jpg?_s=public-apps"
-            onLogout={handleLogout}
-          />
-          
-          <div>
-            <>{children}</>
-          </div>
-          <Footer
-            contactNumber="CONTACT"
-            contactHours={contactHours}
-            socialLinks={socialLinks}
-            services={services}
-            companyInfo={companyInfo}
-            year={2024}
-            companyName="Company Name"
-          />
+      <div className={clsx(themeClasses.background, themeClasses.text)}>
+        <CustomNav
+          navItems={navItems}
+          basePath={""}
+          avatarSrc="https://res.cloudinary.com/diohw2jdj/image/upload/fl_preserve_transparency/v1727286859/OIG_pt1q5s.jpg?_s=public-apps"
+          onLogout={handleLogout}
+        />
+        <div>
+          <>{children}</>
         </div>
-      
+        <Footer
+          contactNumber="CONTACT"
+          contactHours={contactHours}
+          socialLinks={socialLinks}
+          services={services}
+          companyInfo={companyInfo}
+          year={2024}
+          companyName="Company Name"
+        />
+      </div>
     </>
   );
 };

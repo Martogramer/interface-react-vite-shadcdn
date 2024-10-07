@@ -54,7 +54,12 @@ const ShadAutoNav: React.FC<HeaderProps> = ({ navItems, basePath }) => {
   const [active, setActive] = useState<string | null>(null);
   const location = useLocation();
   const { themeClasses, toggleTheme } = useTheme();
-
+  
+  /* 
+  
+  Fixeando Bread Crumbs Links
+  
+  */
   const generateBreadcrumbs = () => {
     const pathnames = location.pathname.split("/").filter((x) => x);
     const breadcrumbs = [{ name: basePath, path: "/" }];
@@ -70,16 +75,13 @@ const ShadAutoNav: React.FC<HeaderProps> = ({ navItems, basePath }) => {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
-
+/* 
+trabajar con la lògica de bùsqueda. Pensar en Cassandra o Kafka
+*/
   const handleSearchSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     console.log("Búsqueda:", searchQuery);
   };
-/* 
-
-Fixeando Bread Crumbs Links
-
-*/
   const renderNavItem = (item: NavItem) => {
     if (item.subItems) {
       return (
