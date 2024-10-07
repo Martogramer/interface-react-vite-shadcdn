@@ -59,7 +59,7 @@ const services = [
 const companyInfo = ["About", "Meet the Team", "Accounts Review"];
 const contactHours = ["Monday to Friday: 10am - 5pm", "Weekend: 10am - 3pm"];
 const handleLogout = () => {
-  console.log("Cerrando sesión...");
+  console.log("Logout...");
 };
 
 const LayoutMain: React.FC<Props> = ({ children }) => {
@@ -68,6 +68,7 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
     <>
       <div className={clsx(themeClasses.background, themeClasses.text)}>
         <CustomNav
+        textButton={'@martogramer'}
           navItems={navItems}
           basePath={""}
           avatarSrc="https://res.cloudinary.com/diohw2jdj/image/upload/fl_preserve_transparency/v1727286859/OIG_pt1q5s.jpg?_s=public-apps"
@@ -83,7 +84,7 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
           services={services}
           companyInfo={companyInfo}
           year={2024}
-          companyName="Company Name"
+          companyName="@telescopiens"
         />
       </div>
     </>

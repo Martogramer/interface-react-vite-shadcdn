@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -31,6 +31,7 @@ interface NavItem {
 interface HeaderProps {
   navItems: NavItem[];
   basePath: string;
+  textButton: string;
   avatarSrc: string;
   onLogout: () => void;
 }
@@ -47,15 +48,12 @@ const BreadcrumbLinkWrapper = ({
   </BreadcrumbLink>
 );
 
-const CustomNav: React.FC<HeaderProps> = ({ navItems, basePath }) => {
+const CustomNav: React.FC<HeaderProps> = ({ navItems, basePath, textButton }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const { themeClasses, toggleTheme } = useTheme();
-
-  // Efecto para manejar el cambio de tamaño de la ventana
-
 
   // Función mejorada para generar breadcrumbs
   const generateBreadcrumbs = () => {
@@ -168,7 +166,7 @@ const CustomNav: React.FC<HeaderProps> = ({ navItems, basePath }) => {
         >
           <div className="flex justify-between items-center mb-4">
             <h2 className={clsx("text-lg font-bold", themeClasses.text)}>
-              Menú
+              {textButton}
             </h2>
             <Button
               size="icon"
