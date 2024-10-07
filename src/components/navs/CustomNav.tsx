@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
+import { motion, AnimatePresence } from "framer-motion";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Breadcrumb,
@@ -10,7 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { ChevronDown, PanelLeft, Search, X } from "lucide-react"; // Añadido icono X para cerrar
+import { Search, X, ChevronDown, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ShimmerButton } from "@/components/_Customs2024/buttons/ShimmerButton";
@@ -32,30 +33,44 @@ interface HeaderProps {
   navItems: NavItem[];
   basePath: string;
   textButton: string;
-  avatarSrc: string;
-  onLogout: () => void;
 }
 
-const BreadcrumbLinkWrapper = ({
-  to,
-  children,
-}: {
+const BreadcrumbLinkWrapper: React.FC<{
   to: string;
   children: React.ReactNode;
-}) => (
+}> = ({ to, children }) => (
   <BreadcrumbLink asChild>
     <Link to={to}>{children}</Link>
   </BreadcrumbLink>
 );
 
-const CustomNav: React.FC<HeaderProps> = ({ navItems, basePath, textButton }) => {
+const ShadAutoNav: React.FC<HeaderProps> = ({
+  navItems,
+  basePath,
+  textButton,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const location = useLocation();
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
+  const location = useLocation();
   const { themeClasses, toggleTheme } = useTheme();
+  const navRef = useRef<HTMLDivElement>(null);
 
-  // Función mejorada para generar breadcrumbs
+  useEffect(() => {
+    // Cerrar todos los desplegables cuando se navega a una nueva página
+    setExpandedItems([]);
+
+    // Guardar el estado del nav en localStorage
+    localStorage.setItem(
+      "navState",
+      JSON.stringify({
+        isOpen,
+        expandedItems,
+        searchQuery,
+      })
+    );
+  }, [location.pathname]);
+
   const generateBreadcrumbs = () => {
     const pathnames = location.pathname.split("/").filter((x) => x);
     return [
@@ -67,6 +82,27 @@ const CustomNav: React.FC<HeaderProps> = ({ navItems, basePath, textButton }) =>
     ];
   };
 
+  useEffect(() => {
+    // Recuperar el estado del nav de localStorage al cargar la página
+    const savedState = localStorage.getItem("navState");
+    if (savedState) {
+      const { isOpen, expandedItems, searchQuery } = JSON.parse(savedState);
+      setIsOpen(isOpen);
+      setExpandedItems(expandedItems);
+      setSearchQuery(searchQuery);
+    }
+    // Agregar event listener para cerrar desplegables al hacer clic fuera
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setExpandedItems([]);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const breadcrumbs = generateBreadcrumbs();
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -75,59 +111,77 @@ const CustomNav: React.FC<HeaderProps> = ({ navItems, basePath, textButton }) =>
 
   const handleSearchSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Implementar lógica de búsqueda aquí
     console.log("Búsqueda:", searchQuery);
+    setIsOpen(false);
   };
 
   const toggleExpand = (label: string) => {
-    setExpandedItems(prev =>
-      prev.includes(label) ? prev.filter(item => item !== label) : [...prev, label]
+    setExpandedItems(prev => 
+      prev.includes(label) ? prev.filter(item => item !== label) : [label]
     );
   };
 
-  // Componente de renderizado de ítem de navegación mejorado
   const renderNavItem = (item: NavItem, isMobile: boolean = false) => {
     if (item.subItems) {
       return (
-        <div key={item.label} className="relative">
+        <div
+          key={item.label}
+          className={clsx("relative", isMobile && "w-full")}
+        >
           <button
             onClick={() => toggleExpand(item.label)}
             className={clsx(
-              "flex items-center text-sm font-medium transition-colors hover:text-primary",
+              "flex items-center justify-between w-full text-sm font-medium transition-colors hover:text-primary py-2",
               themeClasses.text
             )}
           >
             {item.label}
             <ChevronDown
               className={clsx(
-                "ml-1 h-4 w-4",
+                "ml-1 h-4 w-4 transition-transform duration-200",
                 expandedItems.includes(item.label) ? "transform rotate-180" : ""
               )}
             />
           </button>
-          {(isMobile || expandedItems.includes(item.label)) && (
-            <div
-              className={clsx(
-                "mt-2 space-y-2",
-                isMobile
-                  ? ""
-                  : "absolute left-0 bg-white dark:bg-gray-800 p-2 rounded shadow-md"
-              )}
-            >
-              {item.subItems.map((subItem) => (
-                <Link
-                  key={subItem.label}
-                  to={subItem.href}
-                  className={clsx(
-                    "block text-sm font-medium hover:text-primary",
-                    themeClasses.text
-                  )}
-                >
-                  {subItem.label}
-                </Link>
-              ))}
-            </div>
-          )}
+          <AnimatePresence>
+            {expandedItems.includes(item.label) && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className={clsx(
+                  "mt-2 space-y-2 overflow-hidden",
+                  isMobile
+                    ? "pl-4 border-l-2"
+                    : "absolute left-0 min-w-[200px] p-2 rounded-md shadow-lg",
+                  themeClasses.background,
+                  themeClasses.border
+                )}
+              >
+                {item.subItems.map((subItem) => (
+                  <motion.div
+                    key={subItem.label}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Link
+                      to={subItem.href}
+                      className={clsx(
+                        "block py-2 px-4 text-sm font-medium rounded-md transition-colors",
+                        "hover:bg-gray-100 dark:hover:bg-gray-700",
+                        themeClasses.text
+                      )}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {subItem.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       );
     }
@@ -136,9 +190,10 @@ const CustomNav: React.FC<HeaderProps> = ({ navItems, basePath, textButton }) =>
         key={item.label}
         to={item.href || "#"}
         className={clsx(
-          "text-sm font-medium transition-colors hover:text-primary",
+          "block py-2 text-sm font-medium transition-colors hover:text-primary",
           themeClasses.text
         )}
+        onClick={() => setIsOpen(false)}
       >
         {item.label}
       </Link>
@@ -147,42 +202,64 @@ const CustomNav: React.FC<HeaderProps> = ({ navItems, basePath, textButton }) =>
 
   return (
     <header
+      ref={navRef}
       className={clsx(
         "sticky top-0 z-30 flex h-14 items-center gap-4 border-b px-4 sm:px-6",
         themeClasses.background,
         themeClasses.border
       )}
     >
-      {/* Menú móvil */}
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
           <Button size="icon" variant="ghost" className="md:hidden">
-            <PanelLeft className="h-5 w-5" />
+            <Menu className="h-5 w-5" />
           </Button>
         </SheetTrigger>
         <SheetContent
           side="left"
           className={clsx("w-[300px] sm:w-[400px]", themeClasses.background)}
         >
-          <div className="flex justify-between items-center mb-4">
-            <h2 className={clsx("text-lg font-bold", themeClasses.text)}>
-              {textButton}
-            </h2>
-            <Button
-              size="icon"
-              variant="ghost"
-              onClick={() => setIsOpen(false)}
-            >
-              <X className="h-5 w-5" />
-            </Button>
+          <div className="flex flex-col h-full">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className={clsx("text-lg font-bold", themeClasses.text)}>
+                Menú
+              </h2>
+              <Button
+                size="icon"
+                variant="ghost"
+                onClick={() => setIsOpen(false)}
+              >
+                <X className="h-5 w-5" />
+              </Button>
+            </div>
+            <form onSubmit={handleSearchSubmit} className="mb-4">
+              <div className="relative">
+                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Input
+                  type="search"
+                  placeholder="Buscar..."
+                  className={clsx("w-full pl-8", themeClasses.border)}
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                />
+              </div>
+            </form>
+            <nav className="flex flex-col space-y-4 flex-grow overflow-y-auto">
+              {navItems.map((item) => renderNavItem(item, true))}
+            </nav>
+            <div className="mt-auto pt-4">
+              <ThemedButton
+                onClick={toggleTheme}
+                variant="secondary"
+                className="w-full"
+              >
+                {textButton}
+              </ThemedButton>
+            </div>
           </div>
-          <nav className="flex flex-col space-y-4">
-            {navItems.map((item) => renderNavItem(item))}
-          </nav>
         </SheetContent>
       </Sheet>
 
-      {/* Logo y nombre */}
       <Link
         to={"https://github.com/Martogramer"}
         className="flex items-center space-x-2"
@@ -193,7 +270,6 @@ const CustomNav: React.FC<HeaderProps> = ({ navItems, basePath, textButton }) =>
         </span>
       </Link>
 
-      {/* Breadcrumbs */}
       <div className="hidden sm:block flex-1 overflow-x-auto">
         <Breadcrumb>
           <BreadcrumbList>
@@ -217,12 +293,10 @@ const CustomNav: React.FC<HeaderProps> = ({ navItems, basePath, textButton }) =>
         </Breadcrumb>
       </div>
 
-      {/* Navegación para pantallas medianas y grandes */}
       <nav className="hidden md:flex md:items-center md:space-x-4 lg:space-x-6">
         {navItems.map((item) => renderNavItem(item))}
       </nav>
 
-      {/* Barra de búsqueda */}
       <form
         onSubmit={handleSearchSubmit}
         className="relative hidden md:block flex-1 max-w-md"
@@ -237,10 +311,9 @@ const CustomNav: React.FC<HeaderProps> = ({ navItems, basePath, textButton }) =>
         />
       </form>
 
-      {/* Botones de tema */}
       <div className="flex items-center space-x-2">
         <ThemedButton onClick={toggleTheme} variant="secondary">
-          *
+          {textButton}
         </ThemedButton>
         <ShimmerButton text="night" animationDuration="1.5s" />
       </div>
@@ -248,4 +321,4 @@ const CustomNav: React.FC<HeaderProps> = ({ navItems, basePath, textButton }) =>
   );
 };
 
-export default CustomNav;
+export default ShadAutoNav;

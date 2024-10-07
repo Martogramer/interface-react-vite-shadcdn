@@ -58,9 +58,6 @@ const services = [
 ];
 const companyInfo = ["About", "Meet the Team", "Accounts Review"];
 const contactHours = ["Monday to Friday: 10am - 5pm", "Weekend: 10am - 3pm"];
-const handleLogout = () => {
-  console.log("Logout...");
-};
 
 const LayoutMain: React.FC<Props> = ({ children }) => {
   const { themeClasses } = useTheme();
@@ -71,8 +68,6 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
         textButton={'@martogramer'}
           navItems={navItems}
           basePath={""}
-          avatarSrc="https://res.cloudinary.com/diohw2jdj/image/upload/fl_preserve_transparency/v1727286859/OIG_pt1q5s.jpg?_s=public-apps"
-          onLogout={handleLogout}
         />
         <div>
           <>{children}</>
