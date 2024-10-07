@@ -1,4 +1,3 @@
-"use client";
 
 import React from "react";
 import CardHoverEffect from "../_Customs2024/cards/CardHoverEffect";
