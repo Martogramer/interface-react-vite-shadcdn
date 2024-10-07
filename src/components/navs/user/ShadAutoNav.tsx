@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Breadcrumb,
@@ -18,7 +10,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { PanelLeft, Search, ChevronDown } from "lucide-react";
+import { PanelLeft, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MenuItem, HoveredLink, Menu } from "../../ui/navbar-menu";
@@ -56,27 +48,25 @@ const BreadcrumbLinkWrapper = ({
   </BreadcrumbLink>
 );
 
-const ShadAutoNav: React.FC<HeaderProps> = ({
-  navItems,
-  basePath,
-  avatarSrc,
-  onLogout,
-}) => {
+const ShadAutoNav: React.FC<HeaderProps> = ({ navItems, basePath }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [active, setActive] = useState<string | null>(null);
   const location = useLocation();
   const { themeClasses, toggleTheme } = useTheme();
-
+  
+  /* 
+  
+  Fixeando Bread Crumbs Links
+  
+  */
   const generateBreadcrumbs = () => {
     const pathnames = location.pathname.split("/").filter((x) => x);
     const breadcrumbs = [{ name: basePath, path: "/" }];
-
     pathnames.forEach((name, index) => {
       const path = `/${pathnames.slice(0, index + 1).join("/")}`;
       breadcrumbs.push({ name, path });
     });
-
     return breadcrumbs;
   };
 
@@ -85,12 +75,13 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
-
+/* 
+trabajar con la lògica de bùsqueda. Pensar en Cassandra o Kafka
+*/
   const handleSearchSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     console.log("Búsqueda:", searchQuery);
   };
-
   const renderNavItem = (item: NavItem) => {
     if (item.subItems) {
       return (
@@ -122,12 +113,16 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
                   }
                 >
                   {item.subItems.map((subItem) => (
-                    <HoveredLink key={subItem.label} to={subItem.href}  className={clsx(
-                      "flex flex-col text-sm font-medium hover:te",
-                      themeClasses.text,
-                      themeClasses.border,
-                      themeClasses.background
-                    )}>
+                    <HoveredLink
+                      key={subItem.label}
+                      to={subItem.href}
+                      className={clsx(
+                        "flex flex-col text-sm font-medium hover:te",
+                        themeClasses.text,
+                        themeClasses.border,
+                        themeClasses.background
+                      )}
+                    >
                       {subItem.label}
                     </HoveredLink>
                   ))}
@@ -198,7 +193,9 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
                 </BreadcrumbItem>
               ) : (
                 <BreadcrumbItem>
+                <BreadcrumbLinkWrapper to={crumb.path}>
                   <BreadcrumbPage>{crumb.name}</BreadcrumbPage>
+                  </BreadcrumbLinkWrapper>
                 </BreadcrumbItem>
               )}
               {index < breadcrumbs.length - 1 && <BreadcrumbSeparator />}
