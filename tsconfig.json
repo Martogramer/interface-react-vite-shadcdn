@@ -1,32 +1,35 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext", 
-    "sourceMap": true,
-    "inlineSources": true,
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "src/*": ["./*"]
-      
-    },
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react-jsx",
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["./src/assets"],
+      "@utils/*":  ["./src/utils"],
+      "@store/*":  ["./src/store"],
+      "@services/*": ["./src/services"],
+      "@features/*": ["./src/features"],
+      "@context/*":  ["./src/context"],
+      "@layouts/*":  ["./src/layouts"],
+      "@hooks/*": ["./src/hooks"],
+      "@styles/*":  ["./src/styles"],
+      "@routes/*": ["./src/routes"],
+      "@pages/*": ["./src/pages"],
+      "@mocks/*": ["./src/mocks"],
+      "@lib/*": ["./src/lib"]
+    }
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src"]
 }
