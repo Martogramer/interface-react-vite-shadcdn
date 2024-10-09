@@ -13,9 +13,9 @@ const HomePage: React.FC = () => {
         strong="Custom Comps 2024"
         secondaryAction={{
           text: "Documentación del Proyecto",
-          href: "colaboradores/docs",
+          href: "/colaboradores/docs",
         }}
-        primaryAction={{ text: "Inicio", href: "telescopiens" }}
+        primaryAction={{ text: "Inicio", href: "/telescopiens" }}
       />
     </>
   );
