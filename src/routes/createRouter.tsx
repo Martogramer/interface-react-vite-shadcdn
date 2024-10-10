@@ -55,6 +55,19 @@ export const router = createBrowserRouter([
     element: <Navigate to="/α" replace />,
   },
   {
+    path: "/telescopiens",
+    element: <Navigate to="/telescopiens" replace />,
+  },
+  {
+    path: "/servicios",
+    element: <Navigate to="/servicios" replace />,
+  },
+  {
+    path: "/colaboradores",
+    element: <Navigate to="/colaboradores" replace />,
+  },
+  
+  {
     path: "/α",
     element: (
       <ErrorBoundary>
