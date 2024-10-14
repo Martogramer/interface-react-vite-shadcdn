@@ -33,6 +33,8 @@ import CustomComponentsPage from "@/pages/collabs/CustomComponentsPage";
 import GuidePage from "@/pages/collabs/GuidePage";
 import Docs from "@/pages/collabs/Docs";
 import MultiRenderDocs from "@/features/details/MultiRenderDocs";
+import LayoutContacto from "@/layouts/LayoutContacto";
+import ContactPage from "@/pages/contacto/ContactPage";
 {
   /* 🚀
 Este archivo configura el enrutamiento web utilizando `react-router-dom`. 
@@ -66,7 +68,10 @@ export const router = createBrowserRouter([
     path: "/colaboradores",
     element: <Navigate to="/colaboradores" replace />,
   },
-  
+  {
+    path: "/contacto",
+    element: <Navigate to="/contacto" replace />,
+  },
   {
     path: "/α",
     element: (
@@ -147,6 +152,28 @@ export const router = createBrowserRouter([
         path: "@marto",
         element: <Forum />,
         children: [{ path: ":id", element: <BlogPostDetailMultipleRENDER /> }],
+      },
+    ],
+  },
+  {
+    path: "/contacto",
+    element: (
+      <LayoutMain>
+        <LayoutContacto />
+      </LayoutMain>
+    ),
+    children: [
+      {
+        path: "",
+        element: <Navigate to="colaboradores" replace />,
+      },
+      {
+        path: "colaboradores",
+        element: <ContactPage />,
+      },
+      {
+        path: "clientes",
+        element: <ContactPage />,
       },
     ],
   },

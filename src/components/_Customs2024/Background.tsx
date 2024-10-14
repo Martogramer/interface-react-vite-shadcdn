@@ -13,13 +13,13 @@ import { BackgroundBeamsDemo } from "@/components/_Customs2024/Background";
           titleColor="from-blue-200 to-blue-600"
           />
           */
-         interface BackgroundBeamsDemoProps {
-           title: string;
-           description: string;
-           inputPlaceholder: string;
-           height?: string;
-           titleColor?: string;
-         }
+interface BackgroundBeamsDemoProps {
+  title: string;
+  description: string;
+  inputPlaceholder: string;
+  height?: string;
+  titleColor?: string;
+}
 export const BackgroundBeamsDemo: React.FC<BackgroundBeamsDemoProps> = ({
   title,
   description,
