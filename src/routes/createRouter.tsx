@@ -35,6 +35,8 @@ import Docs from "@/pages/collabs/Docs";
 import MultiRenderDocs from "@/features/details/MultiRenderDocs";
 import LayoutContacto from "@/layouts/LayoutContacto";
 import ContactPage from "@/pages/contacto/ContactPage";
+import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
+import { admin } from "./childrenRoutes";
 {
   /* 🚀
 Este archivo configura el enrutamiento web utilizando `react-router-dom`. 
@@ -127,12 +129,15 @@ export const router = createBrowserRouter([
         path: "",
         element: <Navigate to="guide" replace />,
       },
-      { path: "guide", element: <GuidePage />},
+      { path: "guide", element: <GuidePage /> },
       { path: "componentes", element: <CustomComponentsPage /> },
       {
         path: "docs",
         element: <Docs />,
-        children: [{ path: ":id", element: <MultiRenderDocs /> }, { path: "", element: <Navigate to="1" replace /> }],
+        children: [
+          { path: ":id", element: <MultiRenderDocs /> },
+          { path: "", element: <Navigate to="1" replace /> },
+        ],
       },
     ],
   },
@@ -181,9 +186,13 @@ export const router = createBrowserRouter([
     path: "/error",
     element: <NotPass />,
   },
-  /*   {
+  {
     path: "/admin",
-    element: <LayoutUserAdmin />,
+    element: (
+      <LayoutMain>
+        <LayoutUserAdmin />
+      </LayoutMain>
+    ),
     children: admin,
-  }, */
+  },
 ]);
