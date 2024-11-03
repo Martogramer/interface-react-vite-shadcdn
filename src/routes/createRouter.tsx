@@ -33,6 +33,10 @@ import CustomComponentsPage from "@/pages/collabs/CustomComponentsPage";
 import GuidePage from "@/pages/collabs/GuidePage";
 import Docs from "@/pages/collabs/Docs";
 import MultiRenderDocs from "@/features/details/MultiRenderDocs";
+import LayoutContacto from "@/layouts/LayoutContacto";
+import ContactPage from "@/pages/contacto/ContactPage";
+import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
+import { admin } from "./childrenRoutes";
 {
   /* 🚀
 Este archivo configura el enrutamiento web utilizando `react-router-dom`. 
@@ -53,6 +57,22 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Navigate to="/α" replace />,
+  },
+  {
+    path: "/telescopiens",
+    element: <Navigate to="/telescopiens" replace />,
+  },
+  {
+    path: "/servicios",
+    element: <Navigate to="/servicios" replace />,
+  },
+  {
+    path: "/colaboradores",
+    element: <Navigate to="/colaboradores" replace />,
+  },
+  {
+    path: "/contacto",
+    element: <Navigate to="/contacto" replace />,
   },
   {
     path: "/α",
@@ -109,12 +129,15 @@ export const router = createBrowserRouter([
         path: "",
         element: <Navigate to="guide" replace />,
       },
-      { path: "guide", element: <GuidePage />},
+      { path: "guide", element: <GuidePage /> },
       { path: "componentes", element: <CustomComponentsPage /> },
       {
         path: "docs",
         element: <Docs />,
-        children: [{ path: ":id", element: <MultiRenderDocs /> }, { path: "", element: <Navigate to="1" replace /> }],
+        children: [
+          { path: ":id", element: <MultiRenderDocs /> },
+          { path: "", element: <Navigate to="1" replace /> },
+        ],
       },
     ],
   },
@@ -138,12 +161,38 @@ export const router = createBrowserRouter([
     ],
   },
   {
+    path: "/contacto",
+    element: (
+      <LayoutMain>
+        <LayoutContacto />
+      </LayoutMain>
+    ),
+    children: [
+      {
+        path: "",
+        element: <Navigate to="colaboradores" replace />,
+      },
+      {
+        path: "colaboradores",
+        element: <ContactPage />,
+      },
+      {
+        path: "clientes",
+        element: <ContactPage />,
+      },
+    ],
+  },
+  {
     path: "/error",
     element: <NotPass />,
   },
-  /*   {
+  {
     path: "/admin",
-    element: <LayoutUserAdmin />,
+    element: (
+      <LayoutMain>
+        <LayoutUserAdmin />
+      </LayoutMain>
+    ),
     children: admin,
-  }, */
+  },
 ]);

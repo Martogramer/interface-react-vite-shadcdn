@@ -1,5 +1,7 @@
 import React from 'react';
 import { CanvasRevealEffect } from '../../ui/canvas-reveal-effect';
+import clsx from 'clsx';
+import classNames from 'classnames';
 
 interface CustomCardProps {
   title: string;
@@ -27,7 +29,7 @@ const CardHoverEffect: React.FC<CustomCardProps> = ({
         showGradient={showGradient}
         containerClassName="bg-transparent absolute inset-0 pointer-events-none"
       />
-      <div className="relative z-10 p-6 flex flex-col h-full justify-end">
+      <div className={clsx("relative z-10 p-6 flex flex-col h-full justify-end", classNames)}>
         <h2 className="text-2xl font-bold text-white mb-2">{title}</h2>
         <p className="text-white">{description}</p>
       </div>
