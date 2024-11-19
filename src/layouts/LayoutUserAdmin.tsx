@@ -10,11 +10,6 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom";
-import { Sidebar } from "lucide-react";
-import SidebarMobileMenu from "@/components/navs/user/SidebarMobileMenuUser";
-import SidebarShad from "@/components/navs/SidebarShad";
-import SidebarShadVariant from "@/components/navs/SidebarShadVariant";
-import CustomNav from '@/components/navs/CustomNav';
 
 const LayoutUserAdmin: React.FC = () => {
   const generateBreadcrumbs = () => {

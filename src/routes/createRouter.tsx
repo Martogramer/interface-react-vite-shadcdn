@@ -126,6 +126,10 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
+        path: "*",
+        element: <NotPass />,
+      },
+      {
         path: "",
         element: <Navigate to="guide" replace />,
       },

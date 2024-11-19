@@ -1,17 +1,21 @@
 import React from "react";
 import { MeteorsDemo } from "../_Customs2024/MeteorsDemo";
+import { Link } from "react-router-dom";
 
 interface SocialLink {
   href: string;
   label: string;
   icon: JSX.Element;
 }
-
+interface Services {
+  name: string;
+  route: string;
+};
 interface FooterProps {
   contactNumber: string;
   contactHours: string[];
   socialLinks: SocialLink[];
-  services: string[];
+  services: Services[];
   companyInfo: string[];
   year: number;
   companyName: string;
@@ -41,15 +45,18 @@ const Footer: React.FC<FooterProps> = ({
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           <div>
             <p>
-              <span className="text-xs uppercase tracking-wide text-gray-500">
-                llamanos
-              </span>
-              <a
-                href="#"
+              <Link
+                to="/contacto"
                 className="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl"
               >
                 {contactNumber}
-              </a>
+              </Link>
+              <span className="text-md uppercase tracking-wide text-gray-500">
+                grupo {companyName} 
+              </span>
+              <span className="text-md uppercase tracking-wide text-gray-500">
+                . {year}
+              </span>
             </p>
 
             <ul className="mt-8 space-y-1 text-sm text-gray-700">
@@ -107,12 +114,12 @@ const Footer: React.FC<FooterProps> = ({
               <ul className="mt-6 space-y-4 text-sm">
                 {services.map((service, index) => (
                   <li key={index}>
-                    <a
-                      href="#"
+                    <Link
+                      to={service.route}
                       className="text-gray-700 transition hover:opacity-75"
                     >
-                      {service}
-                    </a>
+                      {service.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
