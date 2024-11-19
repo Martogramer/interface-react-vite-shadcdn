@@ -50,18 +50,17 @@ const socialLinks = [
   { href: "#", label: "Reddit", icon: <LucideRedoDot className="h-6 w-6" /> },
 ];
 const services = [
-  "",
-  "Co-workers Reviews",
-  "Scrum Master - Metodologías Ágiles",
-  "APIs RESTful & Microservicios",
-  "SEO Optimisation",
+  { name: "Diseño Web", route: "/servicios/webdesign" },
+  { name: "Seo & Posicionamiento", route: "/servicios/seo" },
+  { name: "Ads & Publicidad", route: "/servicios/ads" },
+  { name: "Estrategias de Mkt", route: "/servicios/mkt" },
 ];
 const companyInfo = ["About", "Meet the Team", "Accounts Review"];
 const contactHours = ["Monday to Friday: 10am - 5pm", "Weekend: 10am - 3pm"];
 
 const LayoutMain: React.FC<Props> = ({ children }) => {
   const { themeClasses, currentTheme } = useTheme();
-  const themeText = currentTheme === "light" ? "Day" : "Night";
+  const themeText = currentTheme
   return (
     <>
       <div className={clsx(themeClasses.background, themeClasses.text)}>
@@ -70,13 +69,13 @@ const LayoutMain: React.FC<Props> = ({ children }) => {
           <>{children}</>
         </div>
         <Footer
-          contactNumber="CONTACT"
+          contactNumber="@martogramer"
           contactHours={contactHours}
           socialLinks={socialLinks}
           services={services}
           companyInfo={companyInfo}
           year={2024}
-          companyName="@telescopiens"
+          companyName="telescopiens"
         />
       </div>
     </>
