@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -119,6 +119,9 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
       prev.includes(label) ? prev.filter((item) => item !== label) : [label]
     );
   };
+  const navigate =()=> {
+    window.location.href = `/contacto`;
+  }
 
   const renderNavItem = (item: NavItem, isMobile: boolean = false) => {
     if (item.subItems) {
@@ -253,7 +256,7 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
                 bgGradient="linear-gradient(110deg,#1e3a8a,45%,#3b82f6,55%,#1e3a8a)"
                 animationDuration="3s"
                 textColor="text-white"
-                onClick={toggleTheme}
+                onClick={navigate}
               />
             </div>
           </div>
@@ -318,7 +321,7 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
           bgGradient="linear-gradient(110deg,#1e3a8a,45%,#3b82f6,55%,#1e3a8a)"
           animationDuration="3s"
           textColor="text-white"
-          onClick={toggleTheme}
+          onClick={navigate}
         />
       </div>
     </header>
