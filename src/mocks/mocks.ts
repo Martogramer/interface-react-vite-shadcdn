@@ -36,24 +36,95 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       {
         type: "title",
         content:
-          "Hackeando al Capitalismo: El Impacto del Movimiento de Software Libre y de Código Abierto",
+        "Hackeando al Capitalismo: El Impacto del Movimiento de Software Libre y de Código Abierto",
       },
       {
         type: "paragraph",
         content:
-          "El movimiento de software libre y de código abierto (FOSS, por sus siglas en inglés) ha revolucionado la industria del software y la tecnología en general, ofreciendo una alternativa radical al modelo capitalista tradicional de propiedad intelectual y comercialización. En su libro 'Hackeando al Capitalismo: El Movimiento de Software Libre y de Código Abierto', Johan Söderberg proporciona un análisis profundo de cómo este movimiento desafía las estructuras económicas y sociales existentes, al tiempo que promueve la innovación, la colaboración y la democratización del conocimiento.",
+          "El movimiento de software libre y de código abierto ha revolucionado la industria del software y la tecnología en general, ofreciendo una alternativa radical al modelo capitalista tradicional de propiedad intelectual y comercialización. Este movimiento desafía las estructuras económicas y sociales existentes, al tiempo que promueve la innovación, la colaboración y la democratización del conocimiento.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Hackeando el capitalismo de Johan Söderberg explora la intersección entre el movimiento de software libre y las dinámicas del capitalismo contemporáneo.",
       },
       { type: "title", content: "Contrapunto al Capitalismo Tradicional" },
       {
         type: "paragraph",
         content:
+          "El hacking democratiza el acceso a la tecnología, desafiando el monopolio de las corporaciones sobre el conocimiento y la innovación.",
+      },
+      {
+        type: "paragraph",
+        content:
+          'Söderberg argumenta que el hacking no solo es una práctica técnica, sino un acto de resistencia contra las estructuras de poder establecidas. En este sentido, el autor menciona que "la promesa del hacking es que al hacer la tecnología informática accesible se socava la división social del trabajo"',
+      },
+      {
+        type: "paragraph",
+        content:
           "El software libre y de código abierto se enfrenta al capitalismo tradicional al cuestionar y subvertir las prácticas de propiedad intelectual que dominan la industria del software. En el modelo capitalista, la propiedad intelectual se utiliza para crear monopolios temporales sobre el uso y distribución de obras creativas, incluidas las aplicaciones de software. Esto se logra mediante patentes, derechos de autor y licencias restrictivas que controlan quién puede usar, modificar y distribuir el software.",
       },
-      { type: "title", content: "Las cuatro libertades esenciales" },
+      {
+        type: "link",
+        content: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
+        url: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
+      },
+      {
+        type: "paragraph",
+        content:
+          "",
+      },
+      { type: "title", content: "Un acercamiento al concepto de Hacking; la reestructuraciòn del capitalismo" },
+      {
+        type: "paragraph",
+        content:
+        'El concepto de "juego como lucha" es central en la obra. Söderberg sostiene que "el juego se diferencia en que se elige libremente y está marcado por un alto grado de autodeterminación entre los jugadores" ',
+      },
+      {
+        type: "paragraph",
+        content:
+        'Este enfoque sugiere que las actividades hacker pueden ser vistas como formas de autoorganización y resistencia, donde los participantes ejercen control sobre sus herramientas.',
+      },
+      {
+        type: "paragraph",
+        content:
+        "El autor analiza cómo las tecnologías digitales han transformado las relaciones laborales y la producción. La reestructuración del capitalismo, según Söderberg, no es solo una respuesta a avances tecnológicos, sino una estrategia para mantener márgenes de ganancia frente a un aumento en la participación de los trabajadores.",
+      },
+      {
+        type: "paragraph",
+        content:
+        'También argumenta que el hacking promueve la libertad de acceso a la información y a las herramientas tecnológicas. Esta apertura permite a los individuos no solo aprender y crear, sino también desafiar las normas establecidas. La ética hacker sostiene que "el acceso a las computadoras y cualquier cosa que pueda enseñar algo acerca de cómo funciona el mundo, debe ser de acceso ilimitado."',
+      },
+      {
+        type: "paragraph",
+        content:
+        "Algo muy interesante es que sugiere pensar la ética hacker como un acto político. La democratización del conocimiento empodera a las personas para que tengan el control de sus vidas.",
+      },
+      {
+        type: "paragraph",
+        content:
+        "La promesa de emancipación del hacking en 'Hackeando el capitalismo' se centra en su potencial para democratizar el acceso al conocimiento, fomentar la autodeterminación y desafiar las estructuras opresivas del capitalismo. Sin embargo, también se reconoce la necesidad de estar alerta ante la cooptación de estas prácticas por parte del sistema capitalista. En última instancia, Söderberg invita a reflexionar sobre cómo el hacking puede contribuir a una transformación social más profunda.",
+      },
+      {
+        type: "link",
+        content: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
+        url: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
+      },
+      {
+        type: "paragraph",
+        content:
+          "",
+      },
+      { type: "title", content: "Qué tiene que ver esto con las ideas de Richard Stallman en 'Software Libre para una Sociedad Libre'?" },
       {
         type: "paragraph",
         content:
           "Richard Stallman, fundador del movimiento del software libre, definió cuatro libertades esenciales: la libertad de usar el programa, la libertad de estudiar cómo funciona el programa, la libertad de distribuir copias del programa, y la libertad de mejorar el programa y publicar esas mejoras...",
+      },
+      {
+        type: "paragraph",
+        content:
+        "Esto se articula con lo planteado en 'Hackeando el Capitalismo' de Söderberg ya que ambos autores abordan cómo el acceso y control sobre la tecnología pueden ser herramientas de emancipación social."
       },
       {
         type: "paragraph",
@@ -91,17 +162,17 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       {
         type: "paragraph",
         content:
-          "El software libre ha sido un motor crucial para la innovación en la industria tecnológica. Al permitir que cualquier persona acceda, modifique y distribuya el código fuente, FOSS facilita la rápida iteración y mejora del software. Este modelo de desarrollo colaborativo permite a los desarrolladores de todo el mundo contribuir a proyectos, identificar y corregir errores más rápidamente y agregar nuevas funcionalidades. Esta eficiencia no solo acelera el ciclo de desarrollo, sino que también reduce los costos asociados con la producción de software, ya que las empresas pueden aprovechar una base de código existente y enfocarse en personalizaciones específicas o en añadir valor a través de servicios y soporte.",
+        "El software libre ha sido un motor crucial para la innovación en la industria tecnológica. Al permitir que cualquier persona acceda, modifique y distribuya el código fuente, FOSS facilita la rápida iteración y mejora del software. Este modelo de desarrollo colaborativo permite a los desarrolladores de todo el mundo contribuir a proyectos, identificar y corregir errores más rápidamente y agregar nuevas funcionalidades. Esta eficiencia no solo acelera el ciclo de desarrollo, sino que también reduce los costos asociados con la producción de software, ya que las empresas pueden aprovechar una base de código existente y enfocarse en personalizaciones específicas o en añadir valor a través de servicios y soporte.",
       },
       {
         type: "paragraph",
         content:
-          "El uso de software libre reduce significativamente los costos de licenciamiento para individuos, empresas y gobiernos. Esto es particularmente importante para pequeñas y medianas empresas (PYMEs), organizaciones sin fines de lucro y países en desarrollo, que pueden utilizar FOSS para acceder a tecnología de alta calidad sin los gastos prohibitivos asociados con el software propietario. Además, el acceso abierto al código fuente promueve la transparencia y la seguridad, ya que cualquier persona puede auditar el código en busca de vulnerabilidades o comportamientos maliciosos.",
+        "El uso de software libre reduce significativamente los costos de licenciamiento para individuos, empresas y gobiernos. Esto es particularmente importante para pequeñas y medianas empresas (PYMEs), organizaciones sin fines de lucro y países en desarrollo, que pueden utilizar FOSS para acceder a tecnología de alta calidad sin los gastos prohibitivos asociados con el software propietario. Además, el acceso abierto al código fuente promueve la transparencia y la seguridad, ya que cualquier persona puede auditar el código en busca de vulnerabilidades o comportamientos maliciosos.",
       },
       {
         type: "paragraph",
         content:
-          "El movimiento FOSS ha llevado al desarrollo de nuevos modelos de negocio que no dependen de la venta de licencias de software. Empresas como Red Hat, Canonical y Automattic han demostrado que es posible construir negocios sostenibles y exitosos en torno al software libre ofreciendo servicios de soporte, consultoría, personalización y hospedaje. Estos modelos de negocio basados en servicios permiten a las empresas monetizar su experiencia y conocimientos, mientras que el software en sí permanece libre y accesible.",
+        "El movimiento FOSS ha llevado al desarrollo de nuevos modelos de negocio que no dependen de la venta de licencias de software. Empresas como Red Hat, Canonical y Automattic han demostrado que es posible construir negocios sostenibles y exitosos en torno al software libre ofreciendo servicios de soporte, consultoría, personalización y hospedaje. Estos modelos de negocio basados en servicios permiten a las empresas monetizar su experiencia y conocimientos, mientras que el software en sí permanece libre y accesible.",
       },
       {
         type: "paragraph",
@@ -116,6 +187,26 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       {
         type: "paragraph",
         content: "",
+      },
+      {
+        type: "link",
+        content: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
+        url: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
+      },
+      {
+        type: "link",
+        content: "https://es.scribd.com/document/655239834/PDF-Hackeando-Al-Capitalismo-compress",
+        url: "https://es.scribd.com/document/655239834/PDF-Hackeando-Al-Capitalismo-compress",
+      },
+      {
+        type: "link",
+        content: "https://ephemerajournal.org/contribution/repurposing-hacker-three-cycles-recuperation-evolution-hacking-and-capitalism",
+        url: "https://ephemerajournal.org/contribution/repurposing-hacker-three-cycles-recuperation-evolution-hacking-and-capitalism",
+      },
+      {
+        type: "link",
+        content: "El movimiento software libre. Un estudio exploratorio Milagros Dolabani: https://cdsa.aacademica.org/000-023/615.pdf",
+        url: "https://cdsa.aacademica.org/000-023/615.pdf",
       },
       {
         type: "paragraph",

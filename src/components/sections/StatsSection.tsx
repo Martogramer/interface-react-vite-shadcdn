@@ -1,13 +1,11 @@
 import React from "react";
 import CardHoverEffect from "../_Customs2024/cards/CardHoverEffect";
-import { Link } from "react-router-dom";
 import CustomTitle from "../_Customs2024/text/CustomTitle";
 import CustomParagraph from "../_Customs2024/text/CustomParagraph";
 
 interface Career {
   title: string;
   description: string;
-  link: string;
   icon?: React.ReactNode;
 }
 
@@ -36,7 +34,6 @@ const CareerPath: React.FC<CareerPathProps> = ({
           <div className="grid grid-cols-1 items-center gap-6 p-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2">
             {careers.map((career, index) => (
               <div className="gap-20">
-                <Link key={index} to={career.link}>
                   <CardHoverEffect
                     key={index}
                     title={career.title}
@@ -49,7 +46,6 @@ const CareerPath: React.FC<CareerPathProps> = ({
                     dotSize={5}
                     showGradient={true}
                   />
-                </Link>
               </div>
             ))}
           </div>

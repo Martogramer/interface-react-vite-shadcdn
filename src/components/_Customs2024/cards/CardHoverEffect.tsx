@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CanvasRevealEffect } from '../../ui/canvas-reveal-effect';
 import clsx from 'clsx';
 import classNames from 'classnames';
@@ -20,6 +20,14 @@ const CardHoverEffect: React.FC<CustomCardProps> = ({
   dotSize = 3,
   showGradient = true,
 }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded((prev) => !prev);
+  };
+  const truncatedDescription = description.length > 100 
+  ? `${description.slice(0, 100)}...` 
+  : description;
   return (
     <div className="relative w-[100%] h-96 rounded-lg overflow-hidden">
       <CanvasRevealEffect
@@ -31,7 +39,16 @@ const CardHoverEffect: React.FC<CustomCardProps> = ({
       />
       <div className={clsx("relative z-10 p-6 flex flex-col h-full justify-end", classNames)}>
         <h2 className="text-2xl font-bold text-white mb-2">{title}</h2>
-        <p className="text-white">{description}</p>
+        <p className="text-white">
+          {isExpanded ? description : truncatedDescription}
+        </p>
+        <button
+          onClick={toggleExpand}
+          className="text-sm mt-2 text-white flex items-center hover:underline"
+        >
+          {isExpanded ? 'Ver menos' : 'Ver más'}
+          <span className="ml-2">{isExpanded ? '▲' : '▼'}</span>
+        </button>
       </div>
     </div>
   );
