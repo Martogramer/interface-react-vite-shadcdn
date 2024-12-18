@@ -1,8 +1,6 @@
 import Footer from "@/components/footers/Footer";
 import { Axis3DIcon, LucideRedoDot, TableRowsSplitIcon } from "lucide-react";
 import React from "react";
-import clsx from "clsx";
-import { useTheme } from "@/context/ThemeContext";
 import CustomNav from "@/components/navs/CustomNav";
 
 interface Props {
@@ -59,12 +57,10 @@ const companyInfo = ["About", "Meet the Team", "Accounts Review"];
 const contactHours = ["Monday to Friday: 10am - 5pm", "Weekend: 10am - 3pm"];
 
 const LayoutMain: React.FC<Props> = ({ children }) => {
-  const { themeClasses, currentTheme } = useTheme();
-  const themeText = currentTheme
   return (
     <>
-      <div className={clsx(themeClasses.background, themeClasses.text)}>
-        <CustomNav textButton={themeText} navItems={navItems} basePath={""} />
+      <div>
+        <CustomNav textButton={'Contacto'} navItems={navItems} basePath={""} />
         <div>
           <>{children}</>
         </div>
