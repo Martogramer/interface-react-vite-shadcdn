@@ -36,12 +36,12 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       {
         type: "title",
         content:
-        "Hackeando al Capitalismo: El Impacto del Movimiento de Software Libre y de Código Abierto",
+          "Hackeando al Capitalismo: El Impacto del Movimiento de Software Libre",
       },
       {
         type: "paragraph",
         content:
-          "El movimiento de software libre y de código abierto ha revolucionado la industria del software y la tecnología en general, ofreciendo una alternativa radical al modelo capitalista tradicional de propiedad intelectual y comercialización. Este movimiento desafía las estructuras económicas y sociales existentes, al tiempo que promueve la innovación, la colaboración y la democratización del conocimiento.",
+          "El movimiento de software libre ha revolucionado la industria del software y la tecnología en general, ofreciendo una alternativa radical al modelo capitalista tradicional de propiedad intelectual y comercialización. Este movimiento desafía las estructuras económicas y sociales existentes, al tiempo que promueve la innovación, la colaboración y la democratización del conocimiento.",
       },
       {
         type: "paragraph",
@@ -57,7 +57,7 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       {
         type: "paragraph",
         content:
-          'Söderberg argumenta que el hacking no solo es una práctica técnica, sino un acto de resistencia contra las estructuras de poder establecidas. En este sentido, el autor menciona que "la promesa del hacking es que al hacer la tecnología informática accesible se socava la división social del trabajo"',
+          'Söderberg argumenta que el hacking no solo es una práctica técnica, sino un acto de resistencia contra las estructuras de poder establecidas. En este sentido, el autor menciona que (1) "la promesa del hacking es que al hacer la tecnología informática accesible, se socava la división social del trabajo".',
       },
       {
         type: "paragraph",
@@ -66,56 +66,64 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       },
       {
         type: "link",
-        content: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
+        content:
+          "(1) https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
         url: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
       },
       {
         type: "paragraph",
-        content:
-          "",
+        content: "",
       },
-      { type: "title", content: "Un acercamiento al concepto de Hacking; la reestructuraciòn del capitalismo" },
       {
-        type: "paragraph",
+        type: "title",
         content:
-        'El concepto de "juego como lucha" es central en la obra. Söderberg sostiene que "el juego se diferencia en que se elige libremente y está marcado por un alto grado de autodeterminación entre los jugadores" ',
+          "Un acercamiento al concepto de Hacking; la reestructuraciòn del capitalismo",
       },
       {
         type: "paragraph",
         content:
-        'Este enfoque sugiere que las actividades hacker pueden ser vistas como formas de autoorganización y resistencia, donde los participantes ejercen control sobre sus herramientas.',
+          'El concepto de "juego como lucha" es central en la obra. Söderberg sostiene que "el juego se diferencia en que se elige libremente y está marcado por un alto grado de autodeterminación entre los jugadores" ',
       },
       {
         type: "paragraph",
         content:
-        "El autor analiza cómo las tecnologías digitales han transformado las relaciones laborales y la producción. La reestructuración del capitalismo, según Söderberg, no es solo una respuesta a avances tecnológicos, sino una estrategia para mantener márgenes de ganancia frente a un aumento en la participación de los trabajadores.",
+          "Este enfoque sugiere que las actividades hacker pueden ser vistas como formas de autoorganización y resistencia, donde los participantes ejercen control sobre sus herramientas.",
       },
       {
         type: "paragraph",
         content:
-        'También argumenta que el hacking promueve la libertad de acceso a la información y a las herramientas tecnológicas. Esta apertura permite a los individuos no solo aprender y crear, sino también desafiar las normas establecidas. La ética hacker sostiene que "el acceso a las computadoras y cualquier cosa que pueda enseñar algo acerca de cómo funciona el mundo, debe ser de acceso ilimitado."',
+          "El autor analiza cómo las tecnologías digitales han transformado las relaciones laborales y la producción. La reestructuración del capitalismo, según Söderberg, no es solo una respuesta a avances tecnológicos, sino una estrategia para mantener márgenes de ganancia frente a un aumento en la participación de los trabajadores.",
       },
       {
         type: "paragraph",
         content:
-        "Algo muy interesante es que sugiere pensar la ética hacker como un acto político. La democratización del conocimiento empodera a las personas para que tengan el control de sus vidas.",
+          'También argumenta que el hacking promueve la libertad de acceso a la información y a las herramientas tecnológicas. Esta apertura permite a los individuos no solo aprender y crear, sino también desafiar las normas establecidas. La ética hacker sostiene que "el acceso a las computadoras y cualquier cosa que pueda enseñar algo acerca de cómo funciona el mundo, debe ser de acceso ilimitado."',
       },
       {
         type: "paragraph",
         content:
-        "La promesa de emancipación del hacking en 'Hackeando el capitalismo' se centra en su potencial para democratizar el acceso al conocimiento, fomentar la autodeterminación y desafiar las estructuras opresivas del capitalismo. Sin embargo, también se reconoce la necesidad de estar alerta ante la cooptación de estas prácticas por parte del sistema capitalista. En última instancia, Söderberg invita a reflexionar sobre cómo el hacking puede contribuir a una transformación social más profunda.",
+          "Algo muy interesante es que sugiere pensar a la ética hacker como un acto político. La democratización del conocimiento empodera a las personas para que tengan el control de sus vidas.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "La promesa de emancipación del hacking en 'Hackeando el capitalismo' se centra en su potencial para democratizar el acceso al conocimiento, fomentar la autodeterminación y desafiar las estructuras opresivas del capitalismo. Sin embargo, también se reconoce la necesidad de estar alerta ante la cooptación de estas prácticas por parte del sistema capitalista. En última instancia, Söderberg invita a reflexionar sobre cómo el hacking puede contribuir a una transformación social más profunda.",
       },
       {
         type: "link",
-        content: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
+        content:
+          "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
         url: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
       },
       {
         type: "paragraph",
-        content:
-          "",
+        content: "",
       },
-      { type: "title", content: "Qué tiene que ver esto con las ideas de Richard Stallman en 'Software Libre para una Sociedad Libre'?" },
+      {
+        type: "title",
+        content:
+          "Software Libre para una Sociedad Libre",
+      },
       {
         type: "paragraph",
         content:
@@ -124,7 +132,7 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       {
         type: "paragraph",
         content:
-        "Esto se articula con lo planteado en 'Hackeando el Capitalismo' de Söderberg ya que ambos autores abordan cómo el acceso y control sobre la tecnología pueden ser herramientas de emancipación social."
+          "Esto se articula con lo planteado en 'Hackeando el Capitalismo' de Söderberg ya que ambos autores abordan cómo el acceso y control sobre la tecnología pueden ser herramientas de emancipación social.",
       },
       {
         type: "paragraph",
@@ -132,9 +140,33 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
           "El movimiento de software libre rompe con este modelo al rechazar las restricciones impuestas por las licencias propietarias. Licencias como la GNU General Public License (GPL) y la Licencia MIT permiten a los usuarios estudiar, modificar y redistribuir el software libremente, promoviendo una cultura de compartición y colaboración que contrasta con la competitividad y exclusividad del capitalismo tradicional.",
       },
       {
+        type: "title",
+        content: "Producción Colaborativa",
+      },
+      {
         type: "paragraph",
         content:
-          "Además, el modelo de producción colaborativa de FOSS permite a desarrolladores de todo el mundo contribuir a proyectos, identificar y corregir errores más rápidamente y agregar nuevas funcionalidades. Esto no solo acelera el ciclo de desarrollo, sino que también reduce los costos asociados con la producción de software, ya que las empresas pueden aprovechar una base de código existente y enfocarse en personalizaciones específicas o en añadir valor a través de servicios y soporte.",
+          "En relación con las ideas anteriores, Söderberg argumenta que estas prácticas no solo son económicamente viables, sino que también tienen el potencial de crear una sociedad más equitativa y sostenible. Al liberar el software y permitir su uso y modificación sin restricciones, el movimiento de software libre promueve la democratización del conocimiento y la tecnología, lo que puede empoderar a individuos y comunidades.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Pensar en términos de producción colaborativa fomenta la reciprocidad y la compartición voluntaria de recursos, en contraste con la economía de mercado que se basa en la transacción y la competencia. La cultura hacker, con su énfasis en la exploración, el aprendizaje autodidacta y la colaboración, es fundamental para el desarrollo del software libre.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Otro aspecto importante es que en lugar de depender de un único desarrollador o empresa para crear y mantener software, los proyectos de software libre a menudo son desarrollados por comunidades de voluntarios y profesionales que colaboran en línea. Este modelo de producción distribuida permite que las mejoras y correcciones se realicen de manera más rápida y eficiente que en el modelo propietario.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "De ésta forma, podemos destacar la importancia de las comunidades en la producción de software. Otros autores que abordan estos temas tambien nombran la importancia de las comunidades y cómo el trabajo colaborativo es el camino hacia una producción sostenible y democrática. Como los que se muestran a continuación:",
+      },
+      {
+        type: "image",
+        content:
+          "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp",
       },
       {
         type: "title",
@@ -143,17 +175,17 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       {
         type: "paragraph",
         content:
-          "El movimiento de software libre tiene sus raíces en las primeras comunidades de programadores de los años 1960 y 1970, que compartían libremente el código fuente de sus programas. En estos primeros días de la informática, el intercambio de software y conocimientos era una práctica común entre académicos y profesionales, facilitando la colaboración y la innovación.",
+        "El movimiento de software libre tiene sus raíces en las primeras comunidades de programadores de los años 1960 y 1970, que compartían libremente el código fuente de sus programas. En estos primeros días de la informática, el intercambio de software y conocimientos era una práctica común entre académicos y profesionales, facilitando la colaboración y la innovación.",
       },
       {
         type: "paragraph",
         content:
-          "El concepto de software propietario comenzó a ganar terreno en la década de 1980, cuando las empresas empezaron a restringir el acceso al código fuente de sus programas para proteger sus intereses comerciales. Esta tendencia hacia la privatización del software y el aumento de las restricciones legales y técnicas generó una reacción entre algunos miembros de la comunidad de programadores.",
+        "El concepto de software propietario comenzó a ganar terreno en la década de 1980, cuando las empresas empezaron a restringir el acceso al código fuente de sus programas para proteger sus intereses comerciales. Esta tendencia hacia la privatización del software y el aumento de las restricciones legales y técnicas generó una reacción entre algunos miembros de la comunidad de programadores.",
       },
       {
         type: "paragraph",
         content:
-          "Una figura clave en el nacimiento del movimiento de software libre es Richard Stallman. En 1983, Stallman anunció el proyecto GNU (GNU's Not Unix), con el objetivo de desarrollar un sistema operativo completo y libre similar a Unix. Al año siguiente, fundó la Free Software Foundation (FSF) para apoyar el desarrollo del software libre y promover sus principios. Stallman también introdujo la Licencia Pública General de GNU (GPL), una licencia de software libre diseñada para garantizar que los programas licenciados bajo ella sigan siendo libres para todos los usuarios. La GPL incorpora el concepto de copyleft, que asegura que cualquier modificación o distribución del software mantenga las mismas libertades que el original.",
+        "Una figura clave en el nacimiento del movimiento de software libre es Richard Stallman. En 1983, Stallman anunció el proyecto GNU (GNU's Not Unix), con el objetivo de desarrollar un sistema operativo completo y libre similar a Unix. Al año siguiente, fundó la Free Software Foundation (FSF) para apoyar el desarrollo del software libre y promover sus principios. Stallman también introdujo la Licencia Pública General de GNU (GPL), una licencia de software libre diseñada para garantizar que los programas licenciados bajo ella sigan siendo libres para todos los usuarios. La GPL incorpora el concepto de copyleft, que asegura que cualquier modificación o distribución del software mantenga las mismas libertades que el original.",
       },
       {
         type: "title",
@@ -177,36 +209,12 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       {
         type: "paragraph",
         content:
-          "FOSS también ha jugado un papel fundamental en la democratización del conocimiento. Al poner herramientas y tecnologías avanzadas al alcance de cualquier persona con acceso a Internet, el software libre ha permitido a individuos y comunidades aprender, experimentar y desarrollar habilidades tecnológicas sin barreras económicas. En el ámbito educativo, el software libre ofrece recursos valiosos para la enseñanza y el aprendizaje de la informática y otras disciplinas.",
+        "FOSS también ha jugado un papel fundamental en la democratización del conocimiento. Al poner herramientas y tecnologías avanzadas al alcance de cualquier persona con acceso a Internet, el software libre ha permitido a individuos y comunidades aprender, experimentar y desarrollar habilidades tecnológicas sin barreras económicas. En el ámbito educativo, el software libre ofrece recursos valiosos para la enseñanza y el aprendizaje de la informática y otras disciplinas.",
       },
       {
         type: "paragraph",
         content:
-          "El software libre no solo es una herramienta tecnológica, sino también un medio para el empoderamiento comunitario y la movilización social. Las comunidades de desarrollo de FOSS son ejemplos de organización horizontal y colaborativa, donde la meritocracia y la participación abierta son principios fundamentales. Además, el movimiento FOSS ha inspirado a otros movimientos sociales que buscan aplicar principios de apertura y colaboración en áreas como la ciencia abierta, el hardware libre y los datos abiertos. Estos movimientos comparten la visión de que el acceso libre y equitativo al conocimiento y a la tecnología puede conducir a una sociedad más justa y sostenible.",
-      },
-      {
-        type: "paragraph",
-        content: "",
-      },
-      {
-        type: "link",
-        content: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
-        url: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
-      },
-      {
-        type: "link",
-        content: "https://es.scribd.com/document/655239834/PDF-Hackeando-Al-Capitalismo-compress",
-        url: "https://es.scribd.com/document/655239834/PDF-Hackeando-Al-Capitalismo-compress",
-      },
-      {
-        type: "link",
-        content: "https://ephemerajournal.org/contribution/repurposing-hacker-three-cycles-recuperation-evolution-hacking-and-capitalism",
-        url: "https://ephemerajournal.org/contribution/repurposing-hacker-three-cycles-recuperation-evolution-hacking-and-capitalism",
-      },
-      {
-        type: "link",
-        content: "El movimiento software libre. Un estudio exploratorio Milagros Dolabani: https://cdsa.aacademica.org/000-023/615.pdf",
-        url: "https://cdsa.aacademica.org/000-023/615.pdf",
+        "El software libre no solo es una herramienta tecnológica, sino también un medio para el empoderamiento comunitario y la movilización social. Las comunidades de desarrollo de FOSS son ejemplos de organización horizontal y colaborativa, donde la meritocracia y la participación abierta son principios fundamentales. Además, el movimiento FOSS ha inspirado a otros movimientos sociales que buscan aplicar principios de apertura y colaboración en áreas como la ciencia abierta, el hardware libre y los datos abiertos. Estos movimientos comparten la visión de que el acceso libre y equitativo al conocimiento y a la tecnología puede conducir a una sociedad más justa y sostenible.",
       },
       {
         type: "paragraph",
@@ -215,14 +223,43 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       {
         type: "image",
         content:
-          "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp",
+          "https://res.cloudinary.com/dcohllmo0/image/upload/fl_preserve_transparency/v1735933202/Captura_de_pantalla_2025-01-03_161208_qozjof.jpg?_s=public-apps",
       },
+      {
+        type: "link",
+        content:
+          "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
+        url: "https://utopia.partidopirata.com.ar/hackeando_al_capitalismo.html",
+      },
+      {
+        type: "link",
+        content:
+          "https://es.scribd.com/document/655239834/PDF-Hackeando-Al-Capitalismo-compress",
+        url: "https://es.scribd.com/document/655239834/PDF-Hackeando-Al-Capitalismo-compress",
+      },
+      {
+        type: "link",
+        content:
+          "https://ephemerajournal.org/contribution/repurposing-hacker-three-cycles-recuperation-evolution-hacking-and-capitalism",
+        url: "https://ephemerajournal.org/contribution/repurposing-hacker-three-cycles-recuperation-evolution-hacking-and-capitalism",
+      },
+      {
+        type: "link",
+        content:
+          "El movimiento software libre. Un estudio exploratorio Milagros Dolabani: https://cdsa.aacademica.org/000-023/615.pdf",
+        url: "https://cdsa.aacademica.org/000-023/615.pdf",
+      },
+      {
+        type: "paragraph",
+        content: "",
+      },
+      
     ],
     author: "Martín Iribas",
     publishDate: "2024-07-15",
     tags: ["Software Libre", "Tecnología", "Ética Digital"],
     image:
-      "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp",
+      "https://res.cloudinary.com/dcohllmo0/image/upload/fl_preserve_transparency/v1735933194/Captura_de_pantalla_2025-01-03_161551_mnah3s.jpg?_s=public-apps",
   },
   {
     id: 2,
@@ -366,102 +403,118 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
       "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp",
   },
   {
-    "id": 5,
-    "elements": [
+    id: 5,
+    elements: [
       {
-        "type": "title",
-        "content": "Creando una API de Gestión de Usuarios con Node.js y TypeScript"
+        type: "title",
+        content:
+          "Creando una API de Gestión de Usuarios con Node.js y TypeScript",
       },
       {
-        "type": "paragraph",
-        "content": "En este post, aprenderemos a crear una API robusta para la gestión de usuarios utilizando Node.js y TypeScript. Esta combinación nos permitirá desarrollar un backend seguro y escalable con tipado estático, lo que mejora la mantenibilidad y reduce errores en tiempo de ejecución. Si estás buscando una forma de optimizar tu desarrollo backend, TypeScript es una excelente opción, ya que proporciona herramientas para prevenir errores comunes y mejora la experiencia de desarrollo."
+        type: "paragraph",
+        content:
+          "En este post, aprenderemos a crear una API robusta para la gestión de usuarios utilizando Node.js y TypeScript. Esta combinación nos permitirá desarrollar un backend seguro y escalable con tipado estático, lo que mejora la mantenibilidad y reduce errores en tiempo de ejecución. Si estás buscando una forma de optimizar tu desarrollo backend, TypeScript es una excelente opción, ya que proporciona herramientas para prevenir errores comunes y mejora la experiencia de desarrollo.",
       },
       {
-        "type": "image",
-        "content": "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp"
+        type: "image",
+        content:
+          "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp",
       },
       {
-        "type": "paragraph",
-        "content": "Comenzaremos configurando nuestro proyecto y luego implementaremos las funcionalidades básicas de CRUD (Crear, Leer, Actualizar, Eliminar) para los usuarios. Antes de sumergirnos en la escritura de código, es crucial asegurarnos de que nuestro entorno esté correctamente configurado. Esto incluye la instalación de todas las dependencias necesarias y la creación de un archivo de configuración para TypeScript."
+        type: "paragraph",
+        content:
+          "Comenzaremos configurando nuestro proyecto y luego implementaremos las funcionalidades básicas de CRUD (Crear, Leer, Actualizar, Eliminar) para los usuarios. Antes de sumergirnos en la escritura de código, es crucial asegurarnos de que nuestro entorno esté correctamente configurado. Esto incluye la instalación de todas las dependencias necesarias y la creación de un archivo de configuración para TypeScript.",
       },
       {
-        "type": "code",
-        "content": "// Configuración inicial\nnpm init -y\nnpm install express @types/express typescript ts-node\nnpm install --save-dev @types/node\n\n// tsconfig.json\n{\n  \"compilerOptions\": {\n    \"target\": \"es6\",\n    \"module\": \"commonjs\",\n    \"outDir\": \"./dist\",\n    \"strict\": true,\n    \"esModuleInterop\": true\n  }\n}",
-        "language": "typescript"
+        type: "code",
+        content:
+          '// Configuración inicial\nnpm init -y\nnpm install express @types/express typescript ts-node\nnpm install --save-dev @types/node\n\n// tsconfig.json\n{\n  "compilerOptions": {\n    "target": "es6",\n    "module": "commonjs",\n    "outDir": "./dist",\n    "strict": true,\n    "esModuleInterop": true\n  }\n}',
+        language: "typescript",
       },
       {
-        "type": "paragraph",
-        "content": "Con esto, hemos creado un nuevo proyecto Node.js, añadido las dependencias necesarias, e inicializado TypeScript con una configuración básica. El archivo tsconfig.json contiene opciones esenciales que definen cómo se compilará nuestro código TypeScript. Por ejemplo, target especifica la versión de ECMAScript que queremos utilizar, mientras que outDir indica el directorio donde se guardarán los archivos compilados."
+        type: "paragraph",
+        content:
+          "Con esto, hemos creado un nuevo proyecto Node.js, añadido las dependencias necesarias, e inicializado TypeScript con una configuración básica. El archivo tsconfig.json contiene opciones esenciales que definen cómo se compilará nuestro código TypeScript. Por ejemplo, target especifica la versión de ECMAScript que queremos utilizar, mientras que outDir indica el directorio donde se guardarán los archivos compilados.",
       },
       {
-        "type": "paragraph",
-        "content": "Ahora que nuestro proyecto está configurado, pasemos a implementar las operaciones CRUD para nuestra API. Crearemos un archivo app.ts dentro de una carpeta src, que contendrá toda la lógica de nuestra aplicación."
+        type: "paragraph",
+        content:
+          "Ahora que nuestro proyecto está configurado, pasemos a implementar las operaciones CRUD para nuestra API. Crearemos un archivo app.ts dentro de una carpeta src, que contendrá toda la lógica de nuestra aplicación.",
       },
       {
-        "type": "code",
-        "content": "// src/app.ts\nimport express, { Request, Response } from 'express';\n\nconst app = express();\nconst PORT = 3000;\n\napp.use(express.json());\n\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\nlet users: User[] = [];\n\n// Crear un nuevo usuario\napp.post('/users', (req: Request, res: Response) => {\n  const user: User = { id: users.length + 1, name: req.body.name, email: req.body.email };\n  users.push(user);\n  res.status(201).json(user);\n});\n\n// Leer todos los usuarios\napp.get('/users', (req: Request, res: Response) => {\n  res.json(users);\n});\n\n// Leer un usuario por ID\napp.get('/users/:id', (req: Request, res: Response) => {\n  const user = users.find(u => u.id === parseInt(req.params.id));\n  if (user) {\n    res.json(user);\n  } else {\n    res.status(404).send('Usuario no encontrado');\n  }\n});\n\n// Actualizar un usuario\napp.put('/users/:id', (req: Request, res: Response) => {\n  const user = users.find(u => u.id === parseInt(req.params.id));\n  if (user) {\n    user.name = req.body.name || user.name;\n    user.email = req.body.email || user.email;\n    res.json(user);\n  } else {\n    res.status(404).send('Usuario no encontrado');\n  }\n});\n\n// Eliminar un usuario\napp.delete('/users/:id', (req: Request, res: Response) => {\n  const index = users.findIndex(u => u.id === parseInt(req.params.id));\n  if (index !== -1) {\n    users.splice(index, 1);\n    res.status(204).send();\n  } else {\n    res.status(404).send('Usuario no encontrado');\n  }\n});\n\n// Iniciar el servidor\napp.listen(PORT, () => {\n  console.log(`Servidor corriendo en http://localhost:${PORT}`);\n});",
-        "language": "typescript"
+        type: "code",
+        content:
+          "// src/app.ts\nimport express, { Request, Response } from 'express';\n\nconst app = express();\nconst PORT = 3000;\n\napp.use(express.json());\n\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\nlet users: User[] = [];\n\n// Crear un nuevo usuario\napp.post('/users', (req: Request, res: Response) => {\n  const user: User = { id: users.length + 1, name: req.body.name, email: req.body.email };\n  users.push(user);\n  res.status(201).json(user);\n});\n\n// Leer todos los usuarios\napp.get('/users', (req: Request, res: Response) => {\n  res.json(users);\n});\n\n// Leer un usuario por ID\napp.get('/users/:id', (req: Request, res: Response) => {\n  const user = users.find(u => u.id === parseInt(req.params.id));\n  if (user) {\n    res.json(user);\n  } else {\n    res.status(404).send('Usuario no encontrado');\n  }\n});\n\n// Actualizar un usuario\napp.put('/users/:id', (req: Request, res: Response) => {\n  const user = users.find(u => u.id === parseInt(req.params.id));\n  if (user) {\n    user.name = req.body.name || user.name;\n    user.email = req.body.email || user.email;\n    res.json(user);\n  } else {\n    res.status(404).send('Usuario no encontrado');\n  }\n});\n\n// Eliminar un usuario\napp.delete('/users/:id', (req: Request, res: Response) => {\n  const index = users.findIndex(u => u.id === parseInt(req.params.id));\n  if (index !== -1) {\n    users.splice(index, 1);\n    res.status(204).send();\n  } else {\n    res.status(404).send('Usuario no encontrado');\n  }\n});\n\n// Iniciar el servidor\napp.listen(PORT, () => {\n  console.log(`Servidor corriendo en http://localhost:${PORT}`);\n});",
+        language: "typescript",
       },
       {
-        "type": "paragraph",
-        "content": "Este código establece una API básica con endpoints para crear, leer, actualizar y eliminar usuarios. Utiliza TypeScript para definir interfaces y tipos, lo que ayuda a prevenir errores y mejora la legibilidad del código. A medida que tu aplicación crezca, esta estructura te permitirá escalar de manera eficiente, manteniendo la calidad y coherencia del código."
+        type: "paragraph",
+        content:
+          "Este código establece una API básica con endpoints para crear, leer, actualizar y eliminar usuarios. Utiliza TypeScript para definir interfaces y tipos, lo que ayuda a prevenir errores y mejora la legibilidad del código. A medida que tu aplicación crezca, esta estructura te permitirá escalar de manera eficiente, manteniendo la calidad y coherencia del código.",
       },
       {
-        "type": "paragraph",
-        "content": "El uso de TypeScript no solo facilita el desarrollo con tipado estático, sino que también mejora la colaboración en equipo, al ofrecer una base sólida de tipos que todos los desarrolladores pueden seguir. Además, si decides expandir las funcionalidades de tu API en el futuro, tendrás una base de código robusta sobre la cual construir."
+        type: "paragraph",
+        content:
+          "El uso de TypeScript no solo facilita el desarrollo con tipado estático, sino que también mejora la colaboración en equipo, al ofrecer una base sólida de tipos que todos los desarrolladores pueden seguir. Además, si decides expandir las funcionalidades de tu API en el futuro, tendrás una base de código robusta sobre la cual construir.",
       },
       {
-        "type": "paragraph",
-        "content": "Finalmente, este ejemplo se ha mantenido simple para enfocarse en los conceptos clave. Sin embargo, en un entorno de producción, es recomendable integrar herramientas adicionales como un sistema de validación de entrada, autenticación y autorización, y manejo de errores centralizado. Estas prácticas asegurarán que tu API sea segura, confiable y fácil de mantener."
+        type: "paragraph",
+        content:
+          "Finalmente, este ejemplo se ha mantenido simple para enfocarse en los conceptos clave. Sin embargo, en un entorno de producción, es recomendable integrar herramientas adicionales como un sistema de validación de entrada, autenticación y autorización, y manejo de errores centralizado. Estas prácticas asegurarán que tu API sea segura, confiable y fácil de mantener.",
       },
       {
-        "type": "link",
-        "content": "Para más información sobre TypeScript y Node.js, visita la documentación oficial",
-        "url": "https://www.typescriptlang.org/docs/"
-      }
+        type: "link",
+        content:
+          "Para más información sobre TypeScript y Node.js, visita la documentación oficial",
+        url: "https://www.typescriptlang.org/docs/",
+      },
     ],
-    "author": "Martín Iribas",
-    "publishDate": "2024-07-15",
-    "tags": [
+    author: "Martín Iribas",
+    publishDate: "2024-07-15",
+    tags: [
       "Node.js",
       "TypeScript",
       "API",
       "Backend",
       "Desarrollo Web",
-      "JavaScript"
+      "JavaScript",
     ],
-    "image": "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp"
+    image:
+      "https://http2.mlstatic.com/D_NQ_NP_709580-MLU70776537722_072023-O.webp",
   },
   {
     id: 6,
     elements: [
-        {
-            type: "title",
-            content: "Clsx: Manejo Eficiente de Clases en React y TypeScript"
-        },
-        {
-            type: "paragraph",
-            content: "Clsx es una biblioteca útil para manejar clases en aplicaciones de React y TypeScript (TSX). Permite combinar y condicionar clases CSS de manera eficiente, lo que es especialmente valioso cuando se trabaja con frameworks como Tailwind CSS."
-        },
-        {
-            type: "title",
-            content: "¿Qué es Clsx?"
-        },
-        {
-            type: "paragraph",
-            content: "Clsx es una pequeña biblioteca que facilita la concatenación de clases CSS. Su principal ventaja es que permite agregar clases condicionalmente, lo que significa que puedes incluir o excluir clases basadas en el estado de un componente o en props pasadas. Esto es útil para crear componentes reutilizables que pueden tener diferentes estilos según el contexto en el que se usen."
-        },
-        {
-            type: "title",
-            content: "¿Cómo funciona Clsx?"
-        },
-        {
-            type: "paragraph",
-            content: "El funcionamiento de Clsx es bastante sencillo. Se utiliza para combinar clases de la siguiente manera:"
-        },
-        {
-            type: "code",
-            content: `
+      {
+        type: "title",
+        content: "Clsx: Manejo Eficiente de Clases en React y TypeScript",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Clsx es una biblioteca útil para manejar clases en aplicaciones de React y TypeScript (TSX). Permite combinar y condicionar clases CSS de manera eficiente, lo que es especialmente valioso cuando se trabaja con frameworks como Tailwind CSS.",
+      },
+      {
+        type: "title",
+        content: "¿Qué es Clsx?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Clsx es una pequeña biblioteca que facilita la concatenación de clases CSS. Su principal ventaja es que permite agregar clases condicionalmente, lo que significa que puedes incluir o excluir clases basadas en el estado de un componente o en props pasadas. Esto es útil para crear componentes reutilizables que pueden tener diferentes estilos según el contexto en el que se usen.",
+      },
+      {
+        type: "title",
+        content: "¿Cómo funciona Clsx?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "El funcionamiento de Clsx es bastante sencillo. Se utiliza para combinar clases de la siguiente manera:",
+      },
+      {
+        type: "code",
+        content: `
                 import clsx from 'clsx';
                 
                 const MyComponent = ({ isActive }) => {
@@ -472,23 +525,25 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
                   );
                 };
             `,
-            language: "javascript"
-        },
-        {
-            type: "paragraph",
-            content: "En este ejemplo, `base-class` siempre se aplicará, mientras que `active-class` se aplicará solo si `isActive` es verdadero. Esto permite un manejo dinámico y limpio de las clases en React."
-        },
-        {
-            type: "title",
-            content: "Integración con TypeScript"
-        },
-        {
-            type: "paragraph",
-            content: "Cuando se trabaja con TypeScript, es importante asegurarse de que las props de los componentes estén correctamente tipadas. Clsx se integra bien con TypeScript, permitiendo que los desarrolladores definan tipos para las props que controlan las clases. Por ejemplo:"
-        },
-        {
-            type: "code",
-            content: `
+        language: "javascript",
+      },
+      {
+        type: "paragraph",
+        content:
+          "En este ejemplo, `base-class` siempre se aplicará, mientras que `active-class` se aplicará solo si `isActive` es verdadero. Esto permite un manejo dinámico y limpio de las clases en React.",
+      },
+      {
+        type: "title",
+        content: "Integración con TypeScript",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Cuando se trabaja con TypeScript, es importante asegurarse de que las props de los componentes estén correctamente tipadas. Clsx se integra bien con TypeScript, permitiendo que los desarrolladores definan tipos para las props que controlan las clases. Por ejemplo:",
+      },
+      {
+        type: "code",
+        content: `
                 interface MyComponentProps {
                   isActive: boolean;
                 }
@@ -501,23 +556,25 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
                   );
                 };
             `,
-            language: "typescript"
-        },
-        {
-            type: "paragraph",
-            content: "Esto no solo mejora la legibilidad del código, sino que también proporciona autocompletado y verificación de tipos en los editores, lo que reduce errores."
-        },
-        {
-            type: "title",
-            content: "Uso con Tailwind CSS"
-        },
-        {
-            type: "paragraph",
-            content: "Clsx es particularmente popular entre los desarrolladores que utilizan Tailwind CSS, ya que permite aplicar clases de Tailwind de manera condicional. Por ejemplo, puedes cambiar el color de fondo de un botón según su estado:"
-        },
-        {
-            type: "code",
-            content: `
+        language: "typescript",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Esto no solo mejora la legibilidad del código, sino que también proporciona autocompletado y verificación de tipos en los editores, lo que reduce errores.",
+      },
+      {
+        type: "title",
+        content: "Uso con Tailwind CSS",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Clsx es particularmente popular entre los desarrolladores que utilizan Tailwind CSS, ya que permite aplicar clases de Tailwind de manera condicional. Por ejemplo, puedes cambiar el color de fondo de un botón según su estado:",
+      },
+      {
+        type: "code",
+        content: `
                 const Button = ({ isPrimary }) => {
                   return (
                     <button className={clsx('px-4 py-2', { 'bg-blue-500': isPrimary, 'bg-gray-500': !isPrimary })}>
@@ -526,40 +583,48 @@ export const mockBlogPostsMultiple: BlogPostMultiple[] = [
                   );
                 };
             `,
-            language: "javascript"
-        },
-        {
-            type: "paragraph",
-            content: "En este caso, el botón tendrá un fondo azul si `isPrimary` es verdadero, y gris si es falso."
-        },
-        {
-            type: "title",
-            content: "Conclusión"
-        },
-        {
-            type: "paragraph",
-            content: "Clsx es una herramienta poderosa para manejar clases en aplicaciones de React y TypeScript, especialmente cuando se trabaja con Tailwind CSS. Su capacidad para condicionar clases de manera sencilla y eficiente mejora la claridad y la mantenibilidad del código."
-        },
-        {
-            type: "title",
-            content: "Citations"
-        },
-        {
-            type: "link",
-            content: "Video explicativo de Clsx",
-            url: "https://www.youtube.com/watch?v=1Za0jqI8cOA"
-        },
-        {
-            type: "link",
-            content: "Guía para usar Clsx en proyectos",
-            url: "https://stackoverflow.com/questions/57557271/clsx-what-is-and-how-to-use-it"
-        }
+        language: "javascript",
+      },
+      {
+        type: "paragraph",
+        content:
+          "En este caso, el botón tendrá un fondo azul si `isPrimary` es verdadero, y gris si es falso.",
+      },
+      {
+        type: "title",
+        content: "Conclusión",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Clsx es una herramienta poderosa para manejar clases en aplicaciones de React y TypeScript, especialmente cuando se trabaja con Tailwind CSS. Su capacidad para condicionar clases de manera sencilla y eficiente mejora la claridad y la mantenibilidad del código.",
+      },
+      {
+        type: "title",
+        content: "Citations",
+      },
+      {
+        type: "link",
+        content: "Video explicativo de Clsx",
+        url: "https://www.youtube.com/watch?v=1Za0jqI8cOA",
+      },
+      {
+        type: "link",
+        content: "Guía para usar Clsx en proyectos",
+        url: "https://stackoverflow.com/questions/57557271/clsx-what-is-and-how-to-use-it",
+      },
     ],
     author: "@marto",
     publishDate: "2024-08-28",
-    tags: ["React", "TypeScript", "Clsx", "Tailwind CSS", "Frontend", "JavaScript"],
-}
-
+    tags: [
+      "React",
+      "TypeScript",
+      "Clsx",
+      "Tailwind CSS",
+      "Frontend",
+      "JavaScript",
+    ],
+  },
 ];
 
 /* 
