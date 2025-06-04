@@ -52,7 +52,7 @@ const Footer: React.FC<FooterProps> = ({
                 {contactNumber}
               </Link>
               <span className="text-md uppercase tracking-wide text-gray-500">
-                grupo {companyName} 
+                {companyName} 
               </span>
               <span className="text-md uppercase tracking-wide text-gray-500">
                 . {year}

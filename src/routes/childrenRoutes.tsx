@@ -17,6 +17,7 @@ import RegisterPage from "@/components/_Customs2024/containers/RegisterPage";
 import { Model3DViewer } from "@/pages/_PRUEBAS/three/custom/Model3DViewer";
 import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMultipleRENDER";
 import HomeUser from "@/pages/users/Home";
+import { GlobeDemo } from "@/components/_Customs2024/GlobeGithub";
 
 export const user = [
   {
@@ -105,6 +106,14 @@ export const admin = [
     element: (
       <ThreeContainer>
         <ThreeScene />
+      </ThreeContainer>
+    ),
+  },
+  {
+    path: "globo",
+    element: (
+      <ThreeContainer>
+        <GlobeDemo/>
       </ThreeContainer>
     ),
   },

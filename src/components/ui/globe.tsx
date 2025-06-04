@@ -230,7 +230,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
   );
 }
 
-export function WebGLRendererConfig() {
+export function WebGLRendererConfig() {0
   const { gl, size } = useThree();
 
   useEffect(() => {
@@ -244,6 +244,7 @@ export function WebGLRendererConfig() {
 
 export function World(props: WorldProps) {
   const { globeConfig } = props;
+  const [autoRotate, setAutoRotate] = useState(true);
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);
   return (
@@ -267,10 +268,12 @@ export function World(props: WorldProps) {
       <OrbitControls
         enablePan={false}
         enableZoom={false}
+        enableRotate={true}
         minDistance={cameraZ}
         maxDistance={cameraZ}
         autoRotateSpeed={1}
-        autoRotate={true}
+        autoRotate={autoRotate}
+        onStart={() => setAutoRotate(false)}
         minPolarAngle={Math.PI / 3.5}
         maxPolarAngle={Math.PI - Math.PI / 3}
       />

@@ -92,7 +92,7 @@ const LayoutUser: React.FC = () => {
         socialLinks={socialLinks}
         services={services}
         companyInfo={companyInfo}
-        year={2024}
+        year={2025}
         companyName="Company Name"
       />
     </>

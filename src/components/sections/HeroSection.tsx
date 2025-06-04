@@ -5,6 +5,7 @@ interface HeroSectionProps {
   title: string;
   strong: string;
   subtitle: string;
+  children?: React.ReactNode;
   primaryAction: {
     text: string;
     href: string;
@@ -21,6 +22,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   primaryAction,
   secondaryAction,
   strong,
+  children,
 }) => {
   return (
     <section className="relative min-h-screen flex flex-col lg:flex-row">
