@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { mockDocs } from "@/mocks/mockDocs"; // Importa el mock y el tipo de docs.
+import { mockDocs } from "@/assets/mocks/mockDocs"; // Importa el mock y el tipo de docs.
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 
