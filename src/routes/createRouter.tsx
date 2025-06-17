@@ -37,6 +37,8 @@ import LayoutContacto from "@/layouts/LayoutContacto";
 import ContactPage from "@/pages/contacto/ContactPage";
 import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
 import { admin } from "./childrenRoutes";
+import LayoutCargill from '../pages/cargill/layoutCargill';
+import LoginCargill from '../pages/cargill/components/LoginCargill';
 {
   /* 🚀
 Este archivo configura el enrutamiento web utilizando `react-router-dom`. 
@@ -198,5 +200,17 @@ export const router = createBrowserRouter([
       </LayoutMain>
     ),
     children: admin,
+  },
+  {
+    path: "/cargill",
+    element: (
+        <LayoutCargill />
+    ),
+    children: [
+      {
+        path: "login",
+        element: <LoginCargill />,
+      },
+    ],
   },
 ]);

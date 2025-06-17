@@ -1,4 +1,5 @@
-interface User {
+import { User } from "@/features/auth/authSlice";
+interface Users {
     id: string;
     email: string;
     username: string;
@@ -7,8 +8,36 @@ interface User {
     createdAt: string;
     chatIDs: string[];
   }
+
+  // src/utils/mockUsers.ts
+
+
+export const mockUsers: User[] = [
+  {
+    id: "admin-1",
+    name: "Super Admin",
+    email: "admin@empresa.com",
+    role: "admin",
+    token: "admin-token-123",
+  },
+  {
+    id: "com-1",
+    name: "Carlos Comercial",
+    email: "carlos@empresa.com",
+    role: "comercial",
+    token: "com-token-123",
+  },
+  {
+    id: "ana-1",
+    name: "Ana Analítica",
+    email: "ana@empresa.com",
+    role: "analitico",
+    token: "ana-token-123",
+  },
+];
+
   
-  const users: User[] = [
+  const users: Users[] = [
     {
       id: "1",
       email: "john.doe@example.com",

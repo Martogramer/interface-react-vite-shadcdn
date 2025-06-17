@@ -9,11 +9,11 @@ import React from "react";
 import CodeEditor from "../../components/_Customs2024/textareas/CodeEditor";
 import ProfileCard from "@/components/_Customs2024/cards/ProfileCard";
 import PropertyCard from "@/components/_Customs2024/cards/PlacesCard";
-import users from "@/mocks/users";
-import places from "@/mocks/places";
+import users from "@/assets/mocks/users";
+import places from "@/assets/mocks/places";
 import CheckboxOption from "@/components/_Customs2024/checkboxes/CheckboxOptions";
 import PromoSection from "@/components/sections/PromoSection";
-import promos from "@/mocks/promos";
+import promos from "@/assets/mocks/promos";
 import ImageContainer from "@/components/_Customs2024/images/LazyImage";
 type ItemType = {
   label: string;

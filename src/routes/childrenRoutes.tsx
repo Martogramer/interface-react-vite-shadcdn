@@ -18,13 +18,16 @@ import { Model3DViewer } from "@/pages/_PRUEBAS/three/custom/Model3DViewer";
 import BlogPostDetailMultipleRENDER from "@/features/details/BlogPostDetailMultipleRENDER";
 import HomeUser from "@/pages/users/Home";
 import { GlobeDemo } from "@/components/_Customs2024/GlobeGithub";
+import ProtectedRoute from "./conditional/ProtectedRoute";
+import Login from "@/pages/admin/LoginAdmin";
+import PanelUserAdmin from "@/pages/admin/PanelUserAdmin";
 
 export const user = [
   {
     path: "",
     element: (
       <>
-          <HomeUser />
+        <HomeUser />
       </>
     ),
   },
@@ -53,7 +56,7 @@ export const user = [
     element: <Forum />,
   },
   {
-    path: 'foro/:id',
+    path: "foro/:id",
     element: <BlogPostDetailMultipleRENDER />,
   },
   {
@@ -101,6 +104,30 @@ export const admin = [
     path: "_PRUEBAS",
     element: <CustomComponents />,
   },
+
+  {
+    path: "protected",
+    element: (
+      <ProtectedRoute requireAdmin={true}>
+        <TablerUsers />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "protected2",
+    element: (
+      <ProtectedRoute requireAdmin={true}>
+        <PanelUserAdmin />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "login",
+    element: (
+        <Login />
+    ),
+  },
+
   {
     path: "",
     element: (
@@ -113,7 +140,7 @@ export const admin = [
     path: "globo",
     element: (
       <ThreeContainer>
-        <GlobeDemo/>
+        <GlobeDemo />
       </ThreeContainer>
     ),
   },
