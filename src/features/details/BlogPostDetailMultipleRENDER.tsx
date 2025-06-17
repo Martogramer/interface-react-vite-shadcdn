@@ -33,7 +33,7 @@ import {
   mockBlogPostsMultiple,
   BlogPostMultiple,
   BlogPostElement,
-} from "@/mocks/mocks";
+} from "@/assets/mocks/mocks";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 const BlogPostDetailMultipleRENDER: React.FC = () => {
