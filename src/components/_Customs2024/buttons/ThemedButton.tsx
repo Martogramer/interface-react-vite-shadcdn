@@ -21,16 +21,17 @@ const ThemedShimmerButton: React.FC<ThemedShimmerButtonProps> = ({
   className,
   ...props
 }) => {
-  const { themeClasses } = useTheme(); // Obtener clases del contexto del tema
+  const { themeClasses } = useTheme();
 
   return (
     <button
       className={clsx(
-        'inline-flex h-12 animate-shimmer items-center justify-center rounded-md border px-6 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+        'inline-flex h-10 animate-shimmer items-center justify-center rounded-md border px-5 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+        'my-1', // 👈 margen superior sutil
         textColor,
-        themeClasses[variant], // Aplicar variantes de tema (opcional)
-        themeClasses.shadow, // Aplicar sombra definida por el tema
-        className // Clases adicionales pasadas como prop
+        themeClasses[variant],
+        themeClasses.shadow,
+        className
       )}
       style={{
         background: bgGradient,

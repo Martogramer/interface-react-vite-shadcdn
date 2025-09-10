@@ -12,7 +12,7 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState<ThemeVariant>('light');
+  const [currentTheme, setCurrentTheme] = useState<ThemeVariant>('dark');
 
   const setTheme = (theme: ThemeVariant) => {
     setCurrentTheme(theme);
