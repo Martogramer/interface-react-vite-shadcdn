@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { mockDocs, DocumentationItem } from "@/mocks/mockDocs";
+import { mockDocs, DocumentationItem } from "@/assets/mocks/mockDocs";
 
 
 const DetailDocumentation: React.FC = () => {

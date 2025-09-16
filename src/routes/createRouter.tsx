@@ -38,6 +38,7 @@ import ContactPage from "@/pages/contacto/ContactPage";
 import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
 import { admin } from "./childrenRoutes";
 import HowToStartSection from "@/pages/landings/HostProjectLandingPage";
+
 {
   /* 🚀
 Este archivo configura el enrutamiento web utilizando `react-router-dom`. 
@@ -200,5 +201,5 @@ export const router = createBrowserRouter([
       </LayoutMain>
     ),
     children: admin,
-  },
+  }
 ]);

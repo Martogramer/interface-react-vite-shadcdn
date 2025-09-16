@@ -4,7 +4,7 @@ import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 import {
   customComponentsList,
   CustomComponentCategory,
-} from "@/mocks/customCompsMock";
+} from "@/assets/mocks/customCompsMock";
 
 {
   /*  🚀 

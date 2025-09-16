@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { mockBlogPostsMultiple, mockProducts } from "@/mocks/mocks";
+import { mockBlogPostsMultiple, mockProducts } from "@/assets/mocks/mocks";
 import FilterSearch from "./SearchFilter";
 
 interface Product {
