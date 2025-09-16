@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useTheme } from "@/context/ThemeContext";
 import ThemedShimmerButton from "@/components/_Customs2024/buttons/ThemedButton";
+import AuroraBGNav from "@/lib/AuroraBGNav";
 
 interface NavSubItem {
   label: string;
@@ -52,7 +53,7 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const location = useLocation();
-  const { themeClasses, toggleTheme } = useTheme();
+  const { themeClasses } = useTheme();
   const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -119,7 +120,7 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
       prev.includes(label) ? prev.filter((item) => item !== label) : [label]
     );
   };
-  const navigate =()=> {
+  const navigate = () => {
     window.location.href = `/contacto`;
   }
 
@@ -211,6 +212,7 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
         themeClasses.border
       )}
     >
+      <AuroraBGNav intensity={0.95} />
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
           <Button size="icon" variant="ghost" className="md:hidden">
@@ -249,7 +251,7 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
             <nav className="flex flex-col space-y-4 flex-grow overflow-y-auto">
               {navItems.map((item) => renderNavItem(item, true))}
             </nav>
-            <div className="mt-auto pt-4">
+            <div className="mt-auto mt-6">
               <ThemedShimmerButton
                 text={textButton}
                 variant="primary"
@@ -314,7 +316,7 @@ const ShadAutoNav: React.FC<HeaderProps> = ({
         />
       </form>
 
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center px-4 space-x-2">
         <ThemedShimmerButton
           text={textButton}
           variant="primary"
