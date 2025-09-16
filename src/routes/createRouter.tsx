@@ -37,6 +37,7 @@ import LayoutContacto from "@/layouts/LayoutContacto";
 import ContactPage from "@/pages/contacto/ContactPage";
 import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
 import { admin } from "./childrenRoutes";
+import HowToStartSection from "@/pages/landings/HostProjectLandingPage";
 {
   /* 🚀
 Este archivo configura el enrutamiento web utilizando `react-router-dom`. 
@@ -107,6 +108,7 @@ export const router = createBrowserRouter([
         path: "",
         element: <Navigate to="webdesign" replace />,
       },
+      { path: "empezar", element: <HowToStartSection /> },
       { path: "webdesign", element: <WebDesignPage /> },
       { path: "seo", element: <SeoPage /> },
       { path: "ads", element: <MktPage /> },
