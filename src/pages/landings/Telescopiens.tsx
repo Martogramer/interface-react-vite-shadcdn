@@ -1,7 +1,8 @@
 import { ShootingStarsAndStarsBackgroundDemo } from "@/components/_Customs2024/backgrounds/ShootingStarsAndStarsBackgroundDemo";//import { GlobeDemo } from "@/components/_Customs2024/GlobeGithub";
 import GlobeSection from "@/components/sections/GlobeSection"
-import ScrollingGallerySection from "@/components/sections/ScrollingGallerySectionABSOLUT"
+/* import ScrollingGallerySection from "@/components/sections/ScrollingGallerySectionABSOLUT" */
 import CTALightSection from "@/lib/CTALightSection";
+/* import GameEmbed from "@/lib/GameEmbed"; */
 import React from "react";
 import { useNavigate } from "react-router-dom";
 /* 💻 */
@@ -21,6 +22,9 @@ const Telescopiens: React.FC = () => {
   return (
     <>
       {/*<RadioPlayer /> */}
+      {/* <div style={{ width: "100vw", height: "100vh" }}>
+        <GameEmbed />
+      </div> */}
       <ShootingStarsAndStarsBackgroundDemo />
       <GlobeSection {...careerPathData} />
       <CTALightSection
@@ -31,7 +35,7 @@ const Telescopiens: React.FC = () => {
         onPrimary={onPrimary}
         onSecondary={onSecondary}
       />
-      <ScrollingGallerySection
+     {/*  <ScrollingGallerySection
         title="Digitalización en América Latina"
         images={[
           [
@@ -47,7 +51,7 @@ const Telescopiens: React.FC = () => {
             "https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg",
           ],
         ]}
-      />
+      /> */}
     </>
   );
 };

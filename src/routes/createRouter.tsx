@@ -122,7 +122,7 @@ export const router = createBrowserRouter([
     element: (
       <LayoutMain>
         <ErrorBoundary>
-          <Outlet/>
+          <Outlet />
         </ErrorBoundary>
       </LayoutMain>
     ),
@@ -131,7 +131,7 @@ export const router = createBrowserRouter([
         path: "",
         element: <Navigate to="homepage" replace />,
       },
-      { path: "homepage", element: <HomePageAV                /> },
+      { path: "homepage", element: <HomePageAV /> },
       { path: "webdesign", element: <WebDesignPage /> },
       { path: "seo", element: <SeoPage /> },
       { path: "ads", element: <MktPage /> },
