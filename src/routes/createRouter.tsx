@@ -59,7 +59,7 @@ Posibles mejoras:
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/α" replace />,
+    element: <Navigate to="/telescopiens" replace />,
   },
   {
     path: "/telescopiens",
