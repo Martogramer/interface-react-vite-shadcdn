@@ -1,0 +1,806 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Introducción al Software Libre</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2450d930-6b1d-8068-951d-e1e4030110d8" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/rijksmuseum_jan_lievens_1627.jpg" style="object-position:center 60%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🧑🏼‍💻</span></div><h1 class="page-title">Introducción al Software Libre</h1><p class="page-description"></p></header><div class="page-body"><hr id="2450d930-6b1d-80bb-976e-c4e87583bd1d"/><h2 id="2680d930-6b1d-8098-be90-cb5c32d0a9ed" class="">Unidad 1</h2><ul id="2680d930-6b1d-80bf-90fc-fdcf04bbaf0e" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Internet, Hackers y Software Libre&quot;</strong>, compliado por Carlos Gradin Archivo, <strong>capítulo 2.1, &quot;Cooperación sin mando: una introducción al software libre&quot; de Miquel Vidal</strong>.</li></ul><ul id="2680d930-6b1d-8010-a02e-e80dd083176d" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Hackeando al capitalismo. El movimiento Software Libre y de código abierto&quot; </strong>de Johan Söderberg, <strong>capítulo 3, </strong>las secciones<strong> &quot;El nacimiento de la licencia pública general&quot; </strong>y<strong> &quot;La historia de GNU/Linux&quot;</strong>.</li></ul><ul id="2680d930-6b1d-801c-9cd6-ff0dbb154bf8" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Software Libre para una sociedad libre&quot;, </strong>de Richard Stallman, <strong> capítulos 2 &quot;El manifiesto GNU&quot;, 3 &quot;La definición de Software Libre&quot; y 5 &quot;¿Qué encierra un nombre?&quot;</strong>.</li></ul><hr id="2680d930-6b1d-80f0-88df-f134b86b8f3e"/><p id="2680d930-6b1d-80a2-a402-d377c81ba4e2" class="">
+</p><h1 id="2680d930-6b1d-80fb-804c-c057a92fe682" class=""><mark class="highlight-purple_background"><strong>Internet, Hackers y Software Libre</strong></mark></h1><p id="2680d930-6b1d-80ca-9d29-cc64e129130c" class="">(Capítulo 2.1 del libro<mark class="highlight-yellow_background"> </mark><em><mark class="highlight-yellow_background">Internet, Hackers y Software Libre</mark></em>). — Carlos Gardin Archivo</p><p id="2680d930-6b1d-802f-be53-e2d3d869644b" class=""><strong>📖 “Cooperación sin mando” – Miquel Vidal</strong><br/><br/>Miquel Vidal propone que el <strong>software libre es un modelo de producción colaborativa sin estructuras jerárquicas</strong>, capaz de generar productos altamente complejos como sistemas operativos, y que este modelo es <strong>sustentable, ético y políticamente transformador</strong>.<br/><br/>Con “cooperación sin mando” se refiere a un <strong>modelo organizativo horizontal</strong>, donde las decisiones no emanan de una figura autoritaria, sino que surgen de la interacción entre pares. Se basa en <strong>la libertad individual</strong>, el compromiso voluntario y la meritocracia técnica. E<strong>l software libre demuestra que se puede trabajar colectivamente sin necesidad de jefes ni jerarquías rígidas</strong>.<br/></p><p id="2680d930-6b1d-809b-811f-f0fbaf053cf1" class="">En el capítulo <strong>“Cooperación sin mando: una introducción al software libre”</strong>, Miquel Vidal propone una idea central poderosa: el software libre es un modelo de producción colaborativa que no necesita jerarquías para funcionar. Este modelo, basado en la participación voluntaria, la transparencia y la comunidad, demuestra que es posible crear sistemas complejos —como un sistema operativo completo— sin estructuras jerárquicas tradicionales. La cooperación en este contexto no surge de la obediencia a un jefe, sino de la motivación, la reputación y el compromiso compartido con un proyecto común.</p><p id="2680d930-6b1d-8051-a0dc-def19aa33322" class="">La expresión “cooperación sin mando” define justamente esa forma de organización: una colaboración entre iguales, descentralizada, donde los liderazgos se construyen a partir del respeto ganado por el conocimiento y la participación, no por la autoridad formal. No hay jefes que ordenan, sino desarrolladores que eligen trabajar juntos, muchas veces distribuidos por todo el mundo, conectados únicamente por Internet y su deseo de crear tecnología libre. Este enfoque no implica caos ni desorganización, sino una forma distinta —y eficiente— de construir en común.</p><p id="2680d930-6b1d-809a-9f62-c46bb2158de0" class="">Vidal describe cómo este modelo fue posible gracias a un conjunto de herramientas técnicas y legales que permitieron su expansión. Internet, como red de comunicación global, hizo posible que programadores de distintos lugares del mundo colaboraran en tiempo real o de forma asincrónica. Las herramientas de control de versiones (como CVS en su momento, y luego Git) facilitaron el trabajo colaborativo a gran escala. Y las licencias como la GPL garantizaron que todo el software producido bajo estos principios permanezca libre para siempre, obligando a que sus derivaciones también lo sean. Este marco legal permitió la consolidación del modelo de desarrollo libre como una alternativa real al software propietario.</p><p id="2680d930-6b1d-80c9-85cd-fe26d91c591c" class="">El texto también establece un fuerte contraste entre el modelo de producción del software libre y el modelo empresarial tradicional. Mientras que el modelo privativo se basa en jerarquías rígidas, secretos comerciales y control de la propiedad intelectual, el modelo del software libre promueve una producción horizontal, abierta y basada en la confianza y la cooperación. Lo más sorprendente es que este modelo alternativo no solo es viable, sino que ha demostrado ser altamente eficaz. Grandes proyectos como GNU/Linux, Apache, o Firefox han sido desarrollados bajo estas lógicas colaborativas sin mando centralizado.</p><p id="2680d930-6b1d-806f-b229-ef067b7b1cbc" class="">En este marco, la figura del <em>hacker</em> ocupa un lugar central. Para Vidal, el hacker no es el criminal informático que suelen mostrar los medios, sino el apasionado por el conocimiento, el que hackea por placer, por desafío, por curiosidad. El software libre encarna ese espíritu: programar no como trabajo alienado, sino como creación compartida, como juego colectivo, como ética del conocimiento abierto. El texto recupera esta imagen positiva del hacker como alguien que coopera, crea y comparte, en lugar de competir y esconder.</p><p id="2680d930-6b1d-8017-ac27-fe28022c1f54" class="">Más allá de la técnica, Vidal nos invita a pensar las implicancias políticas del software libre. Este modelo de producción es también una crítica práctica al capitalismo informático, que basa su poder en el control exclusivo del conocimiento. En cambio, el software libre apuesta por los bienes comunes digitales, por el acceso libre a la tecnología, y por una forma de construir conocimiento colectivamente. Por eso, el movimiento del software libre no es solo técnico, sino también político y cultural. En este sentido, &quot;cooperación sin mando&quot; se convierte en una metáfora posible para imaginar otras formas de organización social, más horizontales, justas y sostenibles.</p><p id="2680d930-6b1d-80b8-8a20-fe0b98c809ee" class="">En conclusión, el texto de Miquel Vidal demuestra que el software libre no es simplemente un tipo de licencia o una forma de programar, sino un modelo organizativo que se basa en la libertad, la colaboración y la confianza. Este modelo, que funciona con éxito en la práctica, cuestiona muchas de las suposiciones sobre cómo debe organizarse el trabajo y quién tiene el derecho de controlar el conocimiento. Y en esa crítica —profunda pero aplicada— reside su fuerza transformadora. “Cooperación sin mando” es, al fin y al cabo, una invitación a repensar cómo trabajamos, cómo creamos, y cómo queremos construir el futuro digital.</p><h1 id="2450d930-6b1d-80cb-ad5a-eb0ee2933da5" class=""><mark class="highlight-purple_background">Hackeando al Capitalismo</mark></h1><h3 id="2450d930-6b1d-805b-895a-c95d117a6833" class=""><mark class="highlight-default_background">Hackeando al Capitalismo—Johan Soderberg: </mark>El impacto del Movimiento de Software Libre.</h3><hr id="2450d930-6b1d-807c-8432-d5ec0e10b5ed"/><p id="2450d930-6b1d-80ee-9756-c214cca398ac" class="">El movimiento de software libre y de código abierto (FOSS, por sus siglas en inglés) ha revolucionado la industria del software y la tecnología en general, ofreciendo una alternativa radical al modelo capitalista tradicional de propiedad intelectual y comercialización. En su libro &quot;Hackeando al Capitalismo: El Movimiento de Software Libre y de Código Abierto&quot;, Johan Söderberg proporciona un análisis profundo de cómo este movimiento desafía las estructuras económicas y sociales existentes, al tiempo que promueve la innovación, la colaboración y la democratización del conocimiento.</p><h3 id="2450d930-6b1d-80b9-a7a7-e7472ef7373a" class="">1. Contrapunto al Capitalismo Tradicional</h3><p id="2450d930-6b1d-806c-8fa3-f5d92b464d27" class="">El software libre y de código abierto se enfrenta al capitalismo tradicional al cuestionar y subvertir las prácticas de propiedad intelectual que dominan la industria del software. En el modelo capitalista, la propiedad intelectual se utiliza para crear monopolios temporales sobre el uso y distribución de obras creativas, incluidas las aplicaciones de software. Esto se logra mediante patentes, derechos de autor y licencias restrictivas que controlan quién puede usar, modificar y distribuir el software.</p><p id="2450d930-6b1d-80e9-89e3-d35d8cc1f5bd" class="">El movimiento de software libre rompe con este modelo al rechazar las restricciones impuestas por las licencias propietarias. Licencias como la GNU General Public License (GPL) y la Licencia MIT permiten a los usuarios estudiar, modificar y redistribuir el software libremente, promoviendo una cultura de compartición y colaboración que contrasta con la competitividad y exclusividad del capitalismo tradicional.</p><p id="2450d930-6b1d-8084-b1be-f7081d4c9416" class="">Además, el modelo de producción colaborativa de FOSS permite a desarrolladores de todo el mundo contribuir a proyectos, identificar y corregir errores más rápidamente y agregar nuevas funcionalidades. Esto no solo acelera el ciclo de desarrollo, sino que también reduce los costos asociados con la producción de software, ya que las empresas pueden aprovechar una base de código existente y enfocarse en personalizaciones específicas o en añadir valor a través de servicios y soporte.</p><hr id="2450d930-6b1d-80aa-81fb-ee6037b4562b"/><h3 id="2450d930-6b1d-8026-8f26-e04655b2a7f8" class="">2. Historia y Filosofía del Movimiento de Software Libre</h3><p id="2450d930-6b1d-80db-9acb-d45a9686e43d" class="">El movimiento de software libre tiene sus raíces en las primeras comunidades de programadores de los años 1960 y 1970, que compartían libremente el código fuente de sus programas. En estos primeros días de la informática, el intercambio de software y conocimientos era una práctica común entre académicos y profesionales, facilitando la colaboración y la innovación.</p><p id="2450d930-6b1d-808a-aadf-cbfbaa62adae" class="">El concepto de software propietario comenzó a ganar terreno en la década de 1980, cuando las empresas empezaron a restringir el acceso al código fuente de sus programas para proteger sus intereses comerciales. Esta tendencia hacia la privatización del software y el aumento de las restricciones legales y técnicas generó una reacción entre algunos miembros de la comunidad de programadores.</p><p id="2450d930-6b1d-80b1-9ec7-decf2dcd4919" class="">Una figura clave en el nacimiento del movimiento de software libre es Richard Stallman. En 1983, Stallman anunció el proyecto GNU (GNU&#x27;s Not Unix), con el objetivo de desarrollar un sistema operativo completo y libre similar a Unix. Al año siguiente, fundó la Free Software Foundation (FSF) para apoyar el desarrollo del software libre y promover sus principios. Stallman también introdujo la Licencia Pública General de GNU (GPL), una licencia de software libre diseñada para garantizar que los programas licenciados bajo ella sigan siendo libres para todos los usuarios. La GPL incorpora el concepto de copyleft, que asegura que cualquier modificación o distribución del software mantenga las mismas libertades que el original.</p><p id="2450d930-6b1d-800d-9f7f-c3a0a76194b2" class="">La filosofía del software libre se basa en cuatro libertades esenciales que garantizan el control de los usuarios sobre el software:</p><ol type="1" id="2450d930-6b1d-80b6-aeb1-d72f350f501c" class="numbered-list" start="1"><li><strong>Libertad de usar el software para cualquier propósito (libertad 0).</strong></li></ol><ol type="1" id="2450d930-6b1d-80aa-9c0c-cb468e01fe49" class="numbered-list" start="2"><li><strong>Libertad de estudiar cómo funciona el software y cambiarlo para que haga lo que el usuario desee (libertad 1).</strong> Esto requiere acceso al código fuente.</li></ol><ol type="1" id="2450d930-6b1d-80fd-bf33-c89bebcea8bc" class="numbered-list" start="3"><li><strong>Libertad de redistribuir copias para ayudar a otros (libertad 2).</strong></li></ol><ol type="1" id="2450d930-6b1d-8094-bd90-f5165051a47b" class="numbered-list" start="4"><li><strong>Libertad de distribuir copias de las versiones modificadas a otros (libertad 3).</strong> Esto también requiere acceso al código fuente.</li></ol><h3 id="2450d930-6b1d-8049-b238-fb3650d2b878" class="">3. Impacto Económico y Social</h3><p id="2450d930-6b1d-80b7-8a53-d10ef0bb5b25" class="">El software libre ha sido un motor crucial para la innovación en la industria tecnológica. Al permitir que cualquier persona acceda, modifique y distribuya el código fuente, FOSS facilita la rápida iteración y mejora del software. Este modelo de desarrollo colaborativo permite a los desarrolladores de todo el mundo contribuir a proyectos, identificar y corregir errores más rápidamente y agregar nuevas funcionalidades. Esta eficiencia no solo acelera el ciclo de desarrollo, sino que también reduce los costos asociados con la producción de software, ya que las empresas pueden aprovechar una base de código existente y enfocarse en personalizaciones específicas o en añadir valor a través de servicios y soporte.</p><p id="2450d930-6b1d-80e3-9694-cd29d8770586" class="">El uso de software libre reduce significativamente los costos de licenciamiento para individuos, empresas y gobiernos. Esto es particularmente importante para pequeñas y medianas empresas, organizaciones sin fines de lucro y países en desarrollo, que pueden acceder a tecnología de alta calidad sin los gastos prohibitivos asociados con el software propietario. Además, el acceso abierto al código fuente promueve la transparencia y la seguridad, ya que cualquier persona puede auditar el código en busca de vulnerabilidades o comportamientos maliciosos.</p><p id="2450d930-6b1d-8066-a8d9-edee2f021e12" class="">El movimiento ha llevado al desarrollo de nuevos modelos de negocio que no dependen de la venta de licencias de software. Empresas como Red Hat, Canonical y Automattic han demostrado que es posible construir negocios sostenibles y exitosos en torno al software libre ofreciendo servicios de soporte, consultoría, personalización y hospedaje. Estos modelos de negocio basados en servicios permiten a las empresas monetizar su experiencia y conocimientos, mientras que el software en sí permanece libre y accesible.</p><p id="2450d930-6b1d-80fc-8462-fe8c6e717ddd" class="">También ha jugado un papel fundamental en la democratización del conocimiendto. Al poner herramientas y tecnologías avanzadas al alcance de cualquier persona con acceso a Internet, el software libre ha permitido a individuos y comunidades aprender, experimentar y desarrollar habilidades tecnológicas sin barreras económicas. En el ámbito educativo, el software libre ofrece recursos valiosos para la enseñanza y el aprendizaje de la informática y otras disciplinas.</p><p id="2450d930-6b1d-8052-97a2-d907f3ef366c" class="">El software libre no solo es una herramienta tecnológica, sino también un medio para el empoderamiento comunitario y la movilización social. Las comunidades de desarrollo de FOSS son ejemplos de organización horizontal y colaborativa, donde la meritocracia y la participación abierta son principios fundamentales. Además, el movimiento FOSS ha inspirado a otros movimientos sociales que buscan aplicar principios de apertura y colaboración en áreas como la ciencia abierta, el hardware libre y los datos abiertos. Estos movimientos comparten la visión de que el acceso libre y equitativo al conocimiento y a la tecnología puede conducir a una sociedad más justa y sostenible.spo</p><h3 id="2450d930-6b1d-809b-8b48-ea9c4e423b87" class="">Desafíos y Críticas</h3><p id="2450d930-6b1d-8073-af9d-f0e7ef32b7bd" class="">Söderberg no ignora los desafíos y críticas que enfrenta el movimiento FOSS. A pesar de sus éxitos, el software libre a veces es cooptado por grandes corporaciones que utilizan el código abierto para sus propios fines comerciales sin contribuir de manera significativa a la comunidad. Esta dinámica puede llevar a un desequilibrio en el poder y la influencia dentro del ecosistema FOSS.</p><p id="2450d930-6b1d-80c8-8b56-f890a27985bc" class="">Además, la sostenibilidad de los proyectos de software libre depende en gran medida de la contribución voluntaria, lo que pu5ede generar problemas de mantenimiento y continuidad a largo plazo. Algunos proyectos luchan por atraer y retener a suficientes desarrolladores y mantener el financiamiento necesario para su desarrollo y soporte continuo.</p><h3 id="2450d930-6b1d-80ca-b562-e41766ca0622" class="">4. Crítica y Debate en el Movimiento de Software Libre y de Código Abierto</h3><p id="2450d930-6b1d-8083-b6a4-e9e2fb1edb31" class="">En &quot;Hackeando al Capitalismo: El 5Movimiento de Software Libre y de Código Abierto&quot;, Johan Söderberg aborda no solo los logros y beneficios del software libre, sino también las críticas y debates internos que han surgido a lo largo del tiempo. Estos debates son cruciales para entender las complejidades del movimiento y su evolución.</p><h3 id="2450d930-6b1d-8050-91cd-e9cb98065049" class="">Tensión entre Filosofía y Pragmatismo</h3><p id="2450d930-6b1d-809f-88f0-c4f4f8429f61" class="">Uno de los principales debates dentro del movimiento es la tensión entre la filosofía del software libre y el pragmatismo del código abierto. Richard Stallman y la Free Software Foundation (FSF) han enfatizado siempre la importancia de la libertad y los derechos del usuario, promoviendo el software libre como una cuestión ética. En contraste, la Open Source Initiative (OSI) ha adoptado un enfoque más pragmático, enfocándose en los beneficios prácticos y económicos del acceso abierto al código fuente.</p><p id="2450d930-6b1d-806b-bc2f-eebc4747f4ab" class="">Esta división ha llevado a debates sobre la mejor manera de promover y desarrollar software libre. Algunos argumentan que centrarse en los beneficios pragmáticos hace que el movimiento sea más accesible y atractivo para las empresas y los desarrolladores que no necesariamente comparten la visión ética de Stallman. Otros creen que este enfoque diluye los principios fundamentales del movimiento y corre el riesgo de permitir la cooptación por parte de intereses comerciales.</p><h3 id="2450d930-6b1d-8032-af16-e72688591bda" class="">Cooptación Corporativa</h3><p id="2450d930-6b1d-80c9-8edb-e0842aedef4d" class="">Un aspecto crítico que Söderberg explora es la cooptación del movimiento de software libre por grandes corporaciones. Empresas como Google, Microsoft e IBM han adoptado y contribuido a proyectos de código abierto, lo que ha sido recibido con reacciones mixtas dentro de la comunidad. Por un lado, la participación de estas empresas puede aportar recursos significativos y visibilidad al software libre. Por otro, existe la preocupación de que estas empresas puedan influir en la dirección de los proyectos para servir a sus propios intereses comerciales, en lugar de adherirse a los principios de libertad y colaboración que sustentan el movimiento.</p><p id="2450d930-6b1d-8049-809e-cd87e54e371f" class="">Este fenómeno plantea preguntas sobre la verdadera naturaleza de la libertad en el software libre y cómo se puede mantener la integridad del movimiento frente a la creciente comercialización y profesionalización del desarrollo de software abierto.</p><h3 id="2450d930-6b1d-801a-8915-c9345155b7bd" class="">Sostenibilidad de los Proyectos de Software Libre</h3><p id="2450d930-6b1d-801c-a950-e6d4d3dabd2e" class="">La sostenibilidad es otro tema importante de debate. Muchos proyectos de software libre dependen en gran medida de contribuciones voluntarias, lo que puede llevar a problemas de continuidad y mantenimiento a largo plazo. La falta de financiación estable y el agotamiento de los desarrolladores son desafíos recurrentes. Algunos proyectos han experimentado dificultades para atraer y retener a suficientes colaboradores, lo que afecta su capacidad para evolucionar y mantenerse actualizados.</p><p id="2450d930-6b1d-809d-9df8-fda5d09a3715" class="">Söderberg analiza diversas soluciones propuestas, como la adopción de modelos de financiamiento híbridos que combinan donaciones, patrocinio corporativo y servicios de pago. También destaca iniciativas como el movimiento de sostenibilidad del código abierto, que busca desarrollar mejores prácticas y estructuras de apoyo para los proyectos de software libre.</p><hr id="2450d930-6b1d-803a-ba07-d32e995e77b0"/><hr id="2680d930-6b1d-806c-ac32-f189bbb8e672"/><p id="2680d930-6b1d-80de-8efd-e8258e2384f9" class="">
+</p><h1 id="2680d930-6b1d-8009-91ae-e878c86b84fa" class=""><mark class="highlight-purple_background">Software Libre para una sociedad libre</mark></h1><p id="26c0d930-6b1d-806e-9229-d1a3077e893e" class="">— Richard Stallman.</p><p id="2680d930-6b1d-8059-8e7e-f9c3e93fba00" class="">En el <strong>capítulo 2, “El Manifiesto GNU”</strong>, Richard Stallman expone los fundamentos éticos, políticos y técnicos que lo llevaron a iniciar el proyecto GNU (GNU&#x27;s Not Unix) en 1983. Este manifiesto puede considerarse el documento fundacional del movimiento de software libre. En él, Stallman no solo explica el objetivo de crear un sistema operativo completamente libre compatible con Unix, sino que también denuncia las restricciones que el software propietario impone sobre los usuarios. Argumenta que las empresas de software, al imponer licencias que prohíben copiar, estudiar o modificar los programas, generan una cultura de secretismo, desconfianza y dependencia. Frente a eso, GNU surge como un proyecto que busca recuperar la <strong>cooperación</strong> y la <strong>libertad</strong> que originalmente caracterizaban al mundo de la programación en los entornos académicos y de investigación.</p><p id="2680d930-6b1d-8036-8eb1-ec81a6339824" class="">El manifiesto plantea que el software debe poder ser compartido libremente, sin que eso signifique negar la posibilidad de trabajar profesionalmente en el campo. De hecho, Stallman sostiene que es posible ganarse la vida con el software libre ofreciendo servicios como soporte, capacitación o personalización, sin necesidad de restringir la libertad del usuario. En este sentido, GNU no es solo un proyecto técnico, sino una respuesta política y moral ante la creciente privatización del conocimiento. Con este manifiesto, Stallman invita a una comunidad global a participar en la creación de herramientas tecnológicas que respeten la autonomía de las personas, apelando a valores como la solidaridad, la libertad y el bien común.</p><p id="2680d930-6b1d-80fa-8435-e62f35390eec" class="">El <strong>capítulo 3, “La definición de Software Libre”</strong>, establece las <strong>cuatro libertades esenciales</strong> que definen si un programa es verdaderamente libre. Estas son: la libertad de ejecutar el programa para cualquier propósito (libertad 0), la libertad de estudiar cómo funciona el programa y adaptarlo a las necesidades del usuario (libertad 1), la libertad de redistribuir copias (libertad 2) y la libertad de mejorar el programa y distribuir esas mejoras a la comunidad (libertad 3). Para que estas libertades sean efectivas, es indispensable que el código fuente esté disponible.</p><p id="2680d930-6b1d-80e9-9854-c73f2002f64f" class="">Stallman aclara que el término “libre” en este contexto no significa necesariamente “gratis”. Lo que está en juego no es el precio, sino la <strong>libertad del usuario</strong>. Por eso, prefiere la frase “free as in freedom, not as in free beer” (“libre como en libertad, no como en cerveza gratis”). Esta distinción es fundamental para entender que el software libre es una cuestión de <strong>derechos</strong>, no de costos. En esta definición, Stallman enfatiza que el acceso al código fuente no es opcional ni decorativo, sino un requisito central: sin código, no hay posibilidad real de estudiar ni modificar el software, y por lo tanto, no hay libertad.</p><p id="2680d930-6b1d-808c-b26d-de85bd8bfef5" class="">En el <strong>capítulo 5, “¿Qué encierra un nombre?”</strong>, Stallman reflexiona sobre la importancia del lenguaje y de cómo nombramos las cosas en el ámbito del software libre. Critica la tendencia a utilizar el término “open source” (código abierto), ya que considera que oscurece los aspectos éticos y políticos del movimiento. Mientras que el término “software libre” pone el foco en la <strong>libertad del usuario</strong>, “código abierto” tiende a resaltar beneficios técnicos como la calidad del código, la seguridad o la eficiencia del modelo de desarrollo colaborativo. Esta diferencia no es menor: para Stallman, adoptar el lenguaje del “open source” puede llevar a invisibilizar la lucha por los derechos del usuario y diluir la crítica al modelo privativo.</p><p id="2680d930-6b1d-806c-898e-e6da2f260739" class="">El autor sostiene que las palabras que usamos moldean nuestra percepción de la realidad. Por eso, insiste en que el movimiento debe llamarse “software libre” (free software), y que el sistema operativo que hoy muchos llaman simplemente “Linux” debe llamarse correctamente “GNU/Linux”, para reconocer el trabajo de la comunidad GNU en su desarrollo. Esta batalla por el lenguaje no es caprichosa: es una forma de proteger el <strong>significado original del movimiento</strong> y de evitar que se lo vacíe de contenido político y ético.</p><hr id="2680d930-6b1d-80eb-8b06-ee7082c476b6"/><p id="2680d930-6b1d-8094-a864-df81a6b105d6" class="">En conjunto, estos tres capítulos de <em>Software Libre para una sociedad libre</em> muestran la profunda coherencia del pensamiento de Richard Stallman. Lejos de tratarse solo de una cuestión técnica, el software libre es presentado como una causa por la emancipación digital, un esfuerzo por devolverle a las personas el control sobre sus herramientas y por promover una cultura de cooperación, transparencia y justicia en el mundo tecnológico. Stallman no solo nos propone usar otro software: nos propone <strong>otra forma de pensar el conocimiento, la comunidad y la libertad en la era digital</strong>.<br/></p><h3 id="2450d930-6b1d-8038-bfed-fb6e513b24b1" class="">Cómo se articulan las ideas de Sodeberg con la filosofía de ‘Software Libre para una sociedad libre’ de Richard Stallman</h3><p id="2450d930-6b1d-8061-bfa6-c54aaf7aeda2" class="">Stallman define el software libre como aquel que respeta las libertades de los usuarios, permitiendo su ejecución, modificación, redistribución y mejora. Esto se traduce en un modelo donde &quot;el uso del software es político&quot;, enfatizando que la migración hacia software libre es responsabilidad tanto de los estados como de los individuos</p><p id="2450d930-6b1d-80fc-a9c6-cf0e5c1d0347" class="">Hoy por hoy, una serie de corporaciones se dedican a este tipo de servicios relacionados con el software libre. Algunas distribuyen colecciones de software libre en<br/>CD-Rom; otras proporcionan servicio técnico a distintos niveles, contestando a las preguntas de los usuarios, subsanando bugs o añadiendo nuevas funciones. Incluso, estamos empezando a ver empresas dedicadas al lanzamiento de nuevos productos de<br/>software libre.<br/>Pero debemos andarnos con cuidado —una serie de empresas asociadas con el término «código abierto» basan su mercado en el software no libre que funciona con software libre. No son empresas de software libre, su software es propietario, y con sus<br/>productos pretenden tentar a los usuarios y despojarles de su libertad. Se las conoce<br/>como empresas de «valor añadido», lo que refleja los valores que querrían que adoptásemos: la comodidad antes que la libertad. Si valoramos la libertad, deberíamos hablar<br/>de productos de «libertad sustraída».</p><h3 id="2450d930-6b1d-80b1-8812-d3ca5454807f" class="">Conclusión</h3><p id="2450d930-6b1d-80b9-8e4a-e7851c106302" class="">El movimiento de software libre y de código abierto, tal como se explora en &quot;Hackeando al Capitalismo: El Movimiento de Software Libre y de Código Abierto&quot; de Johan Söderberg, representa una revolución en la forma en que se desarrolla y distribuye el software. Al desafiar las estructuras de propiedad intelectual del capitalismo tradicional, FOSS promueve la innovación, la colaboración y la democratización del conocimiento.</p><p id="2450d930-6b1d-80e9-958e-f5fcc9e061c7" class="">Sin embargo, el movimiento enfrenta desafíos y críticas significativas, desde la cooptación corporativa hasta la sostenibilidad de los proyectos y la tensión entre filosofía y pragmatismo. A pesar de estos desafíos, el impacto de FOSS en la economía y la sociedad es innegable, ofreciendo una visión alternativa y esperanzadora para el futuro del desarrollo tecnológico y la distribución del conocimiento.</p><p id="2450d930-6b1d-8071-828e-e5b2d1b866ed" class="">Al final, el movimiento de software libre y de código abierto no solo se trata de tecnología, sino de una filosofía y una práctica que pueden transformar la manera en que interactuamos con el mundo digital, fomentando una cultura de apertura, transparencia y colaboración que tiene el potencial de beneficiar a todos.</p><hr id="2450d930-6b1d-8025-91c9-d83223fce528"/><hr id="2450d930-6b1d-808b-a87d-cce0faad38e0"/><hr id="2450d930-6b1d-80d9-a700-cb18b305d3c9"/><hr id="2450d930-6b1d-8079-b6e3-f39a4090384e"/><hr id="2450d930-6b1d-8056-bd51-c148998e195a"/><hr id="2450d930-6b1d-8064-8164-e22f233f4f6a"/><p id="2450d930-6b1d-806d-bd2c-eb8617d7fe26" class="">
+</p><p id="2450d930-6b1d-8010-8a72-eff4dba06bd9" class=""><a href="https://cdsa.aacademica.org/000-023/615.pdf">https://cdsa.aacademica.org/000-023/615.pdf</a><br/><br/><a href="https://ephemerajournal.org/contribution/repurposing-hacker-three-cycles-recuperation-evolution-hacking-and-capitalism">https://ephemerajournal.org/contribution/repurposing-hacker-three-cycles-recuperation-evolution-hacking-and-capitalism</a></p><p id="2450d930-6b1d-809f-a097-e6a36444e0f9" class="">
+</p><p id="2450d930-6b1d-8036-9241-e69dea0da020" class=""><a href="https://es.scribd.com/document/655239834/PDF-Hackeando-Al-Capitalismo-compress">https://es.scribd.com/document/655239834/PDF-Hackeando-Al-Capitalismo-compress</a></p><p id="2450d930-6b1d-80b7-b88c-ed105fd7c973" class="">
+</p><h2 id="2450d930-6b1d-8034-9b28-cd37fe8fbe4b" class=""><strong>Re: Unidad 1 - Foro A: Definiciones iniciales del Software Libre.</strong></h2><p id="2450d930-6b1d-80c9-b7ca-f40e11f10536" class="">
+</p><hr id="2450d930-6b1d-801e-870e-d0f0700e7996"/><hr id="2450d930-6b1d-8063-b9b1-e30999a5158e"/><hr id="2450d930-6b1d-8075-babd-d95581c48539"/><hr id="2450d930-6b1d-80cf-9fb8-cfc93e2b0c1b"/><hr id="2450d930-6b1d-807d-8086-cc706c908925"/><hr id="2450d930-6b1d-8098-8430-cdcafb9b9d6f"/><h3 id="2450d930-6b1d-8016-92a9-dbf21df8d1e2" class=""><strong>Re: Unidad 1 - Foro A: Definiciones iniciales del Software Libre. <br/></strong>de <a href="https://aulavirtual3.unl.edu.ar/moodle/user/view.php?id=57509&amp;course=6354">Martín Iribas</a> - <time>@April 30, 2024 12:28 PM</time> Número de respuestas: 0</h3><p id="2450d930-6b1d-809a-872a-ebb232bc280e" class="">### **Hacia una definición de Software Libre**<strong>STALLMAN EN SANTA FE - INTRODUCCIÓN AL SOFTWARE LIBRE - COMPARATIVA:</strong>https://archive.org/details/StallmanConSeniasEn la charla Richard impregna a todos con su humor lógico y juegos de palabras, lo que me llamó mucho la atención. Toca temas de ciberseguridad, y concientiza sobre el uso de la tecnología y la protección de datos e identidad personal. Cuenta como las empresas acceden y utilizan estos datos. Resumiría la temática con el termino ‘orwelliano’, empleado en repetidas ocasiones por Stallman. Lo que me llama a hacer guiño a un libro, que seguro ya adivinan cual es.Y cito este párrafo de ‘Introducción al Software Libre’ (pag 36), haciendo otro guiño al libro:”A principios de 1984, Richard Stallman, en aquella época empleadoen el AI Lab del MIT, abandonó su trabajo para comenzar el proyectoGNU. Stallman se consideraba un hacker de los que gozaban compartiendo sus inquietudes tecnológicas y su código. Veía con desagrado cómo su negativa a firmar acuerdos de exclusividad y no compartición le estaban convirtiendo en un extraño en su propiomundo, y cómo el uso de software propietario en su entorno le dejaba impotente antes situaciones que antes podía solventar fácilmente.”<em>2.2.1. Richard Stallman, GNU, FSF: nace el movimientodel software libre</em>En comparativa, Richard da siempre una introducción fundamental al Libre Software, tanto en charlas o conferencias en vivo como en sus libros o artículos.Habiendo mencionado su humor lógico y juegos de palabra, me gustaría destacar en concordancia con esto, la conjunción que hace Stallman, en relación a los idiomas y sus significados, con el termino ‘<em>Libre Software</em>’.INTERNET, HACKERS Y SOFTWARE LIBRE:El libro que elegí para lectura complementaría habla de los fundamentos del software libre, presentando las cuatro libertades fundamentales definidas por Richard Stallman y explorando su importancia en términos de democracia digital, acceso al conocimiento y empoderamiento de los usuarios. Lo que tiene completa relación con el video y lo citado de ‘Introducción al software libre’.Para cerrar mi aporte me gustaría recomendarles una serie muy ‘orwelliana’ que tiene que ver con todo el contenido y se llama ‘Ghost in the shell’.Saludos!buena semana.</p><p id="2450d930-6b1d-804d-98fc-fb80cdd7ffc3" class="">
+</p><hr id="2450d930-6b1d-80b2-a491-d2635179e8a3"/><hr id="2450d930-6b1d-80b6-a5fd-cffc8618476e"/><hr id="2450d930-6b1d-80a3-90fa-f1f4f9128dee"/><p id="2450d930-6b1d-8093-b8f1-d68c5d636169" class="">
+</p><h3 id="2450d930-6b1d-8011-a16c-f8df456ce7bf" class=""><strong>Hacia una definición de Software Libre</strong></h3><p id="2450d930-6b1d-803b-bf06-e6c13bcaf6bf" class="">STALLMAN EN SANTA FE - INTRODUCCIÓN AL SOFTWARE LIBRE - COMPARATIVA:</p><p id="2450d930-6b1d-8071-8c86-f08b7cb4086b" class=""><a href="https://archive.org/details/StallmanConSenias">https://archive.org/details/StallmanConSenias</a></p><p id="2450d930-6b1d-802b-babb-fd8fed810a76" class=""> En la charla Richard impregna a todos con su humor lógico y juegos de palabras, lo que me llamó mucho la atención. Toca temas de ciberseguridad, y concientiza sobre el uso de la tecnología y la protección de datos e identidad personal. Cuenta como las empresas acceden y utilizan estos datos. Resumiría la temática con el termino ‘orwelliano’, empleado en repetidas ocasiones por Stallman. Lo que me llama a hacer guiño a un libro, que seguro ya adivinan cual es.   </p><p id="2450d930-6b1d-80af-a186-eb35a94ee2e0" class="">Y cito este párrafo de ‘Introducción al Software Libre’ (pag 36), haciendo otro guiño al libro:</p><p id="2450d930-6b1d-80f9-bab3-da56850cece5" class="">”A principios de 1984, Richard Stallman, en aquella época empleado<br/>en el AI Lab del MIT, abandonó su trabajo para comenzar el proyecto<br/>GNU. Stallman se consideraba un hacker de los que gozaban compartiendo sus inquietudes tecnológicas y su código. Veía con desagrado cómo su negativa a firmar acuerdos de exclusividad y no compartición le estaban convirtiendo en un extraño en su propio<br/>mundo, y cómo el uso de software propietario en su entorno le dejaba impotente antes situaciones que antes podía solventar fácilmente.”</p><p id="2450d930-6b1d-8097-8ad9-f053081033cc" class="">2.2.1. Richard Stallman, GNU, FSF: nace el movimiento<br/>del software libre </p><p id="2450d930-6b1d-806f-88d0-f3ca76c6bb62" class="">En comparativa, Richard da siempre una introducción fundamental al Libre Software, tanto en charlas o conferencias en vivo como en sus libros o artículos.</p><p id="2450d930-6b1d-8094-b2f0-e9ef17e51ab9" class="">Habiendo mencionado su humor lógico y juegos de palabra, me gustaría destacar en concordancia con esto, la conjunción que hace Stallman, en relación a los idiomas y sus significados, con el termino ‘Libre Software’. </p><p id="2450d930-6b1d-801c-aa08-f4126c14754f" class="">
+</p><p id="2450d930-6b1d-8041-98c2-e56b0abb64c0" class="">INTERNET, HACKERS Y SOFTWARE LIBRE:</p><p id="2450d930-6b1d-80eb-a63c-c63b437e309b" class="">El libro que elegí para lectura complementaría habla de los fundamentos del software libre, presentando las cuatro libertades fundamentales definidas por Richard Stallman y explorando su importancia en términos de democracia digital, acceso al conocimiento y empoderamiento de los usuarios. Lo que tiene completa relación con el video y lo citado de ‘Introducción al software libre’.</p><p id="2450d930-6b1d-80fc-af15-cefaeb4ac14b" class="">
+</p><p id="2450d930-6b1d-808f-92d0-d76c87f2f874" class="">Para cerrar mi aporte me gustaría recomendarles una serie muy ‘orwelliana’ que tiene que ver con todo el contenido y se llama ‘Ghost in the shell’.</p><p id="2450d930-6b1d-80e3-bd0a-eae7c963757b" class="">
+</p><p id="2450d930-6b1d-80c3-a285-fb31e860300e" class="">Saludos! <br/>buena semana.</p><p id="2450d930-6b1d-80e2-82b9-f5bde78585e9" class="">
+</p><hr id="2450d930-6b1d-8085-ad66-c9b74002781e"/><hr id="2450d930-6b1d-8095-b597-cb536fb08c60"/><h1 id="2450d930-6b1d-8053-ad49-c76f6b3b23c2" class=""><strong>Re: Unidad 1 Parte 2 - Foro 2: Software Libre y soberanía tecnológica</strong></h1><hr id="2450d930-6b1d-8012-8110-de4c2102a9d4"/><p id="2450d930-6b1d-80d9-b7ec-eb26ea175d10" class=""><strong>Consigna:</strong> A partir de las lecturas realizadas deberán participar del Foro 2 con una reflexión en la que reflexionen al menos sobre dos de los siguientes interrogantes:</p><ul id="2450d930-6b1d-809b-b921-f6851b602810" class="bulleted-list"><li style="list-style-type:disc"><strong>¿Cómo se relacionan y cómo se diferencian la definición de las 4 libertades del software libre y la idea de software libre como movimiento social?</strong></li></ul><ul id="2450d930-6b1d-80c7-b270-f0934825c976" class="bulleted-list"><li style="list-style-type:disc"><strong>¿Cómo se relaciona la idea de soberanía tecnológica con el movimiento software libre?</strong></li></ul><ul id="2450d930-6b1d-80a9-8cee-fc9b4ac94a5e" class="bulleted-list"><li style="list-style-type:disc"><strong>¿Cómo se relacionan las reflexiones de Margarita Padilla a partir del caso de Softwarealpeso con la idea de soberanía tecnológica?</strong></li></ul><ul id="2450d930-6b1d-80f6-9cfd-f56f32eef057" class="bulleted-list"><li style="list-style-type:disc"><strong>¿Cómo se relaciona la propuesta del manifiesto cyberciruja con la soberanía tecnológica y el movimiento software libre?</strong></li></ul><p id="2450d930-6b1d-802c-9760-efeedd68b994" class="">
+</p><p id="2450d930-6b1d-809f-8d7a-e3f80ab17ee5" class="">&quot;la comunidad, en su versión radical, se auto organiza y se autorregula con autonomía y es la garante de la soberanía. Si tienes comunidad tendrás libertad y soberanía. O más aún: sólo dentro de las comunidades podemos ser personas libres y soberanas.”</p><p id="2450d930-6b1d-80f3-ad56-edae9ecbfd28" class="">
+</p><p id="2450d930-6b1d-809c-8b71-c16275bb951e" class="">“Por eso, es tan importante sostener abierta la pregunta colectiva sobre qué horizonte tecnológico deseamos y cómo lo estamos construyendo.”</p><p id="2450d930-6b1d-8083-99b5-e033a8f74a0e" class="">
+</p><hr id="2450d930-6b1d-8027-9888-f6d43fe1a265"/><hr id="2450d930-6b1d-8053-9b76-d0def8841f51"/><hr id="2450d930-6b1d-80c7-80d7-f393738321e9"/><hr id="2450d930-6b1d-80e7-8e0f-e4da8d550f9a"/><hr id="2450d930-6b1d-8024-a230-eb216cb00c4f"/><p id="2450d930-6b1d-80b4-8dd8-cc77db7ed930" class=""><br/><a href="https://vocesenelfenix.economicas.uba.ar/contribuciones-del-software-libre-a-la-soberania-tecnologica-y-los-desafios-futuros/">https://vocesenelfenix.economicas.uba.ar/contribuciones-del-software-libre-a-la-soberania-tecnologica-y-los-desafios-futuros/</a><br/></p><p id="2450d930-6b1d-80dc-a348-e15ea3a92bf3" class="">La relación entre la idea de soberanía tecnológica y el movimiento software libre es estrecha y se basa en la defensa de los derechos humanos de acceso a la cultura, a la libre expresión, a la educación y a la inclusión.<br/><br/><a href="https://www.scielo.sa.cr/scielo.php?pid=S2215-41322021000300110&amp;script=sci_arttext">https://www.scielo.sa.cr/scielo.php?pid=S2215-41322021000300110&amp;script=sci_arttext</a></p><div id="2450d930-6b1d-80e4-9930-e242e60563cf" class="column-list"><div id="2450d930-6b1d-80ac-b44e-c9b8d68ca612" style="width:50%" class="column"><p id="2450d930-6b1d-8057-ab24-f23614c6a92d" class="">. El software libre se define como aquel que permite a la comunidad de usuarios ejecutar, copiar, estudiar, mejorar y redistribuir el software, lo que implica libertad de uso para cualquier propósito, estudio de su funcionamiento, adaptación a necesidades específicas, distribución de copias y mejora con publicación de las mejoras.<br/></p></div><div id="2450d930-6b1d-8056-b861-f4f1edc71138" style="width:50%" class="column"><p id="2450d930-6b1d-80b7-a898-ca161e143e9c" class="">Esta filosofía se alinea con la búsqueda de soberanía tecnológica, que se entiende como la capacidad de los Estados de tener pleno control sobre sus sistemas de información y comunicación, lo que implica la autonomía en la gestión de datos y la capacidad de conocer qué hace el software utilizado</p><p id="2450d930-6b1d-80ac-a3fc-d34fae93d3d3" class="">
+</p></div></div><p id="2450d930-6b1d-8090-a766-df9d4a60c356" class=""><a href="http://www.scielo.edu.uy/scielo.php?pid=S2301-06652016000200011&amp;script=sci_arttext">http://www.scielo.edu.uy/scielo.php?pid=S2301-06652016000200011&amp;script=sci_arttext</a></p><div id="2450d930-6b1d-803d-8fb4-f693a593a729" class="column-list"><div id="2450d930-6b1d-8015-95d6-fe40f9f90a1c" style="width:50%" class="column"><p id="2450d930-6b1d-80c4-9cf7-c9446acf2165" class="">.El movimiento por el software libre surge en 1983 bajo la dirección de Richard Stallman y se caracteriza por la posibilidad de acceder al código fuente y modificarlo, lo que permite a los usuarios controlar el acceso a sus propios datos sin depender de empresas privadas.</p></div><div id="2450d930-6b1d-80a1-8bd1-f2757a78dccd" style="width:50%" class="column"><p id="2450d930-6b1d-80a7-9aec-e35062e6fc18" class="">. Esta capacidad de control y modificación se equipara a la seguridad del software libre, que se considera similar a la salud o seguridad alimentaria promovida por la agricultura ecológica. La soberanía tecnológica se relaciona con la soberanía alimentaria, ambos conceptos promueven la gestión social de los recursos digitales y alimentarios en pro del desarrollo local, la autonomía y la solidaridad</p></div></div><p id="2450d930-6b1d-809c-9fe6-d5b021e2f1ae" class=""><a href="https://www.perplexity.ai/search/Cmo-se-relaciona-DGXhoshMR.mFiFzmwR2MLQ">https://www.perplexity.ai/search/Cmo-se-relaciona-DGXhoshMR.mFiFzmwR2MLQ</a></p><div id="2450d930-6b1d-80dd-9570-f9357c66917c" class="column-list"><div id="2450d930-6b1d-80a4-b821-d201d9168b76" style="width:50%" class="column"><p id="2450d930-6b1d-8039-bab9-cc5f0469c4fa" class=""> Frente a la privatización del conocimiento y la naturaleza mediante leyes de propiedad intelectual y patentes, la soberanía tecnológica y el software libre defienden la gestión democrática de los bienes comunes compartidos.</p></div><div id="2450d930-6b1d-80a5-90a0-d8a51e9ca71c" style="width:50%" class="column"><p id="2450d930-6b1d-8013-9cde-d9bedfee1595" class="">.En resumen, la idea de soberanía tecnológica se relaciona con el movimiento software libre en tanto que ambos buscan la autonomía y el control sobre los sistemas de información y comunicación, defienden los derechos humanos de acceso a la cultura y la educación, y promueven la gestión social y democrática de los recursos digitales.</p></div></div><hr id="2450d930-6b1d-80e3-abac-e36f478c2e31"/><hr id="2450d930-6b1d-803a-b883-e77353205f7f"/><hr id="2450d930-6b1d-80bf-b5e3-dd5af3ec3879"/><hr id="2450d930-6b1d-8082-b7eb-c34d7d7a0c11"/><p id="26c0d930-6b1d-80a1-8bca-f71b88b31dfb" class="">
+</p><h2 id="26c0d930-6b1d-8010-84a6-fffd56a07b52" class=""><mark class="highlight-purple_background"><strong>&quot;Soberanía Tecnológica: ¿de qué estamos hablando?&quot; de Margarita Padilla</strong></mark></h2><p id="26c0d930-6b1d-802a-bc0b-fd927dfc8d93" class=""> Soberanía Tecnológica; La soberanía es el poder de decisión sobre algo. Margarita recalca que cree en algunos fenómenos como verdades sociales. Como todas las otras, la soberanía tecnológica se hace, sobre todo, en comunidades:</p><p id="26c0d930-6b1d-80ba-90bf-f693a17c643f" class="">“Todas las tecnologías se desarrollan en comunidades, que pueden ser, más o menos, autónomas o pueden estar, más o menos, controladas por las corporaciones. En la lucha por la soberanía, la cosa va de comunidades. Nadie inventa, construye o programa en solitario, sencillamente porque la complejidad de la tarea es tal que eso resultaría imposible” </p><p id="26c0d930-6b1d-80ba-a311-e6b03cf686b9" class="">“La premisa de una comunidad que aspira a ser soberana es que el conocimiento debe ser compartido y los desarrollos individuales deben ser devueltos al común. El conocimiento crece con la cooperación. La inteligencia es colectiva y privatizar el conocimiento es matar la comunidad. La comunidad es garante de la libertad, es decir, de la soberanía.”</p><h2 id="26c0d930-6b1d-802d-bdf5-ca5f19b66b83" class=""><strong> ‘Software al peso’ y soberanía tecnológica.</strong></h2><p id="26c0d930-6b1d-80e4-9825-edb4ab07d531" class="">Analicemos ahora las reflexiones de Margarita Padilla, a partir del caso de Softwarealpeso. En este contexto se destaca la importancia de desmontar las estructuras de poder de las grandes corporaciones tecnológicas y abrir la caja negra del software libre para hacerlo más accesible y comprensible para todos.</p><p id="26c0d930-6b1d-8087-8979-ce06f5b5e88d" class="">La soberanía tecnológica se basa en la capacidad de los individuos y las comunidades de tener control y autonomía sobre sus sistemas de información y comunicación, lo que implica la posibilidad de utilizar herramientas propias y desmontar las estructuras de dependencia de las grandes empresas tecnológicas. En este sentido, las reflexiones de Margarita resaltan la importancia de la comunidad en la construcción y el desarrollo de tecnologías, ya que todas las tecnologías se desarrollan en comunidad, y el conocimiento acumulado por otros se suma a la inteligencia colectiva.</p><p id="26c0d930-6b1d-8036-926d-cc59ea6f37d4" class="">Además, el enfoque en la comunidad y en la colaboración en el desarrollo de tecnologías, como se evidencia en el caso de Softwarealpeso, promueve la redistribución de conocimientos y la generación de proyectos locales que se benefician del conocimiento global generado mediante la cooperación[3]. </p><p id="26c0d930-6b1d-8007-b288-c9c7dff132c2" class="">En resumen, resalta la importancia de la comunidad, la colaboración y la apertura del software libre para promover la soberanía tecnológica, que se fundamenta en la autonomía, el control y la gestión democrática de los recursos tecnológicos en beneficio de la sociedad en su conjunto.</p><p id="26c0d930-6b1d-8022-a926-e7ba090a965b" class="">[1] <a href="https://www.youtube.com/watch?v=Qp2-r2MKKQA">https://www.youtube.com/watch?v=Qp2-r2MKKQA</a><br/>[2] <a href="https://es.scribd.com/document/653200364/Margarita-Padilla-Activismos-del-SL">https://es.scribd.com/document/653200364/Margarita-Padilla-Activismos-del-SL</a><br/>[3] <a href="https://somosconexion.coop/la-soberania-tecnologica-en-somos-conexion/">https://somosconexion.coop/la-soberania-tecnologica-en-somos-conexion/</a><br/>[4] <a href="https://es.wikipedia.org/wiki/Margarita_Padilla">https://es.wikipedia.org/wiki/Margarita_Padilla</a><br/>[5] <a href="https://www.upo.es/revistas/index.php/ripp/article/download/3681/2916/10754">https://www.upo.es/revistas/index.php/ripp/article/download/3681/2916/10754</a></p><h2 id="26c0d930-6b1d-804e-a814-ecc2fbcfb68f" class=""><strong>¿Cómo se relaciona la propuesta del manifiesto cyberciruja con la soberanía tecnológica y el movimiento software libre?</strong></h2><p id="26c0d930-6b1d-802c-bee2-ef16e921b708" class=""> El manifiesto cyberciruja promueve el uso de software libre como una forma de apoyar la soberanía tecnológica. La soberanía tecnológica se basa en la autonomía y el control sobre los sistemas de información y comunicación, lo cual se ve reflejado en la preferencia por el software libre. <br/> <strong>Diseño para la Comunidad vs. Diseño para el Mercado</strong>: El manifiesto cyberciruja plantea la importancia de diseñar tecnología para la comunidad, lo cual se alinea con los principios del software libre y la soberanía tecnológica. Mientras que el diseño para el mercado puede llevar a opacidad, obsolescencia programada y altos costos controlados por la industria, el enfoque en la comunidad promueve la transparencia, la sostenibilidad y la accesibilidad, valores fundamentales en el software libre y la soberanía tecnológica.</p><p id="26c0d930-6b1d-8038-9b88-f6a3aadefd38" class="">La propuesta del manifiesto cyberciruja se vincula entonces con la soberanía tecnológica al promover el uso de software libre, la autonomía tecnológica, la resiliencia, el diseño para la comunidad y la resistencia a prácticas que limitan la libertad y el acceso a la tecnología.</p><p id="26c0d930-6b1d-80d4-9d50-f2c831e15112" class="">
+</p><h2 id="2450d930-6b1d-8026-8da4-ea5a8381f24d" class=""><mark class="highlight-purple_background"><strong>Diseñar para el mercado o diseñar para la comunidad.</strong></mark></h2><p id="2450d930-6b1d-809c-98fa-ce69bec3dd66" class=""><a href="https://www.eldiario.es/cuaderno-comun/disenar-mercado-disenar-comunidad-software-libre-impresion3d-fabricacion-digital_132_5670104.html">https://www.eldiario.es/cuaderno-comun/disenar-mercado-disenar-comunidad-software-libre-impresion3d-fabricacion-digital_132_5670104.html</a></p><p id="2450d930-6b1d-809e-8a23-f9a1685e2c5b" class="">El artículo destaca la importancia del software libre en la promoción de la soberanía tecnológica y la innovación social. El software libre se caracteriza por ser una opción económica, segura y accesible, que facilita la colaboración entre especialistas y promueve la gestión social de los recursos digitales. Además, el software libre se basa en principios éticos que defienden la libertad, la autonomía y la solidaridad.[1]</p><p id="2450d930-6b1d-8044-a079-d1b971ed6517" class="">La soberanía tecnológica se relaciona estrechamente con el software libre, ya que ambos promueven la gestión social de los recursos digitales en pro del desarrollo local, la autonomía y la solidaridad[2]. El software libre permite a los usuarios controlar el acceso a sus propios datos sin depender de empresas privadas, lo que se alinea con la búsqueda de soberanía tecnológica[2].</p><p id="2450d930-6b1d-80dd-bef3-d83c378ab0cb" class="">El artículo también destaca la importancia de relacionar el software libre con las comunidades específicas que lo desarrollan y lo utilizan[3]. La AGETIC, una entidad boliviana, opera con software libre y promueve su uso en todas las instituciones del Estado boliviano, lo que tiene implicaciones en la manera particular que tiene Bolivia de entender la soberanía y la libertad ciudadana[3].</p><p id="2450d930-6b1d-8065-8636-e4add66da84e" class="">En resumen, el software libre es una herramienta fundamental para la promoción de la soberanía tecnológica y la innovación social, ya que facilita la colaboración, la autonomía y la solidaridad, y se basa en principios éticos que defienden la libertad y la gestión social de los recursos digitales.</p><p id="2450d930-6b1d-8030-946c-f75c5b07df89" class="">Citas:<br/>[1] <a href="https://ixiam.com/es/blog/software-libre-caracteristicas-y-ventajas-de-su-uso/">https://ixiam.com/es/blog/software-libre-caracteristicas-y-ventajas-de-su-uso/</a><br/>[2] <a href="https://www.upo.es/revistas/index.php/ripp/article/download/3681/2916/10754">https://www.upo.es/revistas/index.php/ripp/article/download/3681/2916/10754</a><br/><br/>[4] <a href="https://rockcontent.com/es/blog/software-libre/">https://rockcontent.com/es/blog/software-libre/</a><br/>[5] <a href="https://protecciondatos-lopd.com/empresas/software-libre/">https://protecciondatos-lopd.com/empresas/software-libre/</a></p><p id="26c0d930-6b1d-80b4-b0b0-f37c191959f9" class="">
+</p><p id="2450d930-6b1d-8074-8a52-f7d107b912e9" class="">El software libre puede ser considerado un movimiento social, en tanto une a grupos de personas a partir del compromiso con una serie de principios políticos y culturales, o &quot;valores&quot;:</p><p id="26c0d930-6b1d-80ac-bbbd-e69fe88ecd55" class=""><em>“Valores políticos como la libertad, la autonomía, la horizontalidad; valores tecnológicos como la eficacia, la transparencia – frente a la idea de caja negra -, la adaptabilidad, la condición de inacabados; valores comunales como la colaboración, el compartir, la solidaridad.”</em> (Vallejos 2019:62)<br/><br/>El software libre se define como aquel que permite a la comunidad de usuarios ejecutar, copiar, estudiar, mejorar y redistribuir el software, lo que implica libertad de uso para cualquier propósito, estudio de su funcionamiento, adaptación a necesidades específicas, distribución de copias y mejora con publicación de las mejoras.</p><p id="2450d930-6b1d-8011-b924-eed7587cca61" class="">
+</p><ul id="2450d930-6b1d-80f7-bf04-f43609e1cc72" class="bulleted-list"><li style="list-style-type:disc"><strong>¿Cómo se relacionan las reflexiones de Margarita Padilla a partir del caso de Software al peso con la idea de soberanía tecnológica?</strong></li></ul><p id="2450d930-6b1d-8085-917a-ead03343a1ae" class="">La propuesta del manifiesto cyberciruja se relaciona estrechamente con la soberanía tecnológica y el movimiento software libre en varios aspectos clave:</p><ol type="1" id="2450d930-6b1d-8063-8f1d-d70c888e6017" class="numbered-list" start="1"><li><strong>Uso de Software Libre y Soberanía Tecnológica</strong>: El manifiesto cyberciruja promueve el uso de software libre como una forma de apoyar la soberanía tecnológica. La soberanía tecnológica se basa en la autonomía y el control sobre los sistemas de información y comunicación, lo cual se ve reflejado en la preferencia por el software libre en el enfoque cyberciruja[1][2].</li></ol><ol type="1" id="2450d930-6b1d-80b0-9bec-ddfb374e18d2" class="numbered-list" start="2"><li><strong>Autonomía y Resiliencia</strong>: Tanto la soberanía tecnológica como el movimiento software libre buscan promover la autonomía y la resiliencia en el ámbito tecnológico. La capacidad de utilizar software libre y de contar con comunidades que apoyan la reutilización y el reciclaje de hardware contribuye a la autonomía y a la capacidad de recuperación ante perturbaciones en los sistemas tecnológicos[1][2].</li></ol><ol type="1" id="2450d930-6b1d-8063-9daa-d5d9f9feb509" class="numbered-list" start="3"><li><strong>Diseño para la Comunidad vs. Diseño para el Mercado</strong>: El manifiesto cyberciruja plantea la importancia de diseñar tecnología para la comunidad, lo cual se alinea con los principios del software libre y la soberanía tecnológica. Mientras que el diseño para el mercado puede llevar a opacidad, obsolescencia programada y altos costos controlados por la industria, el enfoque en la comunidad promueve la transparencia, la sostenibilidad y la accesibilidad, valores fundamentales en el software libre y la soberanía tecnológica[1][2][4].</li></ol><p id="2450d930-6b1d-8020-b445-cb92bc3d1ca0" class="">En resumen, la propuesta del manifiesto cyberciruja se vincula estrechamente con la soberanía tecnológica y el movimiento software libre al promover el uso de software libre, la autonomía tecnológica, la resiliencia, el diseño para la comunidad y la resistencia a prácticas que limitan la libertad y el acceso a la tecnología.</p><p id="2450d930-6b1d-806c-ad5d-e66797aaed8f" class="">Citations:<br/>[1] <a href="https://es.wikipedia.org/wiki/Soberan%C3%ADa_tecnol%C3%B3gica">https://es.wikipedia.org/wiki/Soberanía_tecnológica</a><br/>[2] <a href="https://www.upo.es/revistas/index.php/ripp/article/download/3681/2916/10754">https://www.upo.es/revistas/index.php/ripp/article/download/3681/2916/10754</a><br/>[3] <a href="http://pacarinadelsur.com/home/huellas-y-voces/1810-software-libre-para-una-ciudadania-libre-conversando-con-nicolas-laguna">http://pacarinadelsur.com/home/huellas-y-voces/1810-software-libre-para-una-ciudadania-libre-conversando-con-nicolas-laguna</a><br/>[4] <a href="https://ixiam.com/es/blog/software-libre-caracteristicas-y-ventajas-de-su-uso/">https://ixiam.com/es/blog/software-libre-caracteristicas-y-ventajas-de-su-uso/</a><br/>[5] <a href="https://www.scielo.sa.cr/scielo.php?pid=S2215-41322021000300110&amp;script=sci_arttext">https://www.scielo.sa.cr/scielo.php?pid=S2215-41322021000300110&amp;script=sci_arttext</a></p><p id="2450d930-6b1d-805c-813a-e4c05d53df2d" class="">
+</p><h3 id="2450d930-6b1d-8077-92a6-c98cb6495120" class=""><strong>¿Cómo se relaciona la propuesta del manifiesto cyberciruja con la soberanía tecnológica y el movimiento software libre?</strong></h3><p id="2450d930-6b1d-8096-be49-f10fe1681648" class="">Las reflexiones de Margarita Padilla, a partir del caso de Softwarealpeso. En el contexto de Softwarealpeso, se destaca la importancia de desmontar las estructuras de poder de las grandes corporaciones tecnológicas y abrir la caja negra del software libre para hacerlo más accesible y comprensible para todos.</p><p id="2450d930-6b1d-809c-9437-eebc96ebe48f" class="">La soberanía tecnológica se basa en la capacidad de los individuos y las comunidades de tener control y autonomía sobre sus sistemas de información y comunicación, lo que implica la posibilidad de utilizar herramientas propias y desmontar las estructuras de dependencia de las grandes empresas tecnológicas[5]. En este sentido, las reflexiones de Margarita Padilla resaltan la importancia de la comunidad en la construcción y el desarrollo de tecnologías, ya que todas las tecnologías se desarrollan en comunidad, y el conocimiento acumulado por otros se suma a la inteligencia colectiva[3][5].</p><p id="2450d930-6b1d-8081-89da-cdd91eec072c" class="">Además, el enfoque en la comunidad y en la colaboración en el desarrollo de tecnologías, como se evidencia en el caso de Softwarealpeso, promueve la redistribución de conocimientos y la generación de proyectos locales que se benefician del conocimiento global generado mediante la cooperación[3]. Esta colaboración y apoyo mutuo en la comunidad refuerza la soberanía tecnológica al permitir el acceso a herramientas y conocimientos tecnológicos de forma más equitativa y democrática[5].</p><p id="2450d930-6b1d-80d6-918d-cd4664b5a96f" class="">En resumen, las reflexiones de Margarita Padilla a partir del caso de Softwarealpeso resaltan la importancia de la comunidad, la colaboración y la apertura del software libre para promover la soberanía tecnológica, que se fundamenta en la autonomía, el control y la gestión democrática de los recursos tecnológicos en beneficio de la sociedad en su conjunto.</p><p id="2450d930-6b1d-80e7-bb56-dbf01e009761" class="">Citations:<br/>[1] <a href="https://www.youtube.com/watch?v=Qp2-r2MKKQA">https://www.youtube.com/watch?v=Qp2-r2MKKQA</a><br/>[2] <a href="https://es.scribd.com/document/653200364/Margarita-Padilla-Activismos-del-SL">https://es.scribd.com/document/653200364/Margarita-Padilla-Activismos-del-SL</a><br/>[3] <a href="https://somosconexion.coop/la-soberania-tecnologica-en-somos-conexion/">https://somosconexion.coop/la-soberania-tecnologica-en-somos-conexion/</a><br/>[4] <a href="https://es.wikipedia.org/wiki/Margarita_Padilla">https://es.wikipedia.org/wiki/Margarita_Padilla</a><br/>[5] <a href="https://www.upo.es/revistas/index.php/ripp/article/download/3681/2916/10754">https://www.upo.es/revistas/index.php/ripp/article/download/3681/2916/10754</a></p><p id="2450d930-6b1d-8062-bc7b-f4e08e7f1e85" class="">
+</p><hr id="2450d930-6b1d-80bf-a969-e3d63244476f"/><p id="2450d930-6b1d-8043-942b-cb305fa6edc1" class="">
+</p><h1 id="2450d930-6b1d-80b0-9d74-cb5ec0509622" class=""><strong>Re: Unidad 2: Foro General: </strong>Software Libre y Licencias</h1><hr id="2450d930-6b1d-80cd-9c4b-fc626a77d03c"/><hr id="2450d930-6b1d-800d-8224-e8ca2b51520b"/><p id="2450d930-6b1d-800b-b5a5-fdb319145394" class="">Primero deberán leer <strong>el capítulo 3, &quot;Aspectos legales&quot; (páginas 69 a 90)</strong> de un libro que ya hemos consultado: &quot;Introducción al Software Libre&quot; de González Barahona, Pascual y Robles.</p><p id="2450d930-6b1d-80ad-9079-c0136c4684cb" class="">Luego trabajarán con el libro &quot;Software Libre para una sociedad libre&quot;, de Richard Stallman. De allí deberán leer la <strong>&quot;Introducción&quot; (páginas 11 a 15), escrita por Lawrence Lessig</strong>, y el capítulo 14<strong> &quot;¿Qué es copyleft?&quot; (páginas 92 a 94), escrito por Richard Stallman</strong>.</p><p id="2450d930-6b1d-8099-8d01-c958322d4d00" class="">Finalmente, deberán familiarizarse con este sitio web de la Free Software Fundation, que utilizaremos en la actividad: <a href="https://www.gnu.org/licenses/license-list.html">https://www.gnu.org/licenses/license-list.html</a>.</p><p id="2450d930-6b1d-809f-bec1-cab024131dc5" class="">Allí podrán ver un listado de licencias en relación a si son libres, copyleft y compatibles con la GPL de GNU.</p><hr id="2450d930-6b1d-8019-a8be-e112aef7d894"/><h3 id="2450d930-6b1d-807a-a8b2-cdae56cf40c1" class="">Actividad</h3><p id="2450d930-6b1d-80aa-9647-c88b7715afe9" class="">En esta ocasión utilizaremos la modalidad de trabajo &quot;Glosario-enciclopedia&quot; colaborativo.</p><p id="2450d930-6b1d-8084-83fe-e151d717b5c8" class="">La intención del trabajo es que generemos un listado de aplicaciones de software libre con sus respectivas licencias.</p><p id="2450d930-6b1d-8086-916c-c98d362b2b4c" class="">Deberán seleccionar y explorar una aplicación de software, e ingresar al módulo para crear una entrada sobre la aplicación seleccionada.</p><p id="2450d930-6b1d-8034-bdb0-f65cd94d28b0" class="">IMPORTANTE! Este es el formato que debe tener cada entrada.</p><ol type="1" id="2450d930-6b1d-8015-9729-d1321efad25d" class="numbered-list" start="1"><li>Título: el nombre de la aplicación seleccionada.</li></ol><ol type="1" id="2450d930-6b1d-80bc-9366-d477cfdc7d4a" class="numbered-list" start="2"><li>Abajo del título <strong>debe consignarse el nombre y apellido</strong> de lx/s estudiante/s <strong>(NO SE OLVIDEN DE ESTO!)</strong></li></ol><ol type="1" id="2450d930-6b1d-80dc-b016-f49f027cea62" class="numbered-list" start="3"><li>Luego deberán describir qué funcionalidad/objetivos tiene la aplicación</li></ol><ol type="1" id="2450d930-6b1d-806b-9062-c10d2518a4b5" class="numbered-list" start="4"><li>Qué licencia tiene el software</li></ol><ol type="1" id="2450d930-6b1d-80cf-8d65-c786dc55dc86" class="numbered-list" start="5"><li>Dónde han consultado la información de la licencia</li></ol><ol type="1" id="2450d930-6b1d-80a7-b599-ea3b6f062013" class="numbered-list" start="6"><li>y finalmente, cómo se califica según el listado que ofrece la Free Software Fundation para evaluar las licencias (el sitio web con el que les pedía que se familiaricen luego de leer la bibliografía).</li></ol><p id="2450d930-6b1d-8091-90a6-d5c5f23f7143" class="">El desafío de la actividad está en que no pueden repetirse aplicaciones.</p><p id="2450d930-6b1d-8027-a897-fe0d02303068" class="">Está bueno también que, quienes se animen, prueben la aplicación y nos cuenten qué opinión les merece. Pueden incluir esa información en el punto 3, cuando describen la funcionalidad de la aplicación. Pero repetimos: esto no es oblgatorio para la actividad, es para quienes se animen a probar o bien ya estén utilizando algún software libre.</p><p id="2450d930-6b1d-8030-bd07-d700e0f7c766" class="">Verán que en la letra Z pueden encontrar ya una entrada que escribí yo como modelo sobre la aplicación Zettlr.</p><p id="2450d930-6b1d-809a-a0b8-d9610a70f769" class="">Pueden trabajar en grupo o individualmente, como mejor lo consideren, esto no restará ni sumará al momento de evaluar la actividad.</p><p id="2450d930-6b1d-809e-858c-d9c01189efee" class="">Para esto les habilitamos también un chat en el que pueden conversar, y si lo desean, conformar un grupo de un máximo de 3 participantes.</p><p id="2450d930-6b1d-80bb-9bcc-fa0221988c7d" class="">Si una entrada fue realizada en grupo deben consignar el nombre de todxs sus miembros en la misma entrada, abajo del título. Recuerden que si lo hacen individual también deben poner su nombre y apellido abajo del título de la entrada, es decir, abajo del nombre de la aplicación.</p><p id="2450d930-6b1d-8087-be55-c22a57705a1d" class="">Podrán ver también un foro general por si precisan hacer consultas.</p><p id="2450d930-6b1d-80e1-ad26-cd9f56d0bd46" class="">
+</p><hr id="2450d930-6b1d-807c-a1e0-df279368408d"/><hr id="2450d930-6b1d-8039-ba56-e9165f57b5c7"/><hr id="2450d930-6b1d-802a-be11-ed7107db641c"/><h3 id="2450d930-6b1d-8076-aa61-da05defc5014" class="">Jenkins; un proyecto de Software Libre.</h3><p id="2450d930-6b1d-805e-a8fa-d2b913d7ef68" class="">Martín Iribas</p><p id="2450d930-6b1d-80d0-8949-c5c3cb3b2e76" class="">Jenkins es una herramienta de integración continua y entrega continua (CI/CD) que automatiza las tareas repetitivas y mejora la eficiencia en el desarrollo de software.</p><p id="2450d930-6b1d-8063-ad47-fae56953d065" class="">El proyecto Jenkins es distribuido bajo la licencia MIT. Dicha información puede encontrarse en: <a href="https://www.jenkins.io/license/">https://www.jenkins.io/license/</a></p><p id="2450d930-6b1d-807d-98af-c01c2ff89233" class="">La Licencia MIT es calificada por la FSF como una licencia de software libre permisiva debido a que cumple con las cuatro libertades esenciales sin imponer restricciones adicionales significativas. Debido a su simplicidad y permisividad, también es compatible con muchas otras licencias, incluyendo la GNU GPL.</p><hr id="2450d930-6b1d-80f8-a320-f83e89584be0"/><hr id="2450d930-6b1d-8098-a74f-d439e627008e"/><hr id="2450d930-6b1d-80a6-80b8-ce3dc8b7b823"/><hr id="2450d930-6b1d-8033-be9c-c3eef359739e"/><p id="2450d930-6b1d-80d9-8659-fe41d3b5f912" class="">-</p><p id="2450d930-6b1d-80a0-b34d-f35e23c839bf" class="">“En cuanto a la naturaleza contraria al copyright, esto se debe a que la filosofía que hay detrás de esta licencia (y detrás de la Free Software Foundation) es que el software no debe tener propietarios. Aunque es cierto que el software licenciado con la GPL tiene un autor, que es el que a fin de cuentas permite la aplicación de la legislación de copyright sobre su obra, las condiciones bajo las que publica su obra confieren a la misma tal carácter que podemos considerar que la propiedad del software corresponde a quien lo tiene y no a quien lo ha creado.”</p><p id="2450d930-6b1d-8093-b205-cc5580dd48f3" class="">
+</p><p id="2450d930-6b1d-8098-9459-c33df72382c8" class="">
+</p><h3 id="2450d930-6b1d-80a6-bb2d-ca9fda3dddc0" class=""><strong>Re: Unidad 2: Foro General </strong>de <a href="https://aulavirtual3.unl.edu.ar/moodle/user/view.php?id=57509&amp;course=6354">Martín Iribas</a> - <time>@May 21, 2024 11:09 AM</time>Número de respuestas: 0</h3><p id="2450d930-6b1d-802f-a0c6-d1ae43134642" class=""><em>Jenkins</em></p><p id="2450d930-6b1d-80b8-b48e-cae225d822c2" class=""><strong>Jenkins; un proyecto de Software Libre.</strong></p><p id="2450d930-6b1d-8095-bb64-faf12d123c89" class="">Martín Iribas</p><p id="2450d930-6b1d-807b-aadd-fab942152cc8" class="">Jenkins es una herramienta de integración continua y entrega continua (CI/CD) que automatiza las tareas repetitivas y mejora la eficiencia en el desarrollo de software.</p><p id="2450d930-6b1d-808d-b2af-eaa61fa06085" class="">El proyecto Jenkins es distribuido bajo la licencia MIT. Dicha información puede encontrarse en: <a href="https://www.jenkins.io/license/">https://www.jenkins.io/license/</a></p><p id="2450d930-6b1d-80fb-9d52-e162a1c111a4" class="">La Licencia MIT es calificada por la FSF como una licencia de software libre permisiva debido a que cumple con las cuatro libertades esenciales sin imponer restricciones adicionales significativas. Debido a su simplicidad y permisividad, también es compatible con muchas otras licencias, incluyendo la GNU GPL.</p><p id="2450d930-6b1d-8071-ba17-f73d40c2b66a" class="">
+</p><h2 id="2450d930-6b1d-80a7-8e2d-c55a74a63399" class=""><strong>Unidad 3 - Redes Sociales Libres</strong></h2><hr id="2450d930-6b1d-80f0-bd53-fbced4b37d3f"/><hr id="2450d930-6b1d-8002-9ddb-e96c424d2883"/><figure id="2450d930-6b1d-80ed-8f8d-e076393363b7"><a href="https://www.eldiario.es/opinion/tribuna-abierta/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Tribuna Abierta - Espacio de opinión de elDiario.es para firmas invitadas</div><div class="bookmark-description">Tribuna Abierta es un espacio de opinión de elDiario.es para ofrecer las colaboraciones de distintas organizaciones: partidos, sindicatos, ONG, universidades y agentes sociales</div></div><div class="bookmark-href"><img src="https://www.eldiario.es/apple-touch-icon.png" class="icon bookmark-icon"/>https://www.eldiario.es/opinion/tribuna-abierta/</div></div></a></figure><p id="2450d930-6b1d-803d-b7ae-cc503c7e963e" class="">En esta Unidad conversaremos sobre Redes Sociales Libres.</p><p id="2450d930-6b1d-80f7-8232-f2bb629d0e2c" class="">Las Redes Sociales Libres y el Fediverso son una parte fundamental del movimiento Software Libre, y se proponen justamente disputar la centralidad de las lógicas que imponen aquellas otras redes, las Redes Sociales Privativas</p><p id="2450d930-6b1d-806b-86f1-f97a0b9227cc" class="block-color-teal">Grabación de un encuentro de la Tecnicatura que realizamos en 2022.</p><p id="2450d930-6b1d-8076-a39f-df4de67845f2" class="">En la segunda parte del encuentro (<strong>a partir del minuto 42</strong>), la Dra. Cecilia Ortmann, egresada de esta carrera, y autora, expone una charla sobre las Redes Sociales Libres que puede ser orientativa a la hora de estudiar los textos propuestos.</p><p id="2450d930-6b1d-80e0-aeb0-efbd66c47012" class="">
+</p><h3 id="2450d930-6b1d-8007-bf6d-f9212f2e23ad" class=""><strong>Actividad Unidad 3</strong></h3><ul id="2450d930-6b1d-80f7-9b2c-f682c832ddd0" class="bulleted-list"><li style="list-style-type:disc">Capítulo 6 <strong>&quot;De la Sociedad de la Información a la sociedad del control&quot;</strong> de Inés Binder y santiago García Gago <strong>paginas 112 a 137.</strong></li></ul><ul id="2450d930-6b1d-8013-a05e-c54d073e3d2b" class="bulleted-list"><li style="list-style-type:disc">Capítulo <strong>&quot;Principales problemas de las redes comerciales&quot;</strong> de Cecilia Ortmann. En Vivas, libres y federadas herramientas para la comunicación de colectivas transfeministas en el Fediverso .<strong>Página 16 hasta la 20 (18 a 22 del pdf).</strong></li></ul><ul id="2450d930-6b1d-8065-a452-e7ed9c469cc1" class="bulleted-list"><li style="list-style-type:disc">Capítulo <strong>&quot;Redes libres, redes nuestras&quot;</strong> de Cecilia Ortmann. En Vivas, libres y federadas herramientas para la comunicación de colectivas transfeministas en el Fediverso .<strong>Página 22 hasta la 44 (24 a 46 del pdf).</strong></li></ul><p id="2450d930-6b1d-8031-871a-f329c04563b5" class="">Luego deben elegir<strong> uno</strong> de los siguientes foros:</p><p id="2450d930-6b1d-80c8-b966-d1839f034c84" class="">
+</p><ul id="2450d930-6b1d-8011-abf6-c5b46ed95e16" class="bulleted-list"><li style="list-style-type:disc"><strong>Foro 2 - Redes sociales libres y periodismo.</strong><p id="2450d930-6b1d-800f-a641-d688a2fe0805" class="">En este foro podrán debatir tomando de referencia el texto : <strong>Periodismo y sus libertades a través del software libre. ¿Es posible?</strong> de Clara Elena Robayo <strong>Valencia, las paginas 221 a 233 del libro.(Paginas 219 hasta 231 del pdf).</strong></p></li></ul><ul id="2450d930-6b1d-8099-9c9c-e2f2c430672c" class="bulleted-list"><li style="list-style-type:disc"><strong>Foro 3 - Redes sociales libres y universidad pública.</strong><p id="2450d930-6b1d-802d-8b23-e6183e3df691" class="">En este foro podrán debatir tomando de referencia el texto de Franco Cabrera <strong>Redes sociales libres en la universidad pública desde la página 2 a la 9.</strong></p></li></ul><p id="2450d930-6b1d-809f-8fbb-e952ea2403d7" class="">Luego de elegir en qué foro les gustaría participar, lxs convocamos a compartir sus respuestas a partir de estas preguntas disparadoras:</p><ul id="2450d930-6b1d-80a5-acb2-d7d51bdf1589" class="bulleted-list"><li style="list-style-type:disc">¿De qué trata el texto del foro que eligieron?</li></ul><ul id="2450d930-6b1d-8032-8844-e5256616ecba" class="bulleted-list"><li style="list-style-type:disc">¿Cual es la principal problemática y riesgos de usar redes sociales y herramientas privativas para el caso “<strong>Periodismo y sus libertades a través del software libre. ¿Es posible?” </strong>de Clara Elena Robayo <strong>Valencia, las paginas 221 a 233 del libro</strong>? ¿Pueden identificar qué derechos se ponen en juego?</li></ul><ul id="2450d930-6b1d-80a0-9db2-c38f507515a6" class="bulleted-list"><li style="list-style-type:disc">¿Qué solución plantean las redes sociales y herramientas libres para el caso elegido? ¿Qué características tienen estas que las hace mas convenientes ?</li></ul><ul id="2450d930-6b1d-80ba-867c-d6fa92916a18" class="bulleted-list"><li style="list-style-type:disc">EXTRA OPTATIVO: Esta unidad es una buena oportunidad para probar alguna red social, sala de chat, un servicio de correo libre, podrían ponerse de acuerdo con sus compañerx del curso para que puedan probar alguna. Si lo hacen, nos encantaría que nos compartan su experiencia con esa herramienta.</li></ul><p id="2450d930-6b1d-8006-9edb-df946973f538" class=""><strong>Pautas de participación en el foro:</strong></p><p id="2450d930-6b1d-8037-9377-d409fc1b32d3" class="">Necesitamos que armen sus respuestas argumentando con los recursos que vimos en esta unidad, usando los conceptos que aprendimos.</p><p id="2450d930-6b1d-8055-b057-d5d43344be12" class="">En estos foros tienen la posibilidad de debatir entre ustedes, recuerden que es un ámbito académico y les pedimos que debatan dentro de un marco institucional de respeto y entendimiento mutuo.</p><p id="2450d930-6b1d-8027-b38c-e6326441ef0a" class="">
+</p><p id="2450d930-6b1d-80cb-8b47-fbf22078ea14" class=""><strong>Tendrán dos semanas para trabajar, es decir hasta el lunes 03 de Junio.</strong></p><p id="2450d930-6b1d-8013-ac37-d2e06a9c7d99" class="">
+</p><p id="2450d930-6b1d-8034-a2a6-c59b02c6cbc6" class="">Texto elegido: “Radios, redes e internet para la transformación social” Capitulo: “<strong>Periodismo y sus libertades a través del software libre. ¿Es posible?” </strong>de Clara Elena Robayo <strong>Valencia, las paginas 221 a 233 del libro</strong> </p><ul id="2450d930-6b1d-807e-9073-c6cf37db2475" class="bulleted-list"><li style="list-style-type:disc">¿De qué trata el texto?</li></ul><ul id="2450d930-6b1d-80d5-8fed-f4f968541478" class="bulleted-list"><li style="list-style-type:disc">¿Cual es la principal problemática y riesgos de usar redes sociales y herramientas privativas para el caso? ¿Pueden identificar qué derechos se ponen en juego?</li></ul><ul id="2450d930-6b1d-804b-9909-d7ffb507c2e8" class="bulleted-list"><li style="list-style-type:disc">¿Qué solución plantean las redes sociales y herramientas libres para el caso elegido? ¿Qué características tienen estas que las hace mas convenientes ?</li></ul><p id="2450d930-6b1d-80bc-ad24-fce130fb6029" class="">extracto del libro:</p><p id="2450d930-6b1d-809d-99ac-d3f1cfa4d671" class="">Como se mencionó, los medios comunitarios tienen una lógica diferente de trabajo, que involucra a su público. Sin embargo, el cómo del ejercicio periodístico debe ser debatido. Los modelos de comunicación ya se han transformado. Hasta ahora se ha expuesto cómo internet genera<br/>una participación activa de la audiencia, cómo se anulan los roles de comunicación. Que es un medio elitista, sí; sin embargo, permite la aparición de nuevos formatos como el periodismo de datos. Y, sobre todo,<br/>cómo la lógica de los medios comunitarios quiere utilizar a internet<br/>como plataforma de difusión y ampliar su grupo de colaboradores de<br/>comunidad a uno mundial. Como afirma Castells, él habla de una auto-comunicación y explica que esta incrementa de forma decisiva la autonomía de los sujetos comunicantes respecto a las empresas de comunicación (2001, p. 103). En este contexto, en donde los sujetos son capaces<br/>de auto-comunicarse y generar sus propios discursos, es fundamental<br/>empezar a incorporar nuevas filosofías y repensar el periodismo. - Vicente Barragán, Iván Terceros.<br/></p><p id="2450d930-6b1d-80b0-9604-e2f0cb945ca2" class="">reflexionar al respecto respondiendo las preguntas dadas.</p><p id="2450d930-6b1d-8095-aa0b-d5127dfbc01c" class="">
+</p><hr id="2450d930-6b1d-8048-982d-ce172d53b393"/><hr id="2450d930-6b1d-800c-a59e-d37b05e7d2c2"/><p id="2450d930-6b1d-8029-bed0-c4c3d198d617" class="">
+</p><h3 id="2450d930-6b1d-80c3-ae63-d28aaf7d062a" class=""></h3><p id="2450d930-6b1d-8004-8c82-f4d35d209dab" class="">El capítulo aborda la intersección entre el periodismo, las libertades digitales y el uso de software libre. El texto se centra en cómo los medios comunitarios pueden aprovechar el software libre y las redes sociales para ampliar su alcance y fomentar una comunicación más autónoma y participativa. Se analiza la transformación de los modelos de comunicación gracias a Internet, que permite una mayor participación de la audiencia y la creación de nuevos formatos como el periodismo de datos. Además, se discute la importancia de repensar el periodismo en este nuevo contexto digital.</p><h3 id="2450d930-6b1d-80fa-8ca3-f01fd51c4ebd" class="">Problemática y Riesgos de Usar Redes Sociales y Herramientas Privativas</h3><p id="2450d930-6b1d-80c5-8f59-ee486fea2fe4" class=""> Al utilizar plataformas y herramientas privativas, los medios comunitarios y los periodistas dependen de empresas privadas que controlan el acceso, la difusión y, en muchos casos, el contenido que se publica. Esto limita la autonomía y puede llevar a la censura o manipulación de la información.<br/> Las herramientas privativas a menudo recopilan grandes cantidades de datos personales de sus usuarios, lo que plantea serias preocupaciones sobre la privacidad y la seguridad de la información. Esto es especialmente crítico para los periodistas, que manejan información sensible.<br/> Las plataformas privativas suelen tener algoritmos que priorizan el contenido en función de intereses comerciales, lo que puede desvirtuar el alcance y la visibilidad de las noticias comunitarias y de interés público.<br/> El uso de herramientas privativas puede ser excluyente, ya que no todas las comunidades tienen igual acceso a estas tecnologías debido a barreras económicas o técnicas.</p><p id="2450d930-6b1d-80c5-aee5-f621c2db660e" class="">Los derechos que se ponen en juego incluyen la libertad de expresión, el derecho a la privacidad, el derecho a la información y la autonomía informativa.</p><h3 id="2450d930-6b1d-8005-963f-d3c93c2b1c49" class="">Soluciones Planteadas por las Redes Sociales y Herramientas Libres</h3><p id="2450d930-6b1d-80eb-9db5-e24d7cc2ce15" class="">Las redes sociales y herramientas libres ofrecen varias soluciones para mitigar los problemas mencionados:</p><p id="2450d930-6b1d-80cf-8b69-f5241bce672a" class=""> El software libre permite a los usuarios tener control total sobre las herramientas que utilizan. Esto incluye la capacidad de modificar y adaptar el software a sus necesidades específicas, lo que es crucial para mantener la autonomía editorial y operativa.<br/> Las herramientas de software libre generalmente son más transparentes en cuanto a cómo manejan los datos de los usuarios. Al tener acceso al código fuente, los usuarios pueden auditar y asegurar que sus datos no se utilicen de manera inapropiada.<br/> Las redes sociales libres y el software de código abierto fomentan una cultura de colaboración y comunidad. Esto puede traducirse en un soporte más fuerte y recursos compartidos entre diferentes medios comunitarios y periodistas.<br/> Las herramientas libres a menudo tienen menos barreras económicas y pueden ser más accesibles para comunidades con recursos limitados, promoviendo una mayor inclusión digital.<br/> Al ser de código abierto, estas herramientas permiten una mayor transparencia y adherencia a principios éticos en el desarrollo y uso del software.</p><p id="2450d930-6b1d-80fa-a829-dfa6db427b4d" class=""> <br/> Valencia argumenta que el uso de software libre y redes sociales libres puede ofrecer una alternativa más autónoma, segura y accesible para los medios comunitarios y el ejercicio periodístico, protegiendo derechos fundamentales y promoviendo una comunicación más participativa y democrática.</p><p id="2450d930-6b1d-8048-a414-d8daf8d55c4f" class="">
+</p><hr id="2450d930-6b1d-80d9-99d4-d2984d3d40db"/><hr id="2450d930-6b1d-8009-9bbf-e5838a13c7c2"/><p id="2450d930-6b1d-8052-b8f6-eef7b538447b" class="">
+</p><p id="2450d930-6b1d-804a-8cfa-c96c8ece3c69" class="">
+</p><p id="2450d930-6b1d-8025-bca6-f389b1bdb237" class="">El capítulo aborda la intersección entre el periodismo, las libertades digitales y el uso de software libre. El texto se centra en cómo los medios comunitarios pueden aprovechar el software libre y las redes sociales para ampliar su alcance y fomentar una comunicación más autónoma y participativa. Se analiza la transformación de los modelos de comunicación gracias a Internet, que permite una mayor participación de la audiencia y la creación de nuevos formatos como el periodismo de datos. Además, se discute la importancia de repensar el periodismo en este nuevo contexto digital.</p><h3 id="2450d930-6b1d-8011-99b7-dbfa191c9d61" class="">Problemática y Riesgos de Usar Redes Sociales y Herramientas Privativas</h3><p id="2450d930-6b1d-80d7-9326-eef9dc995a4b" class=""> Al utilizar plataformas y herramientas privativas, los medios comunitarios y los periodistas dependen de empresas privadas que controlan el acceso, la difusión y, en muchos casos, el contenido que se publica. Esto limita la autonomía y puede llevar a la censura o manipulación de la información.<br/> Las herramientas privativas a menudo recopilan grandes cantidades de datos personales de sus usuarios, lo que plantea serias preocupaciones sobre la privacidad y la seguridad de la información. Esto es especialmente crítico para los periodistas, que manejan información sensible.<br/> Las plataformas privativas suelen tener algoritmos que priorizan el contenido en función de intereses comerciales, lo que puede desvirtuar el alcance y la visibilidad de las noticias comunitarias y de interés público.<br/> El uso de herramientas privativas puede ser excluyente, ya que no todas las comunidades tienen igual acceso a estas tecnologías debido a barreras económicas o técnicas.</p><p id="2450d930-6b1d-8011-a991-fa5fef559f88" class="">Los derechos que se ponen en juego incluyen la libertad de expresión, el derecho a la privacidad, el derecho a la información y la autonomía informativa.</p><h3 id="2450d930-6b1d-8091-8f33-ef82cc498023" class="">Soluciones Planteadas por las Redes Sociales y Herramientas Libres</h3><p id="2450d930-6b1d-8036-9a3d-ceb61a81dc61" class="">Las redes sociales y herramientas libres ofrecen varias soluciones para mitigar los problemas mencionados:</p><p id="2450d930-6b1d-80af-b2e2-ea40888b4e44" class=""> El software libre permite a los usuarios tener control total sobre las herramientas que utilizan. Esto incluye la capacidad de modificar y adaptar el software a sus necesidades específicas, lo que es crucial para mantener la autonomía editorial y operativa.<br/> Las herramientas de software libre generalmente son más transparentes en cuanto a cómo manejan los datos de los usuarios. Al tener acceso al código fuente, los usuarios pueden auditar y asegurar que sus datos no se utilicen de manera inapropiada.<br/> Las redes sociales libres y el software de código abierto fomentan una cultura de colaboración y comunidad. Esto puede traducirse en un soporte más fuerte y recursos compartidos entre diferentes medios comunitarios y periodistas.<br/> Las herramientas libres a menudo tienen menos barreras económicas y pueden ser más accesibles para comunidades con recursos limitados, promoviendo una mayor inclusión digital.<br/> Al ser de código abierto, estas herramientas permiten una mayor transparencia y adherencia a principios éticos en el desarrollo y uso del software.</p><p id="2450d930-6b1d-8056-9ad7-c9e4abc6883d" class=""> <br/> Valencia argumenta que el uso de software libre y redes sociales libres puede ofrecer una alternativa más autónoma, segura y accesible para los medios comunitarios y el ejercicio periodístico, protegiendo derechos fundamentales y promoviendo una comunicación más participativa y democrática.</p><p id="2450d930-6b1d-807e-bd2c-cc5a5ea4c17d" class="">
+</p><p id="2450d930-6b1d-807e-bf7d-ccde513adc36" class="">
+</p><p id="2450d930-6b1d-8092-be49-cebf84cd0591" class="">
+</p><h3 id="2450d930-6b1d-80f4-bc4e-d5567c276f1e" class=""><strong>Re: Foro Unidad 4 - Modelos de producción de software</strong></h3><p id="2450d930-6b1d-803f-96b7-ca5302ca3c79" class="">de <a href="https://aulavirtual3.unl.edu.ar/moodle/user/view.php?id=57509&amp;course=6354">Martín Iribas</a> - <time>@June 10, 2024 11:34 PM</time></p><h3 id="2450d930-6b1d-801d-a23d-fa7e78a4a4d5" class="">Vagancia Constructiva y Linus Torvalds</h3><p id="2450d930-6b1d-8041-b8b7-e48911391917" class="">La vagancia constructiva implica hacer las cosas de la manera más eficiente posible, buscando soluciones prácticas y reutilizables. Es una forma de trabajar inteligentemente en lugar de arduamente. Y Linus se consideraba ‘Demasiado perezoso para equivocarse’.</p><p id="2450d930-6b1d-80e4-82e8-d13b3dc559b3" class="">Linus Torvalds no escribió Linux desde cero; comenzó reutilizando y adaptando código existente de Minix. Esta estrategia le permitió avanzar rápidamente y centrarse en mejorar el sistema en lugar de reinventar la rueda.</p><p id="2450d930-6b1d-80e2-a0fa-f177f0ce5402" class=""> Los problemas interesantes encuentran a aquellos que están activamente buscando soluciones y mejorando constantemente. La actitud adecuada implica estar siempre abierto a nuevos desafíos y oportunidades.</p><p id="2450d930-6b1d-8008-a343-d94d421787ff" class=""> Cuando un proyecto deja de interesar al creador original, es crucial pasarlo a alguien que pueda continuar mejorándolo. Esto asegura la continuidad y evolución del software. Esto implica ser proactivo y saber delegar.</p><p id="2450d930-6b1d-8082-84a1-ccd25f12fc8f" class="">A su vez tratar a los usuarios como colaboradores permite obtener retroalimentación constante y diversa, lo que mejora rápidamente el software.</p><p id="2450d930-6b1d-800d-bec0-f0e6e4ed893e" class="">La herencia de proyectos y sus comunidades de usuarios puede acelerar el desarrollo y depuración, como lo demuestra la evolución de ‘popclient’ a Fetchmail. (El caso que cuenta Raymond en &quot;La catedral y el bazar”).</p><p id="2450d930-6b1d-80ff-b7d7-f46c8f1b8809" class="">El modelo del bazar promueve la innovación al permitir que desarrolladores de diferentes antecedentes y habilidades contribuyan. La diversidad de ideas y enfoques puede llevar a soluciones más creativas y eficaces.</p><p id="2450d930-6b1d-8032-971d-cc2968fa7743" class="">Dada una base lo suficientemente amplia de probadores y colaboradores,<br/>casi todos los problemas se identificarán con rapidez y su solución será<br/>obvia para alguien.</p><p id="2450d930-6b1d-8089-a569-fed5ba801b8b" class="">&quot;Con un número de ojos suficiente, todos los errores son irrelevantes&quot;.</p><h3 id="2450d930-6b1d-80ab-88df-e88fa5f017fb" class="">Los buenos programadores saben qué escribir. Los grandes saben qué reescribir.</h3><p id="2450d930-6b1d-8009-91cd-c21f7ac3afdf" class="">Los mejores proyectos suelen nacer de la necesidad personal del desarrollador. Cuando un programador crea algo para resolver su propio problema, está ligado a las necesidades y detalles del problema. Lo que conduce a soluciones mas eficaces.</p><p id="2450d930-6b1d-8012-84b0-c1d060e29d0c" class="">Muchas herramientas populares y sistemas operativos, como Linux, comenzaron como proyectos personales. Resaltando la autenticidad y la dedicación que se invierte a la hora de desarrollar un proyecto que inicia por motivaciones personales.</p><p id="2450d930-6b1d-809d-9ac3-c393eaa8081c" class="">La capacidad de reconocer cuándo reutilizar código existente y cuándo es necesario escribir algo desde cero es una característica fundamental en cuanto a habilidades de un programador. Esto mejora no solo la eficiencia con la que se desarrolla, sino también la calidad del software. Reutilizar componentes probados reduce la posibilidad de errores y acelera el desarrollo. Reescribir, cuando es necesario, asegura que el software se adapte a nuestras necesidades.</p><p id="2450d930-6b1d-8017-8747-c5ef99389c84" class="">Por otro lado, la primera versión de un proyecto puede, probablemente, no ser la última, ni la mejor. Entender esto es crucial. Este concepto fomenta la interacción entre los colaboradores y la mejora continua. A su vez, es necesario estar dispuesto a desechar y rehacer código. <br/></p><p id="2450d930-6b1d-800f-ad08-fb727592806d" class="">Puede considerarse lo anterior como una reflexión bastante concreta sobre dos puntos expuestos por Eric S. Raymond en &quot;La catedral y el bazar&quot;. El mismo destaca las ventajas del modelo de producción del software libre y de código abierto, enfatizando la colaboración, la transparencia y la adaptabilidad. Este enfoque ha demostrado ser eficaz en muchos proyectos de software exitosos, como el kernel de Linux, y ha transformado la manera en que se desarrolla y distribuye el software en el mundo actual. La comparación entre la catedral y el bazar sigue siendo relevante, proporcionando una guía para entender y valorar las dinámicas del desarrollo de software libre y su impacto en la tecnología moderna.</p><p id="2450d930-6b1d-80fe-a941-d3bcb1fcd8f8" class="">
+</p><p id="2450d930-6b1d-80b6-8196-fc692fb27f5c" class=""><strong>Capitalismo cognitivio, tecnologías y trabajo&quot; - Mariano Zukerfeld</strong></p><p id="2450d930-6b1d-80cb-bc16-d8193d1f99fa" class="">
+</p><hr id="2450d930-6b1d-8035-ac4f-fdf5d1082c6d"/><figure id="2450d930-6b1d-8076-bcfa-d25b8984d3e2"><a href="https://www.youtube.com/watch?v=fvqm3ZE2hVo" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Conversatorio sobre INNOVACIÓN TECNOLOGICA POPULAR- Dr. Mariano Zukerfeld</div><div class="bookmark-description">✨Conversatorio sobre INNOVACIÓN TECNOLOGICA POPULAR✨
+
+Conversaremos con el Dr. MARIANO ZUKERFELD sobre:
+
+&quot;CAPITALISMO COGNITIVO, TECNOLOGIAS Y TRABAJO&quot;
+
+
+📌 Les dejamos un TEXTO de nuestro invitado sobre la temática que se abordará en el conversatorio:
+http://www.ceil-conicet.gov.ar/ojs/index.php/lat/article/view/623</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/1d05d8a6/img/favicon_144x144.png" class="icon bookmark-icon"/>https://www.youtube.com/watch?v=fvqm3ZE2hVo</div></div><img src="https://i.ytimg.com/vi/fvqm3ZE2hVo/maxresdefault.jpg" class="bookmark-image"/></a></figure><hr id="2450d930-6b1d-80ef-b143-c2c0823ea756"/><p id="2450d930-6b1d-804e-8032-e08ec1ec76cb" class=""><a href="https://www.youtube.com/watch?v=fvqm3ZE2hVo">https://www.youtube.com/watch?v=fvqm3ZE2hVo</a></p><p id="2450d930-6b1d-8064-8c5e-e4eeec54b8f3" class="">
+</p><p id="2450d930-6b1d-80aa-9894-fddf4c45a599" class="">El libro &quot;Software Libre y Cooperativismo&quot; de Verónica Xhardez explora la intersección entre el movimiento del software libre y el cooperativismo, destacando cómo ambos comparten valores de colaboración, comunidad y acceso equitativo a la tecnología. Xhardez argumenta que el software libre no es solo una herramienta tecnológica, sino también un modelo social y económico que puede fomentar la justicia social y la autonomía comunitaria.</p><p id="2450d930-6b1d-8070-a88a-eb9226a5b32b" class="">Un punto interesante del libro es cómo el software libre puede empoderar a las cooperativas al proporcionarles herramientas tecnológicas accesibles y modificables. Esto permite a las cooperativas adaptar la tecnología a sus necesidades específicas sin depender de grandes corporaciones tecnológicas. Además, el enfoque colaborativo del software libre encaja perfectamente con los principios del cooperativismo, promoviendo la participación activa de los miembros y la distribución equitativa del conocimiento y los recursos.</p><p id="2450d930-6b1d-809b-9c95-ea0fb0b88444" class="">Verónica Xhardez también resalta que el software libre puede jugar un papel crucial en la economía social, facilitando la creación de redes de colaboración y apoyo mutuo entre cooperativas. Esto no solo mejora la eficiencia operativa de estas entidades, sino que también fortalece la cohesión social y económica a nivel local y regional.</p><p id="2450d930-6b1d-8017-9040-d2b4a0c58bb6" class="">
+</p><p id="2450d930-6b1d-8029-8f0e-dd0a987588f2" class=""><strong>Redacción Rosario: Software Libre para el cooperativismo:</strong></p><p id="2450d930-6b1d-8078-ad30-dc387f464554" class=""><a href="https://redaccionrosario.com/2012/06/15/software-libre-para-el-cooperativismo/">https://redaccionrosario.com/2012/06/15/software-libre-para-el-cooperativismo/</a></p><p id="2450d930-6b1d-804a-988a-d82e9d9c114f" class="">
+</p><p id="2450d930-6b1d-802c-b029-dc4d0ba78d37" class=""><strong>Software Libre Concordia: Reportaje a Verónica Xhardez. Precisiones acerca del software libre.</strong></p><p id="2450d930-6b1d-805f-9d68-cf51640aae46" class=""><a href="https://softwarelibreenargentina.blogspot.com/2012/02/reportaje-veronica-xhardez-precisiones.html">https://softwarelibreenargentina.blogspot.com/2012/02/reportaje-veronica-xhardez-precisiones.html</a></p><p id="2450d930-6b1d-8001-b4c6-c1128fc6690a" class="">
+</p><p id="2450d930-6b1d-8042-bdf3-c5f51f9272f3" class=""><a href="https://facttic.org.ar/">https://facttic.org.ar/</a></p><p id="2450d930-6b1d-8040-8c31-d6dfc2a3601e" class=""><a href="https://facttic.org.ar/">https://facttic.org.ar/</a></p><p id="2450d930-6b1d-80c8-b79b-fcef89620356" class="">
+</p><p id="2450d930-6b1d-802b-9d9d-d35d30324c78" class=""><a href="https://www.gcoop.coop/">https://www.gcoop.coop/</a></p><p id="2450d930-6b1d-80e1-a19e-de9c73e39e29" class="">
+</p><h3 id="2450d930-6b1d-80e4-815a-c621e224e8d1" class="">Caso de Cooperativa Informática de Software Libre: Tecso</h3><p id="2450d930-6b1d-80d2-b7ea-decf52e159d2" class=""><strong>Tecso</strong> es una cooperativa de trabajo que se destaca en el desarrollo e implementación de software y tecnología, acompañando a sus clientes en su transformación digital. Fundada con principios democráticos y participativos, Tecso integra a todos sus asociados en la toma de decisiones, promoviendo la igualdad, la transparencia y la justa distribución de los excedentes. Su modelo organizativo no solo permite una excelente maduración tecnológica, sino que también fomenta un equilibrio saludable entre la vida laboral y personal, así como un interés activo en la comunidad donde opera.</p><p id="2450d930-6b1d-8058-b792-ed08776c1b5e" class="">En términos de proyectos, Tecso ha trabajado en diversas áreas como la banca, la salud y la administración tributaria, desarrollando soluciones estratégicas que destacan por su calidad y compromiso. La estructura cooperativa de Tecso asegura que los equipos de trabajo se mantengan estables y comprometidos a largo plazo, lo que resulta en una alta calidad de los proyectos desarrollados.</p><h3 id="2450d930-6b1d-8042-b306-fc77293913cd" class="">Relación con el Texto de Xhardez: Software Libre y Cooperativismo</h3><p id="2450d930-6b1d-80b3-af42-fd8459591fad" class="">En el libro &quot;Software Libre y Cooperativismo&quot;, Xhardez explora cómo las cooperativas tecnológicas pueden ofrecer una alternativa viable y ética a los modelos empresariales tradicionales. Uno de los puntos clave del libro es la integración de los principios del software libre con las prácticas cooperativas, resaltando que ambos movimientos comparten valores como la colaboración, la transparencia y el control democrático.</p><p id="2450d930-6b1d-8004-93fd-f8ebc3cc6364" class="">Tecso es un excelente ejemplo de cómo estos principios pueden aplicarse en la práctica. Su enfoque en el desarrollo de software libre permite a los clientes tener control sobre su tecnología y datos, alineándose con la filosofía del software libre que promueve la autonomía y la transparencia. Además, la estructura democrática y participativa de Tecso refleja los valores cooperativos que Xhardez defiende, donde cada miembro tiene voz y voto en las decisiones de la cooperativa.</p><h3 id="2450d930-6b1d-8000-87e2-f4cb1a4d7e2f" class="">Reflexión</h3><p id="2450d930-6b1d-809f-a78f-fd0df6db93f9" class="">Tecso ilustra cómo una cooperativa tecnológica puede no solo sobrevivir, sino prosperar en un entorno competitivo al adherirse a los principios del software libre y el cooperativismo. Este modelo no solo beneficia a los miembros de la cooperativa, sino que también proporciona a los clientes soluciones tecnológicas éticas y sostenibles. Como Xhardez argumenta en su libro, el éxito de tales cooperativas subraya la importancia de alternativas económicas basadas en la colaboración y la equidad, en contraste con los modelos empresariales tradicionales que a menudo priorizan el beneficio por encima de las personas y la comunidad.</p><p id="2450d930-6b1d-805f-bf94-efc36a4e1f8a" class="">
+</p><p id="2450d930-6b1d-80a2-bc41-f69b625277fa" class=""><a href="https://facttic.org.ar/tecso/">https://facttic.org.ar/tecso/</a></p><p id="2450d930-6b1d-80e0-a49f-e81a831278b4" class="">
+</p><p id="2450d930-6b1d-8033-897b-e84652563b34" class="">
+</p><hr id="2450d930-6b1d-80b4-9b50-c4e832fa3edd"/><hr id="2450d930-6b1d-80f2-8523-d47ae37ef83c"/><hr id="2450d930-6b1d-80c3-bda9-e06f16e7b881"/><h3 id="2450d930-6b1d-80cc-b9e4-d640b7949a99" class=""><strong>Re: Foro: Software Libre y cooperativismo</strong></h3><p id="2450d930-6b1d-8022-8be0-da1f399d7cfc" class="">de <a href="https://aulavirtual3.unl.edu.ar/moodle/user/view.php?id=57509&amp;course=6354">Martín Iribas</a> - <time>@July 1, 2024 11:52 PM</time></p><h3 id="2450d930-6b1d-80b1-93aa-e9d6f418992a" class="">Software Libre y Cooperativismo</h3><p id="2450d930-6b1d-80ec-b263-c53c33d80d7d" class="">El libro &quot;Software Libre y Cooperativismo&quot; de Verónica Xhardez explora la intersección entre el movimiento del software libre y el cooperativismo, destacando cómo ambos comparten valores de colaboración, comunidad y acceso equitativo a la tecnología. Xhardez argumenta que el software libre no es solo una herramienta tecnológica, sino también un modelo social y económico que puede fomentar la justicia social y la autonomía comunitaria.</p><p id="2450d930-6b1d-80d8-baf0-cebf15a40ab2" class="">Un punto interesante del libro es cómo el software libre puede empoderar a las cooperativas al proporcionarles herramientas tecnológicas accesibles y modificables. Esto permite a las cooperativas adaptar la tecnología a sus necesidades específicas sin depender de grandes corporaciones tecnológicas. Además, el enfoque colaborativo del software libre encaja perfectamente con los principios del cooperativismo, promoviendo la participación activa de los miembros y la distribución equitativa del conocimiento y los recursos.</p><h3 id="2450d930-6b1d-8021-9177-c681183f8a8c" class="">Caso de Cooperativa Informática de Software Libre: Tecso</h3><p id="2450d930-6b1d-80ad-94ea-e2df60063e3d" class="">Tecso es una cooperativa de trabajo que se destaca en el desarrollo e implementación de software y tecnología, acompañando a sus clientes en su transformación digital. Fundada con principios democráticos y participativos, Tecso integra a todos sus asociados en la toma de decisiones, promoviendo la igualdad, la transparencia y la justa distribución de los excedentes. Su modelo organizativo no solo permite una excelente maduración tecnológica, sino que también fomenta un equilibrio saludable entre la vida laboral y personal, así como un interés activo en la comunidad donde opera.</p><h3 id="2450d930-6b1d-8039-9a45-c2ea8da3d520" class="">Relación con el Texto de Xhardez:</h3><p id="2450d930-6b1d-808d-bed4-cf9980fa39dc" class="">En el libro &quot;Software Libre y Cooperativismo&quot;, Xhardez explora cómo las cooperativas tecnológicas pueden ofrecer una alternativa viable y ética a los modelos empresariales tradicionales. Uno de los puntos clave del libro es la integración de los principios del software libre con las prácticas cooperativas, resaltando que ambos movimientos comparten valores como la colaboración, la transparencia y el control democrático.</p><p id="2450d930-6b1d-807a-a29e-c9cfa1f85839" class="">Tecso es un excelente ejemplo de cómo estos principios pueden aplicarse en la práctica. Su enfoque en el desarrollo de software libre permite a los clientes tener control sobre su tecnología y datos, alineándose con la filosofía del software libre que promueve la autonomía y la transparencia. Además, la estructura democrática y participativa de Tecso refleja los valores cooperativos que Xhardez defiende, donde cada miembro tiene voz y voto en las decisiones de la cooperativa.</p><p id="2450d930-6b1d-80ea-a1f9-fddce42dd36e" class="">
+</p><p id="2450d930-6b1d-80b2-b647-cd2483af9870" class=""><strong>Software Libre Concordia: Reportaje a Verónica Xhardez. Precisiones acerca del software libre: </strong><a href="https://softwarelibreenargentina.blogspot.com/2012/02/reportaje-veronica-xhardez-precisiones.html">https://softwarelibreenargentina.blogspot.com/2012/02/reportaje-veronica-xhardez-precisiones.html</a></p><p id="2450d930-6b1d-801d-94f0-e483f6bf9677" class=""><strong>Tecso:</strong> <a href="https://facttic.org.ar/tecso/">https://facttic.org.ar/tecso</a></p><p id="2450d930-6b1d-8063-8e5d-d55e6a974546" class=""><strong>Redacción Rosario: Software Libre para el cooperativismo:   </strong><a href="https://redaccionrosario.com/2012/06/15/software-libre-para-el-cooperativismo/">https://redaccionrosario.com/2012/06/15/software-libre-para-el-cooperativismo/</a></p><p id="2450d930-6b1d-8096-ac0f-da6cf583b162" class="">
+</p><hr id="2450d930-6b1d-80d0-98cc-f672b3e8021d"/><hr id="2450d930-6b1d-80a3-8f2c-d27d5def771e"/><hr id="2450d930-6b1d-80be-9904-d2a827ff0ab2"/><p id="2450d930-6b1d-800a-93f4-f16f3b6a0610" class="">
+</p><p id="2450d930-6b1d-8087-8ff3-d0473c2252bc" class="">
+</p><p id="2450d930-6b1d-80fe-81c7-f8168fdc9ba8" class="">
+</p><ol type="1" id="2450d930-6b1d-80fa-b027-c8c48ef2caa4" class="numbered-list" start="1"><li>Todos los trabajos buenos en software comienzan tratando de paliar un<br/>problema personal del que los programa.</li></ol><ol type="1" id="2450d930-6b1d-80f9-97d5-ed2d480db38f" class="numbered-list" start="2"><li>Los buenos programadores saben qué escribir. Los grandes saben qué<br/>reescribir (y reutilizar). </li></ol><ol type="1" id="2450d930-6b1d-80ec-9243-e60ee2ede329" class="numbered-list" start="3"><li>“Piensa en desechar al menos uno; lo terminarás haciendo de todos modos.&#x27;&#x27;<br/>(Fred Brooks, “The Mythical Man-Month&#x27;&#x27;, Capítulo 11)</li></ol><p id="2450d930-6b1d-807f-8bb7-ee0a0a2e0c6a" class="">
+</p><hr id="2450d930-6b1d-804f-a663-f96d2f7bd277"/><p id="2450d930-6b1d-8083-b7a4-d73870889e54" class="">La catedral y el bazar es un ensayo escrito por Eric Raymond en 1997, aborda el desarrollo de software de código abierto. Se centra en dos modelos de producción de software, el modelo de “catedral” con un enfoque cerrado y jerárquico, y el modelo de “bazar”, que se caracteriza por su naturaleza abierta y colaborativa.</p><p id="2450d930-6b1d-804e-b4a8-d5cd1f92f0ed" class="">La temática se centra en el contraste de estos dos enfoques. El modelo de Catedral es controlado por un pequeño grupo de desarrolladores que planifican y construyen de manera estructurada y cerrada. Los errores y cambios se manejan internamente antes de que el producto sea lanzado.</p><p id="2450d930-6b1d-80c0-a534-f7f1f4265d7e" class="">En cambio, el modelo de Bazar se basa en el desarrollo colaborativo, permitiendo la participación de una amplia comunidad. Los desarrolladores pueden contribuir a mejoras y correcciones en tiempo real, lo que resulta en un proceso más dinámico y adaptativo.</p><p id="2450d930-6b1d-805b-bd31-c5e59a004e10" class="">El ensayo fue incluido en el libro <em>The Cathedral &amp; the Bazaar, publicado por O’Reilly Media en 2001, aporte fundamental para entender cómo las comunidades pueden colaborar en proyectos de software de manera efectiva. El texto se puede descargar gratuitamente en línea, lo que refleja el espíritu del software libre.</em></p><p id="2450d930-6b1d-806e-9141-d27190beb819" class=""><a href="http://catb.org/esr/writings/cathedral-bazaar/">http://catb.org/esr/writings/cathedral-bazaar/</a></p><p id="2450d930-6b1d-80dd-bad4-f05d22ab75e8" class=""><a href="https://www.oreilly.com/library/view/the-cathedral/0596001088/">https://www.oreilly.com/library/view/the-cathedral/0596001088/</a></p><p id="2450d930-6b1d-8070-adbe-ed46a708b327" class="">
+</p><p id="2450d930-6b1d-80fc-ae94-d2a25655e2ea" class="">
+</p><hr id="2450d930-6b1d-8067-9673-c62e69da0d9f"/><p id="2450d930-6b1d-80e5-a08f-c059bd741b61" class="">
+</p><p id="2450d930-6b1d-8078-8edb-da26dfda1535" class="">
+</p><p id="2450d930-6b1d-80e0-9221-f531b322eb14" class="">
+</p><p id="2450d930-6b1d-805a-82e0-c330ab54286a" class="">
+</p><p id="2450d930-6b1d-8049-a4da-c61a7cb9cbde" class="">
+</p><p id="2450d930-6b1d-8029-91ae-c0a92da0d325" class="">Aunque no pretendo ser un gran programador, trato de imitarlos. Una<br/>característica importante de los grandes de verdad es la vagancia constructiva.<br/>Saben que te dan un diez no por tu esfuerzo, sino por los resultados, y es casi<br/>siempre más fácil empezar a partir de una buena solución parcial que desde la<br/>nada más absoluta.<br/>Linus, sin ir más lejos, no intentó en realidad escribir Linux partiendo de cero.<br/>En vez de eso, comenzó reutilizando código e ideas de Minix, un minúsculo símil<br/>de Unix para máquinas 386. Al final, todo el código Minix fue desechado o se<br/>reescribió por completo - pero mientras estuvo allí, proporcionó</p><p id="2450d930-6b1d-8091-986a-f53b183caecb" class="">
+</p><ol type="1" id="2450d930-6b1d-80c1-94cf-cc4baea77a6d" class="numbered-list" start="4"><li>Si tienes la actitud adecuada, los problemas interesantes te encontrarán. </li></ol><ol type="1" id="2450d930-6b1d-80d8-9df1-e68613e62971" class="numbered-list" start="5"><li>Cuando un programa deja de interesarte, tu último deber es pasarlo a un<br/>sucesor competente.</li></ol><ol type="1" id="2450d930-6b1d-804f-a020-db967077f2e3" class="numbered-list" start="6"><li>Tratar a tus usuarios como colaboradores es el camino menos complicado<br/>para mejorar con rapidez y depurar eficazmente un programa.</li></ol><p id="2450d930-6b1d-8069-a6e4-dae412b8390d" class="">
+</p><p id="2450d930-6b1d-808c-af3f-fde45d90b8c9" class="">Heredó ‘popclient’ y sus usuarios.</p><p id="2450d930-6b1d-8091-968d-fc8af0a72037" class="">
+</p><p id="2450d930-6b1d-806c-b21e-ed2b80a3ea12" class="">Resulta fácil subestimar la potencia de este efecto. En realidad, muchos de<br/>los que estamos involucrados en el desarrollo de software abierto<br/>infravalorábamos drásticamente lo bien que puede aumentarse de escala sin más<br/>que recurrir a un número aún mayor de usuarios y contribuir a reducir la<br/>complejidad del sistema, hasta que Linus demostró lo contrario.</p><p id="2450d930-6b1d-80c6-802b-db392a58951c" class="">
+</p><p id="2450d930-6b1d-8006-b14a-dda85dd2d239" class="">‘Modelo de desarrollo Linux’</p><p id="2450d930-6b1d-805e-8764-fe6bc65341e4" class="">‘Demasiado perezoso para equivocarse’</p><ol type="1" id="2450d930-6b1d-8089-84ae-f33de3631cb6" class="numbered-list" start="7"><li><strong>Libera pronto. Libera a menudo. Y escucha a tus usuarios</strong></li></ol><ol type="1" id="2450d930-6b1d-8052-bb3e-f0e70dc82ff6" class="numbered-list" start="8"><li>Dada una base lo suficientemente amplia de probadores y colaboradores,<br/>casi todos los problemas se identificarán con rapidez y su solución será<br/>obvia para alguien.</li></ol><p id="2450d930-6b1d-809c-916b-fd5ca5c72f5d" class="">O, expresado con menor formalidad,  Yo llamo a eso: &quot;La ley de Linus&quot;.</p><p id="2450d930-6b1d-8023-b907-c23e64670467" class="">
+</p><p id="2450d930-6b1d-80fd-822c-d3e74dc5510e" class="">“El costo total de mantenimiento de un programa de uso generalizado viene a ser<br/>de un 40% o más del costo necesario para su desarrollo. Resulta sorprendente,<br/>sin embargo, que este costo depende fuertemente del número de usuarios. Más<br/>usuarios implica que se encuentran mas errores.&quot;</p><p id="2450d930-6b1d-80c9-b7dc-d55ef7aaccb4" class="">
+</p><p id="2450d930-6b1d-8062-8167-c0579109ad0f" class="">efecto Delphi</p><ol type="1" id="2450d930-6b1d-80d4-83a9-c12952ab4374" class="numbered-list" start="9"><li>Estructuras de datos inteligentes asociadas a un código torpe, funcionan<br/>mucho mejor que la alternativa opuesta.</li></ol><ol type="1" id="2450d930-6b1d-80f0-847d-e816148f71d7" class="numbered-list" start="10"><li>Si tratas a la gente que te ayuda a depurar un programa como si fueran tu<br/>recurso más valioso, responderán convirtiéndose en eso precisamente.</li></ol><ol type="1" id="2450d930-6b1d-80dd-adfc-c93788c8b7ed" class="numbered-list" start="11"><li>La siguiente mejor cosa que tener buenas ideas, consiste en reconocer las<br/>buenas ideas de tus usuarios. Y en ocasiones ésta última es la mejor en<br/>términos absolutos.</li></ol><p id="2450d930-6b1d-80d5-b1e4-cda506732e80" class="">
+</p><p id="2450d930-6b1d-805a-bceb-c08052289949" class="">Resulta bastante interesante observar que uno se da cuenta enseguida de<br/>que si se es completa y generosamente verídico acerca de cuanto le debes a los<br/>demás, el resto de la humanidad te tratará como si fueras el responsable de hasta<br/>la última porción de un invento y considerará que estás siendo simplemente<br/>modesto respecto a tu indiscutible genialidad. ¡No hay más que ver lo bien que<br/>este efecto funcionó con Linus!</p><ol type="1" id="2450d930-6b1d-8006-9111-d5689274be0a" class="numbered-list" start="12"><li>A menudo, las soluciones más sorprendentes e innovadoras surgen al<br/>darte cuenta de que la idea que se tenía del problema estaba equivocada.</li></ol><ol type="1" id="2450d930-6b1d-80b8-94b5-fbc0c492b4d1" class="numbered-list" start="13"><li>“La perfección (de un diseño) no se consigue cuando no queda nada por<br/>añadir, sino más bien cuando no resta nada por eliminar.&#x27;&#x27;</li></ol><ol type="1" id="2450d930-6b1d-804b-bb49-e50600515dcd" class="numbered-list" start="14"><li>Toda herramienta debe resultar útil en la forma prevista, pero<br/>una ‘verdadera’ gran herramienta te lleva a usarla para realizar cosas jamás<br/>pensadas.</li></ol><ol type="1" id="2450d930-6b1d-805e-9598-e3ae79b17f14" class="numbered-list" start="15"><li>Cuando escribas programas que actúen como pasarelas de datos<br/>(&#x27;gateway software&#x27;), ten cuidado de modificarlos lo menos posible - y <em>nunca</em><br/>elimines información, a menos que su destinatario te fuerce a hacerlo.</li></ol><ol type="1" id="2450d930-6b1d-80d7-95ac-f8c8e9d5f0e0" class="numbered-list" start="16"><li>Si el lenguaje de tu programa no es Turing-completo ni por asomo, puede<br/>venir bien endulzar su sintaxis.</li></ol><ol type="1" id="2450d930-6b1d-80a2-a9c8-c28f65e86d07" class="numbered-list" start="17"><li>Un sistema es sólo tan seguro como su secreto. Cuidado con los falsos<br/>secretos.</li></ol><p id="2450d930-6b1d-8082-811d-e723c5cb700c" class="">
+</p><hr id="2450d930-6b1d-80e4-8a95-d6f12cbc5776"/><hr id="2450d930-6b1d-80c7-9358-ff4dbd9fef24"/><hr id="2450d930-6b1d-80a7-9e3e-e8f6ea87371d"/><p id="2450d930-6b1d-8020-8a1f-c13bf0d1c075" class="">
+</p><p id="2450d930-6b1d-800e-aa54-f7fddf293460" class="">
+</p><p id="2450d930-6b1d-8058-acc2-c683eef75813" class="">&quot;La catedral y el bazar&quot; es un ensayo influyente de Eric S. Raymond que compara dos modelos de desarrollo de software: el modelo de la catedral y el modelo del bazar. Raymond utiliza estas metáforas para describir diferentes enfoques en la creación de software, especialmente en el contexto del software libre y de código abierto. Aquí hay algunas reflexiones sobre el texto en base a su contenido y su relevancia en el modelo de producción del software libre:</p><h3 id="2450d930-6b1d-80e1-ae2e-fe2ba670b9be" class="">Modelo de la Catedral</h3><p id="2450d930-6b1d-808d-a193-f181db848392" class="">En el modelo de la catedral, el software es desarrollado por un grupo reducido y cerrado de desarrolladores, trabajando de manera estructurada y controlada. Este enfoque se asemeja a la construcción de una catedral, donde cada pieza es cuidadosamente planeada y ensamblada por expertos.</p><h3 id="2450d930-6b1d-8001-922e-cc897d750bea" class="">Características:</h3><ul id="2450d930-6b1d-8054-a933-dc9142e94bce" class="bulleted-list"><li style="list-style-type:disc"><strong>Control centralizado</strong>: Las decisiones son tomadas por un pequeño grupo de desarrolladores.</li></ul><ul id="2450d930-6b1d-8040-a8bd-f72b76115789" class="bulleted-list"><li style="list-style-type:disc"><strong>Ciclos de lanzamiento largos</strong>: Las versiones del software se publican después de períodos extensos de desarrollo y prueba.</li></ul><ul id="2450d930-6b1d-8064-b990-d4dea6e3957e" class="bulleted-list"><li style="list-style-type:disc"><strong>Código fuente cerrado durante el desarrollo</strong>: El acceso al código es limitado hasta que se decide lanzar una nueva versión.</li></ul><h3 id="2450d930-6b1d-80aa-979e-f51534ce76a9" class="">Modelo del Bazar</h3><p id="2450d930-6b1d-803a-9347-d116021009ff" class="">El modelo del bazar, por otro lado, es más abierto y colaborativo. Raymond describe este modelo como un bazar donde muchas personas contribuyen con diferentes partes del software, trabajando de manera simultánea y en colaboración.</p><h3 id="2450d930-6b1d-8046-bffc-cdcedad1ca2e" class="">Características:</h3><ul id="2450d930-6b1d-806c-9157-d47b64553e92" class="bulleted-list"><li style="list-style-type:disc"><strong>Descentralización</strong>: No hay un control centralizado rígido; muchos desarrolladores pueden contribuir.</li></ul><ul id="2450d930-6b1d-80d3-a861-fe3d77214c14" class="bulleted-list"><li style="list-style-type:disc"><strong>Ciclos de lanzamiento rápidos</strong>: Las versiones del software se publican frecuentemente, permitiendo una retroalimentación continua.</li></ul><ul id="2450d930-6b1d-8054-aa66-dfdcd4a7dc95" class="bulleted-list"><li style="list-style-type:disc"><strong>Código fuente abierto</strong>: El acceso al código es libre para todos desde el inicio, permitiendo una colaboración y revisión continua.</li></ul><h3 id="2450d930-6b1d-80ab-8c1b-fb342e5dafb4" class="">Reflexiones en Base al Ensayo</h3><ol type="1" id="2450d930-6b1d-8061-a805-e3990ab8a799" class="numbered-list" start="1"><li><strong>Innovación a Través de la Colaboración</strong>:<ul id="2450d930-6b1d-80bb-a70e-c4fc6ce9be90" class="bulleted-list"><li style="list-style-type:disc">El modelo del bazar promueve la innovación al permitir que desarrolladores de diferentes antecedentes y habilidades contribuyan. La diversidad de ideas y enfoques puede llevar a soluciones más creativas y eficaces.</li></ul><ul id="2450d930-6b1d-80f6-b97a-c133a0658540" class="bulleted-list"><li style="list-style-type:disc">Este modelo aprovecha la inteligencia colectiva, ya que más ojos en el código pueden identificar y solucionar problemas de manera más eficiente que un grupo reducido de desarrolladores.</li></ul></li></ol><ol type="1" id="2450d930-6b1d-8079-b607-e9dda996a3a9" class="numbered-list" start="2"><li><strong>Transparencia y Calidad del Código</strong>:<ul id="2450d930-6b1d-80ad-b7e8-e088d56fcdfb" class="bulleted-list"><li style="list-style-type:disc">La apertura del código desde el inicio fomenta la transparencia. Cualquier desarrollador puede revisar, auditar y mejorar el código, lo que generalmente resulta en software de mayor calidad y más seguro.</li></ul><ul id="2450d930-6b1d-80a2-af9f-d3abe8bb48d3" class="bulleted-list"><li style="list-style-type:disc">La revisión por pares constante y la disponibilidad del código para cualquiera que quiera contribuir son aspectos fundamentales del modelo del bazar.</li></ul></li></ol><ol type="1" id="2450d930-6b1d-8007-a88e-de24fb8a99b7" class="numbered-list" start="3"><li><strong>Rapidez y Flexibilidad</strong>:<ul id="2450d930-6b1d-807f-9477-ff7b0d71e1a2" class="bulleted-list"><li style="list-style-type:disc">Los ciclos de lanzamiento rápidos permiten una mayor flexibilidad y adaptabilidad. Los errores pueden ser corregidos rápidamente y las nuevas características pueden ser implementadas en respuesta a las necesidades de los usuarios.</li></ul><ul id="2450d930-6b1d-80f1-b7c8-e16b2078c314" class="bulleted-list"><li style="list-style-type:disc">Este enfoque ágil es contrastante con los largos ciclos de desarrollo del modelo de la catedral, que pueden retrasar la implementación de nuevas ideas y soluciones.</li></ul></li></ol><ol type="1" id="2450d930-6b1d-8038-b532-c8f8fdfa5e10" class="numbered-list" start="4"><li><strong>Motivación y Comunidad</strong>:<ul id="2450d930-6b1d-807d-b860-c52812c09fdb" class="bulleted-list"><li style="list-style-type:disc">El modelo del bazar fomenta una comunidad de desarrollo activa y motivada. Los desarrolladores contribuyen no solo por motivos económicos, sino también por el reconocimiento, la pasión por la programación y el deseo de mejorar el software que utilizan.</li></ul><ul id="2450d930-6b1d-80a2-998c-cb0a6a25ef63" class="bulleted-list"><li style="list-style-type:disc">Esta comunidad puede ser una fuente de apoyo y aprendizaje, fomentando un entorno de crecimiento continuo para sus miembros.</li></ul></li></ol><h3 id="2450d930-6b1d-8010-bba9-ebfb29d0cb62" class="">Conclusión</h3><p id="2450d930-6b1d-808f-b50c-d918a48f8bb3" class="">&quot;La catedral y el bazar&quot; de Eric S. Raymond destaca las ventajas del modelo de producción del software libre y de código abierto, enfatizando la colaboración, la transparencia y la adaptabilidad. Este enfoque ha demostrado ser eficaz en muchos proyectos de software exitosos, como el kernel de Linux, y ha transformado la manera en que se desarrolla y distribuye el software en el mundo actual. La comparación entre la catedral y el bazar sigue siendo relevante, proporcionando una guía para entender y valorar las dinámicas del desarrollo de software libre y su impacto en la tecnología moderna.</p><p id="2450d930-6b1d-80e1-8946-d17e5f1c8744" class="">
+</p><p id="2450d930-6b1d-807f-ae9d-f4122238fdf2" class="">
+</p><p id="2450d930-6b1d-80d8-94f4-c8f64ccad6c7" class="">
+</p><p id="2450d930-6b1d-8038-9724-c2006f201d7d" class="">
+</p><hr id="2450d930-6b1d-8095-a48d-c1d793486918"/><hr id="2450d930-6b1d-8023-bcd0-e1dcff7b2229"/><hr id="2450d930-6b1d-80e9-907f-ea9839dc71d8"/><hr id="2450d930-6b1d-8081-9b76-d53de774d10f"/><hr id="2450d930-6b1d-80da-b7b0-f20b35ff4910"/><hr id="2450d930-6b1d-8018-a705-dbfe0fb5d929"/><hr id="2450d930-6b1d-80d1-99a6-fa4d88541428"/><hr id="2450d930-6b1d-800f-9e38-ebeb280bd8ce"/><hr id="2450d930-6b1d-803b-b3a7-fbab02b9eedf"/><h3 id="2450d930-6b1d-80cd-8232-f73cc0c143d4" class="">Vagancia Constructiva y Linus Torvalds</h3><p id="2450d930-6b1d-80ea-a609-cf26bde2ee07" class="">La vagancia constructiva implica hacer las cosas de la manera más eficiente posible, buscando soluciones prácticas y reutilizables. Es una forma de trabajar inteligentemente en lugar de arduamente. Y Linus se consideraba ‘Demasiado perezoso para equivocarse’.</p><p id="2450d930-6b1d-805a-a16a-fad37043ad65" class="">Linus Torvalds no escribió Linux desde cero; comenzó reutilizando y adaptando código existente de Minix. Esta estrategia le permitió avanzar rápidamente y centrarse en mejorar el sistema en lugar de reinventar la rueda.</p><p id="2450d930-6b1d-80a0-bd28-e2104cee6c70" class=""> Los problemas interesantes encuentran a aquellos que están activamente buscando soluciones y mejorando constantemente. La actitud adecuada implica estar siempre abierto a nuevos desafíos y oportunidades.</p><p id="2450d930-6b1d-80fd-b880-f6585ff206c5" class=""> Cuando un proyecto deja de interesar al creador original, es crucial pasarlo a alguien que pueda continuar mejorándolo. Esto asegura la continuidad y evolución del software. Esto implica ser proactivo y saber delegar.</p><p id="2450d930-6b1d-80ab-93fd-cb01d4cd7763" class="">A su vez tratar a los usuarios como colaboradores permite obtener retroalimentación constante y diversa, lo que mejora rápidamente el software.</p><p id="2450d930-6b1d-80a6-b9f1-d2e1946a41c8" class="">La herencia de proyectos y sus comunidades de usuarios puede acelerar el desarrollo y depuración, como lo demuestra la evolución de ‘popclient’ a Fetchmail. (El caso que cuenta Raymond en &quot;La catedral y el bazar”).</p><p id="2450d930-6b1d-803e-81d4-d3476dada998" class="">El modelo del bazar promueve la innovación al permitir que desarrolladores de diferentes antecedentes y habilidades contribuyan. La diversidad de ideas y enfoques puede llevar a soluciones más creativas y eficaces.</p><p id="2450d930-6b1d-80bf-9435-fed9086f39eb" class="">Dada una base lo suficientemente amplia de probadores y colaboradores,<br/>casi todos los problemas se identificarán con rapidez y su solución será<br/>obvia para alguien.</p><p id="2450d930-6b1d-80a6-8e20-f80d9c985cb0" class="">&quot;Con un número de ojos suficiente, todos los errores son irrelevantes&quot;.</p><h3 id="2450d930-6b1d-80c4-9fe0-c2232e0b4acc" class="">Los buenos programadores saben qué escribir. Los grandes saben qué reescribir.</h3><p id="2450d930-6b1d-803f-8bf8-e905d94035a1" class="">Los mejores proyectos suelen nacer de la necesidad personal del desarrollador. Cuando un programador crea algo para resolver su propio problema, está ligado a las necesidades y detalles del problema. Lo que conduce a soluciones mas eficaces.</p><p id="2450d930-6b1d-80b0-b00d-dd95c1fb757d" class="">Muchas herramientas populares y sistemas operativos, como Linux, comenzaron como proyectos personales. Resaltando la autenticidad y la dedicación que se invierte a la hora de desarrollar un proyecto que inicia por motivaciones personales.</p><p id="2450d930-6b1d-80fb-bcda-e3d5189738b3" class="">La capacidad de reconocer cuándo reutilizar código existente y cuándo es necesario escribir algo desde cero es una característica fundamental en cuanto a habilidades de un programador. Esto mejora no solo la eficiencia con la que se desarrolla, sino también la calidad del software. Reutilizar componentes probados reduce la posibilidad de errores y acelera el desarrollo. Reescribir, cuando es necesario, asegura que el software se adapte a nuestras necesidades.</p><p id="2450d930-6b1d-8058-ad28-cb1c8e953209" class="">Por otro lado, la primera versión de un proyecto puede, probablemente, no ser la última, ni la mejor. Entender esto es crucial. Este concepto fomenta la interacción entre los colaboradores y la mejora continua. A su vez, es necesario estar dispuesto a desechar y rehacer código. <br/></p><p id="2450d930-6b1d-805d-b9a8-cb6cde584855" class="">Puede considerarse lo anterior como una reflexión bastante concreta sobre dos puntos expuestos por Eric S. Raymond en &quot;La catedral y el bazar&quot;. El mismo destaca las ventajas del modelo de producción del software libre y de código abierto, enfatizando la colaboración, la transparencia y la adaptabilidad. Este enfoque ha demostrado ser eficaz en muchos proyectos de software exitosos, como el kernel de Linux, y ha transformado la manera en que se desarrolla y distribuye el software en el mundo actual. La comparación entre la catedral y el bazar sigue siendo relevante, proporcionando una guía para entender y valorar las dinámicas del desarrollo de software libre y su impacto en la tecnología moderna.</p><p id="2450d930-6b1d-80b8-b412-e5bf15a1f8f8" class="">
+</p><p id="2450d930-6b1d-8042-988a-e52b928e8b28" class="">
+</p><hr id="2450d930-6b1d-80b1-8217-fa2bdb3baa59"/><p id="2450d930-6b1d-80d3-8038-d0eb0e640abe" class="">
+</p><h2 id="2450d930-6b1d-8043-b358-da1adfb0069c" class="">unidad 5</h2><h2 id="2450d930-6b1d-8049-b7f1-ecc86c454354" class="">entre piratas y activistas</h2><figure id="2450d930-6b1d-8016-ae65-e1ab8145e9c0"><a href="https://www.youtube.com/watch?v=hjFLqC5EnQo" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">La historia de Aaron Swartz, el hijo de internet | MAT Documental</div><div class="bookmark-description">La historia de Aaron Swartz. El chico de Internet es una película documental biográfica de 2014 sobre Aaron Swartz, la Agencia de Seguridad Nacional y la Ley SOPA, escrita, dirigida y producida por Brian Knappenberger.
+
+La película describe la vida del programador informático, escritor, organizador político y activista de Internet estadounidense Aaron Swartz. Las imágenes de Swartz como niño aparecen al principio y al final de la película. La película es narrada por figuras de la vida de Swartz, incluyendo a su madre, hermanos y novias.</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/1d05d8a6/img/favicon_144x144.png" class="icon bookmark-icon"/>https://www.youtube.com/watch?v=hjFLqC5EnQo</div></div><img src="https://i.ytimg.com/vi/hjFLqC5EnQo/maxresdefault.jpg" class="bookmark-image"/></a></figure><p id="2450d930-6b1d-806f-94c7-ea0b45b61694" class="">
+</p><figure id="2450d930-6b1d-806d-860f-d21856f24843"><a href="https://endefensadelsl.org/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">En Defensa del Software Libre</div></div><div class="bookmark-href"><img src="https://endefensadelsl.org/favicon.png" class="icon bookmark-icon"/>https://endefensadelsl.org/</div></div><img src="https://endefensadelsl.org/images/edsl.png" class="bookmark-image"/></a></figure><h3 id="2450d930-6b1d-8084-bfe9-d0e5fefd0811" class="">Unidad 5 - Entre piratas y activistas</h3><p id="2450d930-6b1d-8035-8385-ed9126e56877" class="">A modo de cierre de la materia, en esta última unidad abordaremos una problemática general en la cual se inscriben los intereses y las dinámicas del software libre: el derecho de acceso libre al conocimiento.</p><p id="2450d930-6b1d-80a1-a7ba-c17c87f2d261" class="">Como vimos a lo largo de esta materia y especialmente en relación a las licencias, frente al -y contra el- software libre se erige una lógica privativa y privatizadora sobre las producciones humanas, llevando al ámbito de los bienes intangibles un modo de producción, circulación y uso, propio de cómo son tratados los bienes tangibles en el capitalismo global actual.</p><p id="2450d930-6b1d-80f5-acb9-f1aaca77b785" class="">El conocimiento, que no configura un &quot;bien escaso&quot;, que puede ser compartido sin que la persona que lo posee lo pierda, es &quot;cercado&quot; mediante derechos de autor y otros mecanismos legales, de modo tal que entre en la lógica de comercialización propia de los bienes tangibles y escasos. Por esto se dice que el copyright crea una &quot;escasez artificial&quot;.</p><p id="2450d930-6b1d-8025-a938-e252f161109a" class="">Frente a esto y con el crecimiento de internet aparecieron grupos &quot;piratas&quot;, es decir, grupos que &quot;roban&quot; aquellos bienes cuyo acceso y distribución está limitado por diferentes formas de copyright.</p><p id="2450d930-6b1d-803f-81e5-ea8ebc3dfcc8" class="">Este tipo de acciones afecta a toda producción cultural -películas, música, libros, videojuegos-, pero plantea un dilema de mayor alcance cuando de lo que se entiende que esas producciones no son solo productos para el &quot;entretenimiento&quot;, sino que se trata del conocimiento científico, social, artístico y humanístico que forma parte del acervo de toda la humanidad.</p><p id="2450d930-6b1d-808a-b26e-c89a843c5620" class="">Por otra parte, la piratería ha sido el camino por el cual las grandes empresas y las potencias mundiales han construido sus propias posiciones económicas. Sólo una vez que crearon riqueza con actos de piratería estas empresas se empezaron a preocupar por impulsar legislaciones que persigan y castiguen la piratería. Una forma de &quot;patear la escalera&quot; que los ayudó a subir para que nadie pueda hacerles a ellos lo mismo que ellos le hicieron a otros.</p><p id="2450d930-6b1d-804c-b24b-d1a02680833f" class="">En esta unidad trabajaremos sobre esa encrucijada leyendo las investigaciones de Mariano Zukerfeld, de quien algo hemos visto en la unidad anterior, y abordando el caso de uno de los activistas más queridos del mundo del Software Libre, Aaron Swartz (1986-2013).</p><p id="2450d930-6b1d-80cd-8e87-f37719b971ae" class="">Aaron Swartz fue un desarrollador y activista que luchó por muchas de las ideas y cuestiones que compartimos en esta materia.</p><p id="2450d930-6b1d-8074-8fae-d92d674e2658" class="">Resulta algo paradójico que ahora estamos discutiendo en un aula universitaria (aunque virtual) estos temas, y fueron un grupo de universidades norteamericanas y grupos editoriales los que persiguieron a Swartz hasta la desesperación.</p><p id="2450d930-6b1d-8079-a21c-ebe4a64a6aed" class=""><strong>Actividad</strong></p><p id="2450d930-6b1d-8047-935a-c45255e6cb6e" class="">Primero tendrán que ver un documental de 2014 sobre la vida y obra de Swartz, &quot;The Internet&#x27;s Own Boy&quot; (traducido como &quot;La historia de Aaron Swartz. El chico de Internet&quot;, aunque una traducción más literal sería &quot;El propio hijo de Internet&quot;).</p><p id="2450d930-6b1d-8028-bfd7-c98ca461325e" class="">Luego deben estudiar el artículo de Zuckerfeld &quot;La piratería des-comunal: los orígenes de la acumulación capitalista del conocimiento&quot; y el &quot;Manifiesto por la guerrilla del acceso abierto&quot; de Swartz.</p><p id="2450d930-6b1d-8080-af91-fa1a177f013e" class="">A partir de esto les pido que intervengan en el Foro de la unidad con un pequeño ensayo (alrededor de 2000 caracteres) en el que reflexionen sobre la problemática de la llamada &quot;pirateria&quot;, el derecho al acceso al conocimiento y la ética del movimiento software libre.</p><p id="2450d930-6b1d-8038-b737-e976207b865f" class="">Como disparador les dejo una cita del pensador y militante anarquista Piotr Kropotkin:</p><p id="2450d930-6b1d-80f0-9d32-d26e5689c039" class=""><em>“Ciencia e industria, saber y aplicación, descubrimiento y realización práctica que conduce a nuevas invenciones, trabajo cerebral y trabajo manual, idea y labor de los brazos, todo se enlaza. Cada descubrimiento, cada progreso, cada aumento de la riqueza de la humanidad, tiene su origen en el conjunto del trabajo manual y cerebral, pasado y presente. Entonces, ¿qué derecho asiste a nadie para apropiarse la menor partícula de ese inmenso todo y decir: ¿esto es mío y no vuestro?”</em></p><p id="2450d930-6b1d-80aa-bb78-c6041532e1fe" class="">
+</p><p id="2450d930-6b1d-8087-8cbc-d15be6757d79" class="">Tienen tiempo hasta el miércoles 10/07 para completar esta actividad, que ya es la última de la asignatura.</p><p id="2450d930-6b1d-8019-97a5-f99b503d4662" class="">
+</p><p id="2450d930-6b1d-80c9-9609-eb0cc6579669" class="">
+</p><hr id="2450d930-6b1d-80a3-92f1-fcf1ce0bf0be"/><hr id="2450d930-6b1d-80be-9e10-c99117a0818d"/><p id="2450d930-6b1d-807f-9459-fc3a5358d986" class="">
+</p><h3 id="2450d930-6b1d-80a9-9e4f-e6cb3024a243" class="">Reflexión sobre la Piratería, el Derecho al Acceso al Conocimiento y la Ética del Movimiento de Software Libre</h3><p id="2450d930-6b1d-80e1-83ca-e5c16532c31b" class="">La piratería y el derecho al acceso libre al conocimiento son un debate ético y legal que enfrenta la lógica privativa del capitalismo global, contra los principios de colaboración del software libre. Esta problemática resuena con las reflexiones de Mariano Zukerfeld y el activismo de Aaron Swartz, quien abogó por un acceso abierto y equitativo al conocimiento.</p><p id="2450d930-6b1d-80f1-bef7-fe86a326126f" class=""><strong>La Escasez Artificial y la Piratería</strong></p><p id="2450d930-6b1d-80ee-8687-f6da062d928b" class="">El capitalismo contemporáneo ha generado una lógica de apropiación y escasez de los bienes intangibles, como el conocimiento y la cultura. Los derechos de autor y otros mecanismos legales crean una &quot;escasez artificial&quot; que limita el acceso al conocimiento, generando una barrera que solo beneficia a quienes poseen los medios para adquirirlo. Zukerfeld en su artículo &quot;La piratería des-comunal&quot; argumenta que la piratería, en su sentido más amplio, ha sido instrumental para la acumulación de capital en la historia. Grandes corporaciones y potencias mundiales han utilizado prácticas de apropiación de conocimiento antes de establecer legislaciones restrictivas que protegen sus posiciones de poder, en un claro ejemplo de &quot;patear la escalera&quot; .</p><p id="2450d930-6b1d-8083-b357-c3d2c6d1c997" class=""><strong>El Manifiesto por la Guerrilla del Acceso Abierto de Swartz</strong></p><p id="2450d930-6b1d-80fa-86ee-d4f641e91dbe" class="">Aaron Swartz, en su &quot;Manifiesto por la guerrilla del acceso abierto&quot;, expone una crítica contundente contra el cercamiento del conocimiento. Swartz abogó por la liberación de la información científica y académica, defendiendo que el conocimiento es un bien común que debería estar al alcance de todos, no restringido por muros de pago o barreras legales. Su activismo buscaba democratizar el acceso al saber, argumentando que el conocimiento es esencial para el progreso humano y la justicia social.</p><p id="2450d930-6b1d-80ee-b396-d9defd022c61" class="">Swartz ejemplificó sus ideales mediante acciones concretas, como la descarga masiva de artículos académicos de JSTOR, buscando distribuirlos gratuitamente. Esta acción le valió una persecución legal intensa, que lo llevó a su trágico final en 2013. Su caso pone de manifiesto las tensiones entre las estructuras de poder establecidas y los movimientos que buscan un acceso más equitativo y libre a la información.</p><p id="2450d930-6b1d-804b-bd47-c5655be789d8" class=""><strong>La Ética del Movimiento de Software Libre</strong></p><p id="2450d930-6b1d-80c8-a131-fe1eff29b6a5" class="">El movimiento de software libre, con sus raíces en la ética hacker y los principios promovidos por figuras como Richard Stallman, se basa en la creencia de que el software y el conocimiento deberían ser accesibles para todos. Las &quot;cuatro libertades&quot; del software libre —usar, estudiar, modificar y distribuir— encapsulan esta ética de compartición y colaboración. Este movimiento rechaza la noción de escasez artificial y promueve un modelo en el que la información y las herramientas tecnológicas están disponibles para el beneficio colectivo.</p><p id="2450d930-6b1d-80dd-bae0-d3d9fe4a61b1" class="">La cooperativa Tecso, por ejemplo, refleja cómo estos principios pueden aplicarse en la práctica, proporcionando soluciones tecnológicas basadas en software libre y operando bajo una estructura democrática y participativa. La transparencia, la igualdad y la colaboración son fundamentales tanto para la operación interna de la cooperativa como para su interacción con la comunidad, alineándose con los ideales defendidos por Swartz y el movimiento de software libre.</p><p id="2450d930-6b1d-80d4-91b1-ff939d584b83" class=""><strong>Conclusión</strong></p><p id="2450d930-6b1d-8023-9de5-d8611617ae20" class="">La cita de Piotr Kropotkin resuena en este contexto, cuestionando la legitimidad de la apropiación privada del conocimiento, que es fruto del esfuerzo colectivo de la humanidad. La piratería, en su lucha contra la escasez artificial impuesta por el copyright, y el movimiento de software libre, con su énfasis en la libertad y la colaboración, representan resistencias cruciales frente a un modelo de producción y distribución del conocimiento que privilegia el lucro sobre el acceso universal.</p><p id="2450d930-6b1d-8066-b218-f3bd4636836a" class="">Como estudiantes y futuros profesionales, es fundamental reflexionar sobre estas dinámicas y considerar cómo podemos contribuir a un sistema más justo y equitativo, donde el conocimiento sea verdaderamente un bien común accesible para todos. La historia y el legado de Aaron Swartz nos recuerdan la importancia de esta lucha y la necesidad de continuar abogando por un acceso libre y abierto al conocimiento.</p><p id="2450d930-6b1d-800b-babc-dd30fad790b4" class="">Para una comprensión más profunda, se recomienda ver el documental &quot;The Internet&#x27;s Own Boy&quot; y estudiar el artículo de Mariano Zukerfeld junto con el &quot;Manifiesto por la guerrilla del acceso abierto&quot; de Aaron Swartz.</p><p id="2450d930-6b1d-80d9-9031-c15f7ec30a30" class="">
+</p><p id="2450d930-6b1d-8096-9de4-eb82a6053f4f" class="">
+</p><hr id="2450d930-6b1d-80fb-a93d-dd342275d839"/><hr id="2450d930-6b1d-8036-b8ef-ca95f2a6dcda"/><p id="2450d930-6b1d-80f7-bcb5-c0da6d05f7f5" class="">
+</p><p id="2450d930-6b1d-809c-b097-dbfc2dd09e2d" class="">
+</p><h3 id="2450d930-6b1d-80e7-9747-d6addd3162fb" class="">Reflexión sobre la Piratería, el Derecho al Acceso al Conocimiento y la Ética del Movimiento de Software Libre</h3><p id="2450d930-6b1d-80c8-8c9c-ff9268090fbb" class="">La piratería y el derecho al acceso libre al conocimiento son un debate ético y legal que enfrenta la lógica privativa del capitalismo global, contra los principios de colaboración del software libre. Esta problemática resuena con las reflexiones de Mariano Zukerfeld y el activismo de Aaron Swartz, quien abogó por un acceso abierto y equitativo al conocimiento.</p><p id="2450d930-6b1d-80c3-8d2d-cafee424906e" class=""><strong>La Escasez Artificial y la Piratería</strong><div class="indented"><p id="2450d930-6b1d-8054-bdff-f6bb8e4596c8" class="">El capitalismo contemporáneo ha generado una lógica de apropiación y escasez de los bienes intangibles, como el conocimiento y la cultura. Los derechos de autor y otros mecanismos legales crean una &quot;escasez artificial&quot; que limita el acceso al conocimiento, generando una barrera que solo beneficia a quienes poseen los medios para adquirirlo. Zukerfeld en su artículo &quot;La piratería des-comunal&quot; argumenta que la piratería, en su sentido más amplio, ha sido instrumental para la acumulación de capital en la historia. Grandes corporaciones y potencias mundiales han utilizado prácticas de apropiación de conocimiento antes de establecer legislaciones restrictivas que protegen sus posiciones de poder, en un claro ejemplo de &quot;patear la escalera&quot; .</p></div></p><p id="2450d930-6b1d-80d5-afb4-dced6c300c4a" class=""><strong>El Manifiesto por la Guerrilla del Acceso Abierto de Swartz</strong></p><p id="2450d930-6b1d-8095-982e-d7f387affceb" class="">Aaron Swartz, en su &quot;Manifiesto por la guerrilla del acceso abierto&quot;, expone una crítica contundente contra el cercamiento del conocimiento. Swartz abogó por la liberación de la información científica y académica, defendiendo que el conocimiento es un bien común que debería estar al alcance de todos, no restringido por muros de pago o barreras legales. Su activismo buscaba democratizar el acceso al saber, argumentando que el conocimiento es esencial para el progreso humano y la justicia social.</p><p id="2450d930-6b1d-80f0-a6fe-e3ec367c80d1" class="">Swartz ejemplificó sus ideales mediante acciones concretas, como la descarga masiva de artículos académicos de JSTOR, buscando distribuirlos gratuitamente. Esta acción le valió una persecución legal intensa, que lo llevó a su trágico final en 2013. Su caso pone de manifiesto las tensiones entre las estructuras de poder establecidas y los movimientos que buscan un acceso más equitativo y libre a la información.</p><p id="2450d930-6b1d-8056-9383-f7f9c22c3b95" class=""><strong>La Ética del Movimiento de Software Libre</strong></p><p id="2450d930-6b1d-8030-adcd-f55d7b29954e" class="">El movimiento de software libre, con sus raíces en la ética hacker y los principios promovidos por figuras como Richard Stallman, se basa en la creencia de que el software y el conocimiento deberían ser accesibles para todos. Las &quot;cuatro libertades&quot; del software libre —usar, estudiar, modificar y distribuir— encapsulan esta ética de compartición y colaboración. Este movimiento rechaza la noción de escasez artificial y promueve un modelo en el que la información y las herramientas tecnológicas están disponibles para el beneficio colectivo.</p><p id="2450d930-6b1d-8070-acfc-f32df49bbd52" class="">La piratería cuestiona la legitimidad de la apropiación privada del conocimiento, que es fruto del esfuerzo colectivo de la humanidad. La piratería, en su lucha contra la escasez artificial impuesta por el copyright, y el movimiento de software libre, con su énfasis en la libertad y la colaboración, representan resistencias cruciales frente a un modelo de producción y distribución del conocimiento que privilegia el lucro sobre el acceso universal.</p><p id="2450d930-6b1d-8088-876b-e283d4f223da" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

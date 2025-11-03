@@ -39,6 +39,7 @@ import LayoutUserAdmin from "@/layouts/LayoutUserAdmin";
 import { admin } from "./childrenRoutes";
 import HowToStartSection from "@/pages/landings/HostProjectLandingPage";
 import HomePageAV from "@/pages/demos/AudioVisuales/HomePage";
+import PostHTML from "@/features/details/PostHTML";
 
 {
   /* 🚀
@@ -182,12 +183,19 @@ export const router = createBrowserRouter([
         path: "",
         element: <Navigate to="@marto" replace />,
       },
+
       {
         path: "@marto",
         element: <Forum />,
         children: [{ path: ":id", element: <BlogPostDetailMultipleRENDER /> }],
       },
     ],
+  },
+  {
+    path: "/resumen",
+    element: (
+      <PostHTML />
+    )
   },
   {
     path: "/contacto",
